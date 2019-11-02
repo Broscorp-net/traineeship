@@ -1,4 +1,4 @@
-package net.broscorp.b_bytecode.decompiler;/*   0 */ import net.broscorp.b_bytecode.MainFirst;
+package net.broscorp.b_bytecode.decompiler;/*
 /*   0 */ 
 /*   0 */ public class MainFirst {
 /*   0 */   public static void main(String[] paramArrayOfString) {
