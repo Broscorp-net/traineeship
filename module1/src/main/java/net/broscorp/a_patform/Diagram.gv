@@ -1,0 +1,5 @@
+digraph Diagram {
+     JDK -> JRE[label = "JDK contains JRE with many tools like libraries, debuggers etc."];
+     JRE -> JVM[label = "JRE consists of the JVM, core classes, and supporting files."];
+     JVM -> JIT[label = "JIT is an integral component of JVM along with Garbage collector which is compiling Java code directly into machine language, which can greatly improve performance of Java application"];
+ }
