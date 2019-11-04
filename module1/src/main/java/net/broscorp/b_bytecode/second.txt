@@ -1,0 +1,39 @@
+Compiled from "MainSecond.java"
+public class net.broscorp.b_bytecode.MainSecond {
+  public net.broscorp.b_bytecode.MainSecond();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: bipush        10
+       2: newarray       int
+       4: astore_1
+       5: iconst_0
+       6: istore_2
+       7: iload_2
+       8: aload_1
+       9: arraylength
+      10: if_icmpge     34
+      13: aload_1
+      14: iload_2
+      15: iload_2
+      16: iastore
+      17: aload_1
+      18: iload_2
+      19: iaload
+      20: invokedynamic #2,  0              // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+      25: invokestatic  #3                  // Method write:(Ljava/lang/String;)V
+      28: iinc          2, 1
+      31: goto          7
+      34: return
+
+  public static void write(java.lang.String);
+    Code:
+       0: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: aload_0
+       4: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       7: return
+}
