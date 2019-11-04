@@ -1,0 +1,219 @@
+1) В статическом методе класса я создаю 100 обьектов с распечаткой хеш(верифицирую что обьекты точно разные) и порядковый номер, там же теряю на них ссылки и вызовом  сборщика мусора удаляю обьекты. 
+Обьекты удаляются не все: при каждом прогоне программы, удаляется разное кол-во обьектов - в данном случае удалилось 56 из 100. Лог привожу ниже: 
+992136656 number 1
+511833308 number 2
+1297685781 number 3
+1705929636 number 4
+1221555852 number 5
+1509514333 number 6
+1556956098 number 7
+1252585652 number 8
+2036368507 number 9
+1785210046 number 10
+1552787810 number 11
+1361960727 number 12
+739498517 number 13
+125130493 number 14
+914504136 number 15
+166239592 number 16
+991505714 number 17
+385242642 number 18
+824009085 number 19
+2085857771 number 20
+248609774 number 21
+708049632 number 22
+1887400018 number 23
+285377351 number 24
+344560770 number 25
+559450121 number 26
+716083600 number 27
+791885625 number 28
+2001112025 number 29
+314265080 number 30
+1288141870 number 31
+2054881392 number 32
+966808741 number 33
+1908153060 number 34
+116211441 number 35
+607635164 number 36
+529116035 number 37
+242481580 number 38
+1627800613 number 39
+2065530879 number 40
+697960108 number 41
+943010986 number 42
+1807837413 number 43
+2066940133 number 44
+48612937 number 45
+325333723 number 46
+1937962514 number 47
+274064559 number 48
+1018081122 number 49
+242131142 number 50
+1782113663 number 51
+1433867275 number 52
+476800120 number 53
+1744347043 number 54
+1254526270 number 55
+662441761 number 56
+1618212626 number 57
+1129670968 number 58
+1023714065 number 59
+2051450519 number 60
+99747242 number 61
+1837543557 number 62
+1971489295 number 63
+985655350 number 64
+804611486 number 65
+2008017533 number 66
+370988149 number 67
+1395089624 number 68
+1476011703 number 69
+1603195447 number 70
+792791759 number 71
+1191747167 number 72
+1094834071 number 73
+1761061602 number 74
+1330106945 number 75
+1279149968 number 76
+59559151 number 77
+1450821318 number 78
+668849042 number 79
+434176574 number 80
+2096057945 number 81
+1689843956 number 82
+766572210 number 83
+1020391880 number 84
+977993101 number 85
+429313384 number 86
+859417998 number 87
+5592464 number 88
+1830712962 number 89
+1112280004 number 90
+1013423070 number 91
+380936215 number 92
+142638629 number 93
+707806938 number 94
+705265961 number 95
+428746855 number 96
+317983781 number 97
+987405879 number 98
+1555845260 number 99
+874088044 number 100
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted: 
+Object has been deleted:
+
+
+2) Если при финализации сделать обьект достижимым, то на этом обьекте не будет вызываться метод финализации, так как он (метод) вызывается всего один раз. Но у меня не получается сделать обьект доостижимым. Ниже исходный код, вроде логика правильная, но обьект только удаляется, не восстанавливается:
+
+class MyObject {
+    Test main;
+
+    public MyObject(Test t) {    
+        main = t; 
+    }
+
+    protected void finalize() {
+        main.ref = this; // let instance become reachable again
+        System.out.println("This is finalize"); //test finalize run only once
+    }
+}
+
+public class Test {
+    MyObject ref;
+
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.ref = new MyObject(test);
+        test.ref = null; //MyObject become unreachable，finalize will be invoked
+        System.gc(); 
+        if (test.ref != null) System.out.println("MyObject still alive!");  
+    }
+} 
+
+
+3) Если обьекты одного класса ссылаются друг на друга, то  при присвоении null значения одному из них, сборщик удаляет тот обьект, которому присвоен нулл. Второй оставляе
+
+public class Test {
+static Test test1;
+
+    public static void main(String[] args) {
+       Test test = new Test();
+       test1 = test;
+       test = null;
+       System.gc();
+       System.out.println(test1.hashCode());
+       System.out.println(test.hashCode());
+       
+       
+    }
+    @Override
+    protected void finalize() {
+    	System.out.println("Call for finalize");
+    }
+}
+
+
+Log: 
+
+992136656 < - has обьекта test1 
+
+Exception in thread "main" java.lang.NullPointerException
+	at Test.main(Test.java:10)
+
+
+
