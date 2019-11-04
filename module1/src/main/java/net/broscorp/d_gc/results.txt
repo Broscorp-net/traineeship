@@ -158,55 +158,10 @@ Object has been deleted:
 Object has been deleted:
 
 
-2) Если при финализации сделать обьект достижимым, то на этом обьекте не будет вызываться метод финализации, так как он (метод) вызывается всего один раз. Но у меня не получается сделать обьект доостижимым. Ниже исходный код, вроде логика правильная, но обьект только удаляется, не восстанавливается:
-
-class MyObject {
-    Test main;
-
-    public MyObject(Test t) {    
-        main = t; 
-    }
-
-    protected void finalize() {
-        main.ref = this; // let instance become reachable again
-        System.out.println("This is finalize"); //test finalize run only once
-    }
-}
-
-public class Test {
-    MyObject ref;
-
-    public static void main(String[] args) {
-        Test test = new Test();
-        test.ref = new MyObject(test);
-        test.ref = null; //MyObject become unreachable，finalize will be invoked
-        System.gc(); 
-        if (test.ref != null) System.out.println("MyObject still alive!");  
-    }
-} 
+2) Если при финализации сделать обьект достижимым, то на этом обьекте не будет вызываться метод финализации, так как он (метод) вызывается всего один раз. Но у меня не получается сделать обьект доостижимым. "MyObject.java" это код в котором я попытался восстановить удаляемый обьект в методе finalize().
 
 
 3) Если обьекты одного класса ссылаются друг на друга, то  при присвоении null значения одному из них, сборщик удаляет тот обьект, которому присвоен нулл. Второй оставляе
-
-public class Test {
-static Test test1;
-
-    public static void main(String[] args) {
-       Test test = new Test();
-       test1 = test;
-       test = null;
-       System.gc();
-       System.out.println(test1.hashCode());
-       System.out.println(test.hashCode());
-       
-       
-    }
-    @Override
-    protected void finalize() {
-    	System.out.println("Call for finalize");
-    }
-}
-
 
 Log: 
 
