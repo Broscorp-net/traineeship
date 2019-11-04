@@ -1,0 +1,5 @@
+                                      Script
+
+1)javac <MyClass>.java - копилирует класс
+2) java <MyClass>      - запускает класс
+3) javap -c <MyClass>  - декомпилирует класс
