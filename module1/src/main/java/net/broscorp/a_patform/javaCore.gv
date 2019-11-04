@@ -1,0 +1,13 @@
+digraph {
+    JDK -> JRE
+
+    JDK -> DevTools
+    DevTools -> javac
+    DevTools -> javadoc
+    DevTools -> etc
+
+    JRE -> JVM
+    JRE -> libraries
+
+    JVM -> JIT
+}
