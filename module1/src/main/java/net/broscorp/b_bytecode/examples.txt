@@ -1,0 +1,59 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+public class ByteCodeExample {
+  static int salary = 1;
+  static int prices = 1;
+
+  public ByteCodeExample() {
+  }
+
+  public static void main(String[] var0) {
+    increase(5);
+    System.out.printf("Привет! тебе подняли зп %d раз, но и цены выросли в %d раз\n", salary, prices);
+  }
+
+  public static void increase(int var0) {
+    for(int var1 = 0; var1 < var0; ++var1) {
+      ++salary;
+      ++prices;
+    }
+
+  }
+
+  }
+}
+
+
+public class ByteCodeExample {
+  static int salary = 1;
+  static int prices = 1;
+
+  public ByteCodeExample() {
+  }
+
+  public static void main(String[] var0) {
+    increase(5);
+    System.out.printf("Привет! тебе подняли зп %d раз, но и цены выросли в %d раз\n", salary, prices);
+    decrease(4);
+    System.out.printf("Привет! тебе понизили зп в %d раз, но и цены упали в %d раз\n", salary, prices);
+  }
+
+  public static void increase(int var0) {
+    for(int var1 = 0; var1 < var0; ++var1) {
+      ++salary;
+      ++prices;
+    }
+
+  }
+
+  public static void decrease(int var0) {
+    for(int var1 = 0; var1 < var0; ++var1) {
+      --salary;
+      --prices;
+    }
+
+  }
+}
