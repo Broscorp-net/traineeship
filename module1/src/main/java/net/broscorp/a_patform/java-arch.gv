@@ -1,0 +1,3 @@
+digraph java_architecture {
+  "JDK" -> "JRE" -> "JVM" -> "JIT"
+}
