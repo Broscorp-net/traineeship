@@ -1,0 +1,76 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 public class B_bytecode \{\
+  public B_bytecode();\
+    Code:\
+       0: aload_0\
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V\
+       4: return\
+\
+  public static void main(java.lang.String[]);\
+    Code:\
+       0: iconst_0\
+       1: istore_1\
+       2: iload_1\
+       3: bipush        12\
+       5: if_icmpgt     14\
+       8: iinc          1, 1\
+      11: goto          2\
+      14: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;\
+      17: ldc           #13                 // String Hello world\
+      19: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V\
+      22: invokestatic  #21                 // Method call:()V\
+      25: return\
+\
+  public static void call();\
+    Code:\
+       0: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;\
+       3: ldc           #26                 // String Hello from call method\
+       5: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V\
+       8: return\
+\}\
+\
+\
+\
+public class B_byteCodeTwo \{\
+  public B_byteCodeTwo();\
+    Code:\
+       0: aload_0\
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V\
+       4: return\
+\
+  public static void main(java.lang.String[]);\
+    Code:\
+       0: ldc           #7                  // String My name is Volo\
+       2: astore_1\
+       3: new           #9                  // class java/util/ArrayList\
+       6: dup\
+       7: invokespecial #11                 // Method java/util/ArrayList."<init>":()V\
+      10: astore_2\
+      11: aload_2\
+      12: aload_1\
+      13: invokeinterface #12,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z\
+      18: pop\
+      19: aload_2\
+      20: invokeinterface #18,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;\
+      25: astore_3\
+      26: aload_3\
+      27: invokeinterface #22,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z\
+      32: ifeq          57\
+      35: aload_3\
+      36: invokeinterface #28,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;\
+      41: checkcast     #32                 // class java/lang/String\
+      44: astore        4\
+      46: getstatic     #34                 // Field java/lang/System.out:Ljava/io/PrintStream;\
+      49: aload         4\
+      51: invokevirtual #40                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V\
+      54: goto          26\
+      57: return\
+\}\
+\
+}
