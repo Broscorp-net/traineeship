@@ -6,4 +6,4 @@ javac ByteCodeExample.java
 
 java ByteCodeExample
 
-javap ByteCodeExample
+javap -c ByteCodeExample
