@@ -6,34 +6,34 @@ class F_wrapperTest {
   /**
    * In this test I compare two Integer Objects, which is allocated
    * in different heap area places. Test will show us falls.
-   * But this is not works for numbers lass than 128. 
+   * But this is not works for numbers less than 128. 
    */
   @Test
   void testEquality() {
-    F_wrapper wrapp = new F_wrapper();
-    assertTrue(wrapp.equality(500, 500));
-  }
-/**
- * To establish this test, I have made Autoboxing on int primitive inside
- * the method, and got check it on relation with Integer class by
- *  "instanceOf" key word. Test passed.
- */
-  @Test
-  void testIsItIntegerObject() {
-    F_wrapper wrapp = new F_wrapper();
-    assertTrue(wrapp.isItIntegerObject(1));
+   assertTrue(equality(500, 500));
   }
   
   /**
-   * Through this Test I have made Autoboxing on primitive, inside the method 
-   * Unboxing on same argument was commit. Further I compare local Integer object
-   * with primitive after Unboxing and got equality, what proves Unboxing.
-   * Test passed. 
+    I got used method Overloading for this test. Methods are signed with static modifiers inside Test class.
    */
   @Test
   void testIsItIntegerPrimitive() {
-    F_wrapper wrapp = new F_wrapper();
-    assertTrue(wrapp.isItIntegerPrimitive(new Integer(1000)));
+    String[] probability = {"primitive", "object"};
+ assertEquals(probability[1], intPrimitiveOrObject(Integer.valueOf(20)));
   }
+  
+  
+  public static String intPrimitiveOrObject(int a) {
+    return "primitive";
+}
+
+  public static String intPrimitiveOrObject (Integer e) {
+     return "object";
+}
+
+  public  boolean equality(Integer a, Integer b) {
+      return (a==b);
+}
+
 
 }
