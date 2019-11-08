@@ -1,0 +1,19 @@
+digraph platform {
+    c[label="Java code"];
+
+    jdk[label="JDK\n compiles Java code to byte code"];
+    jdk[shape="box"];
+
+    bc[label="byte code"];
+
+    jre[label="JRE\n implements JVM for hardware to run byte code"];
+    jre[shape="box"];
+
+    jvm[label="JVM\n instance of JRE"];
+    jvm[shape="box"];
+
+    jit[label="JIT\n compiles byte code to machine language\n while executing the program"];
+    jit[shape="box"];
+
+    c -> jdk -> bc -> jre -> jvm -> jit;
+}
