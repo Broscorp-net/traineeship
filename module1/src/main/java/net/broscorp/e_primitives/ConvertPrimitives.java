@@ -1,19 +1,29 @@
 package net.broscorp.e_primitives;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ConvertPrimitives {
+class ConvertPrimitives {
 
-    @Test(expected = ArithmeticException.class)
-    public void testConvertLongToInt() {
+    @Test
+    void testConvertLongToInt_WithOverflow() {
         long value = Long.MAX_VALUE;
-        int result = Math.toIntExact(value);
+        assertThrows(ArithmeticException.class, () -> {
+            Math.toIntExact(value);
+        });
     }
 
     @Test
-    public void testConvertFloatToDouble() {
+    void testConvertLongToInt() {
+        long value = 4223372036854775807L;
+        int result = (int) value;
+        assertEquals(-1156841473, result);
+    }
+
+    @Test
+    void testConvertFloatToDouble() {
         double value = 9.000000000555555E9;
         float result = (float) value;
         assertEquals(9.000000512E9, result, 0);
