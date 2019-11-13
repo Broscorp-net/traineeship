@@ -1,0 +1,14 @@
+digraph finite_state_machine {
+    rankdir=LR;
+    size="8,5"
+    node [shape = circle];
+
+    JDK -> JIT;
+    JIT -> JRE;
+
+    subgraph cluster_3 {
+    JIT
+    color=blue;
+    label = "JVM"
+    }
+}
