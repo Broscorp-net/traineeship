@@ -41,4 +41,3 @@
  
  Лови небольшую статью, о базовых знаниях по Junit.
  https://www.vogella.com/tutorials/JUnit/article.html
- 1
