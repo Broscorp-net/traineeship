@@ -20,6 +20,8 @@
 
 Также для удобства мы используем следующие правила:
 * Код форматируется в соответствии с google codestyle. Весь закомиченный код должен быть так отформатирован. Настройки для любимой среды разработки можно найти тут https://github.com/google/styleguide 
+    * Файл для IntelliJ IDEA https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml 
+    * Для Eclipse https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml
 * Чтоб не привязываться к какой-либо среде разработки все проекты собираются при помощи maven
 * Файлы среды разработки и прочие временные файлы не должны попадать в репозиторий, смотри примеры тут https://github.com/github/gitignore
 
