@@ -2,6 +2,7 @@ package net.broscorp.h_generics;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -42,17 +43,14 @@ public class MyCoolList<T extends Number> {
 
   @SuppressWarnings("unchecked")
   public <R> List<R> map(Function<T, R> f) {
-    return Arrays.stream(elements).map(t -> {
-      try {
-        return f.apply((T) t);
-      } catch (Exception e) {
-      }
-      return null;
-    }).collect(Collectors.toList());
+    return Arrays.stream(elements).
+        filter(Objects::nonNull).
+        map(t -> f.apply((T) t)).
+        collect(Collectors.toList());
   }
 
   private void getException(int index) {
-    if (index >= size) {
+    if (index >= size || index < 0) {
       throw new IndexOutOfBoundsException();
     }
   }

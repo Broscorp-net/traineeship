@@ -32,6 +32,14 @@ class MyCoolListTest {
   }
 
   @Test
+  void testGetElementNegativeIndex() {
+    for (int i = 0; i < 10; i++) {
+      myList.add(i);
+    }
+    assertThrows(IndexOutOfBoundsException.class, () -> myList.get(-1));
+  }
+
+  @Test
   void testGetElementIndexOutOfBounds() {
     for (int i = 0; i < 10; i++) {
       myList.add(i);
