@@ -5,33 +5,34 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class WrappersTest {
-    @Test
-    void testIntegerNotEquals() {
-        Integer value1 = new Integer(1);
-        Integer value2 = new Integer(1);
 
-        boolean result = value1 == value2;
+  @Test
+  void testIntegerNotEquals() {
+    Integer value1 = new Integer(1);
+    Integer value2 = new Integer(1);
 
-        assertFalse(result);
-    }
+    boolean result = value1 == value2;
 
-    @Test
-    void testIntegerEquals() {
-        Integer value1 = new Integer(200);
-        Integer value2 = new Integer(200);
+    assertFalse(result);
+  }
 
-        boolean result = value1.equals(value2);
+  @Test
+  void testIntegerEquals() {
+    Integer value1 = new Integer(200);
+    Integer value2 = new Integer(200);
 
-        assertTrue(result);
-    }
+    boolean result = value1.equals(value2);
 
-    @Test
-    void testIntPrimitivesEquals() {
-        int value1 = 1;
-        int value2 = 1;
+    assertTrue(result);
+  }
 
-        boolean result = value1 == value2;
+  @Test
+  void testIntPrimitivesEquals() {
+    int value1 = 1;
+    int value2 = 1;
 
-        assertTrue(result);
-    }
+    boolean result = value1 == value2;
+
+    assertTrue(result);
+  }
 }
