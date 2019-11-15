@@ -9,12 +9,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FooTest {
-    private Foo instance;
 
-    @BeforeEach
-    void setUp() {
-        instance = new Foo();
-    }
+  private Foo instance;
+
+  @BeforeEach
+  void setUp() {
+    instance = new Foo();
+  }
 
     /*
     В java передача параметров происходит по значению.
@@ -35,12 +36,12 @@ class FooTest {
     и в объекте на который указывает list ничего не изменится.
      */
 
-    @Test
-    void testFooIntAndList() {
-        int i = 5;
-        List<String> list = new ArrayList<>();
-        instance.foo(i, list);
-        assertEquals(5, i);
-        assertEquals("d", list.get(0));
-    }
+  @Test
+  void testFooIntAndList() {
+    int i = 5;
+    List<String> list = new ArrayList<>();
+    instance.foo(i, list);
+    assertEquals(5, i);
+    assertEquals("d", list.get(0));
+  }
 }
