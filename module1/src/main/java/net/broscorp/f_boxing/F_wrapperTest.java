@@ -1,39 +1,39 @@
+package net.broscorp.f_boxing;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class F_wrapperTest {
 
   /**
-   * In this test I compare two Integer Objects, which is allocated
-   * in different heap area places. Test will show us falls.
-   * But this is not works for numbers less than 128. 
+   * In this test I compare two Integer Objects, which is allocated in different heap area places.
+   * Test will show us falls. But this is not works for numbers less than 128.
    */
   @Test
   void testEquality() {
-   assertTrue(equality(500, 500));
+    Integer a = 500;
+    Integer b = 500;
+    assertTrue(a == b);
   }
-  
+
   /**
-    I got used method Overloading for this test. Methods are signed with static modifiers inside Test class.
+   * В этом тесте я явно запаковываю примитив в обертку, и убеждаюсь что это уже екземпляр класс
+   * Integer. Для примитивов, этот тест покажет ошибку еще на этапе компиляции.
    */
   @Test
-  void testIsItIntegerPrimitive() {
-    String[] probability = {"primitive", "object"};
- assertEquals(probability[1], intPrimitiveOrObject(Integer.valueOf(20)));
+  void testAutoboxing() {
+    int b = 0;
+    assertTrue(Integer.valueOf(b) instanceof Integer);
   }
-  
-  
-  public static String intPrimitiveOrObject(int a) {
-    return "primitive";
-}
 
-  public static String intPrimitiveOrObject (Integer e) {
-     return "object";
-}
-
-  public  boolean equality(Integer a, Integer b) {
-      return (a==b);
-}
-
+  /**
+   * В этом тесте я явно распаковываю обьект Integer, и делаю сравнение между примитивами.
+   */
+  @Test
+  void testAutounboxing() {
+    Integer c = 500;
+    Integer b = 500;
+    assertTrue(c.intValue() == b.intValue());
+  }
 
 }
