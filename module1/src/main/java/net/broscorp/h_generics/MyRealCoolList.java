@@ -1,37 +1,64 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.function.Function;
 
 public class MyRealCoolList<E extends Number> extends MyCoolList {
 
-    private List<E> elems;
+    private Object[] elems;
+    private int size;
+
+    public int size() {
+        return size;
+    }
 
     public MyRealCoolList() {
-        elems = new ArrayList<>();
+        this.elems = new Object[10];
+        this.size = 0;
     }
 
     @Override
     public void add(Object o) {
-        elems.add((E) o);
+        int capacity = elems.length;
+        if(capacity == size()) {
+            elems = Arrays.copyOf(elems, 2 * capacity);
+        }
+
+        elems[size] = (E) o;
+        this.size++;
     }
 
     @Override
     public Object get(int index) {
-        return elems.get(index);
+        if(index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            return elems[index];
+        }
     }
 
     @Override
     public Object remove(int index) {
-        return elems.remove(index);
+        int capacity = elems.length;
+        if(capacity == 2 * size()) {
+            int newLength = (int) (2d/3d * capacity);
+            elems = Arrays.copyOf(elems, newLength);
+        }
+
+        if(index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            for(int i = index; i < size() - 1; i++) {
+                elems[i] = elems[i + 1];
+            }
+            this.size--;
+            return elems[index];
+        }
     }
 
     @Override
     public Object map(Function f) {
-        List<Object> mappedElems = new ArrayList<>();
-        for (E elem : elems) {
-            mappedElems.add(
-                    f.apply(elem)
-            );
+        MyRealCoolList<? extends Number> mappedElems = new MyRealCoolList<>();
+        for(int i = 0; i < size(); i++) {
+            mappedElems.add(f.apply(elems[i]));
         }
         return mappedElems;
     }
