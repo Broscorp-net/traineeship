@@ -8,14 +8,12 @@ public class Garbage {
   private static Logger LOGGER = Logger.getLogger(Garbage.class.getName());
   static final List RESURRECTED = new ArrayList<>();
 
-  public static void main(String[] var0) throws Throwable {
+  public static void main(String[] var0) {
 
     for (int i = 0; i < 10000; i++) {
       CreateObject createdObject = new CreateObject(new NewObject());
       LOGGER.info("object created");
-      createdObject .finalize();
-//      createdObject = null;
-//      System.gc();
+      createdObject.finalize();
     }
     System.out.println(RESURRECTED);
   }
