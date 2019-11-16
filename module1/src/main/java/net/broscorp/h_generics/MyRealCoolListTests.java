@@ -76,6 +76,16 @@ public class MyRealCoolListTests {
     }
 
     @Test
+    public void listSize() {
+        MyRealCoolList<Integer> tester = new MyRealCoolList<>();
+
+        Integer intItem = 3;
+        tester.add(intItem);
+
+        assertEquals(1, tester.size());
+    }
+
+    @Test
     public void getElement() {
         MyRealCoolList<Integer> tester = new MyRealCoolList<>();
 
@@ -83,6 +93,19 @@ public class MyRealCoolListTests {
         tester.add(intItem);
 
         assertEquals(intItem, tester.get(0));
+    }
+
+    @Test
+    public void getElementWithInvalidIndex_whenExceptionThrown_thenAssertionSucceeds() {
+        MyRealCoolList tester = new MyRealCoolList();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            tester.get(-1);
+        }, "Attempt to get element must be followed by IndexOutOfBoundsException");
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            tester.get(0);
+        }, "Attempt to get element must be followed by IndexOutOfBoundsException");
     }
 
     @Test
@@ -96,6 +119,19 @@ public class MyRealCoolListTests {
     }
 
     @Test
+    public void removeElementWithInvalidIndex_whenExceptionThrown_thenAssertionSucceeds() {
+        MyRealCoolList tester = new MyRealCoolList();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            tester.remove(-1);
+        }, "Attempt to remove element must be followed by IndexOutOfBoundsException");
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            tester.remove(0);
+        }, "Attempt to remove element must be followed by IndexOutOfBoundsException");
+    }
+
+    @Test
     public void mapList() {
         MyRealCoolList<Long> tester = new MyRealCoolList<>();
 
@@ -105,7 +141,7 @@ public class MyRealCoolListTests {
         }
 
         Function<Long, Integer> f = x -> Math.toIntExact(x);
-        ArrayList<Integer> mappedList = (ArrayList<Integer>) tester.map(f);
+        MyRealCoolList<Integer> mappedList = (MyRealCoolList<Integer>) tester.map(f);
 
         for(int i = 0; i < mappedList.size(); i++) {
             assertEquals(new Integer(0).getClass(), mappedList.get(i).getClass());
