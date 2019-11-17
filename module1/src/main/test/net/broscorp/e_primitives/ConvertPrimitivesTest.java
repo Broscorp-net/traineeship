@@ -1,18 +1,10 @@
 package net.broscorp.e_primitives;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
-import static net.broscorp.e_primitives.ConvertPrimitives.getLongToInt;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 class ConvertPrimitivesTest {
-
-  @Test
-  void testConvertLongToInt_WithOverflow() {
-    long value = 1223372056854777807L;
-    assertThrows(ArithmeticException.class, () -> getLongToInt(value));
-  }
 
   @Test
   void testConvertLongToInt() {
