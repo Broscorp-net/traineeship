@@ -1,24 +1,70 @@
 package net.broscorp.h_generics;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import java.util.stream.Collectors;
 
-public class MyCoolList {
+public class MyCoolList<T extends Number> {
 
-  public void add(Object o){
-    throw new NotImplementedException();
+  private int size = 0;
+  private static final int DEFAULT_CAPACITY = 10;
+  private Object[] elements;
+
+  public MyCoolList() {
+    elements = new Object[DEFAULT_CAPACITY];
   }
 
-  public Object get(int index){
-    throw new NotImplementedException();
+  public void add(T e) {
+    if (size == elements.length) {
+      changeSize(elements.length * 2);
+    }
+    elements[size++] = e;
   }
 
-  public Object remove(int index){
-    throw new NotImplementedException();
+  @SuppressWarnings("unchecked")
+  public T get(int index) {
+    getException(index);
+    return (T) elements[index];
   }
 
-  public MyCoolList map(Function f){
-    throw new NotImplementedException();
+  @SuppressWarnings("unchecked")
+  public T remove(int index) {
+    getException(index);
+    T oldElement = (T) elements[index];
+    for (int i = index; i < size - 1; i++) {
+      elements[i] = elements[i + 1];
+    }
+    size--;
+    cuttingArray();
+    return oldElement;
   }
 
+  @SuppressWarnings("unchecked")
+  public <R> List<R> map(Function<T, R> f) {
+    return Arrays.stream(elements).
+        filter(Objects::nonNull).
+        map(t -> f.apply((T) t)).
+        collect(Collectors.toList());
+  }
+
+  private void getException(int index) {
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException();
+    }
+  }
+
+  private void changeSize(int newLength) {
+    Object[] newArray = new Object[newLength];
+    System.arraycopy(elements, 0, newArray, 0, size);
+    elements = newArray;
+  }
+
+  private void cuttingArray() {
+    if (elements.length > DEFAULT_CAPACITY && size < elements.length / 2) {
+      changeSize(elements.length / 2);
+    }
+  }
 }
+
