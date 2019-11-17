@@ -10,68 +10,42 @@ public class MyRealCoolListTests {
 
     @Test
     public void addElementsWithValidTypes_whenExceptionDoesNotThrown_thenAssertionSucceeds() {
-        MyRealCoolList tester = new MyRealCoolList();
 
+        MyRealCoolList<Byte> byteTester = new MyRealCoolList();
         Byte byteItem = 1;
         assertDoesNotThrow(() -> {
-            tester.add(byteItem);
+            byteTester.add(byteItem);
         }, "List can be parametrized with Byte");
 
+        MyRealCoolList<Integer> intTester = new MyRealCoolList();
         Integer intItem = 10;
         assertDoesNotThrow(() -> {
-            tester.add(intItem);
+            intTester.add(intItem);
         }, "List can be parametrized with Integer");
 
+        MyRealCoolList<Long> longTester = new MyRealCoolList();
         Long longItem = 10l;
         assertDoesNotThrow(() -> {
-            tester.add(longItem);
+            longTester.add(longItem);
         }, "List can be parametrized with Long");
 
+        MyRealCoolList<Float> floatTester = new MyRealCoolList();
         Float floatItem = 10f;
         assertDoesNotThrow(() -> {
-            tester.add(floatItem);
+            floatTester.add(floatItem);
         }, "List can be parametrized with Float");
 
+        MyRealCoolList<Double> doubleTester = new MyRealCoolList();
         Double doubleItem = 10d;
         assertDoesNotThrow(() -> {
-            tester.add(doubleItem);
+            doubleTester.add(doubleItem);
         }, "List can be parametrized with Double");
 
+        MyRealCoolList<Number> numberTester = new MyRealCoolList();
         Number numberItem = 10;
         assertDoesNotThrow(() -> {
-            tester.add(numberItem);
+            numberTester.add(numberItem);
         }, "List can be parametrized with Number");
-
-    }
-
-    @Test
-    public void addElementsWithInvalidTypes_whenExceptionThrown_thenAssertionSucceeds() {
-        MyRealCoolList tester = new MyRealCoolList();
-
-        Boolean booleanItem = Boolean.TRUE;
-        assertThrows(ClassCastException.class, () -> {
-            tester.add(booleanItem);
-        }, "List cannot be parametrized with Boolean");
-
-        Character charItem = 'a';
-        assertThrows(ClassCastException.class, () -> {
-            tester.add(charItem);
-        }, "List cannot be parametrized with Character");
-
-        String stringItem = "abcdefg";
-        assertThrows(ClassCastException.class, () -> {
-            tester.add(stringItem);
-        }, "List cannot be parametrized with String");
-
-        Collection collectionItem = new ArrayList<>();
-        assertThrows(ClassCastException.class, () -> {
-            tester.add(collectionItem);
-        }, "List cannot be parametrized with Collection");
-
-        Object objectItem = new ArrayList<ArrayList<Integer>>();
-        assertThrows(ClassCastException.class, () -> {
-            tester.add(objectItem);
-        }, "List cannot be parametrized with Object");
 
     }
 
