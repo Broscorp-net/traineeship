@@ -1,7 +1,8 @@
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.function.Function;
 
-public class MyRealCoolList<E extends Number> extends MyCoolList {
+public class MyRealCoolList<E extends Number> {
 
     private Object[] elems;
     private int size;
@@ -15,28 +16,36 @@ public class MyRealCoolList<E extends Number> extends MyCoolList {
         this.size = 0;
     }
 
-    @Override
-    public void add(Object o) {
+    public MyRealCoolList(Collection<? extends E> c) {
+        this.elems = new Object[c.size()];
+        this.size = c.size();
+
+        int i = 0;
+        while(i < c.size()) {
+            elems[i] = c.iterator().next();
+            i++;
+        }
+    }
+
+    public void add(E e) {
         int capacity = elems.length;
         if(capacity == size()) {
             elems = Arrays.copyOf(elems, 2 * capacity);
         }
 
-        elems[size] = (E) o;
+        elems[size] = e;
         this.size++;
     }
 
-    @Override
-    public Object get(int index) {
+    public E get(int index) {
         if(index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException();
         } else {
-            return elems[index];
+            return (E) elems[index];
         }
     }
 
-    @Override
-    public Object remove(int index) {
+    public E remove(int index) {
         int capacity = elems.length;
         if(capacity == 2 * size()) {
             int newLength = (int) (2d/3d * capacity);
@@ -50,15 +59,14 @@ public class MyRealCoolList<E extends Number> extends MyCoolList {
                 elems[i] = elems[i + 1];
             }
             this.size--;
-            return elems[index];
+            return (E) elems[index];
         }
     }
 
-    @Override
-    public Object map(Function f) {
-        MyRealCoolList<? extends Number> mappedElems = new MyRealCoolList<>();
+    public MyRealCoolList<? extends Number> map(Function<E, ? extends Number> f) {
+        MyRealCoolList mappedElems = new MyRealCoolList<>();
         for(int i = 0; i < size(); i++) {
-            mappedElems.add(f.apply(elems[i]));
+            mappedElems.add(f.apply((E) elems[i]));
         }
         return mappedElems;
     }
