@@ -1,24 +1,66 @@
 package net.broscorp.h_generics;
 
+
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class MyCoolList {
 
-  public void add(Object o){
-    throw new NotImplementedException();
+public class MyCoolList<E extends Number> implements List<E> {
+
+
+  private int size = 0;
+
+
+  private static final int DEFAULT_CAPACITY = 10;
+
+
+  private Object elements[];
+
+
+  public MyCoolList() {
+    elements = new Object[DEFAULT_CAPACITY];
   }
 
-  public Object get(int index){
-    throw new NotImplementedException();
+
+  @Override
+  public void add(E e) throws IndexOutOfBoundsException {
+    if (size >= DEFAULT_CAPACITY) {
+      throw new IndexOutOfBoundsException("Element: " + e + ", Array size " + size);
+    }
+
+    elements[size++] = e;
+
   }
 
-  public Object remove(int index){
-    throw new NotImplementedException();
+  @SuppressWarnings("unchecked")
+  @Override
+  public E get(int index) {
+
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
+    }
+    return (E) elements[index];
   }
 
-  public Object map(Function f){
-    throw new NotImplementedException();
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public E remove(int index) {
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
+    }
+    Object item = elements[index];
+    int numElts = elements.length - (index + 1);
+    System.arraycopy(elements, index + 1, elements, index, numElts);
+    size--;
+    return (E) item;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public E map(Function<?, ?> f) throws NullPointerException {
+
+    E element = (E) f;
+    return element;
   }
 
 }
