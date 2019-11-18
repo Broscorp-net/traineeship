@@ -30,8 +30,8 @@ public class SomeObjectTests {
 
     @Test
     public void equalsIsSymmetric() {
-        assertTrue(someObj2.equals(someObj1) == true
-                        && someObj1.equals(someObj2) == true,
+        assertTrue(someObj2.equals(someObj1)
+                        && someObj1.equals(someObj2),
                 "x.equals(y) should return true if and only if y.equals(x) returns true");
     }
 
@@ -86,26 +86,19 @@ public class SomeObjectTests {
 
     @Test
     public void whenHasNoHashCodeCollisions_thenAssertionSucceeds() {
-        HashSet<SomeObject> someObjHashSet = new HashSet<>();
-        Map<Integer, List<SomeObject>> hashCodes = new HashMap<>();
+        HashSet<Integer> hashCodeSet = new HashSet<>();
 
+        int objsCount = 1000000;
         Random rand = new Random();
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < objsCount; i++) {
             SomeObject someObj = new SomeObject(
                     rand.nextInt(),
                     "name_" + i,
                     new ArrayList<>());
-            someObjHashSet.add(someObj);
-
-            if(!hashCodes.containsKey(someObj.hashCode())) {
-                hashCodes.put(someObj.hashCode(), new ArrayList<>());
-            }
-
-            hashCodes.get(someObj.hashCode())
-                    .add(someObj);
+            hashCodeSet.add(someObj.hashCode());
         }
 
-        assertTrue(hashCodes.size() == someObjHashSet.size());
+        assertTrue(hashCodeSet.size() == objsCount);
 
     }
 
