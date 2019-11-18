@@ -33,11 +33,11 @@ public class SomeObject {
     }
 
     public int hashCode() {
-        int result = 0;
-        int prime = 33;
-        result += prime * id;
-        result %= prime * name.length();
-        result += tags.stream().mapToInt(tag -> tag.length()).sum();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        result = prime * result + name.hashCode();
+        result += tags.stream().mapToInt(tag -> tag.hashCode()).sum();
         return result;
     }
 }
