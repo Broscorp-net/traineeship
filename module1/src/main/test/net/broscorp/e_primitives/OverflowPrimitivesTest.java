@@ -8,7 +8,7 @@ class OverflowPrimitivesTest {
 
   @Test
   void testAddForOverflowInt() {
-    int result = 2147483647;
+    int result = Integer.MAX_VALUE;
     result++;
     assertEquals(-2147483648, result);
   }

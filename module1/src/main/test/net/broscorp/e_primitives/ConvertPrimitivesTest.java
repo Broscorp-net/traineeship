@@ -17,6 +17,6 @@ class ConvertPrimitivesTest {
   void testConvertFloatToDouble() {
     double value = 9.000000000555555E9;
     float result = (float) value;
-    assertEquals(9.000000512E9, result, 0);
+    assertEquals(9.000000512E9, result, 0.0001);
   }
 }
