@@ -1,0 +1,2 @@
+javac BytecodeTest.java
+java BytecodeTest
