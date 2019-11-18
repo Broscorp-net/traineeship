@@ -1,12 +1,16 @@
-digraph finite_state_machine {
+digraph {
     rankdir=LR;
-    size="8,5"
+    size="7"
+    node [shape = square]; JavaSourceCode
+    node [shape = doublecircle]; JDK JIT JRE;
     node [shape = circle];
 
-    JDK -> JIT;
-    JIT -> JRE;
 
-    subgraph cluster_3 {
+    JavaSourceCode -> JDK
+    JDK -> JIT [ label = "Java Byte Code" ];
+    JIT -> JRE [ label = "Implementation" ];
+
+    subgraph cluster {
     JIT
     color=blue;
     label = "JVM"
