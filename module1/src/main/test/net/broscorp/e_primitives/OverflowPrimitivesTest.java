@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class OverflowPrimitivesTest {
 
   @Test
-  void testAddForOverflowInt() {
+  void testAddForOverflowInteger() {
     int result = Integer.MAX_VALUE;
     result++;
     assertEquals(-2147483648, result);
