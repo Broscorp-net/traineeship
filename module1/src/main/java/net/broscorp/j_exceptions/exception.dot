@@ -1,0 +1,17 @@
+digraph exceptions {
+
+    throwable[label="Throwable"];
+    throwable[shape="box"];
+
+    exception[label="Exception"];
+    exception[shape="box"];
+
+    runtime_exception[label="RuntimeException"];
+    runtime_exception[shape="box"];
+
+    error[label="Error"];
+    error[shape="box"];
+
+    throwable -> exception -> runtime_exception;
+    throwable -> error;
+}
