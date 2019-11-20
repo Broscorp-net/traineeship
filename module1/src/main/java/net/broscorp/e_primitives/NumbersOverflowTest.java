@@ -8,7 +8,7 @@ class NumbersOverflowTest {
   public void shouldAnalyseByteOverflow() {
     byte byteTest = Byte.MAX_VALUE;
     byte result = ++byteTest;
-    assertEquals(Byte.MAX_VALUE + 1, result);
+    assertTrue(result > 0);
   }
 
   @Test
@@ -50,8 +50,7 @@ class NumbersOverflowTest {
 
   @Test
   public void shouldAnalysePrimitivesConversion() {
-    long b = (long) Integer.MAX_VALUE;
-    b++;
+    long b = 922337203685477580L;
     int result = (int) b;
     assertEquals(b, result);
   }
