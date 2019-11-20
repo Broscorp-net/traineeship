@@ -1,0 +1,30 @@
+digraph G {
+    Object -> Throwable;
+    Throwable -> Exception;
+    Throwable -> Error;
+    Exception -> RuntimeException;
+    Exception -> IOException;
+    IOException -> FileNotFoundException;
+    IOException -> InterruptedIOException;
+    RuntimeException -> ArithmeticException;
+    RuntimeException -> ClassCastException;
+    RuntimeException -> IndexOutOfBoundsException;
+    IndexOutOfBoundsException -> ArrayIndexOutOfBoundsException;
+    IndexOutOfBoundsException -> StringIndexOutOfBoundsException
+
+    RuntimeException -> IllegalArgumentException;
+    IllegalArgumentException -> NumberFormatException;
+    RuntimeException -> NullPointerException;
+
+    Exception -> SQLException;
+    Exception -> InterruptedException;
+
+    Error -> AWTError;
+    Error -> VirtualMachineError;
+    Error -> ThreadDeath;
+    Error -> LinkageError;
+    LinkageError -> ClassFormatError;
+    LinkageError -> NoClassDefFoundError;
+    VirtualMachineError -> StackOverflowError;
+    VirtualMachineError -> OutOfMemoryError;
+}
