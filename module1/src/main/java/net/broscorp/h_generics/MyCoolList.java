@@ -1,12 +1,14 @@
 package net.broscorp.h_generics;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class MyCoolList<T extends Number> {
+public class MyCoolList<T extends Number> implements Iterable<T> {
 
   private int size = 0;
   private static final int DEFAULT_CAPACITY = 10;
@@ -66,5 +68,60 @@ public class MyCoolList<T extends Number> {
       changeSize(elements.length / 2);
     }
   }
+
+  public Iterator<T> iterator() {
+    return new IteratorImpl<>();
+  }
+
+  /**
+   * <p>
+   * <br /><strong>Внутрение классы бывают вложенными статическими и внутреними не
+   * статическими.</strong> <br />Не статические внутрение классы деляться на три подвида. <br />--
+   * Простой внутрений класс <br />-- Локальный <br />-- Анонимный
+   * </p>
+   * <p>
+   * <br />Объект внутреннего класса не может существовать без объекта внешнего класса. <br />У
+   * объекта внутреннего класса есть доступ к методам и полям внешнего класса. Даже к приватным. <br
+   * />Но у него нет доступа к статическим методам и полям внешнего класса. <br />Объект внутреннего
+   * класса нельзя создать в статическом методе внешнего класса. <br />Внутренний класс не может
+   * содержать статические переменные и методы. <br/>Объект внутреннего класса может иметь все
+   * модификатора доступа.
+   * </p>
+   * <p>
+   * <br /><strong>Статические вложенный классы:</strong> <br />Объект статического класса не хранит
+   * ссылку на конкретный экземпляр внешнего класса. <br />Статический вложенный класс может
+   * обращаться только к статическим полям и методам внешнего класса <br />Объекты  вложенного
+   * класса static не содержат ссылок на объекты внешнего класса. Самих объектов внутренего класса
+   * можем создать сколько угодно.
+   * </p>
+   */
+  private class IteratorImpl<T> implements Iterator<T> {
+
+    int index = 0;
+
+    @Override
+    public boolean hasNext() {
+      if (index < elements.length) {
+        return true;
+      }
+      return false;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public T next() {
+      if (!this.hasNext()) {
+        throw new NoSuchElementException();
+      }
+      return (T) elements[index++];
+    }
+
+    @Override
+    public void remove() {
+      throw new UnsupportedOperationException();
+    }
+  }
 }
+
+
 
