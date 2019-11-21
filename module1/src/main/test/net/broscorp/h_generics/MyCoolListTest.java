@@ -1,9 +1,14 @@
 package net.broscorp.h_generics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.function.Function;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -78,5 +83,40 @@ class MyCoolListTest {
     Function<Integer, String> function = aString -> (String) aString.toString();
     List<String> listDouble = myList.map(function);
     assertEquals("30", listDouble.get(0));
+  }
+
+  @Test
+  void testIteratorHasNextTrue() {
+    myList.add(30);
+    Iterator<Integer> iterator = myList.iterator();
+    assertTrue(iterator.hasNext());
+  }
+
+  @Test
+  void testIteratorHasNextFalse() {
+    Iterator<Integer> iterator = myList.iterator();
+    assertFalse(iterator.hasNext());
+  }
+
+  @Test
+  void testIteratorNext() {
+    myList.add(30);
+    myList.add(50);
+    Iterator<Integer> iterator = myList.iterator();
+    List<Integer> list = new ArrayList<>();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+
+    assertEquals(30, list.get(0));
+    assertEquals(50, list.get(1));
+  }
+
+  @Test
+  void testIteratorNextThrowException() {
+    Iterator<Integer> iterator = myList.iterator();
+    while (iterator.hasNext()) {
+      assertThrows(NoSuchElementException.class, iterator::next);
+    }
   }
 }

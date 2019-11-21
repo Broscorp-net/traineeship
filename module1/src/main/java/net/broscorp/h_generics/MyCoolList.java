@@ -1,5 +1,6 @@
 package net.broscorp.h_generics;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -101,7 +102,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
     @Override
     public boolean hasNext() {
-      if (index < elements.length) {
+      if (index < size) {
         return true;
       }
       return false;
@@ -110,7 +111,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
     @SuppressWarnings("unchecked")
     @Override
     public T next() {
-      if (!this.hasNext()) {
+      if (index > size) {
         throw new NoSuchElementException();
       }
       return (T) elements[index++];
