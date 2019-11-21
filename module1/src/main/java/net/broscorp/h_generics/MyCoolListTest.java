@@ -4,105 +4,100 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-
 class MyCoolListTest {
 
+  static MyCoolList<Integer> myList;
 
-  @SuppressWarnings("rawtypes")
-  private static List myList;
-
-
-  @SuppressWarnings("rawtypes")
   @BeforeAll
-
   public static void initialize() {
-    myList = new MyCoolList();
+    myList = new MyCoolList<Integer>();
   }
 
-  // Adding function checking
-  @SuppressWarnings("unchecked")
+  /**
+   * Testing Adding function on the MyCoolList
+   */
   @Test
   void testAdd() {
     myList.add(1);
-    assertTrue((Object) 1 == myList.get(0));
+    assertTrue(1 == myList.get(0));
   }
 
-  // IndexOutOfBoundException checking during adding
-  @SuppressWarnings("unchecked")
-  @Test
-  void exceptionTestingAdd() {
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    myList.add(1);
-    assertThrows(IndexOutOfBoundsException.class, () -> myList.add(1));
-  }
-
-  // Get Function checking
-  @SuppressWarnings("unchecked")
+  /**
+   * Testing Get function on the MyCoolList
+   */
   @Test
   void testGet() {
-    myList.add((Object) 1);
-    myList.add((Object) 2);
-    myList.add((Object) 3);
-    assertEquals(3, myList.get(2));
+    myList.add(1);
+    assertEquals(1, myList.get(0));
   }
 
-  // OutOfBoundException during get operation
-  @SuppressWarnings("unchecked")
-  @Test
-  void exceptionTestingGet() {
-    myList.add((Object) 1);
-    myList.add((Object) 2);
-    myList.add((Object) 3);
-    assertThrows(IndexOutOfBoundsException.class, () -> myList.get(5));
-  }
-
-
-  // Removing function checking
-  @SuppressWarnings("unchecked")
+  /**
+   * Testing Remove function on the MyCoolList
+   */
   @Test
   void testRemove() {
-    myList.add((Object) 1);
-    myList.add((Object) 2);
-    myList.add((Object) 3);
-    assertEquals(2, myList.remove(1));
+    myList.add(1);
+    assertEquals(1, myList.remove(0));
   }
 
-  // OutOfBoundException checking during removing
-  @SuppressWarnings("unchecked")
+  /**
+   * Testing Size function on the MyCoolList
+   */
   @Test
-  void exceptionTestingRemove() {
-    myList.add((Object) 1);
-    myList.add((Object) 2);
-    myList.add((Object) 3);
-    assertThrows(IndexOutOfBoundsException.class, () -> myList.remove(5));
+  void testSize() {
+    myList.add(1);
+    assertEquals(1, myList.size());
   }
 
-  // Map function checking
-  @SuppressWarnings("unchecked")
+  /**
+   * Testing expanding function on the MyCoolList
+   */
   @Test
-  void testMap() {
-    FunctionClass function = new FunctionClass();
-    myList.add((Object) 22.999999);
-    Object myObject = myList.get(0);
-    assertEquals(22, function.apply(myObject));
+  void testExpandingList() {
+    for (int i = 0; i <= 10; i++) {
+      myList.add(i);
+    }
+    assertEquals(11, myList.size());
   }
 
-  // NullPointerException checking during mapping
-  @SuppressWarnings("unchecked")
+  /**
+   * Testing NullPointerException throwing during Null adding to the MyCoolList
+   */
   @Test
-  void exceptionTestingMap() {
-    FunctionClass function = new FunctionClass();
-    myList.add(null);
-    Object myObject = myList.get(0);
-    assertThrows(NullPointerException.class, () -> function.apply(myObject));
+  void testExceptionAddingNull() {
+    assertThrows(NullPointerException.class, () -> myList.add(null));
+  }
+
+  /**
+   * Testing IndexOutOfBoundExeption throwing during Get execution on the MyCoolList
+   */
+  @Test
+  void testExceptionTestingGet() {
+    for (int i = 0; i <= 2; i++) {
+      myList.add(i);
+    }
+    assertThrows(IndexOutOfBoundsException.class, () -> myList.get(3));
+  }
+
+  /**
+   * Testing IndexOutOfBoundExeption throwing during Remove execution on the MyCoolList
+   */
+  @Test
+  void testExceptionTestingRemove() {
+    for (int i = 0; i <= 2; i++) {
+      myList.add(i);
+    }
+    assertThrows(IndexOutOfBoundsException.class, () -> myList.remove(3));
+  }
+
+  /**
+   * Testing Map function by converting Integer into Double values on the MyCoolList
+   */
+  @Test
+  void testMapIntegerToDouble() {
+    myList.add(1);
+    MyCoolList<Double> doubleList = myList.map(intValue -> intValue.doubleValue());
+    assertEquals(1.0, doubleList.get(0));
   }
 
 }
