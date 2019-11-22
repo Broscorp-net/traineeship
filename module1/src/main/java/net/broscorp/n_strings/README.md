@@ -15,6 +15,7 @@
 Take one down, patch it around %m little bugs in the code.
 ```
 Где m = n - 10 + random.nextInt(20)
+
 Для следующего куплета обновляем n = m
 
 4. Для всего кода сделать тесты
