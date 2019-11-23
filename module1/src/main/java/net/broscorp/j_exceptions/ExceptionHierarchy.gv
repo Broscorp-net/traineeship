@@ -1,0 +1,9 @@
+digraph graphname {
+     a [label="Throwable (declarable)"];
+     b [label="Error (non declarable)"];
+     c [label="Exception (declarable)"];
+     d [label="RunTimeException (non declarable)"];
+    a -> b;
+    a->c;
+     c -> d;
+ }
