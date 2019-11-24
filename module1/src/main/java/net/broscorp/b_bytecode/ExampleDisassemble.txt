@@ -1,0 +1,87 @@
+D:\ProjectsJava\traineeship\module1\src\main\java\net\broscorp\b_bytecode>javap -c net.broscorp.b_bytecode.BytecodeTest
+Compiled from "BytecodeTest.java"
+public class net.broscorp.b_bytecode.BytecodeTest {
+  public net.broscorp.b_bytecode.BytecodeTest();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: iconst_3
+       4: if_icmpge     16
+       7: invokestatic  #2                  // Method printConsole:()V
+      10: iinc          1, 1
+      13: goto          2
+      16: return
+
+  static void printConsole();
+    Code:
+       0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #4                  // String Hello!!!
+       5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
+========================================================================================================================
+
+
+D:\ProjectsJava\traineeship\module1\src\main\java\net\broscorp\b_bytecode>javap -c net.broscorp.b_bytecode.BytecodeTest_2
+Compiled from "BytecodeTest_2.java"
+public class net.broscorp.b_bytecode.BytecodeTest_2 {
+  public net.broscorp.b_bytecode.BytecodeTest_2();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: ldc           #2                  // String
+       4: astore_2
+       5: iconst_0
+       6: istore_3
+       7: iload_3
+       8: iconst_3
+       9: if_icmpge     27
+      12: invokestatic  #3                  // Method printConsole:()V
+      15: iinc          1, 1
+      18: ldc           #4                  // String s
+      20: astore_2
+      21: iinc          3, 1
+      24: goto          7
+      27: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      30: new           #6                  // class java/lang/StringBuilder
+      33: dup
+      34: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+      37: ldc           #8                  // String numb =
+      39: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: iload_1
+      43: invokevirtual #10                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      46: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      49: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      55: new           #6                  // class java/lang/StringBuilder
+      58: dup
+      59: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+      62: ldc           #13                 // String s =
+      64: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      67: aload_2
+      68: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      71: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      74: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      77: return
+
+  static void printConsole();
+    Code:
+       0: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #14                 // String Hello!!!
+       5: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
+

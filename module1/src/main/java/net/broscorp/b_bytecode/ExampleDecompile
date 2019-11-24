@@ -1,0 +1,55 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package net.broscorp.b_bytecode;
+
+public class BytecodeTest {
+    public BytecodeTest() {
+    }
+
+    public static void main(String[] var0) {
+        for(int var1 = 0; var1 < 3; ++var1) {
+            printConsole();
+        }
+
+    }
+
+    static void printConsole() {
+        System.out.println("Hello!!!");
+    }
+}
+===================================================================
+
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package net.broscorp.b_bytecode;
+
+public class BytecodeTest_2 {
+    public BytecodeTest_2() {
+    }
+
+    public static void main(String[] var0) {
+        int var1 = 0;
+        String var2 = "";
+
+        for(int var3 = 0; var3 < 3; ++var3) {
+            printConsole();
+            ++var1;
+            var2 = "s ";
+        }
+
+        System.out.println("numb = " + var1);
+        System.out.println("s = " + var2);
+    }
+
+    static void printConsole() {
+        System.out.println("Hello!!!");
+    }
+}
+=============================================================
+
