@@ -33,21 +33,17 @@ public class StringTask {
     return stringIntegerMap.toString();
   }
 
-  public static String makeSong(int n, int m) {
+  public static String makeSong(int couplet, int bugs) {
     Random random = new Random();
     StringBuilder builder = new StringBuilder();
+    int countBugs = bugs;
 
-    for (int i = 0; i < n; i++) {
-      m = n - 10 + random.nextInt(20);
-      if (m > 0) {
-        for (int j = 1; j <= m; j++) {
-          builder.append(String.format("%d little bugs in the code,%n", j));
-        }
-        builder.append(String.format("Take one down, patch it around "
-            + "%d little bugs in the code.%n%n", m));
-      } else {
-        builder.append(String.format("There will be no bugs%n%n"));
-      }
+    for (int i = 0; i < couplet; i++) {
+      int updateBugs = couplet - 10 + random.nextInt(20);
+      builder.append(String.format("%d little bugs in the code,\n", countBugs));
+      builder.append(String.format("%d little bugs in the code,\n", countBugs));
+      builder.append(String.format("Take one down, patch it around %d\n\n", updateBugs));
+      countBugs = updateBugs;
     }
     return builder.toString();
   }

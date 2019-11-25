@@ -45,7 +45,9 @@ class StringTaskTest {
 
   @Test
   void testMakeSong() {
-    String song = makeSong(10, 10);
-    System.out.println(song);
+    String song = makeSong(3, 99);
+    String[] couplets = song.split("\\n\\n");
+
+    assertEquals(3, couplets.length);
   }
 }
