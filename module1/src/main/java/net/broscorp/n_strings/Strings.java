@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 public class Strings {
-
   public boolean isPalindrom(String words) {
     String reverse = "";
     for (int i = words.length() - 1; i >= 0; i--)
