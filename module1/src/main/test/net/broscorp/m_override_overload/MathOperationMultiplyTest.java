@@ -7,45 +7,38 @@ import org.junit.jupiter.api.Test;
 
 class MathOperationMultiplyTest {
 
-  private MathOperationMultiply operationMultiply;
-
-  @BeforeEach
-  void setUp() {
-    operationMultiply = new MathOperationMultiply();
-  }
-
   @Test
   void testOperationPrimitivesInt() {
     int a = 5;
     int b = 5;
-    assertEquals(25, operationMultiply.operation(a, b));
+    assertEquals(25, new MathOperationMultiply().operation(a, b));
   }
 
   @Test
   void testOperationPrimitivesDouble() {
     double a = 5.3;
     double b = 4.6;
-    assertEquals(24.38, operationMultiply.operation(a, b));
+    assertEquals(24.38, new MathOperationMultiply().operation(a, b));
   }
 
   @Test
   void testOperationInteger() {
     Integer a = 4;
     Integer b = 20;
-    assertEquals(80, operationMultiply.operation(a, b));
+    assertEquals(80, new MathOperationMultiply().operation(a, b));
   }
 
   @Test
   void testOperationDouble() {
     Double a = 4.6;
     Double b = 20.3;
-    assertEquals(93.38, operationMultiply.operation(a, b));
+    assertEquals(93.38, new MathOperationMultiply().operation(a, b));
   }
 
   @Test
   void testOperationDoubleAndPrimitives() {
     Double a = 4.6;
     double b = 20.3;
-    assertEquals(93.38, operationMultiply.operation(a, b));
+    assertEquals(93.38, new MathOperationMultiply().operation(a, b));
   }
 }
