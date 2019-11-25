@@ -9,7 +9,7 @@ class StringsTest   {
   private static Strings strings;
 
   @BeforeAll
-  public static void initialization() {
+  public static void initialization()   {
     strings = new Strings();
   }
   
