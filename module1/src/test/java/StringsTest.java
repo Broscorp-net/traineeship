@@ -21,7 +21,7 @@ class StringsTest   {
 
   @Test
   void testWordDeletion() {
-    assertEquals("Helloyuy", strings.wordDeletion("Hello world")     );
+    assertEquals("Hellhlkoyuy", strings.wordDeletion("Hello world")     );
   }
 
   @Test
