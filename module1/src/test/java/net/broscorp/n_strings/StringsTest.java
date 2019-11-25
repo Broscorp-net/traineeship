@@ -20,7 +20,7 @@ class StringsTest {
 
   @Test
   void testWordDeletion() {
-    assertEquals("Heghjgjhgllho", strings.wordDeletion("Hello world"));
+    assertEquals("jhgllho", strings.wordDeletion("Hello world"));
   }
 
   @Test
