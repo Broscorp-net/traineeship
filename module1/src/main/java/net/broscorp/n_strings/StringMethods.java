@@ -46,12 +46,11 @@ public class StringMethods {
         }
     }
 
-    public String compileSongAboutBugs(int n, int c) {
+    public String compileSongAboutBugs(int versesCount, int bugsCount) {
         Random random = new Random();
         String song = "";
-        int bugsCount = n;
-        for(int i = 0; i < c; i++) {
-            int updatedBugsCount = n - 10 + random.nextInt(20);
+        for(int i = 0; i < versesCount; i++) {
+            int updatedBugsCount = bugsCount - 10 + random.nextInt(20);
             song += String.format("%d little bugs in the code, \n" +
                             "%d little bugs in the code. \n" +
                             "Take one down, patch it around %d little bugs in the code.\n\n",
