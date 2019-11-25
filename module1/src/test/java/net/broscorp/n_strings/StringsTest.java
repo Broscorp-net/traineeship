@@ -15,7 +15,7 @@ class StringsTest {
   @Test
   void testIsPalindrom() {
     strings.isPalindrom("mam");
-    assertTrue(strings.isPalindrom("mam"));
+    assertTrue(strings.isPalindrom("masfddm"));
   }
 
   @Test
