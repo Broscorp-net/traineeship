@@ -25,28 +25,28 @@ class MultiplicationTest {
   void testDoublePrimitiveCalc() {
     double a = 2.0;
     double b = 3.0;
-    assertEquals(6.0, mult.doublePrimitiveCalc(a, b));
+    assertEquals(a+b, mult.compute(a, b));
   }
 
   @Test
   void testDoubleWrapperCalc() {
     Double a = 2.0;
     Double b = 3.0;
-    assertEquals(6.0, mult.doubleWrapperCalc(a, b));
+    assertEquals(a+b, mult.compute(a, b));
   }
 
   @Test
   void testIntPrimitiveCalc() {
     int a = 2;
     int b = 3;
-    assertEquals(6, mult.intPrimitiveCalc(a, b));
+    assertEquals(a+b, mult.compute(a, b));
   }
 
   @Test
   void testIntWrapperCalc() {
     Integer a = 2;
     Integer b = 3;
-    assertEquals(6, mult.intWrapperCalc(a, b));
+    assertEquals(a+b, mult.compute(a, b));
   }
 
 }

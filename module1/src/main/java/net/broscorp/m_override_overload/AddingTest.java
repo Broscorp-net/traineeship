@@ -17,41 +17,38 @@ class AddingTest {
   void testDoublePrimitiveCalc() {
     double a = 2.0;
     double b = 3.0;
-    assertEquals(5.0, add.doublePrimitiveCalc(a, b));
+    assertEquals(a+b, add.compute(a, b));
   }
 
   @Test
   void testDoubleWrapperCalc() {
     Double a = 2.0;
     Double b = 3.0;
-    assertEquals(5.0, add.doubleWrapperCalc(a, b));
+    assertEquals(a+b, add.compute(a, b));
   }
 
   @Test
   void testIntPrimitiveCalc() {
     int a = 2;
     int b = 3;
-    assertEquals(5, add.intPrimitiveCalc(a, b));
+    assertEquals(a+b, add.compute(a, b));
   }
 
   @Test
   void testIntWrapperCalc() {
     Integer a = 2;
     Integer b = 3;
-    assertEquals(5, add.intWrapperCalc(a, b));
+    assertEquals(a+b, add.compute(a, b));
   }
 
+  /**
+   * Compiler can't decide which of realization must be executed
+   */
   @Test
   void testAddWrapperPrimitive() {
-    int a = 100;
-    Integer b = 100;
-    addWrapperPrimitive(a, b);
-    assertEquals(200, addWrapperPrimitive(a, b));
+    int a = 2;
+    Integer b = 3;
+    //assertEquals(a+b, add.compute(a, b));
   }
-
-  static int addWrapperPrimitive(int a, Integer b) {
-    int c = a + b;
-    return c;
-  }
-
+  
 }
