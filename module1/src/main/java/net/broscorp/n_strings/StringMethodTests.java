@@ -29,45 +29,95 @@ public class StringMethodTests {
     }
 
     @Test
-    public void checkPalindromeTest() {
-        assertTrue(tester.checkPalindrome("топот"),
-                "Method should return true when string is a palindrome");
-        assertFalse(tester.checkPalindrome("топор"),
-                "Method should return false when string is not a palindrome");
+    public void whenStringIsPalindrome_thenAssertionSucceeds() {
+        //setup
+        String actualInputData = "топот";
+        //execute
+        boolean actualData = tester.checkPalindrome(actualInputData);
+        //verify
+        assertTrue(actualData, "Method should return true when string is a palindrome");
+    }
+
+    @Test
+    public void whenStringIsNotPalindrome_thenAssertionSucceeds() {
+        //setup
+        String actualInputData = "топор";
+        //execute
+        boolean actualData = tester.checkPalindrome(actualInputData);
+        //verify
+        assertFalse(actualData, "Method should return false when string is not a palindrome");
     }
 
     @Test
     public void helloWorldToHelloTest() {
-        assertEquals("Hello",
-                tester.helloWorldToHello("Hello World"));
+        //setup
+        String expectedData = "Hello";
+        String actualInputData = "Hello World";
+        //execute
+        String actualData = tester.helloWorldToHello(actualInputData);
+        //verify
+        assertEquals(expectedData, actualData);
     }
 
     @Test
     public void helloWorldRemoveAll_l_Test() {
-        assertEquals("Heo Word",
-                tester.helloWorldRemoveAll_l("Hello World"));
+        //setup
+        String expectedData = "Heo Word";
+        String actualInputData = "Hello World";
+        //execute
+        String actualData = tester.helloWorldRemoveAll_l(actualInputData);
+        //verify
+        assertEquals(expectedData, actualData);
     }
 
     @Test
     public void helloWorldReplaceAll_o_With_q_Test() {
-        assertEquals("Hellq Wqrld",
-                tester.helloWorldReplaceAll_o_With_q("Hello World"));
+        //setup
+        String expectedData = "Hellq Wqrld";
+        String actualInputData = "Hello World";
+        //execute
+        String actualData = tester.helloWorldReplaceAll_o_With_q(actualInputData);
+        //verify
+        assertEquals(expectedData, actualData);
     }
 
     @Test
     public void splitByWordsTest() {
-        tester.splitByWords("Hello World");
-
-        assertEquals("Hello 5\nWorld 5\n", output.toString());
+        //setup
+        String expectedData = "Hello 5\nWorld 5\n";
+        String actualInputData = "Hello World";
+        //execute
+        tester.splitByWords(actualInputData);
+        String actualData = output.toString();
+        //verify
+        assertEquals(expectedData, actualData);
     }
 
     @Test
-    public void compileSongAboutBugsTest() {
-        int c = 4;
-        String song = tester.compileSongAboutBugs(10, c);
+    public void compileSongAboutBugs_versesCountTest() {
+        int versesCount = 4;
+        //setup
+        int expectedData = 3 * versesCount;
+        int actualInput_versesCount = versesCount;
+        //execute
+        String song = tester.compileSongAboutBugs(actualInput_versesCount, 10);
         String[] rows = song.split("\n+");
+        int actualData = rows.length;
+        //verify
+        assertEquals(expectedData, actualData);
+    }
 
-        assertEquals(3 * c, rows.length);
+    @Test
+    public void compileSongAboutBugs_bugsCountTest() {
+        Integer bugsCount = 10;
+        //setup
+        String expectedData = bugsCount.toString();
+        int actualInput_bugsCount = bugsCount;
+        //execute
+        String song = tester.compileSongAboutBugs(4, actualInput_bugsCount);
+        String actualData = song.substring(0, 2);
+        //verify
+        assertEquals(expectedData, actualData);
     }
 
 }
