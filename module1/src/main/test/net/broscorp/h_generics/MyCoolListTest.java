@@ -115,8 +115,6 @@ class MyCoolListTest {
   @Test
   void testIteratorNextThrowException() {
     Iterator<Integer> iterator = myList.iterator();
-    while (iterator.hasNext()) {
-      assertThrows(NoSuchElementException.class, iterator::next);
-    }
+    assertThrows(NoSuchElementException.class, iterator::next);
   }
 }
