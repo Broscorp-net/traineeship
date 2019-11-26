@@ -3,6 +3,9 @@ package net.broscorp.n_strings;
 import static net.broscorp.n_strings.StringTask.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 class StringTaskTest {
@@ -44,10 +47,30 @@ class StringTaskTest {
   }
 
   @Test
-  void testMakeSong() {
+  void testMakeSongCountCouplet() {
     String song = makeSong(3, 99);
     String[] couplets = song.split("\\n\\n");
 
     assertEquals(3, couplets.length);
+  }
+
+  @Test
+  void testMakeSongBugsWithSeed() {
+    String song = makeSong(2, 99);
+    String[] couplets = song.split("\\n\\n");
+
+    List<Integer> bugsInCouplets = new ArrayList<>();
+    for (int i = 0; i < couplets.length; i++) {
+      String substring = couplets[i].substring(couplets[i].length() - 1);
+      bugsInCouplets.add(Integer.parseInt(substring));
+    }
+
+    assertEquals(7, bugsInCouplets.get(0));
+    assertEquals(7, bugsInCouplets.get(1));
+  }
+
+  @Test
+  void testMakeSongCoupletZero() {
+    assertThrows(RuntimeException.class, () -> makeSong(0, 99));
   }
 }

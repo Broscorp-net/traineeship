@@ -34,16 +34,18 @@ public class StringTask {
   }
 
   public static String makeSong(int couplet, int bugs) {
-    Random random = new Random();
+    Random random = new Random(couplet * bugs);
     StringBuilder builder = new StringBuilder();
-    int countBugs = bugs;
-
-    for (int i = 0; i < couplet; i++) {
-      int updateBugs = couplet - 10 + random.nextInt(20);
-      builder.append(String.format("%d little bugs in the code,\n", countBugs));
-      builder.append(String.format("%d little bugs in the code,\n", countBugs));
-      builder.append(String.format("Take one down, patch it around %d\n\n", updateBugs));
-      countBugs = updateBugs;
+    if (couplet > 0) {
+      for (int i = 0; i < couplet; i++) {
+        int updateBugs = couplet - 10 + random.nextInt(20);
+        builder.append(String.format("%d little bugs in the code,\n", bugs));
+        builder.append(String.format("%d little bugs in the code,\n", bugs));
+        builder.append(String.format("Take one down, patch it around %d\n\n", updateBugs));
+        bugs = updateBugs;
+      }
+    } else {
+      throw new RuntimeException("Song must have couplets");
     }
     return builder.toString();
   }
