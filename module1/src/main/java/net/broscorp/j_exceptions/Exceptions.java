@@ -5,19 +5,42 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Exceptions {
-  public void exceptionsHierarchy(String file_Tap) {
-    try (BufferedReader br =
-        new BufferedReader(new FileReader(file_Tap))) {
-      throw new IOException();
+
+  public void finallyBlockExecution(String fileTap) {
+    try (BufferedReader bReader = new BufferedReader(new FileReader(fileTap))) {
     } catch (IOException e) {
       e.printStackTrace();
-    } catch (Exception b) {
-      b.printStackTrace();
-    } catch (Throwable c) {
-      c.printStackTrace();
     } finally {
       System.out.println("Goodbay!!");
     }
   }
 
+  public void arithmeticException() {
+    try {
+      @SuppressWarnings("unused")
+      int c = 10 / 0;
+    } catch (ArithmeticException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void predecessorException() {
+    try {
+      int[] array = {0, 1};
+      @SuppressWarnings("unused")
+      int b = array[2];
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+
+  public void pedecessorThrowable() {
+    try {
+      Object obj = null;
+      obj.toString();
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
+  }
 }

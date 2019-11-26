@@ -1,8 +1,8 @@
 digraph graphname {
-     a [label="Throwable (declarable)"];
-     b [label="Error (non declarable)"];
-     c [label="Exception (declarable)"];
-     d [label="RunTimeException (non declarable)"];
+     a [label="Throwable (checked)"];
+     b [label="Error (uncheked)"];
+     c [label="Exception (checked)"];
+     d [label="RunTimeException (unchecked)"];
     a -> b;
     a->c;
      c -> d;
