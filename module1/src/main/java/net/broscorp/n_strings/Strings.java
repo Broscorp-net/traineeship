@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 public class Strings {
-  public boolean isPalindrom(String words) {
-    String reverse = "";
-    for (int i = words.length() - 1; i >= 0; i--)
-      reverse += words.charAt(i);
-    if (!reverse.equals(words))
+
+  public boolean isPalindrome(String words) {
+    StringBuilder sBuilder = new StringBuilder();
+    sBuilder = sBuilder.append(words).reverse();
+    if (!words.equals(sBuilder.toString()))
       return false;
     return true;
   }
@@ -37,7 +37,7 @@ public class Strings {
   }
 
   public String makeSong(int coupletNumber, int bugsNumber) {
-    Random random = new Random();
+    Random random = new Random(coupletNumber * bugsNumber);
     StringBuilder sBuilder = new StringBuilder();
     for (int i = 1; i <= coupletNumber; i++) {
       int updateBugsNumber = bugsNumber - 10 + random.nextInt(20);

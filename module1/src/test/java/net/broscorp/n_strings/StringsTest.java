@@ -1,6 +1,7 @@
 package net.broscorp.n_strings;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,34 +15,67 @@ class StringsTest {
   }
 
   @Test
-  void testIsPalindrom() {
-    strings.isPalindrom("mam");
-    assertTrue(strings.isPalindrom("mam"));
+  void testIsPalindrome() {
+    String doesItPalindrome = "madam";
+    boolean processedWord = strings.isPalindrome(doesItPalindrome);
+    boolean yesPalindrome = true;
+    assertEquals(yesPalindrome, processedWord);
   }
 
   @Test
   void testWordDeletion() {
-    assertEquals("Hello", strings.wordDeletion("Hello world"));
+    String word = "Hello words";
+    String processedWord = strings.wordDeletion(word);
+    String expectedWord = "Hello";
+    assertEquals(expectedWord, processedWord);
   }
 
   @Test
   void testLetterDeletion() {
-    assertEquals("Heo word", strings.letterDeletion("Hello world"));
+    String word = "Hello word";
+    String processedWord = strings.letterDeletion(word);
+    String expectedWord = "Heo word";
+    assertEquals(expectedWord, processedWord);
   }
 
   @Test
   void testLettersChaneging() {
-    assertEquals("Hellq wqrld", strings.lettersChaneging("Hello world"));
+    String word = "Hello word";
+    String processedWord = strings.lettersChaneging(word);
+    String expectedWord = "Hellq wqrd";
+    assertEquals(expectedWord, processedWord);
   }
 
   @Test
   void testWordsLetters() {
-    assertEquals(2, strings.wordsLetters("Hello world").size());
+    String word = "Hello word";
+    List<String> actualList = strings.wordsLetters(word);
+    int expectedListSize = 2;
+    assertEquals(expectedListSize, actualList.size());
   }
 
   @Test
-  void testMakeSong() {
-    assertTrue(strings.makeSong(2, 3) instanceof String);
+  void testMakeSongSumOfLinesCheckout() {
+    int coupletsNumber = 5;
+    int linesInOneCouplet = 3;
+    int bugsNumber = 1;
+    int sumOfLinesExpected = coupletsNumber * linesInOneCouplet;
+    String[] totalSongLines = strings.makeSong(coupletsNumber, bugsNumber).split("\n");
+    assertEquals(sumOfLinesExpected, totalSongLines.length);
   }
+
+  @Test
+  void testMakeSongBugsCheckout() {
+    int bugsNumber = 2;
+    int coupletsNumber = 2;
+    String s = strings.makeSong(coupletsNumber, bugsNumber);
+    String[] lines = s.split("\n");
+    char bugInThirdLine = lines[2].charAt(31);
+    char bugInFourthLine = lines[3].charAt(0);
+    char bugInFifthLine = lines[4].charAt(0);
+    assertEquals(bugInThirdLine, bugInFourthLine);
+    assertEquals(bugInFourthLine, bugInFifthLine);
+  }
+
 
 }
