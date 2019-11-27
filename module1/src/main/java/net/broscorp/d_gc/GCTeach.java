@@ -4,10 +4,6 @@ public class GCTeach {
     private static int counter = 0;
     private static GCTeach gcTeach_1;
 
-    private int getGcTeach() {
-        return counter;
-    }
-
     public static void main(String[] args) {
         method();
     }
