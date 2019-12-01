@@ -60,4 +60,11 @@ class NumbersOverflowTest {
     double result = 2.0 - 1.1;
     assertEquals(0.9, result);
   }
+
+  @Test
+  public void shouldAnalyseFloatNumbersExample() {
+    double result = 2.39 * 5;
+    assertEquals(11.95, result);
+  }
 }
+
