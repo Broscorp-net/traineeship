@@ -1,4 +1,3 @@
-package net.broscorp.g_value_ref;
 
 import java.util.List;
 
