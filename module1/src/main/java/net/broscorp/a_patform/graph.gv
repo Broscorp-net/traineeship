@@ -1,0 +1,19 @@
+digraph G {
+subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		JDK -> JRE[color=white];
+	}
+subgraph cluster_1 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		JVM -> JIT[color=white];
+	}
+"Code" ->"JDK"[label=".java"]
+"JDK" ->"JVM"[label=".class"];
+"JVM"->"JRE"[color=blue];
+"JDK"[shape=box];
+"JVM"[shape=box];
+}
