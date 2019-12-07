@@ -8,37 +8,36 @@ class WrappersTypeTest {
 
     @Test
     void typeComparisonInt() {
-        int a1 = 200;
-        int a2 = 200;
-        boolean expResult = false;
-        boolean result = WrappersType.typeComparisonInt(a1, a2);
-        assertEquals(expResult, result);
+        Integer a1 = 200;
+        Integer a2 = 200;
+        boolean result = a1 == a2;
+        assertEquals(true, result);
     }
 
     @Test
     void typeComparisonIntEquals() {
-        int a1 = 300;
-        int a2 = 300;
-        boolean expResult = true;
-        boolean result = WrappersType.typeComparisonIntEquals(a1, a2);
-        assertEquals(expResult, result);
+        Integer a1 = 300;
+        Integer a2 = 300;
+        boolean result = a1.equals(a2);
+        assertEquals(true, result);
     }
 
     @Test
     void explicitBoxing() {
-        int a1 = 400;
-        int a2 = 400;
-        boolean expResult = false;
-        boolean result = WrappersType.explicitBoxing(a1, a2);
-        assertEquals(expResult, result);
+        Integer a1 = new Integer(400);
+        Integer a2 = new Integer(400);
+        boolean result = a1 == a2;
+        assertEquals(true, result);
     }
 
+    /**
+     * При "распаковке" происходит сравнение примитивных значений, поэтому результат true
+     */
     @Test
     void explicitUnboxing() {
-        int a1 = 500;
-        int a2 = 500;
-        boolean expResult = true;
-        boolean result = WrappersType.explicitUnboxing(a1, a2);
-        assertEquals(expResult, result);
+        Integer a1 = new Integer(500);
+        Integer a2 = new Integer(500);
+        boolean result = a1.intValue() == a2.intValue();
+        assertEquals(true, result);
     }
 }
