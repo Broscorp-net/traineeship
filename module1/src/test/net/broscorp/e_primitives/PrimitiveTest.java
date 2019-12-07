@@ -1,102 +1,80 @@
 package net.broscorp.e_primitives;
 
-import org.junit.jupiter.api.Test;
-
-import static jdk.nashorn.internal.objects.Global.Infinity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import org.junit.jupiter.api.Test;
 
 class PrimitiveTest {
 
-    private Primitive primitive = new Primitive();
-
     @Test
     void overflowByteAddition() {
-        int a = 100;
-        int b = 50;
-        int expResult = -106;
-        int result = primitive.overflowByte(a, b);
-        assertEquals(expResult, result);
+        byte b = Byte.MAX_VALUE;
+        byte result = ++b;
+        assertEquals(128, result);
     }
 
     @Test
     void overflowShortAddition() {
-        int a = Short.MAX_VALUE;
-        int b = Short.MAX_VALUE;
-        int expResult = -2;
-        int result = primitive.overflowShort(a, b);
-        assertEquals(expResult, result);
+        short s = Short.MAX_VALUE;
+        short result = ++s;
+        assertEquals(32767, result);
     }
 
     @Test
     void overflowIntAddition() {
-        int a = Integer.MAX_VALUE;
-        int b = Integer.MAX_VALUE;
-        int expResult = -2;
-        int result = primitive.overflowInt(a, b);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    void overflowLongAddition() {
-        long a = Long.MAX_VALUE;
-        long b = Long.MAX_VALUE;
-        long expResult = -2;
-        long result = primitive.overflowLong(a, b);
-        assertEquals(expResult, result);
+        int i = Integer.MAX_VALUE;
+        int result = ++i;
+        assertEquals(2147483648L, result);
     }
 
     @Test
     void overflowFloatAddition() {
-        float a = Float.MAX_VALUE;
-        float b = Float.MAX_VALUE;
-        float expResult = (float) Infinity;
-        float result = primitive.overflowFloat(a, b);
+        float f = Float.MAX_VALUE;
+        float result = f + 0.34e39F;
+        double expResult = Float.MAX_VALUE + 0.34e39;
         assertEquals(expResult, result);
     }
 
+    /**
+     * Теряется точность при сужении численного типа, т. к. "отбрасываются лишние" биты
+     */
     @Test
-    void overflowDoubleAddition() {
-        double a = Double.MAX_VALUE;
-        double b = Double.MAX_VALUE;
-        double expResult = Infinity;
-        double result = primitive.overflowDouble(a, b);
-        assertEquals(expResult, result);
+    void convertLongToInt() {
+        long l = Integer.MAX_VALUE;
+        int i = (int) l + 1;
+        assertEquals(l, i);
     }
 
+    /**
+     * При расширении типа точность остается прежней
+     */
     @Test
-    void convertLongToIntAddition() {
-        long a = Long.MAX_VALUE;
-        long b = 0;
-        int expResult = -1;
-        int result = primitive.convertLongToInt(a, b);
-        assertEquals(expResult, result);
+    void convertFloatToDouble() {
+        float f = Float.MAX_VALUE;
+        f += Float.MAX_VALUE;
+        double d = f;
+        assertEquals(d, f);
     }
 
-    @Test
-    void convertFloatToDoubleAddition() {
-        float a = Float.MAX_VALUE;
-        float b = 0;
-        double expResult = 3.4028234663852886E38;
-        double result = primitive.convertFloatToDouble(a, b);
-        assertEquals(expResult, result);
-    }
-
+    /**
+     * Тестируя числовые значения с плавающей запятой, сталкиваемся с
+     * нарушением точности вычислений. Решение этой проблемы:
+     *  - модификатор strictfp;
+     *  - BigInteger (для целочисленных данных) и BigDecimal (для чисел с плавающей точкой).
+     */
     @Test
     void inaccuracyFloat() {
         float f1 = 0.6f;
         float f2 = 0.3f;
-        float expResult = 0.9f;
-        float result = primitive.inaccuracyFloat(f1, f2);
-        assertNotEquals(expResult, result);
+        float result = f1 + f2;
+        assertEquals(0.9f, result);
     }
 
     @Test
     void inaccuracyDouble() {
         double f1 = 0.6;
         double f2 = 0.3;
-        double expResult = 0.9;
-        double result = primitive.inaccuracyDouble(f1, f2);
-        assertNotEquals(expResult, result);
+        double result = f1 + f2;
+        assertEquals(0.9, result);
     }
 }
