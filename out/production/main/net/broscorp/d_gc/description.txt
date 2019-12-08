@@ -1,0 +1,66 @@
+@Test
+  public void manyObj() {
+    //Теряя ссылки на объект он будет сожран мусорщиком, когда в памяи не будет хватать места
+    for (int i = 0; i < 100_000; i++) {
+          new GCTeach();
+       }
+  }
+
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+
+
+Process finished with exit code 0
+
+
+
+
+ @Test
+  public void relinc(){
+    //после финализации если сделать объект достижимым то мусорщик все все равно его сожрет
+    GCTeach gcTeach= new GCTeach();
+    GCTeach1 gcTeach1 = new GCTeach1();
+    gcTeach.gc1 =gcTeach1;
+    gcTeach = null;
+    System.gc();
+    boolean b = (gcTeach1.gc == null);
+    System.out.println("Обьект gcTeach1.gc = " + gcTeach1.gc);
+    assert (b);
+  }
+
+
+   @Override
+     protected void finalize() {
+       System.out.println("Обьект GCTeach dead");
+       //пытаемся сделать этот обьект досижимым
+       gc1.gc = this;
+     }
+
+
+   Но даже после попытки спастись в методе финализации от мусорщика его это не спасло
+
+  "C:\Program Files\Java\jdk-10.0.2\bin\java.exe" -ea -Didea.test.cyclic.buffer.size=1048576 "-javaagent:D:\Program Files\Intellij IDEA_JetBrains\IntelliJ IDEA Community Edition 2019.2.4\lib\idea_rt.jar=65117:D:\Program Files\Intellij IDEA_JetBrains\IntelliJ IDEA Community Edition 2019.2.4\bin" -Dfile.encoding=UTF-8 -classpath "D:\Program Files\Intellij IDEA_JetBrains\IntelliJ IDEA Community Edition 2019.2.4\lib\idea_rt.jar;D:\Program Files\Intellij IDEA_JetBrains\IntelliJ IDEA Community Edition 2019.2.4\plugins\junit\lib\junit-rt.jar;D:\Program Files\Intellij IDEA_JetBrains\IntelliJ IDEA Community Edition 2019.2.4\plugins\junit\lib\junit5-rt.jar;C:\Users\keks\.m2\repository\org\junit\platform\junit-platform-launcher\1.4.2\junit-platform-launcher-1.4.2.jar;C:\Users\keks\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\keks\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\keks\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\keks\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\keks\.m2\repository\org\junit\vintage\junit-vintage-engine\5.4.2\junit-vintage-engine-5.4.2.jar;C:\Users\keks\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\keks\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\IdeaProjects\Git\traineeship\out\production\main;C:\Users\keks\.m2\repository\org\junit\jupiter\junit-jupiter\5.4.2\junit-jupiter-5.4.2.jar;C:\Users\keks\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\keks\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.4.2\junit-jupiter-params-5.4.2.jar;C:\Users\keks\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar" com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 -junit5 net.broscorp.d_gc.GCLesTest,relinc
+
+  Обьект GCTeach dead
+  Обьект gcTeach1.gc = null
+
+
+  Process finished with exit code 0
+
+
+
+
+
+
+

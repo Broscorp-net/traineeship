@@ -1,0 +1,87 @@
+@Test
+  public void manyObj() {
+    //Теряя ссылку на объект он будет сожран мусорщиком, когда в памяи не будет хватать места
+    for (int i = 0; i < 100_000; i++) {
+          new GCTeach();
+       }
+  }
+
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+GCTeach dead
+
+
+Process finished with exit code 0
+
+
+
+
+ @Test
+  public void relinc(){
+    //после финализации если сделать объект достижимым то мусорщик все все равно его сожрет
+    GCTeach gcTeach= new GCTeach();
+    GCTeach1 gcTeach1 = new GCTeach1();
+    gcTeach.gc1 =gcTeach1;
+    gcTeach = null;
+    System.gc();
+    boolean b = (gcTeach1.gc == null);
+    System.out.println("Обьект gcTeach1.gc = " + gcTeach1.gc);
+    assert (b);
+  }
+
+
+   @Override
+     protected void finalize() {
+       System.out.println("Обьект GCTeach dead");
+       //пытаемся сделать этот обьект досижимым
+       gc1.gc = this;
+     }
+
+
+   Но даже после попытки спастись, в методе финализации, от мусорщика обьект это не спасло
+
+  "C:\Program Files\Java\jdk-10.0.2\bin\java.exe" -ea -Didea.test.cyclic.buffer.size=104...
+
+  Обьект GCTeach dead
+  Обьект gcTeach1.gc = null
+
+
+  Process finished with exit code 0
+
+
+
+
+ @Test
+  public void cycleObj()  {
+    // Если объекы ссылаются друг на друга, но доступа к этим объекам нет, то мусорщик
+    // беспощадно уничтожит "любовников"
+    GCTeach gcTeach= new GCTeach();
+    GCTeach1 gcTeach1 = new GCTeach1();
+    gcTeach1.gc = gcTeach;
+    gcTeach.gc1 = gcTeach1;
+    gcTeach = null;
+    gcTeach1 = null;
+    System.gc();
+  }
+
+"C:\Program Files\Java\jdk-10.0.2\bin\java.exe" -ea -Didea.test.cyclic.buffer.size=104857...
+
+Обьект GCTeach dead
+GCTeach1 dead
+
+
+Process finished with exit code 0
+
+
+
+
