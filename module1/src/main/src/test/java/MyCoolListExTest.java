@@ -1,5 +1,4 @@
-package net.broscorp.l_inner_classes;
-
+import net.broscorp.l_inner_classes.MyCoolListEx;
 import org.junit.jupiter.api.Test;
 import java.util.NoSuchElementException;
 
