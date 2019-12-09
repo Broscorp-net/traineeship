@@ -1,5 +1,8 @@
-package net.broscorp.m_override_overload;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import net.broscorp.m_override_overload.MathOperation;
+import net.broscorp.m_override_overload.MultiEx;
+import net.broscorp.m_override_overload.SumEx;
 import org.junit.jupiter.api.Test;
 
 public class MultiSumTest {
