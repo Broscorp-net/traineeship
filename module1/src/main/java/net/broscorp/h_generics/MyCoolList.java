@@ -2,6 +2,7 @@ package net.broscorp.h_generics;
 
 import java.util.function.Function;
 
+
 public class MyCoolList<N extends Number>  {
 
   private MyCoolList next;

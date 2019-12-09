@@ -11,6 +11,7 @@ class MyCoolListTest {
     mcl.add(15);
    assertEquals(15,mcl.get(0));
   }
+
   @Test
   void removeAdd() {
     MyCoolList<Integer> mcl = new MyCoolList();
