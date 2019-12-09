@@ -1,6 +1,6 @@
-package net.broscorp.h_generics;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import net.broscorp.h_generics.MyCoolList;
 import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
