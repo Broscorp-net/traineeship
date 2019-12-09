@@ -1,5 +1,4 @@
-package net.broscorp.n_strings;
-
+import net.broscorp.n_strings.StrigEx;
 import org.junit.jupiter.api.Test;
 
 class StrigExTest {
