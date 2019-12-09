@@ -1,0 +1,5 @@
+digraph G {
+  "Throwable" -> "Exception"[color=blue];
+  "Throwable" -> "Error"
+  "Exception" -> "Runtime Exception"[color=blue];
+}
