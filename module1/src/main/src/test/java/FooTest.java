@@ -1,8 +1,7 @@
-package net.broscorp.g_value_ref;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import net.broscorp.g_value_ref.Foo;
 import org.junit.jupiter.api.Test;
 
 class FooTest {
