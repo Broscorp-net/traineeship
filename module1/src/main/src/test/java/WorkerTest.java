@@ -1,5 +1,4 @@
-package net.broscorp.i_equals_hashcode;
-
+import net.broscorp.i_equals_hashcode.Worker;
 import org.junit.jupiter.api.Test;
 
 
