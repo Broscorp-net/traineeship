@@ -1,5 +1,3 @@
-package net.broscorp.e_primitives;
-
 import org.junit.jupiter.api.Test;
 
 public class PrimitivesTest {
