@@ -1,8 +1,7 @@
-package net.broscorp.d_gc;
-
-
 import static junit.framework.TestCase.assertTrue;
 
+import net.broscorp.d_gc.GCTeach;
+import net.broscorp.d_gc.GCTeach1;
 import org.junit.jupiter.api.Test;
 
 class GCLesTest {
