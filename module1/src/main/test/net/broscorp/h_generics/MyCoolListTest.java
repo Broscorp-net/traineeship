@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -116,5 +117,20 @@ class MyCoolListTest {
   void testIteratorNextThrowException() {
     Iterator<Integer> iterator = myList.iterator();
     assertThrows(NoSuchElementException.class, iterator::next);
+  }
+
+  @Test
+  void testIteratorRemove() {
+    myList.add(50);
+    Iterator<Integer> iterator = myList.iterator();
+    iterator.remove();
+
+    assertThrows(IndexOutOfBoundsException.class, () -> myList.get(0));
+  }
+
+  @Test
+  void testIteratorRemoveExceptionIfNothingRemove() {
+    Iterator<Integer> iterator = myList.iterator();
+    assertThrows(ConcurrentModificationException.class, iterator::remove);
   }
 }
