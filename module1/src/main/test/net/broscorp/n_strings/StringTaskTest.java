@@ -1,11 +1,20 @@
 package net.broscorp.n_strings;
 
-import static net.broscorp.n_strings.StringTask.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static net.broscorp.n_strings.StringTask.changeSymbol;
+import static net.broscorp.n_strings.StringTask.countWordsAndCountSymbols;
+import static net.broscorp.n_strings.StringTask.cutLine;
+import static net.broscorp.n_strings.StringTask.deleteSymbolInLine;
+import static net.broscorp.n_strings.StringTask.isPalindrome;
+import static net.broscorp.n_strings.StringTask.makeSong;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
 class StringTaskTest {
@@ -56,17 +65,22 @@ class StringTaskTest {
 
   @Test
   void testMakeSongBugsWithSeed() {
+    Pattern p = Pattern.compile("-?\\d+");
+
     String song = makeSong(2, 99);
     String[] couplets = song.split("\\n\\n");
 
     List<Integer> bugsInCouplets = new ArrayList<>();
     for (int i = 0; i < couplets.length; i++) {
-      String substring = couplets[i].substring(couplets[i].length() - 1);
-      bugsInCouplets.add(Integer.parseInt(substring));
+      String[] coupletLine = couplets[i].split("\\n");
+      Matcher m = p.matcher(coupletLine[2]);
+      while (m.find()) {
+        bugsInCouplets.add(Integer.parseInt(m.group()));
+      }
     }
 
-    assertEquals(7, bugsInCouplets.get(0));
-    assertEquals(7, bugsInCouplets.get(1));
+    assertEquals(104, bugsInCouplets.get(0));
+    assertEquals(95, bugsInCouplets.get(1));
   }
 
   @Test
