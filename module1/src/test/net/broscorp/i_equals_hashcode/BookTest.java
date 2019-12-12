@@ -1,6 +1,5 @@
 package net.broscorp.i_equals_hashcode;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
