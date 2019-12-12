@@ -17,7 +17,7 @@ public class MyCoolList {
     throw new NotImplementedException();
   }
 
-  public Object map(Function f){
+  public MyCoolList map(Function f){
     throw new NotImplementedException();
   }
 
