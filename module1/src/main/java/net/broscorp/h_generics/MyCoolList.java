@@ -21,4 +21,8 @@ public class MyCoolList {
     throw new NotImplementedException();
   }
 
+  public int size(){
+    throw new NotImplementedException();
+  }
+
 }
