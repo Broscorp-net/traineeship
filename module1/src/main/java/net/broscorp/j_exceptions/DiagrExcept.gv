@@ -1,0 +1,10 @@
+digraph {
+
+	 node [shape=circle shape="ellipse"  ]
+		Throwable
+	 Throwable -> {Error Exception_check }
+
+	{ edge [shape="ellipse"]
+		Exception_check -> RuntimeException_uncheck
+	}
+}
