@@ -1,5 +1,10 @@
 digraph G {
-  "Throwable" -> "Exception"[color=blue];
+  "Throwable" -> "Exception";
   "Throwable" -> "Error"
-  "Exception" -> "Runtime Exception"[color=blue];
+subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;		
+		"Exception" -> "Runtime Exception"
+		label = "checked";
+	}
 }
