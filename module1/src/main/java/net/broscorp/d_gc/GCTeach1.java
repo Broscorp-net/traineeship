@@ -1,8 +1,9 @@
 package net.broscorp.d_gc;
 
 public class GCTeach1 {
+
   public char[] c = new char[2500000];
-  public GCTeach gc ;
+  public GCTeach gc;
 
   @Override
   protected void finalize() {

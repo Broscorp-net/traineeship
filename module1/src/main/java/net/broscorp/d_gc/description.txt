@@ -25,7 +25,6 @@ Process finished with exit code 0
 
 
 
-
  @Test
   public void relinc(){
     //после финализации если сделать объект достижимым то мусорщик все все равно его сожрет
