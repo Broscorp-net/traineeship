@@ -1,4 +1,7 @@
 import net.broscorp.l_inner_classes.MyCoolListEx;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import java.util.NoSuchElementException;
 
@@ -17,7 +20,7 @@ class MyCoolListExTest {
     mcl.add(15);
     mcl.add(10);
     mcl.remove(0);
-   assert (10 == mcl.get(0));
+    assert (10 == mcl.get(0));
   }
 
   @Test
@@ -31,42 +34,40 @@ class MyCoolListExTest {
   }
 
   @Test
-  void hasNext(){
+  void hasNext() {
     MyCoolListEx<Integer> mcl = new MyCoolListEx();
     mcl.add(15);
     mcl.add(10);
-    mcl.next();
-    mcl.next();
-    assert (!mcl.hasNext());
-  }
-  @Test
-  void hasNextNo(){
-    MyCoolListEx<Integer> mcl = new MyCoolListEx();
-    mcl.add(15);
-    mcl.add(10);
-    assert (mcl.hasNext());
+    mcl.iterator().next();
+    mcl.iterator().next();
+    assert (!mcl.iterator().hasNext());
   }
 
   @Test
-  void next(){
+  void hasNextNo() {
     MyCoolListEx<Integer> mcl = new MyCoolListEx();
     mcl.add(15);
     mcl.add(10);
-    assert (15 == mcl.next());
+    assert (mcl.iterator().hasNext());
   }
 
   @Test
-  void nextNo(){
+  void next() {
     MyCoolListEx<Integer> mcl = new MyCoolListEx();
     mcl.add(15);
     mcl.add(10);
-    mcl.next();
-    mcl.next();
-    try {
-      mcl.next();
-      assert (false);
-    }catch (NoSuchElementException e){
-      assert (true);
-    }
+    assert (15 == mcl.iterator().next());
+  }
+
+  @Test
+  void nextNo() {
+    MyCoolListEx<Integer> mcl = new MyCoolListEx();
+    mcl.add(15);
+    mcl.add(10);
+    mcl.iterator().next();
+    mcl.iterator().next();
+    assertThrows(NoSuchElementException.class, () -> {
+      mcl.iterator().next();
+    });
   }
 }
