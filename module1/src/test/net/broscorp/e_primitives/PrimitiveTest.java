@@ -78,4 +78,5 @@ class PrimitiveTest {
         double result = f1 + f2;
         assertNotEquals(0.9, result);
     }
+
 }
