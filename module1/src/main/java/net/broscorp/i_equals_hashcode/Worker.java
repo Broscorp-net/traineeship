@@ -15,7 +15,10 @@ public class Worker {
 
   @Override
   public int hashCode() {
-    return id;
+    int hash = 31 + id;
+    hash *= (age == 0)? 1: age;
+    hash = 31 * hash + ((name == null) ? 0 : name.hashCode());
+    return hash;
   }
 
   @Override
