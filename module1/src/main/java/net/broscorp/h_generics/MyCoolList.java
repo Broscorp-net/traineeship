@@ -39,7 +39,7 @@ public class MyCoolList<N extends Number> {
     return mcl;
   }
 
-  public int size() {
+  public int size1() {
     return index;
   }
 }
