@@ -15,7 +15,7 @@ class GCLesTest {
 
   @Test
   public void relinc() throws InterruptedException {
-    //после финализации если сделать объект достижимым то мусорщик все все равно его сожрет
+    //после финализации если сделать объект достижимым то мусорщик его не тронет
     GCTeach gcTeach = new GCTeach();
     GCTeach1 gcTeach1 = new GCTeach1();
     gcTeach.gc1 = gcTeach1;
