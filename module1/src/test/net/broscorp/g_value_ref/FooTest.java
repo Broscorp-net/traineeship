@@ -11,10 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FooTest {
 
-    Foo foo = new Foo();
-    int beforeNum = 100; // beforeNum, beforeStr - сохранить состояние до вызова метода
-    List<String> beforeStr = new ArrayList<>();
-
     /**
      * В метод передается копия значения переменной "int i" и копия ссылки "s"
      * на массив списка строк "ArrayList". В методе "foo()" создается новая переменная,
@@ -25,17 +21,19 @@ class FooTest {
      */
     @Test
     void fooRef() {
+        Foo foo = new Foo();
+        int i = 100;
         List<String> s = new ArrayList<>();
-        beforeStr = s;
-        foo.foo(beforeNum, s);
-        assertEquals(beforeStr, s);
+        foo.foo(i, s);
+        assertEquals(s.size(), s.size());
     }
 
     @Test
     void fooValue() {
+        Foo foo = new Foo();
+        List<String> beforeStr = new ArrayList<>();
         int i = 100;
-        beforeNum = i;
-        foo.foo(beforeNum, beforeStr);
-        assertEquals(beforeNum, i);
+        foo.foo(i, beforeStr);
+        assertEquals(i, i);
     }
 }
