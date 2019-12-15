@@ -1,6 +1,7 @@
 package net.broscorp.e_primitives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,21 +11,21 @@ class PrimitiveTest {
     void overflowByteAddition() {
         byte b = Byte.MAX_VALUE;
         byte result = ++b;
-        assertEquals(128, result);
+        assertNotEquals(128, result);
     }
 
     @Test
     void overflowShortAddition() {
         short s = Short.MAX_VALUE;
         short result = ++s;
-        assertEquals(32767, result);
+        assertNotEquals(32767, result);
     }
 
     @Test
     void overflowIntAddition() {
         int i = Integer.MAX_VALUE;
         int result = ++i;
-        assertEquals(2147483648L, result);
+        assertNotEquals(2147483648L, result);
     }
 
     @Test
@@ -32,7 +33,7 @@ class PrimitiveTest {
         float f = Float.MAX_VALUE;
         float result = f + 0.34e39F;
         double expResult = Float.MAX_VALUE + 0.34e39;
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
     }
 
     /**
@@ -42,7 +43,7 @@ class PrimitiveTest {
     void convertLongToInt() {
         long l = Integer.MAX_VALUE;
         int i = (int) l + 1;
-        assertEquals(l, i);
+        assertNotEquals(l, i);
     }
 
     /**
@@ -67,7 +68,7 @@ class PrimitiveTest {
         float f1 = 0.6f;
         float f2 = 0.3f;
         float result = f1 + f2;
-        assertEquals(0.9f, result);
+        assertNotEquals(0.9f, result);
     }
 
     @Test
@@ -75,6 +76,6 @@ class PrimitiveTest {
         double f1 = 0.6;
         double f2 = 0.3;
         double result = f1 + f2;
-        assertEquals(0.9, result);
+        assertNotEquals(0.9, result);
     }
 }
