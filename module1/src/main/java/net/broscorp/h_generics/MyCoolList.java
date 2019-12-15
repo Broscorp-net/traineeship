@@ -9,7 +9,7 @@ public class MyCoolList<N extends Number> {
   private int index = 0;
   private Object[] arr = new Object[32];
 
-  
+
   public void add(N o) {
     if (index == arr.length - 1) {
       Object[] newArray = new Object[arr.length * 2];

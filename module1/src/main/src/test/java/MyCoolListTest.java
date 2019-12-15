@@ -9,7 +9,7 @@ class MyCoolListTest {
   void getAdd() {
     MyCoolList<Integer> mcl = new MyCoolList();
     mcl.add(15);
-   assertEquals(15,mcl.get(0));
+    assertEquals(15, mcl.get(0));
   }
 
   @Test
@@ -18,7 +18,7 @@ class MyCoolListTest {
     mcl.add(15);
     mcl.add(10);
     mcl.remove(0);
-    assertEquals(10,mcl.get(0));
+    assertEquals(10, mcl.get(0));
   }
 
   @Test
@@ -26,10 +26,8 @@ class MyCoolListTest {
     MyCoolList<Integer> mcl = new MyCoolList();
     mcl.add(15);
     mcl.add(10);
-    MyCoolList<Integer> mcl1 = mcl.map(x-> (Integer)x * 2);
-    assertEquals(30 , mcl1.get(0));
-    assertEquals(20,mcl1.get(1));
+    MyCoolList<Integer> mcl1 = mcl.map(x -> (Integer) x * 2);
+    assertEquals(30, mcl1.get(0));
+    assertEquals(20, mcl1.get(1));
   }
-
-
 }
