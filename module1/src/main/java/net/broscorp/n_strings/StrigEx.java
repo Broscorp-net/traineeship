@@ -46,13 +46,12 @@ public class StrigEx {
       }
     }
     map.put(strB.toString(), strB.length());
-    //System.out.println(strB + " chars = " + strB.length());
     return map;
   }
 
   public String format(int bags, int couplets) {
     Random random = new Random(bags * couplets);
-    String s = "";
+    StringBuilder strB = new StringBuilder();
     for (int i = 0; i < couplets; i++) {
       int m = bags - 10 + random.nextInt(20);
       if (m < 0) {
@@ -61,11 +60,11 @@ public class StrigEx {
       if (bags < 0) {
         bags = 0;
       }
-      s += String.format("%d little bugs in the code, \n"
+      strB.append(String.format("%d little bugs in the code, \n"
           + "%d little bugs in the code. \n " +
-          "Take one down, patch it around %d little bugs in the code.\n", bags, bags, m);
+          "Take one down, patch it around %d little bugs in the code.\n", bags, bags, m));
       bags = m;
     }
-    return s;
+    return strB.toString();
   }
 }
