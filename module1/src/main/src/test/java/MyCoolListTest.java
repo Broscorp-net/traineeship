@@ -30,4 +30,13 @@ class MyCoolListTest {
     assertEquals(30, mcl1.get(0));
     assertEquals(20, mcl1.get(1));
   }
+
+  @Test
+  void size() {
+    MyCoolList<Integer> mcl = new MyCoolList();
+    mcl.add(15);
+    mcl.add(10);
+    mcl.add(10);
+    assertEquals(3, mcl.size());
+  }
 }

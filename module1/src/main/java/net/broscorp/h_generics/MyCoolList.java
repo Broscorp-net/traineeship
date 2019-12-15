@@ -38,4 +38,8 @@ public class MyCoolList<N extends Number> {
     }
     return mcl;
   }
+
+  public int size(){
+    return index;
+  }
 }
