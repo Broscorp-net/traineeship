@@ -12,6 +12,7 @@ class WorkerTest {
     //обьект равен самому себе
     Worker w1 = new Worker(1, "Bob", 25);
     assertEquals(w1, w1);
+    assert (w1.equals(w1));
   }
 
   @Test
@@ -24,6 +25,17 @@ class WorkerTest {
   }
 
   @Test
+  public void eqHash8() {
+    //одинаковые обьекы всегда равны
+    Worker w1 = new Worker(1, "Bob", 25);
+    Worker w2 = new Worker(1, "Bob", 25);
+    Worker w3 = new Worker(1, "Bob", 25);
+    assertEquals(w1, w2);
+    assertEquals(w2, w3);
+    assertEquals(w3, w1);
+  }
+
+  @Test
   public void eqHash3() {
     //одинаковые обьекы всегда равны
     Worker w1 = new Worker(1, "Bob", 25);
@@ -32,6 +44,7 @@ class WorkerTest {
       assertEquals(w1, w2);
     }
   }
+
 
   @Test
   public void eqHash4() {
