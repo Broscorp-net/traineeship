@@ -31,10 +31,10 @@ public class MyCoolList<N extends Number> {
     this.index--;
   }
 
-  public MyCoolList<N> map(Function<Object,Object> f) {
-    MyCoolList<N> mcl = new MyCoolList<>();
+  public <E extends Number> MyCoolList<E> map(Function<N,E> f) {
+    MyCoolList<E> mcl = new MyCoolList<>();
     for (int i = 0; i < index; i++) {
-      mcl.add((N) f.apply( arr[i]));
+      mcl.add((E) f.apply((N) arr[i]));
     }
     return mcl;
   }
