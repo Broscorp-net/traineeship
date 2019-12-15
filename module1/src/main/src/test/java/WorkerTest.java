@@ -1,6 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import net.broscorp.i_equals_hashcode.Worker;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ class WorkerTest {
   public void eqHash1() {
     //обьект равен самому себе
     Worker w1 = new Worker(1, "Bob", 25);
-    assert (w1.equals(w1));
+    assertEquals(w1, w1);
   }
 
   @Test
@@ -19,8 +19,8 @@ class WorkerTest {
     //одинаковые обьекты равы
     Worker w1 = new Worker(1, "Bob", 25);
     Worker w2 = new Worker(1, "Bob", 25);
-    assert (w1.equals(w2));
-    assert (w2.equals(w1));
+    assertEquals(w1, w2);
+    assertEquals(w2, w1);
   }
 
   @Test
@@ -29,7 +29,7 @@ class WorkerTest {
     Worker w1 = new Worker(1, "Bob", 25);
     Worker w2 = new Worker(1, "Bob", 25);
     for (int i = 0; i < 100; i++) {
-      assert (w1.equals(w2));
+      assertEquals(w1, w2);
     }
   }
 
@@ -37,7 +37,7 @@ class WorkerTest {
   public void eqHash4() {
     //Инициализированый обьект не равен NULL
     Worker w1 = new Worker(1, "Bob", 25);
-    assert (!w1.equals(null));
+    assertNotEquals(w1, null);
   }
 
   @Test
@@ -45,7 +45,7 @@ class WorkerTest {
     //У одинаковых обьектов хеш коды равны
     Worker w1 = new Worker(1, "Bob", 25);
     Worker w2 = new Worker(1, "Bob", 25);
-    assert (w1.hashCode() == w2.hashCode());
+    assertEquals(w1.hashCode(), w2.hashCode());
   }
 
   @Test
@@ -53,8 +53,8 @@ class WorkerTest {
     //Обьекы с разными хеш кодами не могу быть равны
     Worker w1 = new Worker(2, "Sam", 30);
     Worker w2 = new Worker(1, "Bob", 25);
-    assert (w1.hashCode() != w2.hashCode());
-    assert (!w1.equals(w2));
+    assertNotEquals(w1.hashCode(), w2.hashCode());
+    assertNotEquals(w1, w2);
   }
 
   @Test
