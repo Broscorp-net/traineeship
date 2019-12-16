@@ -11,7 +11,7 @@ class PrimitiveTest {
     void overflowByteAddition() {
         byte b = Byte.MAX_VALUE;
         byte result = ++b;
-        assertNotEquals(128, result);
+        assertEquals(-128, result);
     }
 
     @Test
