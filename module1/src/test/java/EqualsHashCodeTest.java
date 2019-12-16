@@ -1,5 +1,6 @@
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -71,12 +72,15 @@ class EqualsHashCodeTest {
     Map<Integer, String> mockMap = new HashMap<>();
     int seed = 200;
     Random random = new Random(seed);
-    for (int i = 0; i < 1_000_000; i++) {
-      EqualsHashCode mockElement = new EqualsHashCode(random.nextInt(20), "Jack");
+    for (int i = 0; i < 1_00_000; i++) {
+      EqualsHashCode mockElement = new EqualsHashCode(random.nextInt(1_000_000), "Jack");
       mockSet.add(mockElement);
 
       if (!mockMap.containsKey(mockElement.hashCode())) {
         mockMap.put(mockElement.hashCode(), new String("Hello" + i));
+      } else {
+        System.out.printf("Element %s with hash code %d already exist in map \n", mockElement,
+            mockElement.hashCode());
       }
     }
     assertTrue(mockSet.size() == mockMap.size());
