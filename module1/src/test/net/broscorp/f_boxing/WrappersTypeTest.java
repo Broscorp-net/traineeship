@@ -40,4 +40,5 @@ class WrappersTypeTest {
         boolean result = a1.intValue() == a2.intValue();
         assertTrue(result);
     }
+
 }
