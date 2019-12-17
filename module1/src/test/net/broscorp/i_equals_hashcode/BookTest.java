@@ -109,7 +109,7 @@ class BookTest {
         // будут выводится совпадающие по хеш-коду объекты
         System.out.println("mapTwice: " + mapTwice.values());
 
-        assertFalse(set.size() == map.size());
+        assertNotEquals(set.size(), map.size());
         assertNotEquals(map.size(), mapTwice.size());
     }
 }
