@@ -80,5 +80,4 @@ public class CalculatorTestClass {
         int b = 3;
         assertEquals(15, a * b);
     }
-
 }
