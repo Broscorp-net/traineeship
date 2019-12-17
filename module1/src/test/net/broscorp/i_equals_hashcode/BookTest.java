@@ -17,16 +17,16 @@ class BookTest {
     @Test
     void testSymmetricEqualsBook() { // x.equals(y) should return true if and only if y.equals(x) returns true
         Book book = new Book(0, "Repka");
-        Book book2 = new Book(1, "Kolobok");
+        Book book2 = new Book(0, "Repka");
         assertEquals(book, book2);
         assertEquals(book2, book);
     }
 
     @Test
     void testTransitiveEqualsBook() { // if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true.
-        Book book = new Book(0, "Repka");
+        Book book = new Book(1, "Kolobok");
         Book book2 = new Book(1, "Kolobok");
-        Book book3 = new Book(2, "Buratino");
+        Book book3 = new Book(1, "Kolobok");
         assertEquals(book, book2);
         assertEquals(book2, book3);
         assertEquals(book, book3);
@@ -34,7 +34,7 @@ class BookTest {
 
     @Test
     void testConsistentEqualsBook() { // multiple invocations of x.equals(y) consistently return true or consistently return false
-        Book book = new Book(0, "Repka");
+        Book book = new Book(1, "Narod");
         Book book2 = new Book(1, "Narod");
         assertEquals(book, book2);
         assertEquals(book, book2);
@@ -70,8 +70,8 @@ class BookTest {
 
     @Test
     void testEqualAccordingHashCode() { // If two objects are equal according to the equals() method, then calling the hashCode method on each of the two objects must produce the same integer result.
-        Book book = new Book(0, "Repka");
-        Book book2 = new Book(1, "Repka");
+        Book book = new Book(2, "Repka");
+        Book book2 = new Book(2, "Repka");
         boolean isEquals = book.equals(book2);
         boolean isHashCodeEquals = book.hashCode() == book2.hashCode();
         assertEquals(isEquals, isHashCodeEquals);
@@ -85,18 +85,14 @@ class BookTest {
         assertFalse(book.hashCode() == book2.hashCode());
     }
 
-    int count1 = 0;
-    int count2 = 0;
-
     @Test
     void testCoincidenceHashCode() {
         Set<Book> set = new HashSet<>();
         Map<Integer, String> map = new HashMap<>();
         Map<Integer, String> mapTwice = new HashMap<>();
 
-        for (int i = 0; i < 1_500_000; i++) {
-            int numb = (int) Math.round(Math.random() * 1_000_000);
-            Book book = new Book(numb, "Repka");
+        for (int i = 0; i < 2_100_000_000; i++) { // не хватает памяти, чтобы протестить)
+            Book book = new Book(i, "Repka");
             set.add(book);
             /**
              * Тут игнорируем объекты с совпадающими хешами
@@ -110,7 +106,10 @@ class BookTest {
                 mapTwice.put(book.hashCode(), "TwiceBook " + i);
             }
         }
-        assertEquals(set.size(), map.size());
+        // будут выводится совпадающие по хеш-коду объекты
+        System.out.println("mapTwice: " + mapTwice.values());
+
+        assertFalse(set.size() == map.size());
         assertNotEquals(map.size(), mapTwice.size());
     }
 }

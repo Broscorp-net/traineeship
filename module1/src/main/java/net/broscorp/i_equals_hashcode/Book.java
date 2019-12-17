@@ -26,8 +26,13 @@ public class Book {
 
     @Override
     public int hashCode() {
-        int result = 31 + id;
-        result = 31 * result + ((name == null) ? 0 : name.hashCode());
+        int hashName = 0;
+        if (name.length() % 2 == 0) {
+            hashName = 1;
+        } else {
+            hashName = 2;
+        }
+        int result = id + hashName;
         return result;
     }
 
