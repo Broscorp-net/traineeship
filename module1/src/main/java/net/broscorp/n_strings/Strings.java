@@ -9,8 +9,9 @@ public class Strings {
   public boolean isPalindrome(String words) {
     StringBuilder sBuilder = new StringBuilder();
     sBuilder = sBuilder.append(words).reverse();
-    if (!words.equals(sBuilder.toString()))
+    if (!words.equals(sBuilder.toString())) {
       return false;
+    }
     return true;
   }
 

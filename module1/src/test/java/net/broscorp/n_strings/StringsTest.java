@@ -1,11 +1,10 @@
 package net.broscorp.n_strings;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 class StringsTest {
 
@@ -18,10 +17,8 @@ class StringsTest {
 
   @Test
   void testIsPalindrome() {
-    String doesItPalindrome = "madam";
-    boolean processedWord = strings.isPalindrome(doesItPalindrome);
-    boolean yesPalindrome = true;
-    assertEquals(yesPalindrome, processedWord);
+    String palindrome = "madam";
+    assertEquals(true, strings.isPalindrome(palindrome));
   }
 
   @Test
@@ -57,27 +54,25 @@ class StringsTest {
   }
 
   @Test
-  void testMakeSongSumOfLinesCheckout() {
+  void LinesNumberCheckout() {
     int coupletsNumber = 5;
     int linesInOneCouplet = 3;
     int bugsNumber = 1;
-    int sumOfLinesExpected = coupletsNumber * linesInOneCouplet;
-    String[] totalSongLines = strings.makeSong(coupletsNumber, bugsNumber).split("\n");
-    assertEquals(sumOfLinesExpected, totalSongLines.length);
+    int linesSumm = coupletsNumber * linesInOneCouplet;
+    String[] totalLines = strings.makeSong(coupletsNumber, bugsNumber).split("\n");
+    assertEquals(linesSumm, totalLines.length);
   }
 
   @Test
-  void testMakeSongBugsCheckout() {
-    int bugsNumber = 2;
-    int coupletsNumber = 2;
+  void BugsNumberCheckout() {
+    int bugsNumber = 10;
+    int coupletsNumber = 15;
     String s = strings.makeSong(coupletsNumber, bugsNumber);
     String[] lines = s.split("\n");
-    char bugInThirdLine = lines[2].charAt(31);
-    char bugInFourthLine = lines[3].charAt(0);
-    char bugInFifthLine = lines[4].charAt(0);
+    String bugInThirdLine = lines[2].substring(31, (lines[2].length() - 1)); //exclude space
+    String bugInFourthLine = lines[3].substring(0, (lines[3].length() - 2)); //exclude coma
+    String bugInFifthLine = lines[4].substring(0, (lines[4].length() - 2));  // exclude dot
     assertEquals(bugInThirdLine, bugInFourthLine);
     assertEquals(bugInFourthLine, bugInFifthLine);
   }
-
-
 }
