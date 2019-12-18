@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*@Override annotation is use in order to implement methods from interface which have no realisation
-(they are abstract) */
+/**
+ * @Override annotation is use in order to implement methods from interface which have no realisation
+ * (they are abstract)
+ */
 
 public class CalculatorTestClass {
     MathOperation calculatorMultiply;
