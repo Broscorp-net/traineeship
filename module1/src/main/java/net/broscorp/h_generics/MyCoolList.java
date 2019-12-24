@@ -64,11 +64,11 @@ public class MyCoolList<E extends Number> {
   }
 
 
-  public MyCoolList<Double> map(Function<E, ?> function) {
-    MyCoolList<Double> myVariousList = new MyCoolList<>();
+  public MyCoolList<E> map(Function<E, E> function) {
+    MyCoolList<E> myVariousList = new MyCoolList<>();
     for (int i = 0; i < size; i++) {
-      elements[i] = (E) function.apply((E) elements[i]);
-      myVariousList.add((Double) elements[i]);
+      elements[i] = function.apply((E) elements[i]);
+      myVariousList.add((E) elements[i]);
     }
     return myVariousList;
   }

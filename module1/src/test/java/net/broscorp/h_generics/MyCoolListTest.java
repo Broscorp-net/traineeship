@@ -4,7 +4,6 @@ package net.broscorp.h_generics;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
@@ -72,9 +71,8 @@ class MyCoolListTest {
   void testMapIntegerToDouble() {
     MyCoolList<Integer> intList = new MyCoolList<>();
     intList.add(12);
-    Function<Integer, Double> function = Integer::doubleValue;
-    MyCoolList<Double> doubleList = intList.map(function);
-    assertEquals(intList.size(), doubleList.size());
+    MyCoolList<Integer> squareIntList = intList.map(x-> x^2);
+    assertEquals(intList.size(), squareIntList.size());
   }
 
 }
