@@ -71,6 +71,8 @@ public class MyCoolList<E extends Number> {
       myVariousList.add((E) elements[i]);
     }
     return myVariousList;
+
+ 
   }
 
 }
