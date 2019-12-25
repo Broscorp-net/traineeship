@@ -1,7 +1,9 @@
 digraph G {
 
-    "JIT" -> "JVM"
-    "JVM" -> "JRE"
-    "JVM" -> "JDK"
+    "JDK" -> "JRE" -> "JVM" -> "JIT"
 
+    /*JDK(Java Development Kit) - is a pay for free java packages, which consist of benchmark java libraries, JVM and JRE
+     JRE(Java Runtime Environment) - the minimal realization for the java
+     JVM(Java Virtual Machine) -  the main part of the JRE , compiles byte code of Java
+     JIT is a compiler*/
 }
