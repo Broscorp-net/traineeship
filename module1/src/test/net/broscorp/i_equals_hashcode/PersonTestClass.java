@@ -67,12 +67,21 @@ public class PersonTestClass {
 
     @Test
     void hashCodeCollisionsTest() {
+<<<<<<< HEAD
         Map<Integer, Person> personMapCollision = new HashMap<>();
         for (int i = 0; i < 2147; i++) {
             Person person = new Person("Vasia", i, i);
             if (person.hashCode() == person.hashCode()) personMapCollision.put(i, person);
             System.out.println("Person A has hashCode: " + personMapCollision.get(i).hashCode());
             System.out.println("Person B has hashCode: " + personMapCollision.get(i).hashCode());
+=======
+        Map<Integer, Person> personMap = new HashMap<>();
+        Map<Integer, Person> personMapCollision = new HashMap<>();
+        for (int i = 0; i < 2147; i++) {
+            Person person = new Person("Vasia", i, i);
+            if (person.hashCode() != person.hashCode()) personMap.put(i, person);
+            else if (person.hashCode() == person.hashCode()) personMapCollision.put(i, person);
+>>>>>>> 5f0b776... i_equals_hashcode commit
         }
         assertTrue(personMapCollision.size() > 0);
     }
