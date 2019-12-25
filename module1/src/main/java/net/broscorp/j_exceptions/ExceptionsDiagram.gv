@@ -1,0 +1,6 @@
+digraph G {
+
+	 "Throwable" -> "Error"
+	 "Throwable" -> "Exception_checked" -> "RuntimeException_unchecked"
+
+}
