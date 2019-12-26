@@ -1,0 +1,28 @@
+$ javap -c net.broscorp.b_bytecode.BytecodeClass
+Compiled from "BytecodeClass.java"
+public class net.broscorp.b_bytecode.BytecodeClass {
+  public net.broscorp.b_bytecode.BytecodeClass();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void methodHello();
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #3                  // String Hello World!
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: iconst_5
+       4: if_icmpge     16
+       7: invokestatic  #5                  // Method methodHello:()V
+      10: iinc          1, 1
+      13: goto          2
+      16: return
+}

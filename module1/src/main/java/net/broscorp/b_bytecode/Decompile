@@ -1,0 +1,17 @@
+package net.broscorp.b_bytecode;
+
+public class BytecodeClass {
+    public BytecodeClass() {
+    }
+
+    public static void methodHello() {
+        System.out.println("Hello World!");
+    }
+
+    public static void main(String[] var0) {
+        for(int var1 = 0; var1 < 5; ++var1) {
+            methodHello();
+        }
+
+    }
+}
