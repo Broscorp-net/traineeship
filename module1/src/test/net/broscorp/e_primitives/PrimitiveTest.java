@@ -1,5 +1,6 @@
 package net.broscorp.e_primitives;
 
+import static jdk.nashorn.internal.objects.Global.Infinity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -18,32 +19,31 @@ class PrimitiveTest {
     void overflowShortAddition() {
         short s = Short.MAX_VALUE;
         short result = ++s;
-        assertNotEquals(32767, result);
+        assertEquals(-32768, result);
     }
 
     @Test
     void overflowIntAddition() {
         int i = Integer.MAX_VALUE;
         int result = ++i;
-        assertNotEquals(2147483648L, result);
+        assertEquals(-2147483648, result);
     }
 
     @Test
     void overflowFloatAddition() {
         float f = Float.MAX_VALUE;
-        float result = f + 0.34e39F;
-        double expResult = Float.MAX_VALUE + 0.34e39;
-        assertNotEquals(expResult, result);
+        float result = f + 0.34e39F; // при переполнении, float присваивается "Бесконечность"
+        assertEquals(Infinity, result);
     }
 
     /**
-     * Теряется точность при сужении численного типа, т. к. "отбрасываются лишние" биты
+     * Теряется точность при сужении численного типа, т. к. "отбрасываются лишние" биты и происходит переполнение
      */
     @Test
     void convertLongToInt() {
-        long l = Integer.MAX_VALUE;
-        int i = (int) l + 1;
-        assertNotEquals(l, i);
+        long l = Integer.MAX_VALUE + 1L;
+        int i = (int) l; // теряется единица
+        assertEquals(-2147483648, i);
     }
 
     /**
