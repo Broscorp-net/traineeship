@@ -24,9 +24,9 @@ class FooTest {
         Foo foo = new Foo();
         int i = 100;
         List<String> iAmList = new ArrayList<>();
-        foo.foo(i, iAmList); // тут я утверждаю, что кол-во индексов в iAmList до вызова метода = 0
-                            // и после вызова поменяется на +1
-        assertNotEquals(0, iAmList.size());
+        foo.foo(i, iAmList);
+        foo.foo(i, iAmList);
+        assertEquals("d", iAmList.get(1));
     }
 
     @Test
@@ -35,6 +35,6 @@ class FooTest {
         List<String> beforeStr = new ArrayList<>();
         int i = 100;
         foo.foo(i, beforeStr); // из метода класса Foo кажется, будто i = 100 + 15, но это не так
-        assertNotEquals(115, i);
+        assertEquals(100, i);
     }
 }
