@@ -37,17 +37,37 @@ public class StringClass {
         return characterList;
     }
 
+    /**
+     * Написать метод, который получает два числа - количество багов и количество куплетов и возвращает текст песни
+     * <p>
+     * %n little bugs in the code,
+     * %n little bugs in the code.
+     * Take one down, patch it around %m little bugs in the code.
+     * Где m = n - 10 + random.nextInt(20)
+     * <p>
+     * Для следующего куплета обновляем n = m
+     * <p>
+     * Чтоб результаты вызова метода были повторяемы - инициализировать random произведением параметров метода.
+     */
+
     public String songMethod(int bugsQuantity, int coupletsQuantity) {
-        Random random = new Random(bugsQuantity * coupletsQuantity);
-        StringBuilder stringBuilder = new StringBuilder();
+        if (coupletsQuantity <= 0) coupletsQuantity = 1;
+        String s = "";
+        Random random = new Random();
         for (int i = 1; i <= coupletsQuantity; i++) {
             int m = bugsQuantity - 10 + random.nextInt(20);
-            stringBuilder.append(String.format("%d little bugs in the code, \n"
-                    + "%d little bugs in the code. \n " +
-                    "Take one down, patch it around %d little bugs in the code.\n", bugsQuantity, bugsQuantity, m));
+            if (m < 0) m = 0;
+            if (bugsQuantity < 0) bugsQuantity = 0;
+            s += bugsQuantity + " little bugs in the code,\n" +
+                    bugsQuantity + " little bugs in the code,\n" +
+                    "Take one down, patch it around " + m + " little bugs in the code." + "\n";
             bugsQuantity = m;
         }
-        return stringBuilder.toString();
+        return s;
     }
 
+    public static void main(String[] args) {
+        StringClass stringClass=new StringClass();
+        System.out.println(stringClass.songMethod(2, 1));
+    }
 }
