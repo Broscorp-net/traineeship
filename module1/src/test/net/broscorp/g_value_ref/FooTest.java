@@ -34,7 +34,8 @@ class FooTest {
         Foo foo = new Foo();
         List<String> beforeStr = new ArrayList<>();
         int i = 100;
+        int expValue = i; // я хз, может сохранить значение "i" в другой примитив и сравнить их на выходе?
         foo.foo(i, beforeStr); // из метода класса Foo кажется, будто i = 100 + 15, но это не так
-        assertEquals(100, i);
+        assertEquals(i, expValue);
     }
 }
