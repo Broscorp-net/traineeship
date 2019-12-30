@@ -43,11 +43,8 @@ class FunnyStringsTest {
     @Test
     void testSong() {
         String result = fs.song(100, 2);
-        String[] text = result.split("\n"); // Делим строку и заносим части в массив
-        String rowThree = text[2].substring(31, text[2].length() - 1); // обрезаем третью строку со знаком препинания для сравнения с 4 и 5-й строками
-        String rowFourth = text[3].substring(0, text[3].length() - 2);
-        String rowFifth = text[4].substring(0, text[4].length() - 2);
-        assertEquals(rowThree, rowFourth);
-        assertEquals(rowThree, rowFifth);
+        String ExpResult = "";
+        assertEquals(ExpResult, result);
+
     }
 }
