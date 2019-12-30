@@ -67,16 +67,17 @@ class PrimitiveTest {
     void inaccuracyFloat() {
         float f1 = 0.6f;
         float f2 = 0.3f;
+        float expResult = 0.90000004f;
         float result = f1 + f2;
-        assertNotEquals(0.9f, result);
+        assertEquals(expResult, result);
     }
 
     @Test
     void inaccuracyDouble() {
         double f1 = 0.6;
         double f2 = 0.3;
+        double expResult = 0.8999999999999999;
         double result = f1 + f2;
-        assertNotEquals(0.9, result);
+        assertEquals(expResult, result);
     }
-
 }
