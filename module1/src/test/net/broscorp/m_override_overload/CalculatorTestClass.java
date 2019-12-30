@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * @Override annotation is use in order to implement methods from interface which have no realisation
  * (they are abstract)
+ * The annotation points that we will override methods from the parent class or interface. We can override methods
+ * without this annotation
  */
 
 public class CalculatorTestClass {
@@ -76,10 +78,15 @@ public class CalculatorTestClass {
         assertEquals(44, calculatorMultiply.operation(a, b));
     }
 
-    @Test
+    /*@Test
     void mixedTypes() {
         Integer a = 5;
         int b = 3;
-        assertEquals(15, a * b);
-    }
+        assertEquals(15, calculatorMultiply.operation(a, b));
+        We will have here compilation mistake
+        The output will be Error:(83, 44) java: reference to operation is ambiguous
+  both method operation(int,int) in net.broscorp.m_override_overload.MathOperation
+  and method operation(java.lang.Integer,java.lang.Integer) in net.broscorp.m_override_overload.MathOperation match
+  Because there is no such method which has mixed types of parameters
+    }*/
 }
