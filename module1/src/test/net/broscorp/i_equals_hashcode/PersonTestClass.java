@@ -2,8 +2,7 @@ package net.broscorp.i_equals_hashcode;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,12 +67,18 @@ public class PersonTestClass {
     @Test
     void hashCodeCollisionsTest() {
         Map<Integer, Person> personMapCollision = new HashMap<>();
-        for (int i = 0; i < 2147; i++) {
-            Person person = new Person("Vasia", i, i);
-            if (person.hashCode() == person.hashCode()) personMapCollision.put(i, person);
-            System.out.println("Person A has hashCode: " + personMapCollision.get(i).hashCode());
-            System.out.println("Person B has hashCode: " + personMapCollision.get(i).hashCode());
+        int duplicatedHashCodes = 0;
+        Random random = new Random(1_00_000);
+        for (int i = 0; i < 1_00_000; i++) {
+            Person person = new Person("Vasia", 22, random.nextInt(1_000_000));
+            if (!personMapCollision.containsKey(person.hashCode())) {
+                personMapCollision.put(person.hashCode(), person);
+            } else {
+                System.out.println(person.hashCode() + " this hashCode already exist");
+                duplicatedHashCodes++;
+            }
+
         }
-        assertTrue(personMapCollision.size() > 0);
+        assertTrue(duplicatedHashCodes > 0);
     }
 }
