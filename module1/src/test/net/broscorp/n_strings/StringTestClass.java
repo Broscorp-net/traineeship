@@ -66,11 +66,13 @@ public class StringTestClass {
 
     @Test
     void songTestMethod() {
-        String s = "2 little bugs in the code,\n" +
-                "2 little bugs in the code,\n" +
-                "Take one down, patch it around 0 little bugs in the code.\n";
-        assertEquals( stringClass.songMethod(2, 1),s);
+        String s = "2 little bugs in the code, \n" +
+                "2 little bugs in the code. \n" +
+                " Take one down, patch it around -6 little bugs in the code.\n" +
+                "-6 little bugs in the code, \n" +
+                "-6 little bugs in the code. \n" +
+                " Take one down, patch it around -4 little bugs in the code.\n";
+        assertEquals(s, stringClass.songMethod(2, 2));
     }
-
 
 }
