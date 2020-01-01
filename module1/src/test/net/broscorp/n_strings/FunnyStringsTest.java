@@ -2,6 +2,10 @@ package net.broscorp.n_strings;
 
 import org.junit.jupiter.api.Test;
 
+import java.text.Normalizer;
+import java.util.Formatter;
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FunnyStringsTest {
@@ -42,8 +46,14 @@ class FunnyStringsTest {
 
     @Test
     void testSong() {
+        int numBugs = 100;
         String result = fs.song(100, 2);
-        String ExpResult = "";
+        int m = fs.getM();
+
+        String ExpResult = String.format("%d little bugs in the code, \n%d little bugs in the code. " +
+                        "\nTake one down, patch it around %d little bugs in the code.\n",
+                numBugs, numBugs, m);
+
         assertEquals(ExpResult, result);
 
     }

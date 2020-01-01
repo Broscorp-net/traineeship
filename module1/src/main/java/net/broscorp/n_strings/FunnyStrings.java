@@ -1,5 +1,6 @@
 package net.broscorp.n_strings;
 
+import java.util.Formatter;
 import java.util.Random;
 
 class FunnyStrings {
@@ -49,16 +50,24 @@ class FunnyStrings {
         return one + two;
     }
 
+    Random random = new Random();
+    int m;
+
+    int getM() {
+        return m;
+    }
+
     String song(int numBugs, int numCouplets) {
-        Random random = new Random();
         StringBuilder s = new StringBuilder();
+        Formatter formatter = new Formatter();
         for (int i = numCouplets; i > 0; i--) {
-            int m = numBugs - 10 + random.nextInt(20);
-            s.append(numBugs).append(" little bugs in the code, \n")
-                    .append(numBugs).append(" little bugs in the code. \n")
-                    .append("Take one down, patch it around ").append(m).append(" little bugs in the code." + "\n");
+            m = numBugs - 10 + random.nextInt(20);
+
+            formatter.format("%d little bugs in the code, \n%d little bugs in the code. " +
+                            "\nTake one down, patch it around %d little bugs in the code.\n",
+                    numBugs, numBugs, m);
             numBugs = m;
         }
-        return s.toString();
+        return formatter.toString();
     }
 }
