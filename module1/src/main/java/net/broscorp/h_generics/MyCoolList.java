@@ -54,4 +54,11 @@ public class MyCoolList<N extends Number> {
         return size;
     }
 
+    public static void main(String[] args) {
+        MyCoolList<Integer>myCoolList=new MyCoolList<>();
+        myCoolList.add(2);
+        myCoolList.add(3);
+        System.out.println(myCoolList.size());
+    }
+
 }
