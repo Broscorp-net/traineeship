@@ -1,5 +1,6 @@
 package net.broscorp.h_generics;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,6 @@ public class MyCoolListTestClass {
         myCoolList = new MyCoolList<>();
         myCoolList.add(111);
     }
-
 
     @Test
     void get_ListTest() {
@@ -32,8 +32,11 @@ public class MyCoolListTestClass {
         assertEquals(1, myCoolList.size());
     }
 
+    @Ignore//try to play with annotations
     @Test
     void mapTest() {
+        myCoolList = new MyCoolList<>();
+        myCoolList.add(111);
         MyCoolList<? extends Number> myCoolListMap = myCoolList.map(x -> x + 111);
         assertEquals(222, myCoolListMap.get(0));
     }
