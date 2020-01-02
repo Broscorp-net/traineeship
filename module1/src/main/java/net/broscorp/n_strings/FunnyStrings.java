@@ -53,10 +53,6 @@ class FunnyStrings {
     Random random = new Random();
     int m;
 
-    int getM() {
-        return m;
-    }
-
     String song(int numBugs, int numCouplets) {
         StringBuilder s = new StringBuilder();
         Formatter formatter = new Formatter();
@@ -64,7 +60,7 @@ class FunnyStrings {
             m = numBugs - 10 + random.nextInt(20);
 
             formatter.format("%d little bugs in the code, \n%d little bugs in the code. " +
-                            "\nTake one down, patch it around %d little bugs in the code.\n",
+                            "\nTake one down, patch it around %d little bugs in the code.\n\n",
                     numBugs, numBugs, m);
             numBugs = m;
         }

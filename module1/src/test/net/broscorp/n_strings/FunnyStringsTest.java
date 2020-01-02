@@ -47,14 +47,18 @@ class FunnyStringsTest {
     @Test
     void testSong() {
         int numBugs = 100;
-        String result = fs.song(100, 2);
-        int m = fs.getM();
+        String result = fs.song(100, 3);
+        String s = result.substring(0, 3);
+        String s2 = "100";
+        assertEquals(s2, s);
+    }
 
-        String ExpResult = String.format("%d little bugs in the code, \n%d little bugs in the code. " +
-                        "\nTake one down, patch it around %d little bugs in the code.\n",
-                numBugs, numBugs, m);
-
-        assertEquals(ExpResult, result);
-
+    @Test
+    void testSongCouplets() {
+        int numBugs = 100;
+        String result = fs.song(100, 3);
+        int numCouplets = 3;
+        String[] s = result.split("\n\n");
+        assertEquals(numCouplets, s.length);
     }
 }
