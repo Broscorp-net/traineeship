@@ -1,11 +1,7 @@
 package net.broscorp.n_strings;
 
-import javafx.util.Builder;
-
 import java.util.Formatter;
 import java.util.Random;
-
-import static jdk.nashorn.internal.objects.NativeString.substring;
 
 class FunnyStrings {
     private String word = "Hello World!";
