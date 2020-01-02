@@ -1,7 +1,9 @@
 package net.broscorp.n_strings;
 
+import javafx.util.Builder;
 import org.junit.jupiter.api.Test;
 
+import java.text.Format;
 import java.text.Normalizer;
 import java.util.Formatter;
 import java.util.Random;
@@ -56,9 +58,16 @@ class FunnyStringsTest {
     @Test
     void testSongCouplets() {
         int numBugs = 100;
-        String result = fs.song(100, 3);
-        int numCouplets = 3;
-        String[] s = result.split("\n\n");
-        assertEquals(numCouplets, s.length);
+        int numCouplets = 2;
+        Formatter formatter = new Formatter();
+        Random random = new Random(20);
+        int m = numBugs - 10 + random.nextInt(20);
+        String expectedResult = formatter.format("%d little bugs in the code, \n%d little bugs in the code. " +
+                        "\nTake one down, patch it around %d little bugs in the code.\n\n" +
+                        "%d little bugs in the code, \n%d little bugs in the code. " +
+                        "\nTake one down, patch it around ", numBugs, numBugs, m, m, m).toString().substring(0, 212);
+        String beforeResult = fs.song(numBugs, numCouplets);
+        String result = beforeResult.substring(0, 212);
+        assertEquals(expectedResult, result);
     }
 }

@@ -1,7 +1,11 @@
 package net.broscorp.n_strings;
 
+import javafx.util.Builder;
+
 import java.util.Formatter;
 import java.util.Random;
+
+import static jdk.nashorn.internal.objects.NativeString.substring;
 
 class FunnyStrings {
     private String word = "Hello World!";
@@ -50,15 +54,13 @@ class FunnyStrings {
         return one + two;
     }
 
-    Random random = new Random();
+    Random random = new Random(20);
     int m;
 
     String song(int numBugs, int numCouplets) {
-        StringBuilder s = new StringBuilder();
         Formatter formatter = new Formatter();
         for (int i = numCouplets; i > 0; i--) {
             m = numBugs - 10 + random.nextInt(20);
-
             formatter.format("%d little bugs in the code, \n%d little bugs in the code. " +
                             "\nTake one down, patch it around %d little bugs in the code.\n\n",
                     numBugs, numBugs, m);
