@@ -4,11 +4,11 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.function.Function;
 
-public class MyCoolList<N extends Number> {
+public class MyOwnCoolList<N extends Number> {
     private int size = 0;
     private Number[] array;
 
-    public MyCoolList() {
+    public MyOwnCoolList() {
         this.array = new Number[10];
         this.size = 0;
     }
@@ -42,23 +42,16 @@ public class MyCoolList<N extends Number> {
 
     }
 
-    public MyCoolList<? extends Number> map(Function<N, ? extends Number> f) {
-        MyCoolList myCoolList = new MyCoolList();
+    public MyOwnCoolList<? extends Number> map(Function<N, ? extends Number> f) {
+        MyOwnCoolList myOwnCoolList = new MyOwnCoolList();
         for (int i = 0; i < this.size; i++) {
-            myCoolList.add(f.apply((N) array[i]));
+            myOwnCoolList.add(f.apply((N) array[i]));
         }
-        return myCoolList;
+        return myOwnCoolList;
     }
 
     public int size() {
         return size;
-    }
-
-    public static void main(String[] args) {
-        MyCoolList<Integer>myCoolList=new MyCoolList<>();
-        myCoolList.add(2);
-        myCoolList.add(3);
-        System.out.println(myCoolList.size());
     }
 
 }

@@ -1,6 +1,5 @@
 package net.broscorp.h_generics;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,36 +7,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class MyCoolListTestClass {
-    MyCoolList<Integer> myCoolList;
+    MyOwnCoolList<Integer> myOwnCoolList;
 
     @BeforeEach
     void init() {
-        myCoolList = new MyCoolList<>();
-        myCoolList.add(111);
+        myOwnCoolList = new MyOwnCoolList<>();
+        myOwnCoolList.add(111);
     }
 
     @Test
     void get_ListTest() {
-        assertEquals(111, myCoolList.get(0));
+        assertEquals(111, myOwnCoolList.get(0));
     }
 
     @Test
     void removeListTest() {
-        myCoolList.remove(0);
-        assertNull(myCoolList.get(0));
+        myOwnCoolList.remove(0);
+        assertNull(myOwnCoolList.get(0));
     }
 
     @Test
     void sizeListTest() {
-        assertEquals(1, myCoolList.size());
+        assertEquals(1, myOwnCoolList.size());
     }
 
-    @Ignore//try to play with annotations
     @Test
     void mapTest() {
-        myCoolList = new MyCoolList<>();
-        myCoolList.add(111);
-        MyCoolList<? extends Number> myCoolListMap = myCoolList.map(x -> x + 111);
-        assertEquals(222, myCoolListMap.get(0));
+        MyOwnCoolList<? extends Number> myOwnCoolListMap = myOwnCoolList.map(x -> x + 111);
+        assertEquals(222, myOwnCoolListMap.get(0));
     }
 }
