@@ -8,33 +8,33 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class MyCoolListTestClass {
 
-    MyOwnCoolList<Integer> myOwnCoolList;
+    MyCoolList<Integer> myCoolList;
 
     @BeforeEach
     void init() {
-        myOwnCoolList = new MyOwnCoolList<>();
-        myOwnCoolList.add(111);
+        myCoolList = new MyCoolList<>();
+        myCoolList.add(111);
     }
 
     @Test
     void get_ListTest() {
-        assertEquals(111, myOwnCoolList.get(0));
+        assertEquals(111, myCoolList.get(0));
     }
 
     @Test
     void removeListTest() {
-        myOwnCoolList.remove(0);
-        assertNull(myOwnCoolList.get(0));
+        myCoolList.remove(0);
+        assertNull(myCoolList.get(0));
     }
 
     @Test
     void sizeListTest() {
-        assertEquals(1, myOwnCoolList.size());
+        assertEquals(1, myCoolList.size());
     }
 
     @Test
     void mapTest() {
-        MyOwnCoolList<? extends Number> myOwnCoolListMap = myOwnCoolList.map(x -> x + 111);
-        assertEquals(222, myOwnCoolListMap.get(0));
+        MyCoolList<? extends Number> myCoolListMap = myCoolList.map(x -> x + 111);
+        assertEquals(222, myCoolListMap.get(0));
     }
 }
