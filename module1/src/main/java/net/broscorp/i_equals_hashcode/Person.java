@@ -16,13 +16,6 @@ public class Person {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public int getHeight() {
-        return height;
-    }
 
     public boolean equals(Object o) {
         if (this == o) return true;

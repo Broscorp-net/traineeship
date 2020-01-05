@@ -77,7 +77,6 @@ public class PersonTestClass {
                 System.out.println(person.hashCode() + " this hashCode already exist");
                 duplicatedHashCodes++;
             }
-
         }
         assertTrue(duplicatedHashCodes > 0);
     }
