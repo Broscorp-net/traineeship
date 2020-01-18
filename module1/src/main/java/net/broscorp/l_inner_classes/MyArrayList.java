@@ -1,13 +1,11 @@
 package net.broscorp.l_inner_classes;
 
-import javafx.scene.control.SelectionMode;
-
 import java.util.Arrays;
 import java.util.function.Function;
 
 class TryArray {
     public static void main(String[] args) {
-        MyArrayList myArrayList = new MyArrayList();
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
         myArrayList.add(10);
         myArrayList.add(11);
         myArrayList.add(12);
@@ -20,11 +18,11 @@ class TryArray {
         myArrayList.remove(3);
         System.out.println(myArrayList);
         System.out.println(myArrayList.get(2));
-
+        //myArrayList.map(o -> 20);
     }
 }
 
-public class MyArrayList {
+public class MyArrayList<T extends Number> {
     private Object[] elements;
     private Object[] newArray;
     private final int DEFAULT_CAPACITY = 3;
@@ -34,54 +32,48 @@ public class MyArrayList {
         this.elements = new Object[DEFAULT_CAPACITY];
     }
 
-    void chekCapacity() {
+    private void checkCapacity() {
         if (size >= elements.length) {
-            System.out.println("growing...");
-            grow(size);
+            grow();
         }
     }
 
-    public boolean add(Object o) {
-        chekCapacity();
+    public boolean add(T o) {
+        checkCapacity();
         elements[size++] = o;
         return true;
     }
 
-    void grow(int index) {
+    private void grow() {
         int newCapacity = elements.length * 2;
         elements = Arrays.copyOf(elements, newCapacity);
     }
 
-    public Object get(int index) {
+    public T get(int index) {
         if (index > size - 1) {
             System.out.println("Array max index = " + size + ": requesing_" + index);
         }
-        return elements[index];
+        return (T) elements[index];
     }
 
     public void remove(int index) {
-        chekCapacity();
-        Object[] temp = elements;
+        checkCapacity();
         int elemForCopy = elements.length - index - 1;
         if (index > size - 1) {
             System.out.println("Incorrect index: " + index);
             return;
-
         } else {
             System.arraycopy(elements, index + 1, elements, index, elemForCopy);
         }
         size--;
     }
 
-    public Object map(Function f) {
-        /*public interface Function<T, R> {
-         *//**
-         * Applies this function to the given argument.
-         * @param t the function argument
-         * @return the function result
-         *//*
-            R apply(T t);*/
-        return null;
+    public MyArrayList<? extends Number> map(Function<T, ? extends Number> f) {
+        MyArrayList<Number> myArrayList = new MyArrayList<>();
+        for (int i = 0; i < size; i++) {
+            myArrayList.add(f.apply((T) elements[i]));
+        }
+        return myArrayList;
     }
 
     @Override
