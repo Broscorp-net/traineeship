@@ -1,6 +1,7 @@
 package net.broscorp.l_inner_classes;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.function.Function;
 
 class TryArray {
@@ -74,6 +75,32 @@ public class MyArrayList<T extends Number> {
             myArrayList.add(f.apply((T) elements[i]));
         }
         return myArrayList;
+    }
+
+    Iterator<T> iterator() {
+        return new Itr();
+    }
+
+    private class Itr implements Iterator<T> {
+        int cursor; // индекс для слкдующего элемента
+        int lastElem = -1;
+
+        Itr() {
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (cursor != size);
+        }
+
+        @Override
+        public T next() {
+            trimToSize();
+            int indx = cursor;
+            Object[] elements = MyArrayList.this.elements;
+            cursor = indx + 1;
+            return (T) elements[lastElem = indx];
+        }
     }
 
     @Override
