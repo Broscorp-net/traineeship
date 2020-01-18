@@ -18,8 +18,15 @@ class TryArray {
         System.out.println(myArrayList);
         myArrayList.remove(3);
         System.out.println(myArrayList);
-        System.out.println(myArrayList.get(2));
-        //myArrayList.map(o -> 20);
+        System.out.println("\t" + myArrayList.get(2));
+
+        for (int i = 0; i < 12; i++) {
+            myArrayList.add(i*100);
+        }
+        Iterator<? extends Number> iterator = myArrayList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
 
@@ -85,9 +92,6 @@ public class MyArrayList<T extends Number> {
         int cursor; // индекс для слкдующего элемента
         int lastElem = -1;
 
-        Itr() {
-        }
-
         @Override
         public boolean hasNext() {
             return (cursor != size);
@@ -95,7 +99,6 @@ public class MyArrayList<T extends Number> {
 
         @Override
         public T next() {
-            trimToSize();
             int indx = cursor;
             Object[] elements = MyArrayList.this.elements;
             cursor = indx + 1;
@@ -103,7 +106,7 @@ public class MyArrayList<T extends Number> {
         }
     }
 
-    @Override
+    @Override // обрезать элементы с null - значениями
     public String toString() {
         trimToSize();
         return "MyArrayList{" + "elements=" + Arrays.toString(newArray) + '}';
