@@ -4,32 +4,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.function.Function;
 
-class TryArray {
-    public static void main(String[] args) {
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
-        myArrayList.add(10);
-        myArrayList.add(11);
-        myArrayList.add(12);
-        System.out.println(myArrayList);
-        myArrayList.remove(0);
-        System.out.println(myArrayList);
-        myArrayList.add(14);
-        myArrayList.add(15);
-        System.out.println(myArrayList);
-        myArrayList.remove(3);
-        System.out.println(myArrayList);
-        System.out.println("\t" + myArrayList.get(2));
-
-        for (int i = 0; i < 12; i++) {
-            myArrayList.add(i*100);
-        }
-        Iterator<? extends Number> iterator = myArrayList.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-    }
-}
-
 public class MyArrayList<T extends Number> {
     private Object[] elements;
     private Object[] newArray;
@@ -84,6 +58,10 @@ public class MyArrayList<T extends Number> {
         return myArrayList;
     }
 
+    /**
+     *
+     * @return
+     */
     Iterator<T> iterator() {
         return new Itr();
     }
