@@ -51,6 +51,7 @@
           <consoleOutput>true</consoleOutput>
           <failsOnError>true</failsOnError>
           <failOnViolation>true</failOnViolation> <!--todo-->
+          <violationSeverity>warning</violationSeverity>
         </configuration>
         <executions>
           <execution>
