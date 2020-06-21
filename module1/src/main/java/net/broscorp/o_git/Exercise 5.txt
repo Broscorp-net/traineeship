@@ -1,0 +1,7 @@
+c3d1475 (HEAD -> master) HEAD@{0}: commit (cherry-pick): "make cherry-pick for 2nd commit feature branch
+d547aad HEAD@{1}: checkout: moving from feature to master
+4499e77 (feature) HEAD@{2}: commit: 2nd commit feature
+f26a844 HEAD@{3}: commit: 1st commit feature
+d547aad HEAD@{4}: checkout: moving from master to feature
+d547aad HEAD@{5}: commit: 2nd commit master
+5b00679 HEAD@{6}: commit (initial): 1st commit master
