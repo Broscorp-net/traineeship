@@ -1,51 +1,44 @@
 # Git commands
+_Задание поможет тебе "прощупать" Git_
 
-[Справочник по основным командам](https://git-scm.com/book/en/v2)
+## Алгоритм выполнения
 
-[Примеры использования](https://dzone.com/articles/top-20-git-commands-with-examples)
+1.	Создать новую ветку (__git branch__). _Имя ветки_ совпадает с _именем пакета задания_ (__o_git__).
+2.	__Git rebase__
+      *	Создать 2 ветки (__master__ / __feature__)
+      *	Сделать 2-3 коммита в каждой из веток
+      *	Перенести ветку __feature__ на вершину ветки 
+      *	Логи сбросить в ответ на задание (__git reflog__)
+3.	__Склеить коммиты__
+      *	Создать ветку 
+      *	Сделать 2-3 коммита 
+      *	Склеить коммиты в один  
+      *	Логи сбросить в ответ на задание (__git reflog__)
+4.	__Git merge__
+      *	Создать ветку __master__
+      *	Сделать 2 коммита 
+      *	Создать новую ветку __feature__, переключиться на неё 
+      *	Сделать 2 коммита 
+      *	Выполнить merge __feature__ в __master__
+      *	Логи сбросить в ответ на задание (__git reflog__)
+5.	__Git revert__
+      *	Создать ветку
+      *	Сделать 3 коммита  
+      *	Выполнить __revert__ последнего коммита 
+      *	Логи сбросить в ответ на задание (__git reflog__)
+6.	__Git cherry-pick__
+      *	Создать 2 ветки (__master__ / __feature__)
+      *	Сделать 2-3 коммита в каждой из веток
+      *	Перенести коммит из __feature__ в __master__
+      *	Логи сбросить в ответ на задание (__git reflog__).
+7.	Сделать __Pull requests__. _Имя pull requests_ __совпадает__ с _именем пакета задания_ (__o_git__).
 
-[Потыкать палочкой в git можно тут](https://learngitbranching.js.org/)
-
-## Задания
-### 1. Git rebase
-[Справка](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
-
-      • Создать 2 ветки (master / feature)
-      • Сделать 2-3 коммита в каждой из веток
-      • Перенести ветку feature  на вершину ветки 
-      • Логи сбросить в ответ на задание (git reflog)
-
-### 2. Склеить коммиты
-[Справка ](https://htmlacademy.ru/blog/useful/git/how-to-squash-commits-and-why-it-is-needed)
-
-      • Создать ветку 
-      • Сделать 2-3 коммита 
-      • Склеить коммиты в один  
-      • Логи сбросить в ответ на задание (git reflog)
-
-### 3. Git merge
-[Справка](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
-
-      • Создать ветку master
-      • Сделать 2 коммита 
-      • Создать новую ветку feature, переключиться на неё 
-      • Сделать 2 коммита 
-      • Выполнить merge feature в  master
-      • Логи сбросить в ответ на задание (git reflog)
-          
-
-### 4. Git revert
-[Справка](https://www.atlassian.com/git/tutorials/undoing-changes/git-revert)
-
-      • Создать ветку
-      • Сделать 3 коммита  
-      • Выполнить revert последнего коммита 
-      • Логи сбросить в ответ на задание (git reflog)
-
-### 5. Git cherry-pick
-[Справка](https://www.atlassian.com/git/tutorials/cherry-pick)
-
-      • Создать 2 ветки (master / feature)
-      • Сделать 2-3 коммита в каждой из веток
-      • Перенести коммит из  feature в в master
-      • Логи сбросить в ответ на задание (git reflog)
+## Источники для выполнения задания:
+1.	https://git-scm.com/book/en/v2
+2.	https://dzone.com/articles/top-20-git-commands-with-examples
+3.	https://learngitbranching.js.org/?locale=uk
+4.	https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
+5.	https://htmlacademy.ru/blog/boost/tools/how-to-squash-commits-and-why-it-is-needed
+6.	https://www.atlassian.com/git/tutorials/using-branches/git-merge
+7.	https://www.atlassian.com/git/tutorials/undoing-changes/git-revert
+8.	https://www.atlassian.com/git/tutorials/cherry-pick
