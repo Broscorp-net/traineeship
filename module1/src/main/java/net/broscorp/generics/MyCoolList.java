@@ -1,4 +1,4 @@
-package net.broscorp.hgenerics;
+package net.broscorp.generics;
 
 import java.util.function.Function;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;

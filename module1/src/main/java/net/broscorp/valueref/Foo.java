@@ -1,4 +1,4 @@
-package net.broscorp.gvalueref;
+package net.broscorp.valueref;
 
 import java.util.List;
 
