@@ -10,4 +10,4 @@
 
 ## Источники для выполнения задания:
 1.	https://en.wikipedia.org/wiki/DOT_(graph_description_language)
-
+2.	http://www.webgraphviz.com/ – проверка результатов.
