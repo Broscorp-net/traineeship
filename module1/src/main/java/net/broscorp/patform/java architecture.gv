@@ -1,0 +1,28 @@
+digraph G {
+node [style=filled,color=green];
+  "Java Source Code" -> "Java Development Kit(JDK)"[style=bold]
+node [style=filled,color=blue];
+  "Java Development Kit(JDK)" -> "Java Compiler"[label="consist"]
+node [style=filled,color=green];
+  "Java Development Kit(JDK)" -> "Java Byte Code"[style=bold]
+node [style=filled,color=green];
+  "Java Byte Code" -> "Java Virtual Machine(JVM)"[style=bold]
+node [style=filled,color=blue];
+  "Java Virtual Machine(JVM)" -> "Just-In-Time-Compiler(JIT)"[label="consist"]
+node [style=filled,color=red];
+  "Java Virtual Machine(JVM)" -> "Hardware Platform"[label="work together"]
+node [style=filled,color=green];
+  "Java Virtual Machine(JVM)" -> "Java Runtime Environment(JRE)"[style=bold,label="Implementation"]
+}
+/*JVM: Java Virtual Machine is an abstract computing machine.
+JVM is specific for OS platform and they translate the Java instructions to the underlying platform specific instructions and execute them.
+JVM enables the Java programs to be platform independent
+
+JRE: Java Runtime Environment is an implementation of the JVM and Java API
+
+JDK: Java Development Kit contains JRE along with various development tools like Java libraries,
+Java source compilers, Java debuggers, bundling and deployment tools
+
+JIT: Just-in-time Compiler is the part of the JVM that is used to speed up the execution time.
+JIT compiles parts of the byte code that have similar functionality at the same time,
+and hence reduces the amount of time needed for compilation */
