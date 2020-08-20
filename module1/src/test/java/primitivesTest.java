@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class primitivesTest {
 
+
   @Test
   public void intMaxValueSUm() {
     int a = Integer.MAX_VALUE;
