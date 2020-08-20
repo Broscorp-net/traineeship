@@ -8,7 +8,6 @@ public class boxingTest {
   Integer a = new Integer(4);
   Integer b = new Integer(4);
 
-
   @Test
   public void falseTest() {
     assertFalse(a == b);
