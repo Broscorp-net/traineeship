@@ -1,28 +1,27 @@
 package net.broscorp.generics;
 
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class MyCoolList {
 
   public void add(Object o) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   public Object get(int index) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   public Object remove(int index) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   public MyCoolList map(Function f) {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
   public int size() {
-    throw new NotImplementedException();
+    throw new UnsupportedOperationException();
   }
 
 }
