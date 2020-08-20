@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.19">
+<file name="/Users/makar/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/generics/MyCoolList.java">
+</file>
+<file name="/Users/makar/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/checkstyle/StyledClass.java">
+</file>
+<file name="/Users/makar/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/valueref/Foo.java">
+</file>
+<file name="/Users/makar/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/bytecode/Main.java">
+<error line="5" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+</checkstyle>
