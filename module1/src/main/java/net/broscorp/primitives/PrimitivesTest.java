@@ -1,8 +1,10 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
 class PrimitivesTest {
+
   @Test
   public void numericOverflowShouldAppear() {
     byte byteNumber = (byte) 128;
