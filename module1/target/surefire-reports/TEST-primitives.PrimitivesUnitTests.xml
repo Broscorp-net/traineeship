@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="primitives.PrimitivesUnitTests" time="0.11" tests="9" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/vladyslav/IdeaProjects/traineeship/module1/target/test-classes:/home/vladyslav/IdeaProjects/traineeship/module1/target/classes:/home/vladyslav/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/home/vladyslav/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/vladyslav/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/vladyslav/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/home/vladyslav/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/home/vladyslav/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/vladyslav/.jdks/corretto-11.0.8/lib"/>
+    <property name="sun.java.command" value="/home/vladyslav/IdeaProjects/traineeship/module1/target/surefire/surefirebooter5181197440937714863.jar /home/vladyslav/IdeaProjects/traineeship/module1/target/surefire 2020-08-20T12-48-36_280-jvmRun1 surefire283353214098773381tmp surefire_09421648219623148397tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/vladyslav/IdeaProjects/traineeship/module1/target/test-classes:/home/vladyslav/IdeaProjects/traineeship/module1/target/classes:/home/vladyslav/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/home/vladyslav/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/vladyslav/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/vladyslav/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/home/vladyslav/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/home/vladyslav/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/vladyslav"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2020-07-14"/>
+    <property name="java.home" value="/home/vladyslav/.jdks/corretto-11.0.8"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/vladyslav/IdeaProjects/traineeship/module1"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/vladyslav/IdeaProjects/traineeship/module1/target/surefire/surefirebooter5181197440937714863.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.8+10-LTS"/>
+    <property name="user.name" value="vladyslav"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.4.0-42-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Corretto-11.0.8.10.1"/>
+    <property name="localRepository" value="/home/vladyslav/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
+    <property name="java.io.tmpdir" value="/home/vladyslav/.var/app/com.jetbrains.IntelliJ-IDEA-Community/cache/tmp/"/>
+    <property name="idea.version" value="2020.2"/>
+    <property name="java.version" value="11.0.8"/>
+    <property name="user.dir" value="/home/vladyslav/IdeaProjects/traineeship/module1"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="11.0.8+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="errorWithFloatingNumber" classname="primitives.PrimitivesUnitTests" time="0.053"/>
+  <testcase name="overflowInt" classname="primitives.PrimitivesUnitTests" time="0.001"/>
+  <testcase name="longToInteger" classname="primitives.PrimitivesUnitTests" time="0.002"/>
+  <testcase name="overflowByte" classname="primitives.PrimitivesUnitTests" time="0.003"/>
+  <testcase name="overflowLong" classname="primitives.PrimitivesUnitTests" time="0.002"/>
+  <testcase name="floatToDouble" classname="primitives.PrimitivesUnitTests" time="0.002"/>
+  <testcase name="overflowFloat" classname="primitives.PrimitivesUnitTests" time="0.002"/>
+  <testcase name="overflowShort" classname="primitives.PrimitivesUnitTests" time="0.003"/>
+  <testcase name="overflowDouble" classname="primitives.PrimitivesUnitTests" time="0.002"/>
+</testsuite>

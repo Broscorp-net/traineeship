@@ -5,7 +5,9 @@
   <artifactId>module_1</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
