@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.19">
+<file name="/home/optium/Learn/Java/traineeship/traineeship/module1/src/main/java/net/broscorp/boxing/Boxing.java">
+</file>
+<file name="/home/optium/Learn/Java/traineeship/traineeship/module1/src/main/java/net/broscorp/generics/MyCoolList.java">
+<error line="4" severity="warning" message="Wrong lexicographical order for &apos;java.lang.UnsupportedOperationException&apos; import. Should be before &apos;java.util.function.Function&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+</checkstyle>
