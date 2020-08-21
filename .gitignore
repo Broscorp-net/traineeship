@@ -24,3 +24,4 @@ hs_err_pid*
 
 .idea/
 *.iml
+/module1/src/main/java/net/broscorp/bytecode/start.sh
