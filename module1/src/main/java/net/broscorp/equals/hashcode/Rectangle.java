@@ -1,5 +1,6 @@
 package net.broscorp.equals.hashcode;
 
+
 public class Rectangle {
 
   int height;
