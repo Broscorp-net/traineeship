@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2020</copyright>
     <item>
-      <title>File: 2,
+      <title>File: 1,
              Errors: 0,
-             Warnings: 1,
+             Warnings: 0,
              Infos: 0
       </title>
             <link>${project.url}/checkstyle.html</link>
@@ -46,27 +46,13 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#net.broscorp.boxing.Boxing.java">net/broscorp/boxing/Boxing.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#net.broscorp.generics.MyCoolList.java">net/broscorp/generics/MyCoolList.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
