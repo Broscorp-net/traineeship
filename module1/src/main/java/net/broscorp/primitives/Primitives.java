@@ -30,9 +30,10 @@ public class Primitives {
 
     assertNotEquals(20.20, b);
   }
+
   @Test
-  public void floatingPointOperation(){
-    float a = 1.0f-0.5f;
+  public void floatingPointOperation() {
+    float a = 1.0f - 0.5f;
 
     assertNotEquals(0.5, a);
   }
