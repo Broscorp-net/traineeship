@@ -1,0 +1,26 @@
+digraph G {
+
+    subgraph cluster_0 {
+    style = filled;
+    color = red;
+    label = "JDK";
+    node [shape = box,style = filled,color = orange];
+    "Development Tools";
+    subgraph cluster_1 {
+    label = "JRE";
+    color = orange;
+    "Library Classes" [shape = box,style = filled,color = yellow];
+    " " [style = filled,color = orange];
+    subgraph cluster_2 {
+    JIT [shape = box,style = filled,color = green];
+    node [color = yellow];
+    "JVM get Byte Code";
+    label = "JVM";
+    color = yellow;}
+    }
+    }
+    node [style = filled,color = grey];
+    ".java files" -> "Development Tools";
+    "Development Tools" -> "JVM get Byte Code" [label = ".class file"];
+    "JVM get Byte Code" -> " " [label = " Implementation"];
+}
