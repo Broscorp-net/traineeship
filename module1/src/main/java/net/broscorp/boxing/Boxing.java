@@ -18,9 +18,10 @@ public class Boxing {
   public void compareTestInCache() {
     assertTrue(a == b);
   }
+
   @Test
-  public void compareTestNotInCache(){
-    assertFalse(c==d);
+  public void compareTestNotInCache() {
+    assertFalse(c == d);
   }
 
   @Test
@@ -34,8 +35,9 @@ public class Boxing {
     int b = Integer.valueOf(10);
     assertTrue(a.equals(b));
   }
+
   @Test
-  public void unboxingTest(){
-    assertEquals(127,a);
+  public void unboxingTest() {
+    assertEquals(127, a);
   }
 }
