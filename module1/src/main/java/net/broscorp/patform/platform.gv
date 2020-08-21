@@ -1,0 +1,23 @@
+digraph a {
+  jit [label="JIT", shape=box];
+  jvm [label="JVM", shape=box];
+  jre [label="JRE", shape=box];
+  jdk [label="JDK", shape=box];
+  bynary [label="binary files"];
+  classes [lavel="other classes"];
+  jit -> jvm;
+  jvm -> jre;
+  jre -> jdk;
+  jre -> bynary;
+  jre -> classes;
+} 
+
+/*
+JIT - технология которая оптимизирует работу программы благодаря компиляции
+байт кода во время работы программы.
+JVM - виртуальная машина java, является основной частью JRE. Исполняет
+байт код. Имеет в составе JIT.
+JRE - минимальная реализация JVM, для исполнения java приложения.
+JDK - комплект для работы на java, имеет комплиятор, утилиты, документацию.
+стандартные библиотеки классов java и исполнительную систему JRE.
+*/ 
