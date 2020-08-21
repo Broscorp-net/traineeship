@@ -13,10 +13,12 @@ public class Rectangle {
 
   @Override
   public String toString() {
-    return "Rectangle{" +
-        "height=" + height +
-        ", width=" + width +
-        '}';
+    return "Rectangle{"
+        + "height="
+        + height
+        + ", width="
+        + width
+        + '}';
   }
 
   @Override
@@ -28,8 +30,8 @@ public class Rectangle {
       return false;
     }
     Rectangle rectangle = (Rectangle) o;
-    return (height == rectangle.height && width == rectangle.width) ||
-        (height == rectangle.width && width == rectangle.height);
+    return (height == rectangle.height && width == rectangle.width)
+        || (height == rectangle.width && width == rectangle.height);
   }
 
   @Override

@@ -3,6 +3,7 @@ import java.util.List;
 import net.broscorp.equals.hashcode.Rectangle;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class rectangleTest {
@@ -18,13 +19,13 @@ public class rectangleTest {
   }
 
   @Test
-  public void equalsHashCodeTest() {
-
+  public void equalHashTest() {
     assertEquals(array.get(0).hashCode(), array.get(1).hashCode());
+
   }
 
   @Test
-  public void notEqualsHashCodeTest() {
+  public void notEqualHashTest() {
 
     assertNotEquals(array.get(0).hashCode(), array.get(2).hashCode());
   }
@@ -47,9 +48,10 @@ public class rectangleTest {
     for (int i = 0; i < array.size() - 1; i++) {
       Rectangle a = array.get(i);
       Rectangle b = array.get(i + 1);
-      if (a.hashCode() == b.hashCode() &&
-          !a.equals(b)) {
-        System.out.println("Объекты " + a + " и " + b + " разные, но их хэш совпадает.");
+      if (a.hashCode() == b.hashCode() && !a.equals(b)) {
+
+        System.out.println("Объекты "+a+" и "+b+" разные, но их хэш совпадает.");
+
       }
     }
   }
