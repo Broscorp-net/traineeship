@@ -4,29 +4,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class Boxing {
 
-  Integer a = 127;
-  Integer b = 127;
-  Integer c = 128;
-  Integer d = 128;
+  Integer firsNumber = 127;
+  Integer secondNumber = 127;
+  Integer thirdNumber = 128;
+  Integer fourthNumber = 128;
 
   @Test
   public void compareTestInCache() {
-    assertTrue(a == b);
+    assertTrue(firsNumber == secondNumber);
   }
 
   @Test
   public void compareTestNotInCache() {
-    assertFalse(c == d);
+    assertFalse(thirdNumber == fourthNumber);
   }
 
   @Test
   public void equalsTest() {
-    assertTrue(a.equals(b));
+    assertTrue(firsNumber.equals(secondNumber));
   }
 
   @Test
@@ -38,6 +37,6 @@ public class Boxing {
 
   @Test
   public void unboxingTest() {
-    assertEquals(127, a);
+    assertEquals(127, firsNumber);
   }
 }
