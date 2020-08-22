@@ -1,0 +1,22 @@
+digraph JavaArchitecture{
+  rankdir=LR;
+  JDK [label = "JDK", shape = box]
+  JRE [label = "JRE", shape = box]
+  JVM [label = "JVM", shape = box]
+  JIT [label = "JIT", shape = box]
+  DevTools [label = "Development Tools", shape = box]
+  Class [label = "Classes", shape = box]
+  JDK -> JRE -> JVM -> JIT;
+  JDK -> DevTools;
+  JRE -> Class;
+}
+
+/*
+    JDK (Java Development Kit) - набор для разработки Java-приложений. Включает в себя:
+    компилятор, утилиты для отладки, документацию, и JRE.
+    JRE (Java Runtime Environment) - набор программных компонентов для запуска Java-приложений. Включает в себя:
+    стандартные классы Java, и JVM.
+    JVM (Java Virtual Machine) - виртуальная машина Java, которая выполняет программу. Содержит в себе JIT.
+    JIT (Just-In-Time) - компиляция "на лету", которая преобразует исходный код программы в байт-код,
+    непосредственно, во время выполнения.
+*/
