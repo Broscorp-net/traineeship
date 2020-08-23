@@ -1,0 +1,159 @@
+Classfile /C:/Users/QM/BytecodeMe2.class
+  Last modified 23 рту. 2020 у.; size 1193 bytes
+  SHA-256 checksum 685b9085e418123a4854b9f6ffd7097540d68113f1c79e9c8a1e879d67d7705d
+  Compiled from "BytecodeMe2.java"
+public class net.broscorp.bytecode.BytecodeMe2
+  minor version: 0
+  major version: 57
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #22                         // net/broscorp/bytecode/BytecodeMe2
+  super_class: #16                        // java/lang/Object
+  interfaces: 0, fields: 1, methods: 4, attributes: 3
+Constant pool:
+   #1 = Fieldref           #2.#3          // java/lang/System.out:Ljava/io/PrintStream;
+   #2 = Class              #4             // java/lang/System
+   #3 = NameAndType        #5:#6          // out:Ljava/io/PrintStream;
+   #4 = Utf8               java/lang/System
+   #5 = Utf8               out
+   #6 = Utf8               Ljava/io/PrintStream;
+   #7 = String             #8             // Hello!
+   #8 = Utf8               Hello!
+   #9 = Methodref          #10.#11        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #10 = Class              #12            // java/io/PrintStream
+  #11 = NameAndType        #13:#14        // println:(Ljava/lang/String;)V
+  #12 = Utf8               java/io/PrintStream
+  #13 = Utf8               println
+  #14 = Utf8               (Ljava/lang/String;)V
+  #15 = Methodref          #16.#17        // java/lang/Object."<init>":()V
+  #16 = Class              #18            // java/lang/Object
+  #17 = NameAndType        #19:#20        // "<init>":()V
+  #18 = Utf8               java/lang/Object
+  #19 = Utf8               <init>
+  #20 = Utf8               ()V
+  #21 = Fieldref           #22.#23        // net/broscorp/bytecode/BytecodeMe2.anInt:I
+  #22 = Class              #24            // net/broscorp/bytecode/BytecodeMe2
+  #23 = NameAndType        #25:#26        // anInt:I
+  #24 = Utf8               net/broscorp/bytecode/BytecodeMe2
+  #25 = Utf8               anInt
+  #26 = Utf8               I
+  #27 = Methodref          #22.#28        // net/broscorp/bytecode/BytecodeMe2."<init>":(I)V
+  #28 = NameAndType        #19:#29        // "<init>":(I)V
+  #29 = Utf8               (I)V
+  #30 = InvokeDynamic      #0:#31         // #0:makeConcatWithConstants:(I)Ljava/lang/String;
+  #31 = NameAndType        #32:#33        // makeConcatWithConstants:(I)Ljava/lang/String;
+  #32 = Utf8               makeConcatWithConstants
+  #33 = Utf8               (I)Ljava/lang/String;
+  #34 = String             #35            // Incrementing anInt
+  #35 = Utf8               Incrementing anInt
+  #36 = Utf8               hello
+  #37 = Utf8               Code
+  #38 = Utf8               LineNumberTable
+  #39 = Utf8               main
+  #40 = Utf8               ([Ljava/lang/String;)V
+  #41 = Utf8               StackMapTable
+  #42 = Utf8               SourceFile
+  #43 = Utf8               BytecodeMe2.java
+  #44 = Utf8               BootstrapMethods
+  #45 = MethodHandle       6:#46          // REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #46 = Methodref          #47.#48        // java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #47 = Class              #49            // java/lang/invoke/StringConcatFactory
+  #48 = NameAndType        #32:#50        // makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #49 = Utf8               java/lang/invoke/StringConcatFactory
+  #50 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #51 = String             #52            // anInt = \u0001
+  #52 = Utf8               anInt = \u0001
+  #53 = Utf8               InnerClasses
+  #54 = Class              #55            // java/lang/invoke/MethodHandles$Lookup
+  #55 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #56 = Class              #57            // java/lang/invoke/MethodHandles
+  #57 = Utf8               java/lang/invoke/MethodHandles
+  #58 = Utf8               Lookup
+{
+  public net.broscorp.bytecode.BytecodeMe2(int);
+    descriptor: (I)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #15                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iload_1
+         6: putfield      #21                 // Field anInt:I
+         9: return
+      LineNumberTable:
+        line 11: 0
+        line 12: 4
+        line 13: 9
+
+  public net.broscorp.bytecode.BytecodeMe2();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #15                 // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 15: 0
+        line 16: 4
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=3, args_size=1
+         0: new           #22                 // class net/broscorp/bytecode/BytecodeMe2
+         3: dup
+         4: iconst_0
+         5: invokespecial #27                 // Method "<init>":(I)V
+         8: astore_1
+         9: getstatic     #1                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        12: aload_1
+        13: getfield      #21                 // Field anInt:I
+        16: invokedynamic #30,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+        21: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        24: getstatic     #1                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        27: ldc           #34                 // String Incrementing anInt
+        29: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        32: iconst_0
+        33: istore_2
+        34: iload_2
+        35: bipush        100
+        37: if_icmpge     56
+        40: aload_1
+        41: dup
+        42: getfield      #21                 // Field anInt:I
+        45: iconst_1
+        46: iadd
+        47: putfield      #21                 // Field anInt:I
+        50: iinc          2, 1
+        53: goto          34
+        56: getstatic     #1                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        59: aload_1
+        60: getfield      #21                 // Field anInt:I
+        63: invokedynamic #30,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+        68: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        71: return
+      LineNumberTable:
+        line 21: 0
+        line 22: 9
+        line 23: 24
+        line 24: 32
+        line 25: 40
+        line 24: 50
+        line 27: 56
+        line 28: 71
+      StackMapTable: number_of_entries = 2
+        frame_type = 253 /* append */
+          offset_delta = 34
+          locals = [ class net/broscorp/bytecode/BytecodeMe2, int ]
+        frame_type = 250 /* chop */
+          offset_delta = 21
+}
+SourceFile: "BytecodeMe2.java"
+BootstrapMethods:
+  0: #45 REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #51 anInt = \u0001
+InnerClasses:
+  public static final #58= #54 of #56;    // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
