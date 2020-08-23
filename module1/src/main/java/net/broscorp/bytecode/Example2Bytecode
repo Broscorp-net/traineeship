@@ -1,0 +1,27 @@
+Compiled from "BytecodeExample2.java"
+public class net.broscorp.bytecode.BytecodeExample2 {
+  public net.broscorp.bytecode.BytecodeExample2();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        10
+       7: if_icmpge     21
+      10: iload_1
+      11: invokestatic  #7                  // Method incrementAndGet:(I)I
+      14: istore_1
+      15: iinc          2, 1
+      18: goto          4
+      21: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      24: ldc           #19                 // String Hello, world!
+      26: invokevirtual #21                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      29: return
+}
