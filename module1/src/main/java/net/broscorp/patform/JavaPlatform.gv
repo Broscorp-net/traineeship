@@ -1,0 +1,15 @@
+digraph JavaPlatform {
+  "JDK" [shape=box, style=filled, color=".7 .3 1.0"]
+  "JDK" -> "JRE" [label="includes"]
+  "JDK" -> "Dev Tools" [label="includes"]
+  "JRE" -> "JVM" [label="includes"]
+  "JRE" -> "JCL" [label="includes"]
+  "JVM" -> "JIT" [label="uses"]
+}
+
+/**
+JVM is a virtual simulation of a physical computer. It executes Java bytecode.
+JRE includes JVM and standard libraries(JCL). It is needed to run compiled programs.
+JDK includes JRE and development tools(compiler, debugger, archiver). It is needed to develop programs.
+JIT (just-in-time) compilation translates Java bytecode into machine code while the application is running. JIT improves performance
+*/
