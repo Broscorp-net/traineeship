@@ -1,0 +1,36 @@
+Compiled from "Main.java"
+public class net.broscorp.bytecode.Main {
+  public net.broscorp.bytecode.Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: iconst_5
+       4: if_icmpge     20
+       7: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      10: iload_1
+      11: invokevirtual #3                  // Method java/io/PrintStream.println:(I)V
+      14: iinc          1, 1
+      17: goto          2
+      20: ldc           #4                  // String Hi
+      22: invokestatic  #5                  // Method print:(Ljava/lang/String;)V
+      25: ldc           #6                  // String My name is Grigory
+      27: invokestatic  #5                  // Method print:(Ljava/lang/String;)V
+      30: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      33: ldc           #7                  // String Hello World!
+      35: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      38: return
+
+  public static void print(java.lang.String);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: aload_0
+       4: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       7: return
+}
