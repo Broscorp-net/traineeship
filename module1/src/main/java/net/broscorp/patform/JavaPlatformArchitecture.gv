@@ -1,0 +1,37 @@
+digraph JavaPlatformArchitecture {
+    "JDK" [shape = box, style = filled penwidth = 4 fillcolor = "#4FC0C4" fontname = "Consolas"]
+    "javac" [shape = box, style = filled penwidth = 1  fontname = "Consolas"]
+    "JRE" [shape = box style = filled penwidth = 3 fillcolor = "#79D2CC" fontname = "Consolas"]
+    "Class_Libraries" [shape = box, style = filled penwidth = 1]
+    "JVM" [shape = box style = filled penwidth = 2 fillcolor = "#94DBCD" fontname = "Consolas"]
+    "JIT" [shape = box style = filled penwidth = 1 fillcolor = "#C2EBE2" fontname = "Consolas"]
+
+    "JDK" -> "JRE"
+    "JDK" -> "javac"
+    "JRE" -> "JVM"
+    "JRE" -> "Class_Libraries"
+    "JVM" -> "JIT"
+
+    /**
+    Java Development Kit - включает в себя:
+             - Компилятор Java (javac)
+             - Стандартные библиотеки классов Java
+             - Примеры
+             - Документацию
+             - Различные утилиты
+             - JRE
+
+    Java Runtime Environment - среда выполнения для Java, включает в себя:
+             - JVM
+             - Библиотеки классов
+
+    Java Virtual Machine - основная часть исполняющей системы Java, так называемой JRE.
+    JVM исполняет байт-код Java, предварительно созданный из исходного текста, компилятором javac.
+
+    Just-in-time compilation:
+             - Адаптивная оптимизация
+             - Динамическая рекомпиляция
+        Компилирует байт ко в машинный код, непосредственно во время работы программы.
+        Даёт гарантию безопасности исполнения.
+    */
+}
