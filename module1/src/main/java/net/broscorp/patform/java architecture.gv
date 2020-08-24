@@ -4,9 +4,9 @@ node [style=filled,color=green];
 node [style=filled,color=blue];
   "Java Development Kit(JDK)" -> "Java Compiler"[label="consist"]
 node [style=filled,color=green];
-  "Java Development Kit(JDK)" -> "Java Byte Code"[style=bold]
+  "Java Development Kit(JDK)" -> "Java Byte Code"[style=bold, label="JDK compile into bytecode"]
 node [style=filled,color=green];
-  "Java Byte Code" -> "Java Virtual Machine(JVM)"[style=bold]
+  "Java Byte Code" -> "Java Virtual Machine(JVM)"[style=bold, label="JVM execute instructions in bytecode"]
 node [style=filled,color=blue];
   "Java Virtual Machine(JVM)" -> "Just-In-Time-Compiler(JIT)"[label="consist"]
 node [style=filled,color=red];
