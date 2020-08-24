@@ -7,12 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestWrapperType {
 
-  public static void main(String[] args) {
-    Integer i = new Integer(8);
-    Integer y = new Integer(8);
-    System.out.println(i.equals(y));
-  }
-
   /**
    * Операция сравнения "==" для ссылочных типов сравнивает ссылку на объект в Heap, и т.к. переменные firstValue и
    * secondValue были созданы с помощью ключевого слова new, то в Heap под каждую переменную было выделено память,
