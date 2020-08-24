@@ -3,7 +3,10 @@ package net.broscorp.bytecode;
 public class Main {
 
   /**
+   * ByteCode
    * @author Yulian Belov
+   *
+   * @param args external arguments
    */
   public static void main(String[] args) {
 
