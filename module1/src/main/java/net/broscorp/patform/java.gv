@@ -1,0 +1,9 @@
+digraph a {
+  a [label="JIT", shape=box];
+  b [label="JVM", shape=box];
+  c [label="JRE", shape=box];
+  d [label="JDK", shape=box];
+  a -> b;
+  b -> c;
+  c -> d;
+}
