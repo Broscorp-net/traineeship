@@ -56,8 +56,8 @@
         </configuration>
         <executions>
           <execution>
-            <id>validate</id>
-            <phase>validate</phase>
+            <id>package</id>
+            <phase>package</phase>
             <goals>
               <goal>check</goal>
             </goals>
