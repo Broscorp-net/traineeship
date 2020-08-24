@@ -6,7 +6,7 @@ node [style=filled,color=blue];
 node [style=filled,color=green];
   "Java Development Kit(JDK)" -> "Java Byte Code"[style=bold, label="JDK compile into bytecode"]
 node [style=filled,color=green];
-  "Java Byte Code" -> "Java Virtual Machine(JVM)"[style=bold, label="JVM execute instructions in bytecode"]
+  "Java Byte Code" -> "Java Virtual Machine(JVM)"[style=bold, label="JVM executes instructions in bytecode"]
 node [style=filled,color=blue];
   "Java Virtual Machine(JVM)" -> "Just-In-Time-Compiler(JIT)"[label="consist"]
 node [style=filled,color=red];
