@@ -6,12 +6,16 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>5.4.0</version>
-      <scope>compile</scope>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -67,3 +71,4 @@
     </plugins>
   </build>
 </project>
+
