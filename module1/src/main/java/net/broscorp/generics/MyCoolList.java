@@ -1,4 +1,3 @@
-/*
 package net.broscorp.generics;
 
 import java.util.function.Function;
@@ -27,4 +26,3 @@ public class MyCoolList {
   }
 
 }
-*/
