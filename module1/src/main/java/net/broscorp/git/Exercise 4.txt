@@ -1,0 +1,4 @@
+39b0a71 (HEAD -> master) HEAD@{0}: revert: Revert "3nd changes"
+fa10a15 HEAD@{1}: commit: 3nd changes
+52c136e HEAD@{2}: commit: 2nd changes
+c94092d HEAD@{3}: commit (initial): first changes
