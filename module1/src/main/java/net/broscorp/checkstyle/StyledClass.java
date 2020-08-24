@@ -1,6 +1,5 @@
 package net.broscorp.checkstyle;
 
-
 public class StyledClass {
 
   public static void main(String[] args) {

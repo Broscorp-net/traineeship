@@ -24,4 +24,5 @@ public class net.broscorp.bytecode.Main {
        3: ldc           #18                 // String Hello!
        5: invokevirtual #20                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
        8: return
+
 }

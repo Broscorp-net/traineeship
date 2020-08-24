@@ -2,7 +2,7 @@ package net.broscorp.bytecode;
 
 public class Main {
   /**
-   *
+   * @author Yulian Belov
    *
    */
   public static void main(String[] args) {
