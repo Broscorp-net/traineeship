@@ -11,7 +11,7 @@ public class Primitives {
   public void byteOverload() {
     int a = Byte.MAX_VALUE;
     int b = a + 1;
-    assertTrue(b > a);
+    assertTrue(b < a);
   }
 
   @Test
