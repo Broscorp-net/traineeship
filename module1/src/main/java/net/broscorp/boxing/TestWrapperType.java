@@ -1,17 +1,12 @@
 package net.broscorp.boxing;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 
 public class TestWrapperType {
-
-  /**
-   * Операция сравнения "==" для ссылочных типов сравнивает ссылку на объект в Heap, и т.к. переменные firstValue и
-   * secondValue были созданы с помощью ключевого слова new, то в Heap под каждую переменную было выделено память,
-   * т.е. ссылки на память у них разные.
-   */
 
   @Test
   public void equalsBetweenWrapperType() {
