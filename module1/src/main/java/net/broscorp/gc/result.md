@@ -6,29 +6,27 @@
 Мы создаём 100_000 нулевых объектов этого класса (GarbageCollectors).
 
 ```java
-public class GarbageCollectors {
+public class SecondTest {
 
-  private static GarbageCollectors garbageCollectors = new GarbageCollectors();
+  private static ArrayList<GarbageCollectors> garbageCollectors;
 
-  @Override
-  protected void finalize() throws Throwable {
-    garbageCollectors = this;
-    System.out.println("Method 'finalize' was used");
-    super.finalize();
+  public class GarbageCollectors {
+
+    @Override
+    protected void finalize() throws Throwable {
+      garbageCollectors.add(this);
+      System.out.println("Method 'finalize' was used");
+      super.finalize();
+    }
   }
 
-  /**Create 100_000 NULL objects.
-   *
-   * @param args default main args.
-   */
-  public static void main(String[] args) {
+  @Test
+  public void GarbageCollectorsTest() {
     for (int i = 0; i < 100_000; i++) {
-      garbageCollectors = new GarbageCollectors();
-      garbageCollectors = null;
+      GarbageCollectors garbageCollectors = new GarbageCollectors();
     }
     System.gc();
   }
-  
 }
 ```
 
@@ -37,12 +35,14 @@ public class GarbageCollectors {
 потому что на них не было внешних ссылок из других классов.
 
 ```
-public static void main(String[] args) {
+@Test
+  public void createFirstAndSecondClass() {
     for (int i = 0; i < 100_000; i++) {
       FirstClass firstClass = new FirstClass();
       SecondClass secondClass = new SecondClass();
       firstClass.secondClass = secondClass;
       secondClass.firstClass = firstClass;
     }
+    System.gc();
   }
 ```
