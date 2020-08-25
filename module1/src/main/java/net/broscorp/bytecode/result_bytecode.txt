@@ -1,0 +1,63 @@
+public class net.broscorp.bytecode.Main {
+  public net.broscorp.bytecode.Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: iconst_5
+       4: if_icmpge     24
+       7: invokestatic  #7                  // Method helloWorld:()Ljava/lang/String;
+      10: astore_2
+      11: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      14: aload_2
+      15: invokevirtual #19                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      18: iinc          1, 1
+      21: goto          2
+      24: return
+
+  public static java.lang.String helloWorld();
+    Code:
+       0: ldc           #25                 // String Hello world
+       2: areturn
+}
+
+public class net.broscorp.bytecode.Main {
+  public net.broscorp.bytecode.Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: ldc           #7                  // String
+       2: astore_1
+       3: iconst_0
+       4: istore_2
+       5: iload_2
+       6: iconst_5
+       7: if_icmpge     24
+      10: aload_1
+      11: iload_2
+      12: invokedynamic #9,  0              // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+      17: astore_1
+      18: iinc          2, 1
+      21: goto          5
+      24: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      27: invokestatic  #19                 // Method helloWorld:()Ljava/lang/String;
+      30: aload_1
+      31: invokedynamic #25,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      36: invokevirtual #28                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      39: return
+
+  public static java.lang.String helloWorld();
+    Code:
+       0: ldc           #34                 // String Hello world!
+       2: areturn
+}
