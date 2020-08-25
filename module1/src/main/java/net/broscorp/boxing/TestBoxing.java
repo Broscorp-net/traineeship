@@ -10,17 +10,17 @@ public class TestBoxing {
 
   @Test
   public void testComparingWrappers() {
-    Long l1 = Long.valueOf("2000");
-    Long l2 = Long.valueOf("2000");
+    Long x = Long.valueOf("99999");
+    Long y = Long.valueOf("99999");
 
-    assertFalse(l1 == l2);
-    assertTrue(l1.equals(l2));
+    assertFalse(x == y);
+    assertTrue(x.equals(y));
   }
 
   @Test
   public void testBoxing() {
-    int primitive = 100;
-    Integer reference = Integer.valueOf(primitive); // boxing
+    int a = 100;
+    Integer reference = Integer.valueOf(a); // boxing
     Integer anotherReference = Integer.parseInt("100"); // boxing
 
     assertEquals(reference, anotherReference);
@@ -28,20 +28,11 @@ public class TestBoxing {
 
   @Test
   public void testUnboxing() {
-    int primitive = 100;
-    Integer reference = Integer.valueOf(primitive); // boxing
-    int anotherPrimitive = reference.intValue();    // unboxing
+    int a = 100;
+    Integer reference = Integer.valueOf(a); // boxing
+    int b = reference.intValue();    // unboxing
 
-    assertTrue(primitive == anotherPrimitive);
-    assertEquals(primitive, anotherPrimitive);
+    assertTrue(a == b);
+    assertEquals(a, b);
   }
-  /*
-  @Test()
-  public void testUnboxingThrowsNPE() {
-    Long longVal = null;
-
-    Assertions.assertThrows(NullPointerException.class, () -> {
-      long primitiveLong = longVal;
-    });
-  }*/
 }
