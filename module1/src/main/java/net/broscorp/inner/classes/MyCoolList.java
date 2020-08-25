@@ -3,14 +3,7 @@ package net.broscorp.inner.classes;
 import java.util.Iterator;
 import java.util.function.Function;
 
-/**
- * Этот лист был взят из прошлого задания с generics.
- *
- * @param <T> из прошлого задания я удалил наследования от Number,
- *            т.к. возникали сложности с итератором.
- */
-
-public class MyCoolList<T> {
+public class MyCoolList<T extends Number> {
 
   private final int defSize = 10;
   private Object[] array;
@@ -114,7 +107,6 @@ public class MyCoolList<T> {
   }
 
   class ArrayIterable implements Iterable<T> {
-
     private MyIterator myIterator = new MyIterator();
 
     @Override
@@ -124,16 +116,8 @@ public class MyCoolList<T> {
   }
 
   private class MyIterator implements Iterator<T> {
-    private T[] arrayList;
+
     private int currentIndex = 0;
-
-    public MyIterator() {
-      this.arrayList = covert(array);
-    }
-
-    T[] covert(Object[] arr) {
-      return (T[]) arr;
-    }
 
     @Override
     public boolean hasNext() {
@@ -142,7 +126,7 @@ public class MyCoolList<T> {
 
     @Override
     public T next() {
-      return (T) arrayList[currentIndex++];
+      return (T) array[currentIndex++];
     }
 
     @Override
