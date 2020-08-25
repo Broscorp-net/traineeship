@@ -8,8 +8,7 @@ public class Person {
   public int age;
   public String name;
 
-  public Person() {
-  }
+  public Person() {}
 
   public Person(int id, int age, String name) {
     this.id = id;
@@ -19,11 +18,7 @@ public class Person {
 
   @Override
   public String toString() {
-    return "Person{" +
-            "id=" + id +
-            ", age=" + age +
-            ", name='" + name + '\'' +
-            '}';
+    return "Person{" + "id=" + id + ", age=" + age + ", name='" + name + '\'' + '}';
   }
 
   @Override
@@ -31,9 +26,7 @@ public class Person {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Person person = (Person) o;
-    return id == person.id &&
-            age == person.age &&
-            Objects.equals(name, person.name);
+    return id == person.id && age == person.age && Objects.equals(name, person.name);
   }
 
   @Override
