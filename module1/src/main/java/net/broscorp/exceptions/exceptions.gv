@@ -1,0 +1,14 @@
+digraph G {
+    Object -> Throwable;
+    Throwable -> "Error (Unchecked)";
+    Throwable -> "Exception (Checked)";
+    "Exception (Checked)" -> "RunTimeException (Unchecked)";
+    "Exception (Checked)" -> "IOException and other checked exceptions";
+    Object [style = filled,color = grey];
+    Throwable [style = filled,color = deepskyblue];
+    "Error (Unchecked)" [style = filled,color = crimson];
+    "Exception (Checked)" [style = filled,color = green];
+    "IOException and other checked exceptions" [style = filled,color = green];
+    "RunTimeException (Unchecked)" [style = filled,color = gold];
+
+}
