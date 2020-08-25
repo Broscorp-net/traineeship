@@ -14,7 +14,7 @@ public class ValueRef {
   private List<String> list = new LinkedList<>();
 
   @Test
-  public void testOfValueReflationUsingFooMethod() {
+  public void testOfFoo() {
     int expectedValue = someValue;
     someFoo.foo(someValue, list);
     assertEquals(expectedValue, someValue);
