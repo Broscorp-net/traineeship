@@ -14,7 +14,7 @@ public class FirstTest {
     //      super.finalize();
     //  }
 
-    public void secondClassSet(SecondClass secondClass) {
+    public void setSecondClass(SecondClass secondClass) {
       this.secondClass = secondClass;
     }
   }
@@ -29,7 +29,7 @@ public class FirstTest {
     //      super.finalize();
     //    }
 
-    public void setFirstClassfirstClassSet(FirstClass firstClass) {
+    public void setFirstClass(FirstClass firstClass) {
       this.firstClass = firstClass;
     }
   }
