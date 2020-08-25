@@ -10,6 +10,12 @@ public class Person {
 
   public Person() {}
 
+  /**
+   * Constructor parameters.
+   * @param id - person's id
+   * @param age - person's age
+   * @param name - person's name
+   */
   public Person(int id, int age, String name) {
     this.id = id;
     this.age = age;
@@ -23,8 +29,12 @@ public class Person {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     Person person = (Person) o;
     return id == person.id && age == person.age && Objects.equals(name, person.name);
   }
