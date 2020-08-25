@@ -8,11 +8,11 @@ public class FirstTest {
 
     private SecondClass secondClass;
 
-    @Override
-    protected void finalize() throws Throwable {
-      System.out.println("The memory was freed. Object A has been deleted");
-      super.finalize();
-    }
+    //    @Override
+    //    protected void finalize() throws Throwable {
+    //      System.out.println("The memory was freed. Object A has been deleted");
+    //      super.finalize();
+    //  }
 
     public void secondClassSet(SecondClass secondClass) {
       this.secondClass = secondClass;
@@ -23,11 +23,11 @@ public class FirstTest {
 
     private FirstClass firstClass;
 
-    @Override
-    protected void finalize() throws Throwable {
-      System.out.println("The memory was freed. Object B has been deleted");
-      super.finalize();
-    }
+    //    @Override
+    //    protected void finalize() throws Throwable {
+    //      System.out.println("The memory was freed. Object B has been deleted");
+    //      super.finalize();
+    //    }
 
     public void setFirstClassfirstClassSet(FirstClass firstClass) {
       this.firstClass = firstClass;

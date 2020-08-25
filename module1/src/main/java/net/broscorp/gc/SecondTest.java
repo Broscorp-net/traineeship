@@ -9,12 +9,12 @@ public class SecondTest {
 
   public class GarbageCollectors {
 
-    @Override
-    protected void finalize() throws Throwable {
-      garbageCollectors.add(this);
-      System.out.println("Method 'finalize' was used");
-      super.finalize();
-    }
+    //    @Override
+    //    protected void finalize() throws Throwable {
+    //      garbageCollectors.add(this);
+    //      System.out.println("Method 'finalize' was used");
+    //      super.finalize();
+    //    }
   }
 
   @Test
