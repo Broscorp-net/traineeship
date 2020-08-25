@@ -1,0 +1,45 @@
+digraph a {
+  Throwable [shape=box, color="#F08275", label="Throwable\nchecked", style=filled];
+
+  Error [label="Error\nunchecked", shape=box, color="#F08275", style=filled];
+  ThreadDeath [label="ThreadDeath", shape=box, color="#F08275"];
+  VirtualMachineError [label="VirtualMachineError", shape=box, color="#771B0D"];
+  OutOfMemoryError [label="OutOfMemoryError", shape=box, color="#771B0D"];
+  StackOverflowError [label="StackOverflowError", shape=box, color="#771B0D"];
+  UnknownError [label="UnknownError", shape=box, color="#771B0D"];
+
+  Exception [label="Exception\nchecked", shape=box, color="#1782CF", style=filled];
+  SQLException [label= "SQLException\nchecked", shape=box, color="#19AFE1", style=filled];
+  IOException [label="IOException\nchecked", shape=box, color="#95D9F3", style=filled];
+  EOFException [label="EOFException", shape=box, color="#95D9F3"];
+  FileNotFoundException [label="FileNotFoundException", shape=box, color="#95D9F3"];
+
+  RuntimeException [label="RuntimeException\nunchecked", shape=box, color="#67EC55", style=filled];
+  NoSuchElementException [label="NoSuchElementException", shape=box, color="#67EC55"];
+  IndexOutOfBoundException [label="IndexOutOfBoundException", shape=box, color="#67EC55"];
+  ArithmeticException [label="ArithmeticException", shape=box, color="#67EC55"];
+  ClassCastException [label="ClassCastException", shape=box, color="#67EC55"];
+  NullPointerException [label="NullPointerException", shape=box, color="#67EC55"];
+  IllegalArgumentException [label="IllegalArgumentException", shape=box, color="#67EC55"];
+
+  Error -> Throwable [color=red];
+  ThreadDeath -> Error [color=red];
+  VirtualMachineError -> Error [color="#771B0D"];
+  OutOfMemoryError -> VirtualMachineError [color="#771B0D"];
+  StackOverflowError -> VirtualMachineError [color="#771B0D"];
+  UnknownError -> VirtualMachineError [color="#771B0D"];
+
+  Exception -> Throwable [color=blue];
+  SQLException -> Exception [color="#19AFE1"];
+  IOException -> Exception [color="#95D9F3"];
+  EOFException -> IOException [color="#95D9F3"];
+  FileNotFoundException -> IOException [color="#95D9F3"];
+
+  RuntimeException -> Exception [color=green];
+  NoSuchElementException -> RuntimeException [color=green];
+  IndexOutOfBoundException -> RuntimeException [color=green];
+  ArithmeticException -> RuntimeException [color=green];
+  ClassCastException -> RuntimeException [color=green];
+  NullPointerException -> RuntimeException [color=green];
+  IllegalArgumentException -> RuntimeException [color=green];
+}
