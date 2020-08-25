@@ -1,0 +1,26 @@
+digraph  Throw{
+  Throwable [label = "Throwable\nchecked", shape = box, color=yellow, style=filled]
+
+  Error [label = "Error", shape = box, color="#ff3d3d", style=filled]
+  ThreadDeath [label = "ThreadDeath", shape = box, color="#ff3d3d"]
+  VMError [label = "VirtualMachineError", shape = box, color="#ff3d3d"]
+
+  Exception [label = "Exception", shape = box, color="#4aff65", style=filled]
+  IOException [label = "IOException", shape = box, color="#4aff65"]
+  SQLException [label = "SQLException", shape = box, color="#4aff65"]
+  RuntimeException [label = "RuntimeException", shape = box, color="#69d7ff", style=filled]
+  NoSuchElementException [label = "NoSuchElementException", shape = box, color="#69d7ff"]
+  NullPointerException [label = "NullPointerException", shape = box, color="#69d7ff"]
+  ArithmeticException [label = "ArithmeticException", shape = box, color="#69d7ff"]
+
+  Throwable -> Error [label=unchecked, color="#ff3d3d"]
+  Error -> ThreadDeath [color="#ff3d3d"]
+  Error -> VMError [color="#ff3d3d"]
+  Throwable -> Exception [label=checked, color="#4aff65"]
+  Exception -> RuntimeException [label=unchecked, color="#ff3d3d"]
+  Exception -> IOException [color="#4aff65"]
+  Exception -> SQLException [color="#4aff65"]
+  RuntimeException -> NoSuchElementException [color="#69d7ff"]
+  RuntimeException -> NullPointerException [color="#69d7ff"]
+  RuntimeException -> ArithmeticException [color="#69d7ff"]
+}
