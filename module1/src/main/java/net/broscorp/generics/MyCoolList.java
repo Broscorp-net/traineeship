@@ -3,59 +3,81 @@ package net.broscorp.generics;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> {
-    private final int INIT_SIZE = 10;
-    private Object[] array = new Object[INIT_SIZE];
-    private int size = 0;
+  //я знаю, что есть негласное правило на счет констант, но я не смог обойти CheckStyle
+  private final int defSize = 10;
+  private Object[] array = new Object[defSize];
+  private int size = 0;
 
-    public void add(T item) {
-        if (size == array.length)
-            resize(array.length * 2);
-        array[size++] = item;
+  /**
+   * Метод добавляющий T элемент.
+   */
+  public void add(T element) {
+    if (size == array.length) {
+      resize(array.length * 2);
     }
+    array[size++] = element;
+  }
 
-    public T get(int index) {
-        return (T) array[index];
-    }
+  /**
+   * Метод добавляющий T элемент.
+   */
 
-    public void remove(int index) {
-        for (int i = index; i < size; i++) {
-            array[i] = array[i + 1];
-        }
-        array[size] = null;
-        size--;
-    }
+  public T get(int index) {
+    return (T) array[index];
+  }
 
-    public <R extends Number> MyCoolList<R> map(Function f) {
-        MyCoolList<R> result = new MyCoolList<>();
-        for (Object ls : array) {
-            if (ls == null)
-                break;
-            result.add((R) f.apply(ls));
-        }
-        return result;
-    }
+  /**
+   * Метод удаляющий элемент по индексу.
+   */
 
-    public int size() {
-        return size;
+  public void remove(int index) {
+    for (int i = index; i < size; i++) {
+      array[i] = array[i + 1];
     }
+    array[size - 1] = null;
+    size--;
+  }
 
-    private void resize(int newLength) {
-        Object[] newArray = new Object[newLength];
-        System.arraycopy(array, 0, newArray, 0, size);
-        array = newArray;
-    }
+  /**
+   * Метод конвертирующий с T в R объект (числового типа).
+   */
 
-    public String showList() {
-        StringBuilder str = new StringBuilder();
-        str.append("[");
-        for (int i = 0; i < array.length; i++) {
-            if (array[i + 1] == null) {
-                str.append(array[i]);
-                break;
-            }
-            str.append(array[i]).append(", ");
-        }
-        return str.append("]").toString();
+  public <R extends Number> MyCoolList<R> map(Function f) {
+    MyCoolList<R> result = new MyCoolList<>();
+    for (Object ls : array) {
+      if (ls == null) {
+        break;
+      }
+      result.add((R) f.apply(ls));
     }
+    return result;
+  }
+
+  public int size() {
+    return size;
+  }
+
+  private void resize(int newLength) {
+    Object[] newArray = new Object[newLength];
+    System.arraycopy(array, 0, newArray, 0, size);
+    array = newArray;
+  }
+
+  /**
+   * Выводит лист на экран.
+   */
+
+  public String showList() {
+    StringBuilder str = new StringBuilder();
+    str.append("[");
+    for (int i = 0; i < array.length; i++) {
+      if (array[i + 1] == null) {
+        str.append(array[i]);
+        break;
+      }
+      str.append(array[i]).append(", ");
+    }
+    return str.append("]").toString();
+  }
 
 }
