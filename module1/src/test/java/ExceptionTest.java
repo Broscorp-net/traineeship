@@ -17,7 +17,7 @@ public class ExceptionTest {
 
       }
     } catch (IOException e) {
-      System.out.println("Exception was catched.");
+      System.out.println("Exception was caught.");
     } finally {
       System.out.println("Message from finally.");
     }
