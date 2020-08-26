@@ -8,9 +8,9 @@ public class SecondGC {
     this.firstGc = firstGc;
   }
 
-  @Override
-  protected void finalize() throws Throwable {
-    System.out.println("finalize called on " + this.toString());
-    super.finalize();
-  }
+  /*  @Override
+    protected void finalize() throws Throwable {
+      System.out.println("finalize called on " + this.toString());
+      super.finalize();
+    }*/
 }

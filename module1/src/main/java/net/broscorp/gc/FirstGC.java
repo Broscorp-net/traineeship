@@ -9,11 +9,10 @@ public class FirstGC {
     this.secondGC = secondGC;
   }
 
-  @Override
-  protected void finalize() throws Throwable {
-    //gc = this;
-    System.out.println("finalize called on " + this.toString());
-    super.finalize();
-  }
-
+  /*  @Override
+    protected void finalize() throws Throwable {
+      //gc = this;
+      System.out.println("finalize called on " + this.toString());
+      super.finalize();
+    }*/
 }
