@@ -44,7 +44,7 @@ class MyCoolListTest {
 
   @Test
   void getExceptionTest() {
-    assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+    assertThrows(IndexOutOfBoundsException.class, () -> {
       myCoolList.get(100);
     });
   }
@@ -57,7 +57,7 @@ class MyCoolListTest {
 
   @Test
   void badRemoveTest() {
-    assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+    assertThrows(IndexOutOfBoundsException.class, () -> {
       myCoolList.remove(200);
     });
   }

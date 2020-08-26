@@ -1,25 +1,23 @@
 package net.broscorp.generics;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> {
 
-  private T[] objectArray;
-  private int size;
+  private List<T> objectArray;
 
   public MyCoolList() {
-    size = 0;
-    objectArray = (T[]) new Number[size];
+    objectArray = new ArrayList<>();
   }
 
   public void add(T object) {
-    resize(++size);
-    objectArray[size - 1] = object;
+    objectArray.add(object);
   }
 
   public T get(int index) {
-    return objectArray[index];
+    return objectArray.get(index);
   }
 
   /**
@@ -27,14 +25,7 @@ public class MyCoolList<T extends Number> {
    * @param index - index
    */
   public void remove(int index) {
-    if (index >= 0 && index < size) {
-      for (int i = index; i < size - 1; i++) {
-        objectArray[i] = objectArray[i + 1];
-      }
-      resize(--size);
-    } else {
-      throw new ArrayIndexOutOfBoundsException();
-    }
+    objectArray.remove(index);
   }
 
   /**
@@ -52,10 +43,6 @@ public class MyCoolList<T extends Number> {
   }
 
   public int size() {
-    return size;
-  }
-
-  private void resize(int newSize) {
-    objectArray = Arrays.copyOf(objectArray, newSize);
+    return objectArray.size();
   }
 }
