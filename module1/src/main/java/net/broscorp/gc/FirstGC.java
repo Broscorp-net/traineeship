@@ -2,7 +2,7 @@ package net.broscorp.gc;
 
 public class FirstGC {
 
-  //  private GC gc = new GC();
+  //private FirstGC gc = new FirstGC();
   private SecondGC secondGC;
 
   public void setSecondGC(SecondGC secondGC) {
@@ -11,7 +11,7 @@ public class FirstGC {
 
   @Override
   protected void finalize() throws Throwable {
-//    gc = this;
+    //gc = this;
     System.out.println("finalize called on " + this.toString());
     super.finalize();
   }
