@@ -1,0 +1,24 @@
+digraph Hierarchy{
+  Throwable [label = "Throwable", shape = box, style=filled]
+  Error [label = "Error", shape = box, style=filled]
+  Exception [label = "Exception", shape = box, style=filled]
+
+  IOException [label = "IOException", shape = box]
+  RuntimeException [label = "RuntimeException", shape = box, style=filled]
+  NumberFormatException[label = "NumberFormatException", shape = box]
+  NullPointerException [label = "NullPointerException", shape = box]
+  ArithmeticException [label = "ArithmeticException", shape = box]
+
+  Throwable -> Error
+  Throwable -> Exception
+
+  Error -> OutOfMemoryError
+  Error -> StackOverflowError
+
+  Exception -> RuntimeException [label=unchecked]
+  Exception -> IOException [label=checked]
+
+  RuntimeException -> NumberFormatException
+  RuntimeException -> NullPointerException
+  RuntimeException -> ArithmeticException
+}
