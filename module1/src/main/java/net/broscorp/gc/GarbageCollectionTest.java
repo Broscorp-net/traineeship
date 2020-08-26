@@ -15,9 +15,9 @@ public class GarbageCollectionTest {
   @Test
   public void gcFirstTest() {
     for (int i = 0; i < 10_000; i++) {
-      var first = new FirstClass(i,"first",i);
+      FirstClass first = new FirstClass(i,"first",i);
       first.counterText();
-      var second = new SecondClass(i,"second",i);
+      SecondClass second = new SecondClass(i,"second",i);
       second.counterText();
       System.gc();
     }
@@ -26,8 +26,8 @@ public class GarbageCollectionTest {
   @Test
   public void gcSecondTest() {
     for (int i = 0; i < 10_000; i++) {
-      var first = new FirstClass(i,"first",i);
-      var second = new SecondClass(i,"second",i);
+      FirstClass first = new FirstClass(i,"first",i);
+      SecondClass second = new SecondClass(i,"second",i);
       first.setEntity(second);
       second.setEntity(first);
       System.gc();
@@ -37,7 +37,7 @@ public class GarbageCollectionTest {
   @Test
   public void gcThirdTest() {
     for (int i = 0; i < 10_000; i++) {
-      var third = new ThirdClass(i, this);
+      ThirdClass third = new ThirdClass(i, this);
       //list.add(third);
       System.gc();
     }
