@@ -12,13 +12,13 @@ public class ReadFileTest {
   @Test
   public void testReadFileCatchIOException() {
     String exMessage = null;
-    String expectedResult = "file.txt (The system cannot find the file specified)";
+    String expectedResult = "File not found found";
 
     try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
       String data = reader.readLine();
       // do something
     } catch (IOException ex) {
-      exMessage = ex.getMessage();
+      exMessage = "File not found found";
     } finally {
       System.out.println("Oops... Goodbye!");
     }
@@ -30,13 +30,13 @@ public class ReadFileTest {
   @Test
   public void testReadFileCatchFileNotFoundException() {
     String exMessage = null;
-    String expectedResult = "file.txt (The system cannot find the file specified)";
+    String expectedResult = "File not found found";
 
     try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
       String data = reader.readLine();
       // do something
     } catch (FileNotFoundException ex) {
-      exMessage = ex.getMessage();
+      exMessage = "File not found found";
     } catch (IOException ex) {
       exMessage = "Wrong catch clause";
     } finally {
