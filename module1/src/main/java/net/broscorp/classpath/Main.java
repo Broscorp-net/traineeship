@@ -22,7 +22,7 @@ public class Main {
     try {
       Double doubleNum = readFromConsole();
       print.print(doubleNum);
-    } catch (NumberFormatException e){
+    } catch (NumberFormatException e) {
       System.out.println(e.getMessage());
     }
   }
