@@ -8,37 +8,37 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class primitivesTest {
 
-    @Test
-    public void shouldBeNegative(){
-        int maxIntValue = Integer.MAX_VALUE;
+  @Test
+  public void shouldBeNegative() {
+    int maxIntValue = Integer.MAX_VALUE;
 
-        int overMax = maxIntValue + 1;
+    int overMax = maxIntValue + 1;
 
-        assertTrue(overMax < 0);
-    }
+    assertTrue(overMax < 0);
+  }
 
-    @Test
-    public void longToIntConvertation(){
-        long a = Long.MAX_VALUE;
+  @Test
+  public void longToIntConvertation() {
+    long a = Long.MAX_VALUE;
 
-        int b = (int) a;
+    int b = (int) a;
 
-        assertNotEquals(a, b);
-    }
+    assertNotEquals(a, b);
+  }
 
-    @Test
-    public void floatToDoubleConvertation(){
-        float a = 158.168f ;
+  @Test
+  public void floatToDoubleConvertation() {
+    float a = 158.168f;
 
-        double b = a;
+    double b = a;
 
-        assertNotEquals(158.168, b);
-    }
+    assertNotEquals(158.168, b);
+  }
 
-    @Test
-    public void errorsWhileWorkingWithFloats(){
-        float a = 2.5f + 2.7f;
+  @Test
+  public void errorsWhileWorkingWithFloats() {
+    float a = 2.5f + 2.7f;
 
-        assertNotEquals(5.2, a);
-    }
+    assertNotEquals(5.2, a);
+  }
 }
