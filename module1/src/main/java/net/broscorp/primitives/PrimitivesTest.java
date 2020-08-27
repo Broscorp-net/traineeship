@@ -8,9 +8,45 @@ import org.junit.jupiter.api.Test;
 class PrimitivesTest {
 
   @Test
-  public void numericOverflowShouldAppear() {
-    byte byteNumber = (byte) 128;
-    assertEquals(-128, byteNumber);
+  public void byteOverflowShouldAppear() {
+    byte max = Byte.MAX_VALUE;
+    byte min = Byte.MIN_VALUE;
+    assertEquals(++max, min);
+  }
+
+  @Test
+  public void shortOverflowShouldAppear() {
+    short max = Short.MAX_VALUE;
+    short min = Short.MIN_VALUE;
+    assertEquals(++max, min);
+  }
+
+  @Test
+  public void intOverflowShouldAppear() {
+    int max = Integer.MAX_VALUE;
+    int min = Integer.MIN_VALUE;
+    assertEquals(++max, min);
+  }
+
+  @Test
+  public void longOverflowShouldAppear() {
+    long max = Long.MAX_VALUE;
+    long min = Long.MIN_VALUE;
+    assertEquals(++max, min);
+  }
+
+  @Test
+  public void floatOverflowShouldAppear() {
+    float max = Float.MAX_VALUE;
+    float min = Float.MIN_VALUE;
+    assertNotEquals(++max, min);
+  }
+
+  @Test
+  public void doubleOverflowShouldAppear() {
+    double max = Double.MAX_VALUE;
+    double min = Double.MIN_VALUE;
+    assertNotEquals(++max, min);
   }
 
   @Test
