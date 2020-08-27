@@ -1,0 +1,5 @@
+- `jar` command to create a jar file
+- `c` option to indicate that creating a file 
+- `f` option to specify the file
+- `e` option to specify entry point (class with main method)
+- `v` option for verbose. It tells you the name of each file as it's added to the JAR file
