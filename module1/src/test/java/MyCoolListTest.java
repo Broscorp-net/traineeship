@@ -1,15 +1,19 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.function.Function;
 import net.broscorp.generics.MyCoolList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class MyCoolListTest {
 
   private static MyCoolList<Integer> list = new MyCoolList<>();
   private Function<Integer, Double> function = integer -> integer.doubleValue();
 
+  /**
+   * MyCoolListTest.
+   */
   @BeforeAll
   public static void setList() {
     for (int i = 0; i < 10; i++) {
@@ -55,9 +59,9 @@ public class MyCoolListTest {
   }
 
   @Test
-  public void iteratorTest(){
+  public void iteratorTest() {
 
-    for (Object a: list){
+    for (Object a : list) {
       System.out.print(a);
     }
   }
