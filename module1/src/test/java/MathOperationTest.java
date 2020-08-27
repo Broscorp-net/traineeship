@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import net.broscorp.override.overload.MathOperation;
 import net.broscorp.override.overload.Multiplication;
 import net.broscorp.override.overload.Sum;
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,6 @@
 package net.broscorp.override.overload;
 
+
 public class Multiplication implements MathOperation {
 
   @Override

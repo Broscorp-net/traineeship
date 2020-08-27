@@ -1,5 +1,6 @@
 package net.broscorp.override.overload;
 
+
 public interface MathOperation {
 
   public double mathOperation(double a, double b);
