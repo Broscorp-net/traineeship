@@ -2,9 +2,10 @@ package net.broscorp;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
-public class primitivesTest {
+public class PrimitivesTest {
 
   @Test
   public void shouldBeNegative() {
