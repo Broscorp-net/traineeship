@@ -1,0 +1,5 @@
+digraph Exception {
+    "Throwable (CHECKED)" -> "Exception (CHECKED)"
+    "Throwable (CHECKED)" -> "Error (UNCHECKED)"
+    "Exception (CHECKED)" -> "Runtime Exception (UNCHECKED)"
+}
