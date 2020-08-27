@@ -1,10 +1,11 @@
 package net.broscorp;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
-public class boxingTest {
+public class BoxingTest {
   Integer a = new Integer(5);
   Integer b = new Integer(5);
 
