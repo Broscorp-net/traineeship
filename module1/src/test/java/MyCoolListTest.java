@@ -54,4 +54,12 @@ public class MyCoolListTest {
     assertEquals(10, list.size());
   }
 
+  @Test
+  public void iteratorTest(){
+
+    for (Object a: list){
+      System.out.print(a);
+    }
+  }
+
 }
