@@ -17,7 +17,7 @@ public class MyCoolList<T extends Number> {
   }
 
   public Object remove(int index) {
-    return list.get(index);
+    return list.remove(list.get(index));
   }
 
   /**

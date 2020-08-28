@@ -31,7 +31,7 @@ public class MyCoolListTest {
   @Test
   public void removeTest() {
     integerMyCoolList.remove(0);
-    assertEquals(7, integerMyCoolList.get(0));
+    assertEquals(777, integerMyCoolList.get(0));
   }
 
   @Test
