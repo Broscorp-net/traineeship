@@ -25,7 +25,7 @@ public class PrimitivesTest {
   public void convertFloatToDouble() {
     float  number1 = 1.00000009999999999f;
     double number2 = 1.00000009999999999;
-    assertNotEquals((double) number1, number2) ;
+    assertNotEquals((double) number1, number2);
   }
 
   @Test

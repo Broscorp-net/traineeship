@@ -26,10 +26,9 @@ class MyCoolListTest {
   void add() {
     assertTrue(myCoolList.add(1000));
     assertTrue(myCoolList.add((short) 1000));
-    assertTrue(myCoolList.add(1213484687l));
-    assertFalse(myCoolList.add(100.00));
-    assertFalse(myCoolList.add(100.00f));
-    assertFalse(myCoolList.add(new DoubleAdder()));
+    assertTrue(myCoolList.add(1213484687L));
+    assertTrue(myCoolList.add(100.00));
+    assertTrue(myCoolList.add(100.00f));
   }
 
   @Test

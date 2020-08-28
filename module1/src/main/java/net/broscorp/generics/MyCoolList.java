@@ -14,11 +14,7 @@ public class MyCoolList<T extends Number> extends ArrayList<T> {
    */
   @Override
   public boolean add(T t) {
-    if (isWholeNumber(t)) {
-      super.add(t);
-      return true;
-    }
-    return false;
+    return  super.add(t);
   }
 
   @Override
@@ -45,23 +41,5 @@ public class MyCoolList<T extends Number> extends ArrayList<T> {
   @Override
   public int size() {
     return super.size();
-  }
-
-  private boolean isWholeNumber(Object o) {
-    Number number;
-    try {
-      number = (Number) o;
-    } catch (ClassCastException ex) {
-      return false;
-    }
-
-    // отсеиваем всех наследников Number, которые не являются целыми числами
-    if (number instanceof Float
-        || number instanceof Double
-        || number instanceof DoubleAccumulator
-        || number instanceof DoubleAdder) {
-      return false;
-    }
-    return true;
   }
 }

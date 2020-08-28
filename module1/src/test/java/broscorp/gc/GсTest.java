@@ -5,18 +5,18 @@ import net.broscorp.gc.FirstGC;
 import net.broscorp.gc.SecondGC;
 import org.junit.jupiter.api.Test;
 
-public class GCTest {
+public class GсTest {
 
   Runtime runtime = Runtime.getRuntime();
   DecimalFormat df = new DecimalFormat("#,###,###,###.##");
 
-// закомментировал т.к. Github не переваривает
-/*  @Test
-  void generateObjects() {
-    for (int i = 0; i < 10_000_000; i++) {
-      FirstGC firstGc = new FirstGC();
-    }
-  }*/
+  // закомментировал т.к. Github не переваривает
+  /*  @Test
+    void generateObjects() {
+      for (int i = 0; i < 10_000_000; i++) {
+        FirstGC firstGc = new FirstGC();
+      }
+    }*/
 
   @Test
   void tryCallGarbageCollector() throws InterruptedException {
