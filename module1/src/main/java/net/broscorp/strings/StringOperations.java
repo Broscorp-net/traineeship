@@ -2,7 +2,6 @@ package net.broscorp.strings;
 
 import java.util.Arrays;
 
-
 public class StringOperations {
 
   /**
