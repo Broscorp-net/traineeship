@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
 
-public class MyCoolList<T extends Number> implements Iterable{
+public class MyCoolList<T extends Number> implements Iterable {
 
   private MyIteratorClass myIteratorClass = new MyIteratorClass();
   private List<T> list = new ArrayList<>();
@@ -38,18 +38,16 @@ public class MyCoolList<T extends Number> implements Iterable{
   }
 
   @Override
-  public Iterator iterator(){
+  public Iterator iterator() {
     return myIteratorClass;
   }
 
   /**
-   * Вложенные классы делятся на две категории: статические и нестатические.
-   * Вложенные классы, объявленные static, просто называются статическими вложенными
-   * классами. Нестатические вложенные классы называются внутренними классами.
-   * Экземпляр InnerClass может существовать только внутри экземпляра OuterClass и
-   * имеет прямой доступ к методам и полям его вмещающего экземпляра.
-   * Но если этот InnerClass static, то он имеет доступ только к static полям и методам
-   * OuterClass.
+   * Вложенные классы делятся на две категории: статические и нестатические. Вложенные классы,
+   * объявленные static, просто называются статическими вложенными классами. Нестатические вложенные
+   * классы называются внутренними классами. Экземпляр InnerClass может существовать только внутри
+   * экземпляра OuterClass и имеет прямой доступ к методам и полям его вмещающего экземпляра. Но
+   * если этот InnerClass static, то он имеет доступ только к static полям и методам OuterClass.
    */
   private class MyIteratorClass implements Iterator<T> {
 
