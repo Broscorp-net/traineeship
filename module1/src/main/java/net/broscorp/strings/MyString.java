@@ -17,7 +17,7 @@ public class MyString {
    * @param word - word for test
    * @return true or false
    */
-  public boolean isPalindrome (String word) {
+  public boolean isPalindrome(String word) {
     word = word.replaceAll(" ", "");
     String palindromeWord = new StringBuilder(word).reverse().toString().toLowerCase();
     return palindromeWord.equalsIgnoreCase(word);
@@ -28,7 +28,7 @@ public class MyString {
    * @param string - input string
    * @return string
    */
-  public String onlyHello (String string) {
+  public String onlyHello(String string) {
     Pattern pattern = Pattern.compile("(\\W|^)hello(\\W|$)", Pattern.CASE_INSENSITIVE);
     Matcher matcher = pattern.matcher(string);
     matcher.find();
@@ -40,7 +40,7 @@ public class MyString {
    * @param string - input string
    * @return string without l
    */
-  public String deleteAllLettersL (String string) {
+  public String deleteAllLettersL(String string) {
     return string.replaceAll("[lL]", "");
   }
 
@@ -49,7 +49,7 @@ public class MyString {
    * @param string - input string
    * @return replace string
    */
-  public String replaceAllLettersOToQ (String string) {
+  public String replaceAllLettersOToQ(String string) {
     return string.replaceAll("[oO]", "q");
   }
 
@@ -57,7 +57,7 @@ public class MyString {
    * output all worlds in string ans their size.
    * @param string - input string
    */
-  public void outputWordsAndLength (String string) {
+  public void outputWordsAndLength(String string) {
     String[] strings = string.split("\\s");
     for (String s : strings) {
       System.out.println("Word \"" + s + "\" : size = " + s.length());
@@ -69,7 +69,7 @@ public class MyString {
    * @param bugsSize - number of bugs
    * @param versesSize - number of verses
    */
-  public void singSong (int bugsSize, int versesSize) {
+  public void singSong(int bugsSize, int versesSize) {
     Random random = new Random();
     int m;
     for (int i = 0; i < versesSize; i++) {
