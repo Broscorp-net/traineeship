@@ -1,8 +1,6 @@
 package net.broscorp.generics;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.DoubleAccumulator;
-import java.util.concurrent.atomic.DoubleAdder;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> extends ArrayList<T> {

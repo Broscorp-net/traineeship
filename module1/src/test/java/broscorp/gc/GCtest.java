@@ -5,7 +5,7 @@ import net.broscorp.gc.FirstGC;
 import net.broscorp.gc.SecondGC;
 import org.junit.jupiter.api.Test;
 
-public class GсTest {
+public class GCtest {
 
   Runtime runtime = Runtime.getRuntime();
   DecimalFormat df = new DecimalFormat("#,###,###,###.##");
