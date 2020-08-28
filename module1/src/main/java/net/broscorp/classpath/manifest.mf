@@ -1,0 +1,2 @@
+main-class: net.broscorp.classpath.FirstClass
+class-path: net/broscorp/classpath/
