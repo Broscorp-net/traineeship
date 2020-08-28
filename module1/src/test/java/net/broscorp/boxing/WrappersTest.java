@@ -16,8 +16,8 @@ class WrappersTest {
     // https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.1.7
     Integer i3 = 127;
     Integer i4 = 127;
-    Boolean b3 = false;
-    Boolean b4 = false;
+    final Boolean b3 = false;
+    final Boolean b4 = false;
 
     assertTrue(i1 == i2);
     assertTrue(i3 == i4);
