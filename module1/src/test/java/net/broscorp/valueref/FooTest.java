@@ -14,7 +14,7 @@ public class FooTest {
   int expected;
   List<String> list;
 
-  /** The setup for test */
+  /** The setup for test. */
   @BeforeEach
   public void before() {
     number = 15;
