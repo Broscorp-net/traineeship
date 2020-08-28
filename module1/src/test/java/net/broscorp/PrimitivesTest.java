@@ -18,26 +18,26 @@ public class PrimitivesTest {
 
   @Test
   public void longToIntConvertation() {
-    long a = Long.MAX_VALUE;
+    long longMaxValue = Long.MAX_VALUE;
 
-    int b = (int) a;
+    int longToInt = (int) longMaxValue;
 
-    assertNotEquals(a, b);
+    assertNotEquals(longMaxValue, longToInt);
   }
 
   @Test
   public void floatToDoubleConvertation() {
-    float a = 158.168f;
+    float someFloat = 158.168f;
 
-    double b = a;
+    double floatToDouble = someFloat;
 
-    assertNotEquals(158.168, b);
+    assertNotEquals(158.168, floatToDouble);
   }
 
   @Test
   public void errorsWhileWorkingWithFloats() {
-    float a = 2.5f + 2.7f;
+    float someFloat = 2.5f + 2.7f;
 
-    assertNotEquals(5.2, a);
+    assertNotEquals(5.2, someFloat);
   }
 }
