@@ -1,0 +1,37 @@
+digraph JGraph {
+
+  JDK -> JRE -> JVM -> JIT [color=blue];
+  JDK -> javac[color=green];
+	
+  node[shape=circle];
+  JDK [label='JDK'];
+		
+  JRE [label='JRE'];
+  JRE [shape=box];
+	
+  JVM [label='JVM'];
+  JVM [shape=box];
+	
+  JIT [label='JIT'];
+  JIT [shape=box];
+	
+  javac [label='javac'];
+  javac [shape=hexagon];
+	
+  /*
+	JDK - (Java Development Kit) комплект разработчика приложений на языке Java, включающий в себя компилятор javac, 
+	стандартные библиотеки классов Java, примеры, документацию, различные утилиты и исполнительную систему Java (JRE).
+	
+	JRE - (Java Runtime Environment) среда выполнения для Java, которая обеспечивает исполнение Java-приложений без компилятора
+	и других средств разработки. Включает в себя JVM(виртуальная машина Java) и библиотеку Java-классов.
+	
+	JVM - (Java Virtual Machine) виртуальная машина Java, которая исполняет байт-код Java, предварительно созданный 
+	из исходного текста Java-программы компилятором Java (javac).
+	
+	JIT - (Just-In-Time Compilation) технология увеличения производительности программных систем, 
+	использующих байт-код, путём компиляции байт-кода в машинный код или в другой формат непосредственно во время работы программы.
+	
+	javac - (Java compiler) компилятор Java. Компилятор принимает исходные коды и возвращает байт-код, соответствующий 
+	спецификации Java Virtual Machine Specification (JVMS).
+  */
+}
