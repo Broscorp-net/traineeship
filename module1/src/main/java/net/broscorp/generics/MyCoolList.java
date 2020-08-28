@@ -7,7 +7,9 @@ import java.util.function.Function;
 
 public class MyCoolList<T extends Number> extends ArrayList<T> {
 
-  /**I don't understand, why checkstile demands this.
+  /**
+   * I don't understand, why checkstile demands this.
+   *
    * @param t only Number supported.
    */
   @Override
@@ -34,7 +36,7 @@ public class MyCoolList<T extends Number> extends ArrayList<T> {
    */
   public <C extends Number> MyCoolList<C> map(Function f) {
     MyCoolList<C> myCoolList = new MyCoolList<>();
-    for (T t: this) {
+    for (T t : this) {
       myCoolList.add((C) f.apply(t));
     }
     return myCoolList;

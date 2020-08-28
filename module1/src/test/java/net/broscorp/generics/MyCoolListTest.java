@@ -11,10 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
+
   MyCoolList myCoolList;
 
   @BeforeEach
-   void init(){
+  void init() {
     myCoolList = new MyCoolList();
     myCoolList.add(1);
     myCoolList.add(2);
@@ -24,7 +25,7 @@ class MyCoolListTest {
   @Test
   void add() {
     assertTrue(myCoolList.add(1000));
-    assertTrue(myCoolList.add((short)1000));
+    assertTrue(myCoolList.add((short) 1000));
     assertTrue(myCoolList.add(1213484687l));
     assertFalse(myCoolList.add(100.00));
     assertFalse(myCoolList.add(100.00f));
@@ -34,7 +35,7 @@ class MyCoolListTest {
   @Test
   void get() {
     Number expect = 2;
-    assertEquals(expect,myCoolList.get(1));
+    assertEquals(expect, myCoolList.get(1));
   }
 
   @Test
@@ -45,9 +46,9 @@ class MyCoolListTest {
 
   @Test
   void map() {
-    Function<Number, Long> convert = x-> x.longValue();
+    Function<Number, Long> convert = x -> x.longValue();
     ArrayList<Long> newList = myCoolList.map(convert);
-    for (Long l : newList){
+    for (Long l : newList) {
       assertTrue(l instanceof Long);
     }
   }
