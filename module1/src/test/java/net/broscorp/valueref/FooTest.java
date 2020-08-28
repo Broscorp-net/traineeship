@@ -14,6 +14,7 @@ public class FooTest {
   int expected;
   List<String> list;
 
+  /** The setup for test */
   @BeforeEach
   public void before() {
     number = 15;
@@ -42,6 +43,7 @@ public class FooTest {
     foo.foo(number, list);
     assertTrue(list.contains("d"));
   }
+
   // Повторение причины выше, а значит и размер списка на 1 больше начального
   @Test
   public void listSizeShouldBe5() {
