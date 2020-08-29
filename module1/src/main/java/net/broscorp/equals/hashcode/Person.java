@@ -33,7 +33,7 @@ public class Person {
 
   @Override
   public int hashCode() {
-    return 1;
+    return name.length() + lastName.length() + yearsOld.length() + (int) System.currentTimeMillis();
   }
 
   @Override

@@ -12,8 +12,8 @@ public class TestPerson {
 
   @Test
   public void similarHashCodeButNotEqual() {
-    Person firstPerson = new Person("Ivan", "Ivanovchenko", "15");
-    Person secondPerson = new Person("Katya", "Ivanovich", "20");
+    Person firstPerson = new Person("Ivan", "Ivanovche", "15");
+    Person secondPerson = new Person("Katy", "Ivanovich", "20");
     assertEquals(firstPerson.hashCode(), secondPerson.hashCode());
     assertNotEquals(firstPerson, secondPerson);
   }
@@ -28,10 +28,10 @@ public class TestPerson {
 
   @Test
   public void listOfPersonsWhichCouldNotBeEqualButWithSimilarHashCode() {
-    List<Person> persons = Arrays.asList(new Person("Ivan", "Ivanovchenko", "15"),
-        new Person("Katya", "Ivanovich", "20"),
+    List<Person> persons = Arrays.asList(new Person("Ivann", "Pelmeshkin", "15"),
+        new Person("Katya", "Pelmeshkin", "20"),
         new Person("Kolya", "Pelmeshkin", "44"),
-        new Person("Nika", "Genis", "14"));
+        new Person("Flizz", "Pelmeshkin", "14"));
     for (int i = 0; i < persons.size() - 1; i++) {
       assertEquals(persons.get(i).hashCode(), persons.get(i + 1).hashCode());
       assertNotEquals(persons.get(i), persons.get(i + 1));
