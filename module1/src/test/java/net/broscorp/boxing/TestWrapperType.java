@@ -8,26 +8,35 @@ import org.junit.jupiter.api.Test;
 public class TestWrapperType {
 
   @Test
-  public void equalsBetweenWrapperType() {
-    Integer firstValue = new Integer(8);
-    Integer secondValue = new Integer(8);
-    assertFalse(firstValue == secondValue);
-  }
-
-  @Test
-  public void equalsBetweenWrapperTypeBoxing() {
+  public void equalsBetweenTwoWrapperTypeGivesTrue() {
     Integer firstValue = 8;
     Integer secondValue = 8;
     assertTrue(firstValue == secondValue);
   }
 
   @Test
+  public void equalsBetweenTwoWrapperTypeGivesFalse() {
+    Integer firstValue = Integer.valueOf(8);
+    Integer secondValue = Integer.valueOf(8);
+    assertFalse(firstValue == secondValue);
+  }
+
+  @Test
   public void equalsBetweenWrapperTypeUnboxing() {
-    Integer firstValue = new Integer(8);
-    Integer secondValue = new Integer(8);
+    Integer firstValue = Integer.valueOf(8);
+    Integer secondValue = Integer.valueOf(8);
     int firstUnboxingValue = firstValue;
     int secondUnboxingValue = secondValue;
     assertTrue(firstUnboxingValue == secondUnboxingValue);
+  }
+
+  @Test
+  public void equalsBetweenWrapperTypeBoxing() {
+    int firstValue = 8;
+    int secondValue = 8;
+    Integer firstBoxingValue = firstValue;
+    Integer secondBoxingValue = secondValue;
+    assertTrue(firstBoxingValue == secondBoxingValue);
   }
 
 }
