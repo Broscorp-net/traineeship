@@ -1,0 +1,5 @@
+f627f96 (HEAD -> next_branch) HEAD@{0}: commit: second commit in new branch
+0ace37c HEAD@{1}: commit: commit in new branch
+2497862 (master) HEAD@{2}: checkout: moving from master to next_branch
+2497862 (master) HEAD@{3}: commit: second commit
+2b5c804 HEAD@{4}: commit (initial): first commit

@@ -1,0 +1,6 @@
+f3464fc (HEAD -> feature) HEAD@{0}: rebase -i (finish): returning to refs/heads/feature
+f3464fc (HEAD -> feature) HEAD@{1}: rebase -i (squash): combination of 2 commit
+1807d10 HEAD@{2}: rebase -i (start): checkout HEAD~2
+80e269d HEAD@{5}: commit: 3nd commit
+1807d10 HEAD@{6}: commit: second commit
+0d0cbba HEAD@{7}: commit (initial): first commit

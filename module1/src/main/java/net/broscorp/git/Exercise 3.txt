@@ -1,0 +1,7 @@
+2496f16 (HEAD -> master, feature) HEAD@{0}: merge feature: Fast-forward
+ceda152 HEAD@{1}: checkout: moving from feature to master
+2496f16 (HEAD -> master, feature) HEAD@{2}: commit: second commit for feature
+737e3fa HEAD@{3}: commit: first commit for feature
+ceda152 HEAD@{4}: checkout: moving from master to feature
+ceda152 HEAD@{5}: commit: second commit for master
+d5a6271 HEAD@{6}: commit (initial): first commit for master
