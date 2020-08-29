@@ -16,8 +16,8 @@ public class TestWrapperType {
 
   @Test
   public void equalsBetweenTwoWrapperTypeGivesFalse() {
-    Integer firstValue = Integer.valueOf(8);
-    Integer secondValue = Integer.valueOf(8);
+    Integer firstValue = new Integer(8);
+    Integer secondValue = new Integer(8);
     assertFalse(firstValue == secondValue);
   }
 
