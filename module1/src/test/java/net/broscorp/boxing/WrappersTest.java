@@ -1,4 +1,4 @@
-package broscorp.boxing;
+package net.broscorp.boxing;
 
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;

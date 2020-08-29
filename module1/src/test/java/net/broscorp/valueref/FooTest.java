@@ -1,4 +1,4 @@
-package broscorp.valueref;
+package net.broscorp.valueref;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

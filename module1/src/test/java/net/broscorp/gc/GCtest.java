@@ -1,4 +1,4 @@
-package broscorp.gc;
+package net.broscorp.gc;
 
 import java.text.DecimalFormat;
 import net.broscorp.gc.FirstGC;

@@ -1,4 +1,4 @@
-package broscorp.equals.hashcode;
+package net.broscorp.equals.hashcode;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

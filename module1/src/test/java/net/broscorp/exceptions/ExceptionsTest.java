@@ -1,4 +1,4 @@
-package broscorp.exceptions;
+package net.broscorp.exceptions;
 
 import java.io.BufferedReader;
 import java.io.File;

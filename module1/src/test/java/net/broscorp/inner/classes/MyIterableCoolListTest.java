@@ -1,4 +1,4 @@
-package broscorp.inner.classes;
+package net.broscorp.inner.classes;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
