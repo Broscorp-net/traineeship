@@ -21,25 +21,25 @@ public class PersonTest {
   private Random random = new Random();
 
   @Test
-  public void xShouldEqualsX() {
+  public void person1ShouldEqualsPerson1() {
     assertEquals(person1, person1);
   }
 
   @Test
-  public void xShouldEqualsYAndOnOpposit() {
+  public void person1ShouldEqualsPerson2AndOnOpposit() {
     assertEquals(person1, person2);
     assertEquals(person2, person1);
   }
 
   @Test
-  public void xShouldEqualsYAndYShouldEqualsZAndXShouldEqualsZ() {
+  public void person1ShouldEqualsPerson2AndPerson2ShouldEqualsPerson3AndPerson1ShouldEqualsPerson3() {
     assertEquals(person1, person2);
     assertEquals(person2, person3);
     assertEquals(person1, person3);
   }
 
   @Test
-  public void XEqualsYSoHashcodesShouldBeTheSame() {
+  public void person1EqualsPerson2SoHashcodesShouldBeTheSame() {
     assertTrue(person1.hashCode() == person2.hashCode());
   }
 
