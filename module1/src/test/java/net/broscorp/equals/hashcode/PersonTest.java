@@ -32,7 +32,7 @@ public class PersonTest {
   }
 
   @Test
-  public void person1ShouldEqualsPerson2AndPerson2ShouldEqualsPerson3AndPerson1ShouldEqualsPerson3() {
+  public void person1ShouldEqualsPerson2Person2ShouldEqualsPerson3AndPerson1ShouldEqualsPerson3() {
     assertEquals(person1, person2);
     assertEquals(person2, person3);
     assertEquals(person1, person3);
