@@ -151,7 +151,8 @@ public class PersonTest {
     return new Person(
         firstName,
         lastName,
-        rnd.nextInt(upperAgeBound - lowerAgeBound + 1) + lowerAgeBound);
+        rnd.nextInt(upperAgeBound - lowerAgeBound + 1) + lowerAgeBound
+    );
   }
 
 }
