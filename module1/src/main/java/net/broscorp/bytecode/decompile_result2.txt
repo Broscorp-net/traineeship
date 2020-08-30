@@ -1,0 +1,46 @@
+Compiled from "Main.java"
+public class Main {
+  public Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":
+()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: bipush        100
+       5: if_icmpge     14
+       8: iinc          1, 1
+      11: goto          2
+      14: invokestatic  #2                  // Method someMethod:()V
+      17: getstatic     #3                  // Field java/lang/System.out:Ljava/
+io/PrintStream;
+      20: new           #4                  // class java/lang/StringBuilder
+      23: dup
+      24: invokespecial #5                  // Method java/lang/StringBuilder."<
+init>":()V
+      27: ldc           #6                  // String Hello world!
+      29: invokevirtual #7                  // Method java/lang/StringBuilder.ap
+pend:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: iload_1
+      33: invokevirtual #8                  // Method java/lang/StringBuilder.ap
+pend:(I)Ljava/lang/StringBuilder;
+      36: invokevirtual #9                  // Method java/lang/StringBuilder.to
+String:()Ljava/lang/String;
+      39: invokevirtual #10                 // Method java/io/PrintStream.printl
+n:(Ljava/lang/String;)V
+      42: return
+
+  public static void someMethod();
+    Code:
+       0: getstatic     #3                  // Field java/lang/System.out:Ljava/
+io/PrintStream;
+       3: ldc           #11                 // String Hello
+       5: invokevirtual #10                 // Method java/io/PrintStream.printl
+n:(Ljava/lang/String;)V
+       8: return
+}
