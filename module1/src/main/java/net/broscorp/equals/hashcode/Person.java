@@ -77,8 +77,8 @@ public class Person {
   public int hashCode() {
     final int prime = 31;
     return prime * age
-        + (firstName == null ? 0 : firstName.hashCode())
-        + (lastName == null ? 0 : lastName.hashCode());
+        + (firstName == null ? 0 : firstName.length())
+        + (lastName == null ? 0 : lastName.length());
   }
 
 }
