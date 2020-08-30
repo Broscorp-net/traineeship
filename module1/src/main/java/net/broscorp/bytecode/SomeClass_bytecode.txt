@@ -1,0 +1,33 @@
+Compiled from "SomeClass.java"
+public class net.broscorp.bytecode.SomeClass {
+  public net.broscorp.bytecode.SomeClass();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        100
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: invokestatic  #2                  // Method printSomeString:()V
+      22: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      25: ldc           #4                  // String Hello, new app!
+      27: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      30: return
+
+  public static void printSomeString();
+    Code:
+       0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #6                  // String Some String!
+       5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
