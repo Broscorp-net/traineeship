@@ -1,0 +1,35 @@
+digraph G {
+ rankdir=LR;
+
+ subgraph cluster_JDK {
+  label="JDK"
+  subgraph cluster_TOOLS {
+   node [shape=box]
+   label="Tools"
+   javac javap java jar "..."
+  }
+  subgraph cluster_JRE {
+   label="JRE"
+   node [shape=box]
+   "Java Class Library"
+
+   subgraph cluster_JVM {
+    label="JVM"
+    "JIT compiler"->"GC" [style=invis]
+    "Java Interpreter"->"...." [style=invis]
+   }
+  }
+ }
+ java -> "JIT compiler" [style=invis]
+ javac -> javap -> java [style=invis]
+ jar -> "..." [style=invis]
+ "GC" -> "Java Class Library" [style=invis]
+ "Java Class Library"->"Source code"[style=invis]
+
+ subgraph cluster_EMPTY {
+  style=invis;
+  "Source code"->"javac\n(part of JDK)"[label=".java"]
+  "javac\n(part of JDK)"->"JVM\n(part of JRE)"[label=".class"]
+  "JVM\n(part of JRE)"->"OS"[label="machine instructions"]
+ }
+}
