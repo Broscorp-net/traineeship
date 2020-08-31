@@ -39,6 +39,6 @@ public class GarbageCollectionTest {
       System.gc();
     }
     System.out.println(gc.list.size());
-   // assertEquals(10000,gc.list.size());
+    // assertEquals(10000,gc.list.size());
   }
 }
