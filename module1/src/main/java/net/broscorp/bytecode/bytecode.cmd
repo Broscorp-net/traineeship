@@ -1,4 +1,4 @@
-javac Main.java
-java -cp . Main
-javap -c Main
+javac -d . Main.java
+java net.broscorp.bytecode.Main
+javap -c net.broscorp.bytecode.Main
 pause
