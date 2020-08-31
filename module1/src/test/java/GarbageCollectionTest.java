@@ -1,16 +1,13 @@
-package net.broscorp.gc;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import net.broscorp.gc.FirstClass;
+import net.broscorp.gc.GarbageCollection;
+import net.broscorp.gc.SecondClass;
+import net.broscorp.gc.ThirdClass;
 import org.junit.jupiter.api.Test;
-import org.w3c.dom.css.ElementCSSInlineStyle;
 
 public class GarbageCollectionTest {
-
-  public List<ThirdClass> list = new ArrayList<>();
+  GarbageCollection gc = new GarbageCollection();
 
   @Test
   public void gcFirstTest() {
@@ -37,11 +34,11 @@ public class GarbageCollectionTest {
   @Test
   public void gcThirdTest() {
     for (int i = 0; i < 10_000; i++) {
-      ThirdClass third = new ThirdClass(i, this);
-      //list.add(third);
+      ThirdClass third = new ThirdClass(i, gc);
+      //gc.list.add(third);
       System.gc();
     }
-    System.out.println(list.size());
-    //assertEquals(9999,list.size());
+    System.out.println(gc.list.size());
+   // assertEquals(10000,gc.list.size());
   }
 }

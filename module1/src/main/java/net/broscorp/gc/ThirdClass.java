@@ -4,14 +4,14 @@ package net.broscorp.gc;
 
 public class ThirdClass {
   long a0;
-  GarbageCollectionTest gc;
+  GarbageCollection gc;
 
   /**
   * ThirdClass.
   * @param a0 number
   * @param gc GCT
   */
-  public ThirdClass(long a0, GarbageCollectionTest gc) {
+  public ThirdClass(long a0, GarbageCollection gc) {
     this.a0 = a0;
     this.gc = gc;
     counterText();
