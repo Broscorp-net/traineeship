@@ -23,13 +23,13 @@ public class PrimitivesTest {
   public void floatToDouble() {
     float number = 3.143267581489987665f;
     double expectedDoubleNumber = 3.143267581489987665;
-    Assert.assertSame(expectedDoubleNumber,number);
+    Assert.assertNotEquals(expectedDoubleNumber,number);
   }
 
   @Test
   public void errorWithFloatingNumber() {
     double number = 0.2 + 0.4;
     double expected = 0.6;
-    Assert.assertSame(expected,number);
+    Assert.assertNotEquals(expected,number);
   }
 }
