@@ -8,7 +8,7 @@ public class Test {
    * Класс в котором проводятся эксперименты с GC.
    */
   public static void main(String[] args) {
-    GcTest test = new GcTest("object");
+    GcTest test = new GcTest();
     //test.largeNumberOfObjects();
     test.twoLinksToOneObject();
 
