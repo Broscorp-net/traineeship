@@ -2,6 +2,10 @@ package net.broscorp.bytecode;
 
 public class Util {
 
+  /**
+   * Entry point.
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) {
     int i = 0;
     while (i < 1000) {
