@@ -1,0 +1,33 @@
+Compiled from "Util.java"
+public class net.broscorp.bytecode.Util {
+  public net.broscorp.bytecode.Util();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: sipush        1000
+       6: if_icmpge     15
+       9: iinc          1, 1
+      12: goto          2
+      15: invokestatic  #2                  // Method simpleMethod:()V
+      18: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      21: ldc           #4                  // String Hello World!
+      23: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      26: return
+
+  private static void simpleMethod();
+    Code:
+       0: sipush        250
+       3: istore_0
+       4: iload_0
+       5: iconst_2
+       6: ior
+       7: istore_0
+       8: return
+}
