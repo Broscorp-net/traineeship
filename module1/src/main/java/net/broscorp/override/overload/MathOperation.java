@@ -6,6 +6,8 @@ public interface MathOperation {
 
   double operation(int firstValue, int secondValue);
 
+  double operation(Double firstValue, Double secondValue);
+
   double operation(Integer firstValue, Integer secondValue);
 
 }

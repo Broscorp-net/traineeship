@@ -13,6 +13,11 @@ public class SumOperation implements MathOperation {
   }
 
   @Override
+  public double operation(Double firstValue, Double secondValue) {
+    return firstValue + secondValue;
+  }
+
+  @Override
   public double operation(Integer firstValue, Integer secondValue) {
     return (double) firstValue + secondValue;
   }

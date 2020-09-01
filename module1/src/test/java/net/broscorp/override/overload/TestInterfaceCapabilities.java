@@ -8,9 +8,8 @@ import org.junit.jupiter.api.Test;
 
 public class TestInterfaceCapabilities {
 
-  private DecimalFormat format = new DecimalFormat("###.#");
   private MathOperation sum = new SumOperation();
-  private MathOperation subtraction = new SubtractionOperation();
+  private MathOperation multiplication = new MultiplicationOperation();
 
   @Test
   public void testSumWithDoubleFields() {
@@ -24,49 +23,55 @@ public class TestInterfaceCapabilities {
   public void testSumWithIntFields() {
     int firstValue = 6;
     int secondValue = 12;
-    System.out.println(sum.operation(firstValue, secondValue));
     assertEquals(18, sum.operation(firstValue, secondValue));
+  }
+
+  @Test
+  public void testSumWithRefDoubleFields() {
+    Double firstValue = 6.3;
+    Double secondValue = 6.2;
+    assertEquals(12.5, sum.operation(firstValue, secondValue));
   }
 
   @Test
   public void testSumWithIntegerFields() {
     Integer firstValue = 2;
     Integer secondValue = 8;
-    System.out.println(sum.operation(firstValue, secondValue));
     assertEquals(10, sum.operation(firstValue, secondValue));
   }
 
   @Test
-  public void testSubtractionWithDoubleFields() {
+  public void testMultiplicationWithDoubleFields() {
     double firstValue = 3.1;
     double secondValue = 2.4;
-    double answer = roundAvoid(subtraction.operation(firstValue, secondValue), 1);
-    assertEquals(0.7, answer);
+    assertEquals(7.44, multiplication.operation(firstValue, secondValue));
   }
 
   @Test
-  public void testSubtractionWithIntFields() {
+  public void testMultiplicationWithIntFields() {
     int firstValue = 8;
     int secondValue = 5;
-    assertEquals(3, subtraction.operation(firstValue, secondValue));
+    assertEquals(40.0, multiplication.operation(firstValue, secondValue));
   }
 
   @Test
-  public void testSubtractionWithIntegerFields() {
+  public void testMultiplicationWithRefDoubleFields() {
+    Double firstValue = 2.5;
+    Double secondValue = 10.0;
+    assertEquals(25.0, multiplication.operation(firstValue, secondValue));
+  }
+
+  @Test
+  public void testMultiplicationWithIntegerFields() {
     Integer firstValue = 10;
     Integer secondValue = 5;
-    assertEquals(5, subtraction.operation(firstValue, secondValue));
+    assertEquals(50.0, multiplication.operation(firstValue, secondValue));
   }
 
   @Test
-  public void testSubtractionWithIntegerAndIntFields() {
+  public void testMultiplicationWithIntegerAndIntFields() {
     Integer firstValue = 10;
     int secondValue = 5;
-    assertEquals(5, subtraction.operation(firstValue, (Integer) secondValue));
-  }
-
-  private double roundAvoid(double value, int places) {
-    double scale = Math.pow(10, places);
-    return Math.round(value * scale) / scale;
+    assertEquals(50.0, multiplication.operation(firstValue, (Integer) secondValue));
   }
 }
