@@ -8,14 +8,15 @@ public class Util {
       i++;
     }
 
-    simpleMethod();
+    simpleMethod(100);
 
     System.out.println("Hello World!");
   }
 
-  private static void simpleMethod() {
+  private static void simpleMethod(int n) {
     int i = 250;
-    i |= 2;
+    i <<= 2;
+    i += n;
   }
 
 }
