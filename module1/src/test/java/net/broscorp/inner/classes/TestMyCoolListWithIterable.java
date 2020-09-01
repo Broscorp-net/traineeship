@@ -1,6 +1,7 @@
 package net.broscorp.inner.classes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.function.Function;
 
@@ -35,6 +36,13 @@ public class TestMyCoolListWithIterable {
   @Test
   public void getElementByIndexFromList() {
     assertEquals(12, integerList.get(0));
+  }
+
+  @Test
+  public void getFailIndex() {
+    assertThrows(RuntimeException.class, () -> {
+      integerList.get(integerList.size() + 1);
+    });
   }
 
   @Test

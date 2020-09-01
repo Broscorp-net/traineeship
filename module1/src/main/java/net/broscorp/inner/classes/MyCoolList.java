@@ -46,6 +46,9 @@ public class MyCoolList<T extends Number> {
    */
 
   public T get(int index) {
+    if (index > size) {
+      throw new RuntimeException("Index does not exist");
+    }
     return elementData(index);
   }
 
@@ -60,6 +63,9 @@ public class MyCoolList<T extends Number> {
     }
     array[size] = null;
     size--;
+    if (array.length > defSize && size < array.length / 3) {
+      resize(array.length / 2);
+    }
   }
 
   /**
@@ -67,13 +73,13 @@ public class MyCoolList<T extends Number> {
    * @param f функция для конвертаций списка.
    */
 
-  public <R extends Number> MyCoolList<R> map(Function f) {
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> result = new MyCoolList<>(size);
     for (Object ls : array) {
       if (ls == null) {
         break;
       }
-      result.add((R) f.apply(ls));
+      result.add((R) f.apply((T) ls));
     }
     return result;
   }
