@@ -1,6 +1,7 @@
 package net.broscorp.generics;
 
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class MyCoolList<T extends Number> {
   //я знаю, что есть негласное правило на счет констант, но я не смог обойти CheckStyle
@@ -23,6 +24,9 @@ public class MyCoolList<T extends Number> {
    */
 
   public T get(int index) {
+    if (index > size) {
+      throw new RuntimeException("Index does not exist");
+    }
     return (T) array[index];
   }
 
@@ -36,19 +40,22 @@ public class MyCoolList<T extends Number> {
     }
     array[size - 1] = null;
     size--;
+    if (array.length > defSize && size < array.length / 3) {
+      resize(array.length / 2);
+    }
   }
 
   /**
    * Метод конвертирующий с T в R объект (числового типа).
    */
 
-  public <R extends Number> MyCoolList<R> map(Function f) {
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> result = new MyCoolList<>();
     for (Object ls : array) {
       if (ls == null) {
         break;
       }
-      result.add((R) f.apply(ls));
+      result.add(f.apply((T) ls));
     }
     return result;
   }
