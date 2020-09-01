@@ -9,7 +9,7 @@ public class Person {
   private String yearsOld;
 
   /**
-   * Объект возвращает hashcode = 1.
+   * "100% вероятность" не получения коллизии в этом классе.
    */
   public Person(String name, String lastName, String yearsOld) {
     this.name = name;
@@ -33,7 +33,7 @@ public class Person {
 
   @Override
   public int hashCode() {
-    return name.length() + lastName.length() + yearsOld.length() + (int) System.currentTimeMillis();
+    return name.length() + lastName.length() + yearsOld.length();
   }
 
   @Override
