@@ -45,16 +45,16 @@ public class GcTest {
     this.gc = gcTest;
   }
 
-  //  @Override
-  //  protected void finalize() {
-  //    try(FileWriter writer = new FileWriter("secondLog.txt", true)){
-  //      String massage = this.name + " - " + this.numberOfObject + " was delete.";
-  //      writer.append(massage).append("\n");
-  //      writer.flush();
-  //    } catch (IOException ex) {
-  //      System.out.println(ex.getMessage());
-  //    }
-  //  }
+  @Override
+  protected void finalize() {
+    try (FileWriter writer = new FileWriter("secondLog.txt", true)) {
+      String massage = this.name + " - " + this.numberOfObject + " was delete.";
+      writer.append(massage).append("\n");
+      writer.flush();
+    } catch (IOException ex) {
+      System.out.println(ex.getMessage());
+    }
+  }
 
   @Override
   public String toString() {
