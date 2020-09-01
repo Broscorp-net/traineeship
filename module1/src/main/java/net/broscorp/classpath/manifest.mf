@@ -1,0 +1,2 @@
+Main-Class: net.broscorp.classpath.MainAndReadFromConsole
+Class-Path: net/broscorp/classpath
