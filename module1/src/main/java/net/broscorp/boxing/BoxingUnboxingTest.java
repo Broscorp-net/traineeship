@@ -10,10 +10,10 @@ public class BoxingUnboxingTest {
 
   @Test
   public void boxingTest() {
-    int nummber = 1;
+    int number = 1;
     List<Integer> list = new ArrayList<>();
-    list.add(nummber);
-    assertEquals(1, list.get(nummber));
+    list.add(number);
+    assertEquals(1, list.get(number));
   }
 
   @Test
