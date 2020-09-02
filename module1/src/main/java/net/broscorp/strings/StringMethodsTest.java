@@ -31,12 +31,25 @@ public class StringMethodsTest {
 
   @Test
   public void outQuantityOfWordsInTheLineAndItLengthTest() {
-    stringMethods.outQuantityOfWordsInTheLineAndItLength("Hello World");
+    String givenString = "Hello World";
+    String expectedString = "Hello: 5" + "\n" + "World: 5" + "\n";
+    assertEquals(expectedString, stringMethods.outQuantityOfWordsInTheLineAndItLength(givenString));
   }
 
   @Test
   public void singMethod() {
-    stringMethods.singMethod(2, 4);
+    int quantityOfBags = 2;
+    int quantityOfCouplets = 1;
+    assertEquals(84, scoreSymbols(stringMethods.singMethod(quantityOfBags, quantityOfCouplets)));
+  }
+
+  private int scoreSymbols(String singMethod) {
+    singMethod = singMethod.replace(" ", "")
+        .replace(",", "")
+        .replace(".", "")
+        .replace("\n", "");
+
+    return singMethod.length();
   }
 
 }

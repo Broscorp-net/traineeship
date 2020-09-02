@@ -1,5 +1,7 @@
 package net.broscorp.strings;
 
+import java.util.Random;
+
 public class StringMethods {
 
   /**
@@ -11,7 +13,7 @@ public class StringMethods {
   public boolean isPalindrome(String str) {
     str = str.replaceAll(" ", "");
     String ourWorkLine = str.toLowerCase();
-    StringBuilder reverseWorkLine = new StringBuilder(ourWorkLine.toLowerCase());
+    StringBuilder reverseWorkLine = new StringBuilder(ourWorkLine);
     reverseWorkLine.reverse();
     return ourWorkLine.equals(reverseWorkLine.toString());
   }
@@ -29,34 +31,38 @@ public class StringMethods {
   }
 
   /**
-   *  Make splits in the introduced string, and print on the screen
-   *  quantity of each words.
+   * Make splits in the introduced string, and print on the screen quantity of each words.
    */
-  public void outQuantityOfWordsInTheLineAndItLength(String str) {
+  public String outQuantityOfWordsInTheLineAndItLength(String str) {
     String[] stringsWasSplit = str.split(" ");
+    StringBuilder waitString = new StringBuilder();
 
     for (String s : stringsWasSplit) {
       System.out.println(s + ": " + s.length());
+      waitString.append(s).append(": ").append(s.length()).append("\n");
     }
+
+    return waitString.toString();
   }
 
   /**
    * Make a song.
    */
-  public void singMethod(int quantityOfBags, int quantityOfCouplets) {
-    while (quantityOfCouplets > 0) {
-      int m = (int) ((Math.random() * 10) + 1);
-      for (int i = quantityOfBags; i > 1; i--) {
-        System.out.printf("%d little bugs in the code,\n", i);
-      }
-      System.out.printf("%d little bug in the code.\n", 1);
-      if (m == 1) {
-        System.out.printf("Take one down, patch it %d little bug in the code.\n", m);
-      } else {
-        System.out.printf("Take one down, patch it around %d little bugs in the code.\n", m);
-      }
-      quantityOfBags = m;
-      quantityOfCouplets--;
+  public String singMethod(int quantityOfBags, int quantityOfCouplets) {
+    StringBuilder song = new StringBuilder();
+    Random random = new Random();
+
+    for (int i = 0; i < quantityOfCouplets; i++) {
+      int a =
+          quantityOfBags == 0 || quantityOfBags < 0 ? 0 : quantityOfBags - 10 + random.nextInt(20);
+      song.append(quantityOfBags).append(" little bugs in the code,\n")
+          .append(quantityOfBags).append(" little bugs in the code.\n")
+          .append("Take one down, patch it around ")
+          .append(a).append(" little bugs in the code.\n");
+      quantityOfBags = a;
     }
+
+    System.out.println(song.toString());
+    return song.toString();
   }
 }
