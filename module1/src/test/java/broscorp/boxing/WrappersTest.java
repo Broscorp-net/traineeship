@@ -9,7 +9,7 @@ public class WrappersTest {
 
   @Test
   // в пределах кеша получаем тот же обьект
-  void wrappersCompare_v1() {
+  void wrappersCompareInCashedRange() {
     Integer number1 = 100;
     Integer number2 = 100;
     assertSame(number1, number2);
@@ -17,7 +17,7 @@ public class WrappersTest {
 
   @Test
   // за пределами кеша объекты разные
-  void wrappersCompare_v2() {
+  void wrappersCompareOutOfCashedRange() {
     Integer number1 = 1000;
     Integer number2 = 1000;
     assertNotSame(number1, number2);
