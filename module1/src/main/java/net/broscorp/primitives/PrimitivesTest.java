@@ -1,6 +1,7 @@
 package net.broscorp.primitives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
@@ -56,16 +57,27 @@ public class PrimitivesTest {
     assertEquals(intValue, (int) maxValueLong);
   }
 
+  /**
+   * Будет False, так как, когда мы float ужимаем до double, происходит потеря памяти(в данном
+   * случае сужение/сжатие/округление до более большего числа. В идеале сложение число должно было
+   * быть меньше чем 15.55, но так как мы ужали floatValue, оно округлилось до 7.78000020980835, от
+   * сюда результат сложения равен числу превышающему 15.54
+   */
   @Test
   public void floatToDouble() {
-    float floatValue = 7.77f;
-    double doubleValue = 7.769997898765432771;
-    assertNotEquals(doubleValue, floatValue);
+    float floatValue = 7.7799999912331312312313123213f;
+    double doubleValue = 7.77;
+    assertFalse(((double) floatValue + doubleValue) < 15.55);
   }
 
   @Test
   public void floatingPointError() {
-    double doubleNumber = 7.4 + 0.3;
+    double doubleNumber = 0.0;
+
+    for (int i = 0; i < 11; i++) {
+      doubleNumber += 0.7;
+    }
+
     double doubleExpected = 7.7;
     assertNotEquals(doubleExpected, doubleNumber);
   }
