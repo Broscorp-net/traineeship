@@ -1,0 +1,19 @@
+digraph G {
+node [style=filled,color=green];
+  "Java Development Kit(JDK)" -> "Java Compiler"[label="contains"]
+node [style=filled,color=green];
+  "Java Development Kit(JDK)" -> "Java Runtime Environment(JRE)"[style=bold, label="JDK contains JVM"]
+node [style=filled,color=green];
+  "Java Runtime Environment(JRE)" -> "Java Virtual Machine(JVM)"[style=bold,label="JRE contains JVM"]
+node [style=filled,color=green];
+  "Java Compiler" -> "Java bytecode"[style=bold, label="compiles"]
+node [style=filled,color=green];
+  "Java bytecode" -> "Java Virtual Machine(JVM)"[label="JVM executes bytecode"]
+  "Java Virtual Machine(JVM)" -> "Just-In-Time-Compiler(JIT)"[label="JVM contains JIT"]
+}
+
+/* JDK - это набор инструментов java разработчика в котором находятся компилятор и среда исполнения java кода.
+JRE - исполнительная система java  необходимая для запуска java приложений без компилятора.
+JVM - основная часть исполняющей системы java которая исполняет байт-код предварительно созданный из исходного кода.
+JIT - технология увеличения производительности программных систем использующих байт-код путём компиляции байт-кода в
+машинный код или в другой формат непосредственно во время работы программы. */
