@@ -2,9 +2,9 @@ package net.broscorp.boxing.valuerf;
 
 import java.util.ArrayList;
 import java.util.List;
+import net.broscorp.valueref.Foo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import net.broscorp.valueref.Foo;
 
 public class FooTest {
 
