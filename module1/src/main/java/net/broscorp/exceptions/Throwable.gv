@@ -1,0 +1,11 @@
+digraph Throwable {
+    rankdir = "RL"
+    "Throwable" [label = "Throwable | checked" shape = "record"];
+    "Error" [label = "Error | unchecked" shape = "record"];
+    "Exception" [label = "Exception | checked" shape = "record"];
+    "RuntimeException" [label = "RuntimeException | unchecked" shape = "record"];
+
+    Exception -> Throwable [ penwidth = 1 fontsize = 28 fontcolor = "black"];
+    Error -> Throwable [ penwidth = 1 fontsize = 28 fontcolor = "black"];
+    RuntimeException -> Exception [ penwidth = 1 fontsize = 28 fontcolor = "black"];
+}
