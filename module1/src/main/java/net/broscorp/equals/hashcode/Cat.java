@@ -1,7 +1,5 @@
 package net.broscorp.equals.hashcode;
 
-import java.util.Objects;
-
 public class Cat {
 
   String name;
@@ -45,6 +43,8 @@ public class Cat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, breed, age);
+    char name = this.name.charAt(0);
+    char breed = this.breed.charAt(0);
+    return (int) name * (int) breed;
   }
 }

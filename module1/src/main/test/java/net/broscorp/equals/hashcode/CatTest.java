@@ -24,7 +24,7 @@ public class CatTest {
   public static void fillingList() {
     cats = Stream.of(
         new Cat("Tom", "British", 4),
-        new Cat("Tom", "British", 4),
+        new Cat("Tom", "British", 9),
         new Cat("Luci", "American", 5),
         new Cat("Angel", "Russian", 2))
         .collect(Collectors.toList());
@@ -42,7 +42,7 @@ public class CatTest {
 
   @Test
   public void equalsTest() {
-    assertTrue(cats.get(0).equals(cats.get(1)));
+    assertFalse(cats.get(0).equals(cats.get(1)));
   }
 
   @Test
@@ -52,15 +52,19 @@ public class CatTest {
 
   @Test
   public void findTheSameObjectsForEqualsHashCodes() {
+    Cat first = null;
+    Cat second = null;
 
     for (int i = 0; i < cats.size() - 1; i++) {
-      Cat first = cats.get(i);
-      Cat second = cats.get(i + 1);
+      first = cats.get(i);
+      second = cats.get(i + 1);
       if (first.hashCode() == second.hashCode() && !first.equals(second)) {
-        System.out.println("Вот объект " + first + " , вот объект " + second
-            + " , они разные, но их хеш сопадает");
+        System.out.println("Вот объект " + first + ", вот объект " + second
+            + ", они разные, но их хеш совпадает");
+        break;
       }
     }
+    assertEquals(first.hashCode(), second.hashCode());
   }
 
 }
