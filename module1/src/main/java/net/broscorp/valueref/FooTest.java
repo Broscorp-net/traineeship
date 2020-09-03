@@ -1,6 +1,7 @@
 package net.broscorp.valueref;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,18 +15,18 @@ public class FooTest {
 
   /**
    * Вызывая метод foo из класса Foo, в данном случае, мы проверяем измениться ли Первый параметр,
-   * котороый мы туда передаём, а именно значение number. По итогу метода, значение что мы туда
+   * который мы туда передаём, а именно значение number. По итогу метода, значение что мы туда
    * передали НЕ должно измениться. Так как мы передали его НЕ по ссылке, а по копии значения.
    */
   @Test
   public void changeIntNumber() {
     foo.foo(number, list);
-    assertEquals(number, number);
+    assertNotEquals(16, number);
   }
 
   /**
    * Вызывая метод foo из класса Foo, в данном случае, мы проверяем измениться ли Второй параметр,
-   * котороый мы туда передаём, а именно ссылочное значение list. По итогу метода в котором
+   * который мы туда передаём, а именно ссылочное значение list. По итогу метода в котором
    * мы добавили новое строковое значение в list, передали должно измениться. Так как мы
    * передали его по ссылке на оригинал.
    */
