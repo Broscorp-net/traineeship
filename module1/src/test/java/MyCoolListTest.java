@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Iterator;
 import java.util.function.Function;
 import net.broscorp.generics.MyCoolList;
 import org.junit.jupiter.api.Test;
@@ -41,5 +42,18 @@ class MyCoolListTest {
       list.add(i);
     }
     assertTrue(list.size() == 10);
+  }
+
+  @Test
+  public void checkIterator() {
+    for (int i = 0; i < 10; i++) {
+      list.add(i);
+    }
+    Iterator<Integer> iterator = list.iterator();
+    int count = 0;
+    while (iterator.hasNext()) {
+      assertEquals(count,iterator.next());
+      count++;
+    }
   }
 }
