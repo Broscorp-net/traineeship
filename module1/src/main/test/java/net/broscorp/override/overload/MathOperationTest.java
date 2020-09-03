@@ -2,7 +2,7 @@ package net.broscorp.override.overload;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class MathOperationTest {
 
