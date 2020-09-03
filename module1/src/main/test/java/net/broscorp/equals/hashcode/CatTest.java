@@ -3,7 +3,6 @@ package net.broscorp.equals.hashcode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +16,7 @@ public class CatTest {
   static List<Cat> cats = new ArrayList<>();
 
   /**
-   * Methods with this annotation are run before each test.
-   * Let's add some objects to our list
+   * Methods with this annotation are run before each test. Let's add some objects to our list
    */
   @BeforeAll
   public static void fillingList() {
@@ -64,7 +62,7 @@ public class CatTest {
         break;
       }
     }
-    assertEquals(first.hashCode(), second.hashCode());
+    assertEquals(first != null ? first.hashCode() : 0, second != null ? second.hashCode() : 0);
   }
 
 }
