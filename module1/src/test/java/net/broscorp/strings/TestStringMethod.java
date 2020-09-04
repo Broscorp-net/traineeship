@@ -40,10 +40,11 @@ public class TestStringMethod {
 
   @Test
   public void testingSong() {
-    int numberOfBags = 2;
-    int numberOfCouplet = 1;
-    assertEquals(numberOfCouplet * 24,
-        splitWords(songAboutBugs(numberOfBags, numberOfCouplet)).length);
+    int numberOfBags = 50;
+    int numberOfCouplet = 3;
+    System.out.println(songAboutBugs(numberOfBags, numberOfCouplet));
+    //assertEquals(numberOfCouplet * 24,
+     //   splitWords(songAboutBugs(numberOfBags, numberOfCouplet)).length);
   }
 
   private boolean isPalindrome(String s) {
@@ -86,7 +87,7 @@ public class TestStringMethod {
     Random random = new Random();
     for (int i = 0; i < numberOfCouplet; i++) {
       int m = 0;
-      m = numberOfBags == 0 || numberOfBags < 0
+      m = numberOfBags < 10
           ? 0 : numberOfBags - 10 + random.nextInt(20);
       song.append(numberOfBags).append(" little bugs in the code,\n")
           .append(numberOfBags).append(" little bugs in the code.\n")
