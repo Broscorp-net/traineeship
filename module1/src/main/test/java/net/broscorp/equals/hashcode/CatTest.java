@@ -3,6 +3,7 @@ package net.broscorp.equals.hashcode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class CatTest {
         break;
       }
     }
-    assertEquals(first != null ? first.hashCode() : 0, second != null ? second.hashCode() : 0);
+    assertTrue(first.hashCode() == second.hashCode() && !first.equals(second));
   }
 
 }
