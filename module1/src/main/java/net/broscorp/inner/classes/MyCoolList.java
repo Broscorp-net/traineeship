@@ -3,14 +3,16 @@ package net.broscorp.inner.classes;
 import java.util.Iterator;
 import java.util.function.Function;
 
-public class MyCoolList<T extends Number> {
+public class MyCoolList<T extends Number> implements Iterable<T> {
 
+  private MyIterator myIterator = new MyIterator();
   private final int defSize = 10;
   private Object[] array;
   private int size = 0;
 
   /**
    * Конструктор.
+   *
    * @param initialCapacity размер массива задающий при инициализации.
    */
   public MyCoolList(int initialCapacity) {
@@ -26,6 +28,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Добавление в список.
+   *
    * @param element передающий в массив элемент.
    */
 
@@ -42,6 +45,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Получение элемента по индексу.
+   *
    * @param index индекс элемента.
    */
 
@@ -54,6 +58,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Удаление элемента по индексу.
+   *
    * @param index индекс элемента.
    */
 
@@ -70,6 +75,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Конвертация списка.
+   *
    * @param f функция для конвертаций списка.
    */
 
@@ -96,6 +102,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Отображение списка.
+   *
    * @return вывод списка на экран.
    */
 
@@ -112,13 +119,9 @@ public class MyCoolList<T extends Number> {
     return str.append("]").toString();
   }
 
-  class ArrayIterable implements Iterable<T> {
-    private MyIterator myIterator = new MyIterator();
-
-    @Override
-    public Iterator<T> iterator() {
-      return myIterator;
-    }
+  @Override
+  public Iterator<T> iterator() {
+    return myIterator;
   }
 
   private class MyIterator implements Iterator<T> {

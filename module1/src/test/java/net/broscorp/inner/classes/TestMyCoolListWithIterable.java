@@ -1,7 +1,9 @@
 package net.broscorp.inner.classes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.function.Function;
 
@@ -10,7 +12,6 @@ import org.junit.jupiter.api.Test;
 
 public class TestMyCoolListWithIterable {
 
-  private Function<Integer, Double> intToDouble = integer -> integer.doubleValue();
   private MyCoolList<Integer> integerList = new MyCoolList<>(0);
 
   @BeforeEach
@@ -58,6 +59,7 @@ public class TestMyCoolListWithIterable {
     integerList.add(78);
     integerList.add(8);
     integerList.add(38);
+    Function<Integer, Double> intToDouble = integer -> integer.doubleValue();
     MyCoolList<Double> doubleList = integerList.map(intToDouble);
     System.out.println(doubleList.showList());
     String expectedArray = "[12.0, 78.0, 8.0, 38.0]";
@@ -65,15 +67,24 @@ public class TestMyCoolListWithIterable {
   }
 
   @Test
-  public void testMyIterable() {
-    integerList.add(78);
-    integerList.add(29);
-    integerList.add(11);
-    integerList.add(78);
-    MyCoolList<Integer>.ArrayIterable iterable = integerList.new ArrayIterable();
-    while (iterable.iterator().hasNext()) {
-      System.out.print(iterable.iterator().next() + " ");
-    }
+  public void testMyIterableMethodHasNextTrue() {
+    assertTrue(integerList.iterator().hasNext());
   }
 
+  @Test
+  public void testMyIterableMethodHasNextFalse() {
+    integerList.remove(0);
+    assertFalse(integerList.iterator().hasNext());
+  }
+
+  @Test
+  public void testMyIterableMethodNext() {
+    integerList.add(78);
+    MyCoolList<Integer> integerTest = new MyCoolList<>(10);
+    while (integerList.iterator().hasNext()) {
+      integerTest.add(integerList.iterator().next());
+    }
+    assertEquals(12, integerTest.get(0));
+    assertEquals(78, integerTest.get(1));
+  }
 }
