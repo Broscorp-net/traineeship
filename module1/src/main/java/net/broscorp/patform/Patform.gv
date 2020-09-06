@@ -1,0 +1,70 @@
+//Java Development Kit (JDK) contains JRE along with various
+//development tools like Java libraries, Java source compilers,
+//Java debuggers, bundling and deployment tools.
+//Like a real computing machine, JVM has an instruction set and
+//manipulates various memory areas at run time. Thus for different
+//hardware platforms one has corresponding implementation of JVM
+//available as vendor supplied JREs. It is common to implement a
+//programming language using a virtual machine.
+//
+//A Java virtual machine instruction consists of an opcode
+//specifying the operation to be performed, followed by zero or
+//more operands embodying values to be operated upon. From the
+//point of view of a compiler, the Java Virtual Machine (JVM)is
+//just another processor with an instruction set, Java bytecode,
+//for which code can be generated. Life cycle is as follows,
+//source code to byte code to be interpreted by the JRE and gets
+//converted to the platform specific executable ones.
+//Java Runtime Environment (JRE) is an implementation of the JVM.
+//JVM becomes an instance of JRE at runtime of a Java program.
+//It is widely known as a runtime interpreter. The Java virtual
+//machine (JVM) is the cornerstone on top of which the Java
+//technology is built upon. It is the component of the Java
+//technology responsible for its hardware and platform independence.
+//JVM largely helps in the abstraction of inner implementation
+//from the programmers who make use of libraries for their
+//programmes from JDK.
+
+
+digraph Java {
+
+  graph [fontsize=10 fontname="Verdana" compound=true];
+  node [shape=record fontsize=10 fontname="Verdana"];
+
+  a [label="Java Source Code",shape=circle];
+ // b [label="Java Development Kit (JDK)",shape=square];
+  bb [label="Java Compiler",shape=Mrecord];
+  c [label="Java Byte Code",shape=square];
+ // d [label="Java Virtual Machine (JVM)",shape=square];
+  dd [label="Just In Time compiler (JIT)",shape=Mrecord];
+  e [label="Java Runtime Environment (JRE)",shape=square];
+
+  subgraph cluster_0 {
+	style=filled;
+	color=lightgrey;
+	node [style=filled];
+	bb;
+        label="Java Development Kit (JDK)";
+  }
+
+  subgraph cluster_1 {
+	style=filled;
+	color=lightgrey;
+	node [style=filled];
+	label="Java Source Code";
+  }
+
+  subgraph cluster_2 {
+	style=filled;
+	color=lightgrey;
+	node [style=filled];
+        dd;
+	label="Java Virtual Machine (JVM)";
+  }
+  a -> bb [ltail=cluster_1 lhead=cluster_0 minlen=2];
+  bb -> c [ltail=cluster_0 minlen=2] ;
+  c -> dd [ltail=cluster_0 lhead=cluster_2 minlen=2];
+  dd -> e [ltail=cluster_2 label="Implementation" penwidth=2];
+  { rank=same; a c e}
+
+}
