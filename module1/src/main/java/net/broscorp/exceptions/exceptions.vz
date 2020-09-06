@@ -1,0 +1,9 @@
+digraph G {
+ a [shape=box, label="Throwable\n(checked)"]
+ b [shape=box, label="Exception\n(checked)"]
+ c [shape=box, label="Error\n(unchecked)"]
+ d [shape=box, label="RuntimeException\n(unchecked)"]
+
+ a->c
+ a->b->d
+}
