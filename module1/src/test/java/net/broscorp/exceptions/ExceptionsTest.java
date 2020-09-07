@@ -26,7 +26,7 @@ public class ExceptionsTest {
   }
 
   @Test
-  void catchIOExceptionAndGetFinally() {
+  void catchIoexceptionAndGetFinally() {
     assertEquals("Finally here", tryReadFileAndGetException());
   }
 
