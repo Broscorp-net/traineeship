@@ -1,5 +1,7 @@
 package net.broscorp.exceptions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,20 +12,30 @@ import org.junit.jupiter.api.Test;
 public class ExceptionsTest {
 
   @Test
-  void readFile() {
+  private String tryReadFileAndGetException() {
     File file = new File("D:/test.txt");
     try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-      String line;
-      while ((line = reader.readLine()) != null) {
-        System.out.println(line);
-        throw new IOException();
-      }
+      throw new IOException();
     } catch (FileNotFoundException ex) {
-      System.out.println("Catch FileNotFoundException");
+      return "Catch FileNotFoundException";
     } catch (IOException e) {
-      System.out.println("Catch IOException");
+      return "Catch IOException";
     } finally {
-      System.out.println("Finally here");
+      return "Finally here";
+    }
+  }
+
+  @Test
+  void catchIOExceptionAndGetFinally() {
+    assertEquals("Finally here", tryReadFileAndGetException());
+  }
+
+  @Test
+  void catchParentOfException() {
+    try {
+      throw new ArithmeticException();
+    } catch (RuntimeException ex) {
+      assertEquals(ArithmeticException.class, ex.getClass());
     }
   }
 }
