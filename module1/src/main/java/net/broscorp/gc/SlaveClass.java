@@ -12,7 +12,7 @@ public class SlaveClass {
 
   public SlaveClass() {
     this.count = countOfConstructor++;
-    //list = new ArrayList<>();
+    list = new ArrayList<>();
   }
 
   public void setMasterClass(MasterClass masterClass) {
@@ -20,10 +20,10 @@ public class SlaveClass {
     this.count = countOfConstructor++;
   }
 
-  /*  @Override
+    @Override
   protected void finalize() throws Throwable {
-    //list.add(this);
+    list.add(this);
     System.out.println("Class Slave (number = " + count + ") has been deleted!");
     super.finalize();
-  }*/
+  }
 }
