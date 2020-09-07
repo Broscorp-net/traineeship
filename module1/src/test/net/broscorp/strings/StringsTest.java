@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
 class StringsTest {
@@ -62,7 +64,7 @@ class StringsTest {
   }
 
   @Test
-  void getSongText() {
+  void verifySongText() {
     String expect = "100 little bugs in the code,\n"
         + "100 little bugs in the code.\n"
         + "Take one down, patch it around 93 little bugs in the code.\n"
@@ -74,5 +76,26 @@ class StringsTest {
         + "Take one down, patch it around 95 little bugs in the code.\n";
     String result = strings.getSongText(100, 3);
     assertEquals(expect, result);
+  }
+
+  @Test
+  void verifyStartNumberOfBugs() {
+    int expectNumerOfBugs = 1000;
+    int result;
+    String songText = strings.getSongText(expectNumerOfBugs, 5);
+    String[] songLines = songText.split("\n");
+    result = new Scanner(songLines[0]).nextInt();
+    assertEquals(expectNumerOfBugs, result);
+  }
+
+  @Test
+  void verifyNumbersOfCouplets() {
+    int expectNumerOfCouplets = 5;
+    int result;
+    String songText = strings.getSongText(100, expectNumerOfCouplets);
+    result = (int) Stream.of(songText.split("\n"))
+        .filter(s -> s.contains("Take one down, patch it around"))
+        .count();
+    assertEquals(expectNumerOfCouplets, result);
   }
 }
