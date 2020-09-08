@@ -70,11 +70,11 @@ class GarbageCollectorTest {
     List<String> lines = new ArrayList<>();
 
     new A() {
-      @Override
-      protected void finalize() throws Throwable {
-        super.resurrect();
-        super.finalize();
-      }
+    //  @Override
+    //  protected void finalize() throws Throwable {
+    //    super.resurrect();
+    //    super.finalize();
+    //  }
     };
 
     try {

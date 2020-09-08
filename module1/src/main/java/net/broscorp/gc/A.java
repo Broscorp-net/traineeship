@@ -24,20 +24,20 @@ public class A {
     globalInst = this;
   }
 
-  @Override
-  protected void finalize() throws Throwable {
-    String outStr = String.format(
-        "%s %s",
-        A.class.getTypeName(),
-        Instant.now().toString()
-    );
-
-    System.out.println(outStr);
-
-    Path pathToLogsFile = Paths.get("logs.txt");
-    Files.write(pathToLogsFile, outStr.getBytes(), StandardOpenOption.APPEND);
-
-    super.finalize();
-  }
+  //  @Override
+  //  protected void finalize() throws Throwable {
+  //    String outStr = String.format(
+  //        "%s %s",
+  //        A.class.getTypeName(),
+  //        Instant.now().toString()
+  //    );
+  //
+  //    System.out.println(outStr);
+  //
+  //    Path pathToLogsFile = Paths.get("logs.txt");
+  //    Files.write(pathToLogsFile, outStr.getBytes(), StandardOpenOption.APPEND);
+  //
+  //    super.finalize();
+  //  }
 
 }
