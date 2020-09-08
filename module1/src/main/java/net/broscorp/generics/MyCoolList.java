@@ -180,6 +180,13 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
     }
   }
 
+  /**
+   * Nonstatic nested class is implicitly associated with the enclosing instance of the
+   * containing class. This means that it is possible to invoke methods and access variables of the
+   * enclosing instance.
+   * Static nested class can't access enclosing class instance and invoke methods on it, so should
+   * be used when the nested class doesn't require access to an instance of the enclosing class.
+   */
   private class MyCoolListIterator implements Iterator<T> {
 
     private Node currNode;
