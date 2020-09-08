@@ -20,10 +20,10 @@ public class MyIterableCoolListTest {
   @Test
   void checkIterationIsPossible() {
     int expect = myCoolList.size();
-    int rezult = 0;
+    int result = 0;
     for (Number number : myCoolList) {
-      rezult++;
+      result++;
     }
-    assertTrue(expect == rezult);
+    assertTrue(expect == result);
   }
 }
