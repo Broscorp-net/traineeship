@@ -45,13 +45,21 @@ public class MyCoolListTest {
 
   @Test
   public void sizeTest() {
-    assertEquals(6, integerMyCoolList.size());
+    assertEquals(9, integerMyCoolList.size());
   }
 
   @Test
   public void iteratorTest() {
-    for (Object a : integerMyCoolList) {
-      System.out.println(a);
+    MyCoolList<Integer> integerMyCoolList1 = new MyCoolList<>();
+
+    integerMyCoolList.add(43);
+    integerMyCoolList.add(13);
+    integerMyCoolList.add(1243);
+
+    for (int i = 0; i < integerMyCoolList.size(); i++) {
+      integerMyCoolList1 = integerMyCoolList;
     }
+    assertTrue(integerMyCoolList.size() == integerMyCoolList1.size()
+        && integerMyCoolList.get(0) == integerMyCoolList1.get(0));
   }
 }
