@@ -48,18 +48,21 @@ public class StringMethods {
   /**
    * Make a song.
    */
-  public String singMethod(int quantityOfBags, int quantityOfCouplets) {
+  public String singMethod(int quantityOfBugs, int quantityOfCouplets) {
     StringBuilder song = new StringBuilder();
     Random random = new Random();
 
     for (int i = 0; i < quantityOfCouplets; i++) {
-      int a =
-          quantityOfBags == 0 || quantityOfBags < 0 ? 0 : quantityOfBags - 10 + random.nextInt(20);
-      song.append(quantityOfBags).append(" little bugs in the code,\n")
-          .append(quantityOfBags).append(" little bugs in the code.\n")
+      int currentQuantityOfBugs = 0;
+
+      if (quantityOfBugs > 0) {
+        currentQuantityOfBugs = quantityOfBugs - 10 + random.nextInt(20);
+      }
+      song.append(quantityOfBugs).append(" little bugs in the code,\n")
+          .append(quantityOfBugs).append(" little bugs in the code.\n")
           .append("Take one down, patch it around ")
-          .append(a).append(" little bugs in the code.\n");
-      quantityOfBags = a;
+          .append(currentQuantityOfBugs).append(" little bugs in the code.\n");
+      quantityOfBugs = currentQuantityOfBugs;
     }
 
     System.out.println(song.toString());
