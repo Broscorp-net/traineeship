@@ -57,9 +57,11 @@ public class MyCoolListTest {
     integerMyCoolList.add(1243);
 
     for (int i = 0; i < integerMyCoolList.size(); i++) {
-      integerMyCoolList1 = integerMyCoolList;
+      integerMyCoolList1.add((Integer) integerMyCoolList.get(i));
     }
-    assertTrue(integerMyCoolList.size() == integerMyCoolList1.size()
-        && integerMyCoolList.get(0) == integerMyCoolList1.get(0));
+    for (int i = 0; i < integerMyCoolList.size(); i++) {
+      assertTrue(integerMyCoolList.get(i) == integerMyCoolList1.get(i));
+    }
+    assertTrue(integerMyCoolList.size() == integerMyCoolList1.size());
   }
 }
