@@ -31,7 +31,7 @@ public class FooTest {
   /**
    * With the references (as with primitives), we get a copy of the content.
    * When we pass an object reference to a method, we pass a copy of the reference.
-   * So if we change reference "listOfStrings", we will not change the value in Foo class. And vice versa.
+   * If we change reference "listOfStrings", we will not change the value in Foo class
    * We will get expected result
    */
   @Test
