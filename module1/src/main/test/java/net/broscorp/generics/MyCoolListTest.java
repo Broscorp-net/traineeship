@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class MyCoolListTest {
 
   private Function<Integer, Double> function = Integer::doubleValue;
-  private static MyCoolList<Integer> integerMyCoolList = new MyCoolList<>();
+  private MyCoolList<Integer> integerMyCoolList = new MyCoolList<>();
 
   @BeforeEach
   public void init() {
@@ -30,21 +30,20 @@ public class MyCoolListTest {
 
   @Test
   public void removeTest() {
+    integerMyCoolList.add(13);
     integerMyCoolList.remove(0);
-    assertEquals(777, integerMyCoolList.get(0));
+    assertEquals(0, integerMyCoolList.size());
   }
 
   @Test
   public void mapTest() {
+    integerMyCoolList.add(26);
     MyCoolList<Double> list = integerMyCoolList.map(function);
-
-    for (int i = 0; i < list.size(); i++) {
-      assertTrue(list.get(i) instanceof Double);
-    }
+    assertEquals(7.0, list.get(0));
   }
 
   @Test
   public void sizeTest() {
-    assertEquals(5, integerMyCoolList.size());
+    assertEquals(1, integerMyCoolList.size());
   }
 }
