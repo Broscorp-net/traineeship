@@ -8,6 +8,11 @@ public class MyCoolList<T extends Number> {
   private Object[] list = new Object[startLength];
   private int size = 0;
 
+  /**
+   * Метод добавляющий Object в массив.
+   *
+   * @param obj Принимаемый object.
+   */
   public void add(T obj) {
     if (size == list.length) {
       changeList(list.length * 2);
@@ -16,6 +21,11 @@ public class MyCoolList<T extends Number> {
     list[size++] = obj;
   }
 
+  /**
+   * Метод возвращающий object за заданным номером.
+   *
+   * @param index Номер возвращаемого object.
+   */
   public Object get(int index) {
     if (index > size) {
       throw new RuntimeException("Out of array length!");
@@ -23,6 +33,11 @@ public class MyCoolList<T extends Number> {
     return list[index];
   }
 
+  /**
+   * Метод удаляющий object за заданным номером.
+   *
+   * @param index Номер удаляемого object.
+   */
   public void remove(int index) {
     for (int i = index; i < size; i++) {
       list[i] = list[i++];
