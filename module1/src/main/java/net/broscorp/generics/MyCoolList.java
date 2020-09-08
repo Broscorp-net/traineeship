@@ -1,8 +1,15 @@
 package net.broscorp.generics;
 
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class MyCoolList<T extends Number> {
+public class MyCoolList<T extends Number> implements Iterable<T> {
+
   private class Node {
     private T data;
     private Node next;
@@ -152,4 +159,60 @@ public class MyCoolList<T extends Number> {
 
     return sb.toString();
   }
+
+  @Override
+  public Iterator<T> iterator() {
+    return new MyCoolListIterator();
+  }
+
+  @Override
+  public void forEach(Consumer<? super T> consumer) {
+
+  }
+
+  @Override
+  public Spliterator<T> spliterator() {
+    return null;
+  }
+
+  private class MyCoolListIterator implements Iterator<T> {
+
+    private Node currNode;
+    private int cursor;
+    private int lastRet = -1;
+
+    public MyCoolListIterator() {
+      currNode = root;
+    }
+
+    @Override
+    public void remove() {
+      if (this.lastRet < 0) {
+        throw new IllegalStateException();
+      } else {
+        MyCoolList.this.remove(this.lastRet);
+        this.cursor = this.lastRet;
+        this.lastRet = -1;
+      }
+    }
+
+    @Override
+    public boolean hasNext() {
+      return this.cursor != size;
+    }
+
+    @Override
+    public T next() {
+      if (this.cursor >= size) {
+        throw new NoSuchElementException();
+      } else {
+        T data = this.currNode.data;
+        this.lastRet = this.cursor++;
+        this.currNode = this.currNode.next;
+        return data;
+      }
+    }
+
+  }
+
 }
