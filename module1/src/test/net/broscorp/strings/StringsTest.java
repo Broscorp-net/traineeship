@@ -1,6 +1,5 @@
 package net.broscorp.strings;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -15,37 +14,28 @@ class StringsTest {
   Strings strings = new Strings();
 
   @Test
-  void checkStringIsPalindrom() {
-    assertAll(
-        () -> assertEquals(strings.isPalindrom("Madam"), true, "must be true - it's a palindrom"),
-        () -> assertEquals(strings.isPalindrom("abCba"), true, "must be true - it's a palindrom"),
-        () -> assertNotEquals(strings.isPalindrom("palindrom"), true,
-            "must be false - it's not a palindrom")
-    );
+  void checkStringIsPalindrome() {
+    assertEquals(strings.isPalindrom("Madam"), true, "must be true - it's a palindrom");
+    assertEquals(strings.isPalindrom("abCba"), true, "must be true - it's a palindrom");
+    assertNotEquals(strings.isPalindrom("palindrom"), true, "must be false - it's not a palindrom");
   }
 
   @Test
   void cutStringAfterFirstWord() {
-    assertAll(
-        () -> assertEquals(strings.firstWord("Hello World"), "Hello"),
-        () -> assertEquals(strings.firstWord("first second ect"), "first")
-    );
+    assertEquals(strings.firstWord("Hello World"), "Hello");
+    assertEquals(strings.firstWord("first second ect"), "first");
   }
 
   @Test
   void replace_l_FromString() {
-    assertAll(
-        () -> assertEquals(strings.replace_l("Hello World"), "Heo Word"),
-        () -> assertEquals(strings.replace_l("lsomelllStringl"), "someString")
-    );
+    assertEquals(strings.replace_l("Hello World"), "Heo Word");
+    assertEquals(strings.replace_l("lsomelllStringl"), "someString");
   }
 
   @Test
   void replace_o_to_q() {
-    assertAll(
-        () -> assertEquals(strings.replace_o_to_q("Hello World"), "Hellq Wqrld"),
-        () -> assertEquals(strings.replace_o_to_q("ooooo"), "qqqqq")
-    );
+    assertEquals(strings.replace_o_to_q("Hello World"), "Hellq Wqrld");
+    assertEquals(strings.replace_o_to_q("ooooo"), "qqqqq");
   }
 
   @Test
@@ -91,9 +81,8 @@ class StringsTest {
   @Test
   void verifyNumbersOfCouplets() {
     int expectNumerOfCouplets = 5;
-    int result;
     String songText = strings.getSongText(100, expectNumerOfCouplets);
-    result = (int) Stream.of(songText.split("\n"))
+    int result = (int) Stream.of(songText.split("\n"))
         .filter(s -> s.contains("Take one down, patch it around"))
         .count();
     assertEquals(expectNumerOfCouplets, result);

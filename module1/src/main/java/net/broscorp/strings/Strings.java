@@ -5,7 +5,7 @@ import java.util.Random;
 public class Strings {
 
   public boolean isPalindrom(String s) {
-    String reverce = new StringBuffer().append(s).reverse().toString();
+    String reverce = new StringBuilder().append(s).reverse().toString();
     return s.equalsIgnoreCase(reverce);
   }
 
@@ -35,25 +35,26 @@ public class Strings {
 
   /**
    * create variable song text.
-   * @param bugs - bugs quantity from begin
-   * @param couplet - couplet quantity
+   * @param bugsCount  - bugs quantity from begin
+   * @param coupletsAmount - couplet quantity
    * @return song text
    */
-  public String getSongText(int bugs, int couplet) {
+  public String getSongText(int bugsCount, int coupletsAmount) {
     String text = ""
         + "%d little bugs in the code,\n"
         + "%d little bugs in the code.\n"
         + "Take one down, patch it around %d little bugs in the code.\n";
-    int n = bugs;
-    int m;
-    Random random = new Random(bugs * couplet);
-    StringBuffer sb = new StringBuffer();
+    int bugs = bugsCount;
+    int bugsAfterPatch;
+    Random random = new Random(bugsCount * coupletsAmount);
+    StringBuilder stringBuilder = new StringBuilder();
 
-    for (int i = 0; i < couplet; i++) {
-      m = n - 10 + random.nextInt(20);
-      sb.append(String.format(text, n, n, m));
-      n = m;
+    for (int i = 0; i < coupletsAmount; i++) {
+      bugsAfterPatch = bugs - 10 + random.nextInt(20);
+      if (bugsAfterPatch < 0) bugsAfterPatch *= -1;
+      stringBuilder.append(String.format(text, bugs, bugs, bugsAfterPatch));
+      bugs = bugsAfterPatch;
     }
-    return sb.toString();
+    return stringBuilder.toString();
   }
 }
