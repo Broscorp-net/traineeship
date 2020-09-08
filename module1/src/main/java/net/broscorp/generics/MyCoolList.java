@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -167,12 +168,16 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
   @Override
   public void forEach(Consumer<? super T> consumer) {
+    Objects.requireNonNull(consumer);
 
-  }
+    Node currNode = root;
+    int counter = 0;
 
-  @Override
-  public Spliterator<T> spliterator() {
-    return null;
+    while (counter < this.size) {
+      consumer.accept(currNode.data);
+      currNode = currNode.next;
+      counter++;
+    }
   }
 
   private class MyCoolListIterator implements Iterator<T> {
