@@ -19,10 +19,34 @@ public class BoxingTest {
   }
 
   @Test
-  public void integerBoxing() {
+  public void integerImplicitBoxing() {
+    int a = 1;
+    Integer b = a;
+    assertTrue(b instanceof Integer);
+  }
+
+  @Test
+  public void integerExplicitBoxing() {
     Integer fromInt = Integer.valueOf(1234);
     int fromInteger = fromInt;
     int intValue = fromInt.intValue();
     assertEquals(fromInteger, intValue);
   }
+
+  @Test
+  public void integerExplicitBoxingWithBrackets() {
+    int a = 1234;
+    Integer fromInt = (Integer) a;
+    int fromInteger = fromInt;
+    assertEquals(fromInteger, a);
+  }
+
+  @Test
+  public void integerExplicitUnBoxing() {
+    Integer fromInt = 1234;
+    int intValue = (int) fromInt;
+    assertEquals(fromInt, intValue);
+  }
+
+
 }
