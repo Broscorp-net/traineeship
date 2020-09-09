@@ -1,29 +1,23 @@
 package net.broscorp.inner.classes;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MyIterableCoolListTest {
 
-  MyIterableCoolList<Number> myCoolList;
-
-  @BeforeEach
-  void init() {
-    myCoolList = new MyIterableCoolList<>();
+  @Test
+  void checkIterationIsPossible() {
+    MyIterableCoolList<Number> myCoolList = new MyIterableCoolList<>();
     myCoolList.add(1);
     myCoolList.add(2);
     myCoolList.add(3);
-  }
 
-  @Test
-  void checkIterationIsPossible() {
     int expect = myCoolList.size();
     int result = 0;
     for (Number number : myCoolList) {
       result++;
     }
-    assertTrue(expect == result);
+    assertEquals(result, expect);
   }
 }

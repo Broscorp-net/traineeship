@@ -2,40 +2,40 @@ package net.broscorp.inner.classes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.function.Function;
 
-public class MyIterableCoolList<T extends Number> extends ArrayList<T> {
+public class MyIterableCoolList<T extends Number> implements Iterable<T> {
 
-  @Override
-  public boolean add(T t) {
-    return super.add(t);
+  private List<T> coolList = new ArrayList<>();
+
+  public void add(T t) {
+    coolList.add(t);
   }
 
-  @Override
   public T get(int index) {
-    return super.get(index);
+    return coolList.get(index);
   }
 
-  @Override
   public T remove(int index) {
-    return super.remove(index);
+    return coolList.remove(index);
   }
 
   /**
    * map method.
+   *
    * @param f - function
    */
   public <C extends Number> MyIterableCoolList<C> map(Function f) {
     MyIterableCoolList<C> myCoolList = new MyIterableCoolList<>();
-    for (T t : this) {
+    for (T t : coolList) {
       myCoolList.add((C) f.apply(t));
     }
     return myCoolList;
   }
 
-  @Override
   public int size() {
-    return super.size();
+    return coolList.size();
   }
 
   @Override
@@ -44,25 +44,26 @@ public class MyIterableCoolList<T extends Number> extends ArrayList<T> {
   }
 
   /**
-   * InnerClass.
-   * - имеет доступ ко всем полям и методам внешнего класса
-   * - существует только внутри объекта внешнего класса
-   *StaticInnerClass.
-   * - имеет доступ только к статическим полям и методам внешнего класса
-   * - существует независимо от объекта внешнего класса
+   * InnerClass. - имеет доступ ко всем полям и методам внешнего класса - существует только внутри
+   * объекта внешнего класса StaticInnerClass. - имеет доступ только к статическим полям и методам
+   * внешнего класса - существует независимо от объекта внешнего класса
    */
   private class MyIterator implements Iterator<T> {
 
-    private int index = 0;
+    private int index;
+
+    public MyIterator() {
+      index = 0;
+    }
 
     @Override
     public boolean hasNext() {
-      return index < MyIterableCoolList.this.size();
+      return index < coolList.size();
     }
 
     @Override
     public T next() {
-      return MyIterableCoolList.this.get(index++);
+      return coolList.get(index++);
     }
   }
 }
