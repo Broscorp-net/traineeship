@@ -2,23 +2,11 @@ package net.broscorp.equals.hashcode;
 
 import java.util.Objects;
 
-/**
- * class Cat.
- * @author Nikita
- *
- * @version 1.0
- */
 public class Cat {
   private int id;
   private int age;
   private String name;
 
-  /**
-   * Constructor parameters.
-   * @param id - cat's id
-   * @param age - cat's age
-   * @param name - cat's name
-   */
   public Cat(int id, int age, String name) {
     this.id = id;
     this.age = age;
@@ -49,11 +37,6 @@ public class Cat {
     this.name = name;
   }
 
-  /**
-   * overridden method Object.toString().
-   *
-   * @return string with data
-   */
   @Override
   public String toString() {
     return "Cat{"
@@ -63,12 +46,6 @@ public class Cat {
             + '}';
   }
 
-  /**
-   * overridden method Object.equals().
-   *
-   * @param o - class instance.
-   * @return true or false
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,11 +60,6 @@ public class Cat {
             && Objects.equals(name, cat.name);
   }
 
-  /**
-   * overridden method Object.hashCode().
-   *
-   * @return hashcode
-   */
   @Override
   public int hashCode() {
     return Objects.hash(id, age, name);
