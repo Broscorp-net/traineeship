@@ -1,0 +1,17 @@
+digraph G {
+
+  Throwable -> Exception -> RuntimeException [color=darkblue];
+  Throwable -> Error [color=darkblue];
+  Exception -> OtherExceptions [color=darkblue];
+
+
+  Throwable[shape=oval color=yellow];
+  OtherExceptions[shape=oval color=green]; 
+  Exception[shape=oval color=green];
+  Error[shape=box color=red];
+  RuntimeException[shape=box color=red];
+
+
+  checked[shape=oval color=green];
+  unchecked[shape=box color=red];
+}
