@@ -12,19 +12,20 @@ __Stack__ и __Heap__.
 2. Учет ссылок - у объекта есть счетчик, который показывает кол-во ссылок на него, при удалении ссылки - счетчик уменьшается.
 Если ссылок на объект не осталось __(счетчик равен 0)__, то он считается мусором. 
 ####Лог с JConsole при создании большого количества объектов и теряя ссылки на них
-![Finalize](/Users/mac/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/gc/Screenshot 2020-08-25 at 22.24.32.png)
+![Finalize](https://github.com/nacenik/traineeship/blob/gc/module1/src/main/java/net/broscorp/gc/Screenshot%202020-08-25%20at%2022.24.32.png?raw=true)
 В логе можно наблюдать, что максимальный размер памяти при выполнении достигал
 __приблизительно 395Mb__, но после очистки мусора, размер задействованной памяти сразу же уменьшался до __приблизительно 220Mb__.
 Это означает, что __сборщик мусора уничтожает незадействованные объекты__. 
 
 ####Лог с JConsole при создании большого количества объектов и воскрешая их в метод finalize() - `объект-зомби`
-![Zombie](/Users/mac/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/gc/Screenshot 2020-08-25 at 22.15.38.png)
+![Zombie](https://github.com/nacenik/traineeship/blob/gc/module1/src/main/java/net/broscorp/gc/Screenshot%202020-08-25%20at%2022.15.38.png?raw=true)
 Из лога видно, что размер памяти не уменьшается, а только увеличивается. Это происходит из-за того,
 что при вызове метода finalize() ссылка на текущий объект сохраняется в статическую переменную __list__.
 __На объекты остаются ссылки, и они не могут быть удалены сборщиком мусора__.
 
+
 ####Лог с JConsole при создании большого количества объектов, которые ссылаются друг на друга
-![Referenced](/Users/mac/IdeaProjects/traineeship/module1/src/main/java/net/broscorp/gc/Screenshot 2020-08-25 at 22.43.12.png)
+![Referenced](https://github.com/nacenik/traineeship/blob/gc/module1/src/main/java/net/broscorp/gc/Screenshot%202020-08-25%20at%2022.43.12.png?raw=true)
 Из лога видно, что при создании большого кол-ва объектов, которые ссылаются друг на друга
 размер используемой памяти увеличивается, но сборщик мусора начинает быструю очистку памяти,
 так как это __недостижимые объекты (к ним нет доступа с Корневой точки)__. 
