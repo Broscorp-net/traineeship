@@ -1,0 +1,7 @@
+5e16038 (HEAD -> new_branch) HEAD@{0}: rebase -i (finish): returning to refs/heads/new_branch
+5e16038 (HEAD -> new_branch) HEAD@{1}: rebase -i (squash): 1st commit to new_branch
+29587d8 HEAD@{2}: rebase -i (squash): # This is a combination of 2 commits.
+d375703 HEAD@{3}: rebase -i (start): checkout HEAD~3
+c5c8eca HEAD@{4}: commit: 3rd commit to new_branch
+c92193c HEAD@{5}: commit: 2nd commit to new_branch
+d375703 HEAD@{6}: commit: 1st commit tocommi new_branch

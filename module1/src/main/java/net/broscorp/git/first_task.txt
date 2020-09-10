@@ -1,0 +1,7 @@
+2f4f3fb (HEAD -> feature) HEAD@{0}: commit: 3rd commit to feature
+1eef196 HEAD@{1}: commit: 2nd commit to feature
+af054d2 HEAD@{2}: commit: 1st commit to feature
+6254403 HEAD@{3}: checkout: moving from master to feature
+690711a (master) HEAD@{4}: commit: 3rd commit to master
+deecac1 HEAD@{5}: commit: 2nd commit to master
+fe20a38 HEAD@{6}: commit: 1st commit to master

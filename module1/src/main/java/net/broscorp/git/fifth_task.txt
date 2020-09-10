@@ -1,0 +1,9 @@
+f52a9c6 (HEAD -> master) HEAD@{0}: cherry-pick: 2nd commit to feature
+9553486 HEAD@{1}: checkout: moving from feature to master
+00fba80 (feature) HEAD@{2}: commit: 3rd commit to feature
+1a22cdb HEAD@{3}: commit: 2nd commit to feature
+e9c959f HEAD@{4}: commit: 1st commit to feature
+9553486 HEAD@{5}: checkout: moving from master to feature
+9553486 HEAD@{6}: commit: 3rd commit to master
+614d819 HEAD@{7}: commit: 2nd commit to master
+d26be33 HEAD@{8}: commit: 1st commit to master

@@ -1,0 +1,4 @@
+c5660dc (HEAD -> feature) HEAD@{0}: revert: Revert "3rd commit to feature"
+011459d HEAD@{1}: commit: 3rd commit to feature
+ec92356 HEAD@{2}: commit: 2nd commit to feature
+0f972b5 HEAD@{3}: commit: 1st commit to feature
