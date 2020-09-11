@@ -2,7 +2,7 @@ digraph G {
 node [style=filled,color=green];
   "Java Development Kit(JDK)" -> "Java Compiler"[label="contains"]
 node [style=filled,color=green];
-  "Java Development Kit(JDK)" -> "Java Runtime Environment(JRE)"[style=bold, label="JDK contains JVM"]
+  "Java Development Kit(JDK)" -> "Java Runtime Environment(JRE)"[style=bold, label="JDK contains JRE"]
 node [style=filled,color=green];
   "Java Runtime Environment(JRE)" -> "Java Virtual Machine(JVM)"[style=bold,label="JRE contains JVM"]
 node [style=filled,color=green];
