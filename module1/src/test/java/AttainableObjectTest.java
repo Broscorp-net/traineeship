@@ -7,8 +7,8 @@ public class AttainableObjectTest {
   @Test
   public void attainableObjectTest() {
     for (int i = 0; i < 10_000; i++) {
-      AttainableObject aObject = new AttainableObject(person);
-      person.list.add(aObject);
+      AttainableObject obj = new AttainableObject(person);
+      person.list.add(obj);
       System.gc();
     }
     System.out.println(person.list.size());

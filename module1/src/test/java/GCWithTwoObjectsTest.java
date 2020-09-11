@@ -1,16 +1,16 @@
 import org.junit.jupiter.api.Test;
 
-public class GCWithTwoObjectsTest {
+public class GcWithTwoObjectsTest {
 
   class Person1 {
 
     Person2 person2;
 
-    @Override
+    /*@Override
     protected void finalize() throws Throwable {
       System.out.println("Finalize from Person1 class");
       super.finalize();
-    }
+    }*/
 
     public void setSecondObject(Person2 person2) {
       this.person2 = person2;
@@ -21,11 +21,11 @@ public class GCWithTwoObjectsTest {
 
     Person1 person1;
 
-    @Override
+    /*@Override
     protected void finalize() throws Throwable {
       System.out.println("Finalize from Person2 class");
       super.finalize();
-    }
+    }*/
 
     public void setFirstObject(Person1 person1) {
       this.person1 = person1;
