@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
 class MyCoolListTest {
 
   private MyCoolList<Integer> myCoolList;
-  private int list_size;
+  private int listSize;
   private Function<Integer, Short> function = Integer::shortValue;
 
   @BeforeEach
   public void start() {
     myCoolList = new MyCoolList<>();
-    list_size = 10;
+    listSize = 10;
 
-    for (int i = 0; i < list_size; i++) {
+    for (int i = 0; i < listSize; i++) {
       myCoolList.add(i);
     }
     print();
@@ -27,9 +27,9 @@ class MyCoolListTest {
   public void addMethodTest() {
     int number = 10;
     myCoolList.add(number);
-    list_size++;
+    listSize++;
     print();
-    assertTrue(myCoolList.get(list_size - 1) == number);
+    assertTrue(myCoolList.get(listSize - 1) == number);
   }
 
   @Test
@@ -41,10 +41,10 @@ class MyCoolListTest {
 
   @Test
   public void removeMethodTest() {
-    myCoolList.remove(list_size - 1);
-    list_size--;
+    myCoolList.remove(listSize - 1);
+    listSize--;
     print();
-    assertTrue(myCoolList.size() == list_size);
+    assertTrue(myCoolList.size() == listSize);
   }
 
   @Test
@@ -55,7 +55,7 @@ class MyCoolListTest {
 
   @Test
   public void sizeMethodTest() {
-    assertTrue(list_size == myCoolList.size());
+    assertTrue(listSize == myCoolList.size());
   }
 
   public void print() {
