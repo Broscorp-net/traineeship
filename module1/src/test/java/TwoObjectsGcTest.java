@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-public class GcWithTwoObjectsTest {
+public class TwoObjectsGcTest {
 
   class Person1 {
 
