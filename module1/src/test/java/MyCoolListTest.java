@@ -31,7 +31,9 @@ class MyCoolListTest {
 
   @Test
   public void map() {
-    list.add(5);
+    for (int i = 0; i < 10; i++) {
+      list.add(i);
+    }
     MyCoolList<Double> mapList = list.map(func);
     assertTrue(mapList.get(0) instanceof Double);
   }
