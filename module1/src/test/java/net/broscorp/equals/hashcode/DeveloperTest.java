@@ -20,75 +20,75 @@ public class DeveloperTest {
 
   @Test
   public void testSymmetryOfEquals() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
-    Developer dev2 = new Developer("Mike", "Java", 2);
+    Developer firstDeveloper = new Developer("Mike", "Java", 2);
+    Developer secondDeveloper = new Developer("Mike", "Java", 2);
 
-    Assertions.assertTrue(dev1.equals(dev2));
-    Assertions.assertTrue(dev2.equals(dev1));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertTrue(secondDeveloper.equals(firstDeveloper));
   }
 
   @Test
   public void testTransitivityOfEquals() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
-    Developer dev2 = new Developer("Mike", "Java", 2);
-    Developer dev3 = new Developer("Mike", "Java", 2);
+    Developer firstDeveloper = new Developer("Mike", "Java", 2);
+    Developer secondDeveloper = new Developer("Mike", "Java", 2);
+    Developer thirdDeveloper = new Developer("Mike", "Java", 2);
 
-    Assertions.assertTrue(dev1.equals(dev2));
-    Assertions.assertTrue(dev2.equals(dev3));
-    Assertions.assertTrue(dev1.equals(dev3));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertTrue(secondDeveloper.equals(thirdDeveloper));
+    Assertions.assertTrue(firstDeveloper.equals(thirdDeveloper));
   }
 
   @Test
   public void testConsistencyOfEquals() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
-    Developer dev2 = new Developer("Mike", "Java", 2);
+    Developer firstDeveloper = new Developer("Mike", "Java", 2);
+    Developer secondDeveloper = new Developer("Mike", "Java", 2);
 
-    Assertions.assertTrue(dev1.equals(dev2));
-    Assertions.assertTrue(dev1.equals(dev2));
-    Assertions.assertTrue(dev1.equals(dev2));
-    Assertions.assertTrue(dev1.equals(dev2));
-    Assertions.assertTrue(dev1.equals(dev2));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertTrue(firstDeveloper.equals(secondDeveloper));
   }
 
   @Test
   public void testConsistencyOfEqualsReturnFalse() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
-    Developer dev2 = new Developer("John", "C++", 3);
+    Developer firstDeveloper = new Developer("Mike", "Java", 2);
+    Developer secondDeveloper = new Developer("John", "C++", 3);
 
-    Assertions.assertFalse(dev1.equals(dev2));
-    Assertions.assertFalse(dev1.equals(dev2));
-    Assertions.assertFalse(dev1.equals(dev2));
-    Assertions.assertFalse(dev1.equals(dev2));
-    Assertions.assertFalse(dev1.equals(dev2));
+    Assertions.assertFalse(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertFalse(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertFalse(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertFalse(firstDeveloper.equals(secondDeveloper));
+    Assertions.assertFalse(firstDeveloper.equals(secondDeveloper));
   }
 
   @Test
   public void testNonNullityOfEquals() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
+    Developer developer = new Developer("Mike", "Java", 2);
 
-    Assertions.assertFalse(dev1.equals(null));
+    Assertions.assertFalse(developer.equals(null));
   }
 
   @Test
   public void testMultipleInvocationsOfHashcode() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
+    Developer developer = new Developer("Mike", "Java", 2);
 
-    int expectedResult = dev1.hashCode();
+    int expectedResult = developer.hashCode();
 
-    Assertions.assertEquals(expectedResult, dev1.hashCode());
-    Assertions.assertEquals(expectedResult, dev1.hashCode());
-    Assertions.assertEquals(expectedResult, dev1.hashCode());
-    Assertions.assertEquals(expectedResult, dev1.hashCode());
-    Assertions.assertEquals(expectedResult, dev1.hashCode());
+    Assertions.assertEquals(expectedResult, developer.hashCode());
+    Assertions.assertEquals(expectedResult, developer.hashCode());
+    Assertions.assertEquals(expectedResult, developer.hashCode());
+    Assertions.assertEquals(expectedResult, developer.hashCode());
+    Assertions.assertEquals(expectedResult, developer.hashCode());
   }
 
   @Test
   public void testEqualObjectsReturnSameHashcode() {
-    Developer dev1 = new Developer("Mike", "Java", 2);
-    Developer dev2 = new Developer("Mike", "Java", 2);
+    Developer firstDeveloper = new Developer("Mike", "Java", 2);
+    Developer secondDeveloper = new Developer("Mike", "Java", 2);
 
-    Assertions.assertEquals(dev1, dev2);
-    Assertions.assertEquals(dev1.hashCode(), dev2.hashCode());
+    Assertions.assertEquals(firstDeveloper, secondDeveloper);
+    Assertions.assertEquals(firstDeveloper.hashCode(), secondDeveloper.hashCode());
   }
 
   @Test
@@ -110,15 +110,39 @@ public class DeveloperTest {
         Developer a = developerList.get(i);
         Developer b = developerList.get(i + 1);
 
-        if (a.hashCode() == b.hashCode() && !a.equals(b)) {
-          System.out.printf("Вот объект %s, вот объект %s, они разные, но их хеш совпадает\n",
-              a, b);
-          System.out.println(a.hashCode() + " == " + b.hashCode());
+        System.out.printf("Вот объект %s, вот объект %s, они разные, но их хеш совпадает\n",
+            a, b);
+        System.out.println(a.hashCode() + " == " + b.hashCode());
 
-          Assertions.assertNotEquals(developerList.get(i + 1), developerList.get(i));
-          Assertions.assertTrue(a.hashCode() == b.hashCode());
-        }
+        Assertions.assertNotEquals(a, b);
+        Assertions.assertTrue(a.hashCode() == b.hashCode());
       }
     }
+  }
+
+  @Test
+  public void testObjectsWithUniqueHashcode() {
+    List<Developer> developers = new ArrayList<>();
+    Random random = new Random(100L);
+
+    for (int i = 0; i < 10_000; i++) {
+      developers.add(new Developer("Mike", "Java ver." + i, random.nextInt()));
+    }
+
+    Map<Integer, List<Developer>> developerMap = developers.stream()
+        .collect(Collectors.groupingBy(Developer::hashCode));
+
+    int countObjectsWithUniqueHashcode = 0;
+
+    for (Entry<Integer, List<Developer>> entry : developerMap.entrySet()) {
+      List<Developer> developerList = entry.getValue();
+
+      // if list contains only one element, we are sure that hashcode is unique as an object
+      if (developerList.size() == 1) {
+        countObjectsWithUniqueHashcode++;
+      }
+    }
+
+    Assertions.assertEquals(10_000, countObjectsWithUniqueHashcode);
   }
 }
