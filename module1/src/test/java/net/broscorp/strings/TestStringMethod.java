@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 
@@ -99,9 +100,6 @@ public class TestStringMethod {
   }
 
   private String[] splitWords(String string) {
-    return string.replace(", ", " ")
-        .replace(",", " ")
-        .replace(".\n", " ")
-        .split(" ");
+    return Stream.of(string).map(e -> e.replaceAll("[-+.^:,]","")).findAny().get().split(" ");
   }
 }
