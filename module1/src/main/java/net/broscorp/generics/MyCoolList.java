@@ -26,10 +26,10 @@ public class MyCoolList<T extends Number> {
    * @param <R> - required(result) type
    * @return - return
    */
-  public <R extends Number> MyCoolList<R> map(Function f) {
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> myCoolList = new MyCoolList<>();
     for (T number : listOfNumbers) {
-      myCoolList.add((R) f.apply(number));
+      myCoolList.add(f.apply(number));
     }
     return myCoolList;
   }

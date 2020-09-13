@@ -10,7 +10,6 @@ class MyCoolListTest {
 
   private MyCoolList<Integer> myCoolList;
   private int listSize;
-  private Function<Integer, Short> function = Integer::shortValue;
 
   @BeforeEach
   public void start() {
@@ -49,8 +48,9 @@ class MyCoolListTest {
 
   @Test
   public void mapMethodTest() {
-    MyCoolList<Number> list = myCoolList.map(function);
-    assertTrue(list.get(0) instanceof Short);
+    Function<Integer, Double> function = Integer::doubleValue;
+    MyCoolList<Double> list = myCoolList.map(function);
+    assertTrue(list.get(0) instanceof Double);
   }
 
   @Test
