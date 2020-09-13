@@ -45,11 +45,20 @@ class StringsTest {
 
   @Test
   void shouldPrintWordsWithNumberOfLetters() {
-    strings.printWords(line);
+    String testLine = "12345 123";
+    strings.printWords(testLine);
   }
 
   @Test
   void shouldReturnSongText() {
-    System.out.println(strings.songText(6,2));
+    String expected = "6 little bugs in the code, \n"
+        + "6 little bugs in the code. \n"
+        + "Take one down, patch it around 2 little bugs in the code. \n"
+        + "2 little bugs in the code, \n"
+        + "2 little bugs in the code. \n"
+        + "Take one down, patch it around 4 little bugs in the code. \n";
+
+    String result = strings.songText(6, 2);
+    assertEquals(expected, result);
   }
 }
