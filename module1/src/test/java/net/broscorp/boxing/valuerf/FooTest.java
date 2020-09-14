@@ -31,7 +31,8 @@ public class FooTest {
   * quite problematic and often not needed.
   * Method don't return value, so we can only check its effect on variables.
   * but one of variables has primitives type that's it mean that we can't check how it changes,
-  * because when we passed this type of variable to our method, it will create copy of this variable.
+  * because when we passed this type of variable to our method, 
+  * it will create copy of this variable.
   * There is only one option left - check the reference type of the variable
   */
   
