@@ -26,7 +26,7 @@ public class BoxingTest {
   }
 
   @Test
-  public void testExplicitBoxingUnboxingExpetedTrue() {
+  public void testExplicitBoxingUnboxingExpectedTrue() {
     int firstValue = 1000;
     Integer secondValue = 1000;
 
@@ -35,7 +35,7 @@ public class BoxingTest {
   }
 
   @Test
-  public void testImplicitBoxingUnboxingExpetedTrue() {
+  public void testImplicitBoxingUnboxingExpectedTrue() {
     int firstValue = 1000;
     Integer secondValue = 1000;
 
