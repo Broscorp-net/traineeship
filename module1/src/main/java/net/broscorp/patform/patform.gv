@@ -1,0 +1,49 @@
+digraph D {
+
+  subgraph cluster_jdk {
+    label = "JDK";
+    Developer_tools;
+
+    subgraph cluster_jre {
+      label = "JRE";
+      library;
+      
+
+      
+      subgraph cluster_gc_2 {
+        label = "JMV";
+          JIT_compiler;
+      }
+    }
+  }
+node [shape=record];
+
+
+  nd_1   [label = "java source code"];
+  nd_2   [label = "JIT"];
+  nd_2_a [label = "Java virtual machine(JVM)"];
+  nd_3_l [label = "java compiler"];
+  nd_3   [label = "java Development Kit(JDK)"];
+  nd_3_r [label = "Java Runtime Environment(JRE)"];
+  nd_4   [label = "java byte code"];
+
+  nd_1 -> nd_3 -> nd_4 -> nd_2_a -> nd_3_r;
+
+  subgraph cluster_JDK {
+
+    {rank=same nd_3_l nd_3}
+
+    nd_3_l nd_3;
+
+  }
+
+subgraph cluster_JVM {
+
+    {rank=same nd_2_a nd_2}
+
+    nd_2_a nd_2;
+
+  }
+} 
+
+} 
