@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class FooTest {
 
   @Test
-  public void testFooWithListExcectedTrue() {
+  public void testFooWithListExpectedListChanged() {
 
     Foo foo = new Foo();
 
@@ -23,7 +23,6 @@ public class FooTest {
 
     int listSizeAfterCallMethod = list.size();
 
-    Assertions.assertTrue(listSizeAfterCallMethod > 0);
     Assertions.assertTrue(listSizeAfterCallMethod == 1);
   }
   /*
@@ -37,7 +36,7 @@ public class FooTest {
   */
   
   @Test
-  public void testFooWithDigitAndListExcectedTrue() {
+  public void testFooWithDigitAndListExpectedDigitNotChangeListChanged() {
 
     Foo foo = new Foo();
 
@@ -52,7 +51,6 @@ public class FooTest {
 
     int listSizeAfterCallMethod = list.size();
 
-    Assertions.assertTrue(listSizeAfterCallMethod > 0);
     Assertions.assertTrue(listSizeAfterCallMethod == 1);
     
     Assertions.assertTrue(number == 14);
