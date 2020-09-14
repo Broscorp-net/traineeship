@@ -1,0 +1,42 @@
+Compiled from "SomeClazz.java"
+public class net.broscorp.bytecode.SomeClazz {
+  public net.broscorp.bytecode.SomeClazz();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_2
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        16
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      22: iload_1
+      23: bipush        10
+      25: invokestatic  #3                  // Method multiply:(II)I
+      28: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+      31: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      34: bipush        20
+      36: bipush        10
+      38: invokestatic  #3                  // Method multiply:(II)I
+      41: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+      44: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      47: ldc           #5                  // String Goodbye Hell
+      49: invokevirtual #6                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: return
+
+  public static int multiply(int, int);
+    Code:
+       0: iload_0
+       1: iload_1
+       2: imul
+       3: ireturn
+}
