@@ -27,11 +27,12 @@ public class FooTest {
     Assertions.assertTrue(listSizeAfterCallMethod == 1);
   }
   /*
-  * Тестирование void методов в junit довольно проблематична, за частую и не нужна, 
-  * так как метод ничего не возращяет мы можем проверить только его вляние на переменные, 
-  * которые он принимает в своей сигнатуре, но так как одна из переменных имеет примитивный тип, 
-  * мы ее изменения проверить не можем так как при передачи ее методу создается копия с которой уже работает нашь метод,
-  * Остается вариант с проверкой только изменений в ссылочной переменной.
+  * Testing a void methode in junit is 
+  * quite problematic and often not needed.
+  * Method don't return value, so we can only check its effect on variables.
+  * but one of variables has primitives type that's it mean that we can't check how it changes,
+  * because when we passed this type of variable to our method, it will create copy of this variable.
+  * There is only one option left - check the reference type of the variable
   */
   
   @Test
@@ -57,7 +58,7 @@ public class FooTest {
   }
   
   /*
-   * Данный тест показывает, переменная number не изменилась, 
-   * хотя метод foo добавляет к ней 15, что потверждает выше сказанное.
+   * This test show us, that variable "number" didn't change, 
+   * but method foo added to it 15, which confirms the above.
    */
 }
