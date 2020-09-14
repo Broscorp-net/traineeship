@@ -5,8 +5,17 @@ import javax.print.attribute.standard.RequestingUserName;
 
 public class StringUtils {
 
+  /**
+   * Checks if string is palindrome (ignores capitalization, punctuation and spaces).
+   * @param str string that gets checked.
+   * @return true - if string is a palindrome, false - if string is not a palindrome.
+   */
   public static boolean isPalindrome(String str) {
-    return new StringBuilder(str).reverse().toString().equals(str);
+    String strWithoutPunctuation = str.replaceAll("[^a-zA-Z\\d]", "").toLowerCase();
+    return new StringBuilder(strWithoutPunctuation)
+        .reverse()
+        .toString()
+        .equals(strWithoutPunctuation);
   }
 
   public static String removeWorldFromString(String str) {
