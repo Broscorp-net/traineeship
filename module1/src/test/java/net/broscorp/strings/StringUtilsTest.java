@@ -11,13 +11,16 @@ class StringUtilsTest {
   @Test
   void isPalindromeWithPalindromicString() {
     String[] stringsForTesting = {
+        "Do geese see God?",
+        "Was it a car or a cat I saw?",
+        "Live on time, emit no evil",
+        "Mr. Owl ate my metal worm",
         " - ",
         "level",
-        "rotor",
-        "civic",
         "",
         "1",
         "?!123Hello olleH321!?",
+        "DeEd",
     };
 
     for (String str : stringsForTesting) {
@@ -28,10 +31,9 @@ class StringUtilsTest {
   @Test
   void isPalindromeWithNonPalindromicString() {
     String[] stringsForTesting = {
-        " -",
         "1232",
         "Hello",
-        "--1--=",
+        "--1--2",
     };
 
     for (String str : stringsForTesting) {
