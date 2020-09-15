@@ -14,37 +14,47 @@ import org.junit.jupiter.api.Test;
 
 public class PersonTest {
 
-  private Person person1 = new Person();
-  private Person person2 = new Person();
-  private Person person3 = new Person();
-  private List<Person> persons = new ArrayList<>();
-  private Random random = new Random();
-
   @Test
-  public void person1ShouldEqualsPerson1() {
+  public void personsReflexiveTest() {
+    Person person1 = new Person();
     assertEquals(person1, person1);
   }
 
   @Test
-  public void person1ShouldEqualsPerson2AndOnOpposit() {
+  public void personsSymmetricTest() {
+    Person person1 = new Person();
+    Person person2 = new Person();
     assertEquals(person1, person2);
     assertEquals(person2, person1);
   }
 
   @Test
-  public void person1ShouldEqualsPerson2Person2ShouldEqualsPerson3AndPerson1ShouldEqualsPerson3() {
+  public void personDoesNotEqualsNull() {
+    Person person1 = new Person();
+    assertNotEquals(person1, null);
+  }
+
+  @Test
+  public void personsShouldBeEqualToEachOther() {
+    Person person1 = new Person();
+    Person person2 = new Person();
+    Person person3 = new Person();
     assertEquals(person1, person2);
     assertEquals(person2, person3);
     assertEquals(person1, person3);
   }
 
   @Test
-  public void person1EqualsPerson2SoHashcodesShouldBeTheSame() {
+  public void shouldReturnTrueWhenCompareHashcodesOfEqualPersons() {
+    Person person1 = new Person();
+    Person person2 = new Person();
     assertTrue(person1.hashCode() == person2.hashCode());
   }
 
   @Test
-  public void cycleForList() {
+  public void findPersonsWitheSameHashcodes() {
+    List<Person> persons = new ArrayList<>();
+    Random random = new Random();
     String name = "Name";
     for (int iterator = 0; iterator < 1000000; iterator++) {
       persons.add(new Person(iterator, random.nextInt(), name + iterator));
