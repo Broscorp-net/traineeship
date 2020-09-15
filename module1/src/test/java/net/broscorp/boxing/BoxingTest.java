@@ -30,10 +30,10 @@ public class BoxingTest {
   }
 
   @Test
-  public void autoboxing() {
-    Integer integer1 = new Integer(5);
-    int someInt = integer1;
-    assertEquals(integer1, someInt);
+  public void intImplicitBoxing() {
+    int someInt = 5;
+    Integer integer1 = someInt;
+    assertTrue(integer1 instanceof Integer);
   }
 
   @Test
@@ -41,5 +41,12 @@ public class BoxingTest {
     Integer integer1 = new Integer(5);
     int someInt = 5;
     assertEquals(someInt, integer1);
+  }
+
+  @Test
+  public void intExplicitBoxing() {
+    Integer integer1 = new Integer(5);
+    int someInt = integer1;
+    assertEquals(someInt, integer1.intValue());
   }
 }
