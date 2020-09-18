@@ -1,0 +1,62 @@
+>java -classpath ../../.. net.broscorp.bytecode.Bytecode
+Before Increament
+0
+After Increament
+10
+
+javap Bytecode.class
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+  public static void increament();
+  public static void main(java.lang.String[]);
+  static {};
+}
+
+javap -c Bytecode.class
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void increament();
+    Code:
+       0: iconst_0
+       1: istore_0
+       2: iload_0
+       3: bipush        10
+       5: if_icmpge     22
+       8: getstatic     #7                  // Field digit:I
+      11: iconst_1
+      12: iadd
+      13: putstatic     #7                  // Field digit:I
+      16: iinc          0, 1
+      19: goto          2
+      22: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #19                 // String Before Increament
+       5: invokevirtual #21                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: getstatic     #7                  // Field digit:I
+      14: invokevirtual #27                 // Method java/io/PrintStream.println:(I)V
+      17: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      20: ldc           #30                 // String After Increament
+      22: invokevirtual #21                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      25: invokestatic  #32                 // Method increament:()V
+      28: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      31: getstatic     #7                  // Field digit:I
+      34: invokevirtual #27                 // Method java/io/PrintStream.println:(I)V
+      37: return
+
+  static {};
+    Code:
+       0: iconst_0
+       1: putstatic     #7                  // Field digit:I
+       4: return
+}

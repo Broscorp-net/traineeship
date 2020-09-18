@@ -1,0 +1,56 @@
+>java -classpath ../../.. net.broscorp.bytecode.Bytecode
+Before increament
+0
+After increament
+10
+
+
+javap Bytecode.class
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+  public static int increament();
+  public static void main(java.lang.String[]);
+  static {};
+}
+
+
+javap -c Bytecode.class
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static int increament();
+    Code:
+       0: bipush        10
+       2: ireturn
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #13                 // String Before increament
+       5: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: getstatic     #21                 // Field digit:I
+      14: invokevirtual #27                 // Method java/io/PrintStream.println:(I)V
+      17: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      20: ldc           #30                 // String After increament
+      22: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      25: invokestatic  #32                 // Method increament:()I
+      28: putstatic     #21                 // Field digit:I
+      31: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      34: getstatic     #21                 // Field digit:I
+      37: invokevirtual #27                 // Method java/io/PrintStream.println:(I)V
+      40: return
+
+  static {};
+    Code:
+       0: iconst_0
+       1: putstatic     #21                 // Field digit:I
+       4: return
+}
+
