@@ -17,12 +17,29 @@ public class PrimitivesTest {
   }
 
   @Test
+  public void shouldBeNegativeShortVersion() {
+    short maxShortValue = Short.MAX_VALUE;
+    short overMax = (short) (maxShortValue + 1);
+
+    assertTrue(overMax < 0);
+  }
+
+  @Test
   public void longToIntConvertation() {
     long longMaxValue = Long.MAX_VALUE;
 
     int longToInt = (int) longMaxValue;
 
     assertNotEquals(longMaxValue, longToInt);
+  }
+
+  @Test
+  public void longToShortConvertation() {
+    long longMaxValue = Long.MAX_VALUE;
+
+    short longToShort = (short) longMaxValue;
+
+    assertNotEquals(longMaxValue, longToShort);
   }
 
   @Test
