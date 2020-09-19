@@ -5,9 +5,9 @@ import java.io.IOException;
 
 public class ReadFile {
 
-  private static void readFileIOException() {
+  private static void readFileIoException() {
     try (FileReader reader = new FileReader("")) {
-
+      reader.read();
     } catch (IOException e) {
       System.out.println("Excption catched");
     } finally {
@@ -17,7 +17,7 @@ public class ReadFile {
 
   private static void readFileException() {
     try (FileReader reader = new FileReader("")) {
-
+      reader.read();
     } catch (Exception e) {
       System.out.println("Excption catched");
     } finally {
@@ -26,6 +26,6 @@ public class ReadFile {
   }
 
   public static void main(String[] args) {
-    readFileIOException();
+    readFileIoException();
   }
 }
