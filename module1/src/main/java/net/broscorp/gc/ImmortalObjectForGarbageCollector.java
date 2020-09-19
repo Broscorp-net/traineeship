@@ -9,9 +9,9 @@ public class ImmortalObjectForGarbageCollector {
     this.list = list;
   }
 
-  @Override
-  protected void finalize() throws Throwable {
-    System.out.println("finalize called on " + this.toString());
-    list.add(this);
-  }
+  // @Override
+  // protected void finalize() throws Throwable {
+  // System.out.println("finalize called on " + this.toString());
+  // list.add(this);
+  // }
 }
