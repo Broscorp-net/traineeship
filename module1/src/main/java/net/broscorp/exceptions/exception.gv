@@ -1,0 +1,13 @@
+digraph G {
+  
+  Throwable -> "Error (unchecked)";
+  Throwable -> Exception -> "RuntimeException (unchecked)";
+  Exception -> OtherExceptions;
+
+
+  Throwable[shape=oval color=green];
+  OtherExceptions[shape=oval color=green]; 
+  Exception[shape=oval color=green];
+  "Error (unchecked)"[shape=box color=red];
+  "RuntimeException (unchecked)"[shape=box color=red];
+}
