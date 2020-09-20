@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+
 public class MyCoolList<T extends Number> {
   public final List<T> numbers = new ArrayList<>();
 
@@ -19,6 +20,9 @@ public class MyCoolList<T extends Number> {
     return numbers.remove(index);
   }
 
+  /**
+   * comment.
+   */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> map = new MyCoolList<>();
     for (T number : numbers) {
