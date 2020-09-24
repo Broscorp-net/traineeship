@@ -14,6 +14,9 @@ public class ExceptionsTest {
   public void tryWithResoursesTest() {
     File file = new File("noFile.txt");
     try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+      while (bufferedReader.ready()){
+        System.out.println(bufferedReader.readLine());
+      }
     } catch (IOException e) {
       System.out.println("IOException catch.");
     } finally {
