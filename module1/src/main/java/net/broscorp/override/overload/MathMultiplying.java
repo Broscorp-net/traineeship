@@ -1,6 +1,6 @@
 package net.broscorp.override.overload;
 
-public class MathMultipling implements MathOperation {
+public class MathMultiplying implements MathOperation {
 
   @Override
   public double operation(double x, double y) {
