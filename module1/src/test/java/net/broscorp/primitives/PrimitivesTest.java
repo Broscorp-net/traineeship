@@ -25,7 +25,7 @@ public class PrimitivesTest {
   }
 
   @Test
-  public void longToIntConvertation() {
+  public void longToIntConversion() {
     long longMaxValue = Long.MAX_VALUE;
 
     int longToInt = (int) longMaxValue;
@@ -34,7 +34,7 @@ public class PrimitivesTest {
   }
 
   @Test
-  public void longToShortConvertation() {
+  public void longToShortConversion() {
     long longMaxValue = Long.MAX_VALUE;
 
     short longToShort = (short) longMaxValue;
@@ -43,7 +43,7 @@ public class PrimitivesTest {
   }
 
   @Test
-  public void floatToDoubleConvertation() {
+  public void floatToDoubleConversion() {
     float someFloat = 158.168f;
 
     double floatToDouble = someFloat;
