@@ -14,13 +14,13 @@ public class FooTest {
   // локальные
   @Test
   public void numberDoesNotChange() {
-    int someNumber = 15;
-    int expected = someNumber + 15;
     List<String> list = new ArrayList<>();
     list.add("str1");
     list.add("str2");
     list.add("str3");
     list.add("str4");
+    int someNumber = 15;
+    int expected = someNumber + 15;
     Foo foo = new Foo();
     foo.foo(someNumber, list);
     assertNotEquals(expected, someNumber);
@@ -30,12 +30,12 @@ public class FooTest {
   // ссылке, а значит список пополнился строчкой "d"
   @Test
   public void addedStringDInList() {
-    int someNumber = 15;
     List<String> list = new ArrayList<>();
     list.add("str1");
     list.add("str2");
     list.add("str3");
     list.add("str4");
+    int someNumber = 15;
     Foo foo = new Foo();
     foo.foo(someNumber, list);
     assertTrue(list.contains("d"));
