@@ -13,20 +13,20 @@ package net.broscorp.oop.solid.srp;
  */
 public interface AdderAndSubtractor {
 
-    long add(long x, long y);
+  long add(long x, long y);
 
-    long subtract(long x, long y);
+  long subtract(long x, long y);
 
-    long power(long x, long y);
+  long power(long x, long y);
 
-    long multiply(long x, long y);
+  long multiply(long x, long y);
 
-    long add(long x, long y, long z);
+  long add(long x, long y, long z);
 
-    long multiply(long x, long y, long z);
+  long multiply(long x, long y, long z);
 
-    long add(long... values);
+  long add(long... values);
 
-    long multiply(long... values);
+  long multiply(long... values);
 
 }

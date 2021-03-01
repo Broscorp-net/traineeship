@@ -14,24 +14,24 @@ import java.util.stream.Stream;
  */
 public interface NumberFormatter {
 
-    String format(long number);
+  String format(long number);
 
-    String format(int number);
+  String format(int number);
 
-    String format(double number);
+  String format(double number);
 
-    String format(float number);
+  String format(float number);
 
-    String format(byte number);
+  String format(byte number);
 
-    boolean isPrimeNumber(int number);
+  boolean isPrimeNumber(int number);
 
-    int getPercentage(double number);
+  int getPercentage(double number);
 
-    Stream<Long> streamFibonacciNumbersUpTo(long limit);
+  Stream<Long> streamFibonacciNumbersUpTo(long limit);
 
-    boolean isExactFloat(double number);
+  boolean isExactFloat(double number);
 
-    long chooseRandomly(long... numbers);
+  long chooseRandomly(long... numbers);
 
 }

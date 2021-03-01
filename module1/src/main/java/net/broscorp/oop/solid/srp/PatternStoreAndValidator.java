@@ -19,16 +19,16 @@ import java.util.List;
  */
 public interface PatternStoreAndValidator {
 
-    void add(String name);
+  void add(String name);
 
-    List<String> find(String pattern);
+  List<String> find(String pattern);
 
-    boolean isNameLike(String name, String pattern);
+  boolean isNameLike(String name, String pattern);
 
-    boolean exists(String name);
+  boolean exists(String name);
 
-    void remove(String name);
+  void remove(String name);
 
-    void replaceOldWithNew(String oldName, String newName);
+  void replaceOldWithNew(String oldName, String newName);
 
 }

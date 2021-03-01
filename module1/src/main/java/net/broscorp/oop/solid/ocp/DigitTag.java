@@ -1,65 +1,67 @@
 package net.broscorp.oop.solid.ocp;
 
 public class DigitTag extends SortableTag {
-    static final String[] digits = new String[]{
-            "zero",
-            "one",
-            "two",
-            "three",
-            "four",
-            "five",
-            "six",
-            "seven",
-            "eight",
-            "nine",
-            "ten",
-    };
 
-    private DigitTag(String word) {
-        super(word);
-    }
+  static final String[] digits = new String[]{
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+  };
 
-    static DigitTag zero() {
-        return new DigitTag("zero");
-    }
+  private DigitTag(String word) {
+    super(word);
+  }
 
-    static DigitTag one() {
-        return new DigitTag("one");
-    }
+  static DigitTag zero() {
+    return new DigitTag("zero");
+  }
 
-    static DigitTag two() {
-        return new DigitTag("two");
-    }
+  static DigitTag one() {
+    return new DigitTag("one");
+  }
 
-    static DigitTag three() {
-        return new DigitTag("three");
-    }
+  static DigitTag two() {
+    return new DigitTag("two");
+  }
 
-    static DigitTag four() {
-        return new DigitTag("four");
-    }
+  static DigitTag three() {
+    return new DigitTag("three");
+  }
 
-    static DigitTag five() {
-        return new DigitTag("five");
-    }
+  static DigitTag four() {
+    return new DigitTag("four");
+  }
 
-    static DigitTag six() {
-        return new DigitTag("six");
-    }
+  static DigitTag five() {
+    return new DigitTag("five");
+  }
 
-    static DigitTag seven() {
-        return new DigitTag("seven");
-    }
+  static DigitTag six() {
+    return new DigitTag("six");
+  }
 
-    static DigitTag eight() {
-        return new DigitTag("eight");
-    }
+  static DigitTag seven() {
+    return new DigitTag("seven");
+  }
 
-    static DigitTag nine() {
-        return new DigitTag("nine");
-    }
+  static DigitTag eight() {
+    return new DigitTag("eight");
+  }
 
-    static DigitTag ten() {
-        return new DigitTag("ten");
-    }
+  static DigitTag nine() {
+    return new DigitTag("nine");
+  }
+
+  static DigitTag ten() {
+    return new DigitTag("ten");
+  }
+
 }

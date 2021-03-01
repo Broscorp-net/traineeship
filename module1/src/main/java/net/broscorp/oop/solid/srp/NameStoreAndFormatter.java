@@ -23,16 +23,16 @@ import java.util.List;
  */
 public interface NameStoreAndFormatter {
 
-    void add(String name);
+  void add(String name);
 
-    List<String> find(String pattern);
+  List<String> find(String pattern);
 
-    String format(String name, String pattern);
+  String format(String name, String pattern);
 
-    void remove(String name);
+  void remove(String name);
 
-    boolean isNameLike(String name, String pattern);
+  boolean isNameLike(String name, String pattern);
 
-    boolean isPatternValid(String pattern);
+  boolean isPatternValid(String pattern);
 
 }

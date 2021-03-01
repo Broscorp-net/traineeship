@@ -4,10 +4,10 @@ import net.broscorp.oop.solid.lsp.Weapon;
 
 public class ReloadMagazineStep extends AbstractReloadStep {
 
-    public Weapon doStepInternal(Weapon weapon) {
-        weapon.takeEmptyMagazineOff();
-        weapon.insertFullMagazine();
-        return weapon;
-    }
+  public Weapon doStepInternal(Weapon weapon) {
+    weapon.takeEmptyMagazineOff();
+    weapon.insertFullMagazine();
+    return weapon;
+  }
 
 }
