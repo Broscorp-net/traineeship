@@ -5,7 +5,9 @@ import net.broscorp.oop.solid.lsp.Weapon;
 public class VisualCheckStep extends AbstractReloadStep {
 
   /**
-   * @return null since weapon is reloaded normally and verification doesn't change its state
+   * Weapon is reloaded normally and verification doesn't change its state.
+   * May be we shouldn't return unchanged state.
+   * @return null
    */
   @Override
   public Weapon doStepInternal(Weapon weapon) {

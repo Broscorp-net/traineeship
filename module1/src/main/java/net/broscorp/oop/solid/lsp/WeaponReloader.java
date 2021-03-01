@@ -1,9 +1,12 @@
 package net.broscorp.oop.solid.lsp;
 
-import net.broscorp.oop.solid.lsp.steps.*;
-
 import java.util.ArrayList;
 import java.util.List;
+import net.broscorp.oop.solid.lsp.steps.AbstractReloadStep;
+import net.broscorp.oop.solid.lsp.steps.MakeSafeStep;
+import net.broscorp.oop.solid.lsp.steps.ReloadMagazineStep;
+import net.broscorp.oop.solid.lsp.steps.ShootTestStep;
+import net.broscorp.oop.solid.lsp.steps.VisualCheckStep;
 
 public class WeaponReloader {
 

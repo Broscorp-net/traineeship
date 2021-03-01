@@ -5,11 +5,11 @@ import java.util.List;
 /**
  * ! REMOVE ME !
  *
- * Solution:
+ * <p>Solution:
  * 1. Don NOT extract anything.
- * 2. Class renaming is possible. But then additional comments is required about the rename decision.
+ * 2. Class renaming is possible. But then additional comment is required about the rename decision.
  *
- * Explanation:
+ * <p>Explanation:
  * The name of interface just distracts from the main responsibility.
  * The most of methods are for storage and only one looks like about formatting.
  * And that only method is too few for extracting it into separated class.

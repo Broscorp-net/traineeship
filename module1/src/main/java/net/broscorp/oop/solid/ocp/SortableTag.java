@@ -1,6 +1,5 @@
 package net.broscorp.oop.solid.ocp;
 
-
 import java.util.Arrays;
 
 public abstract class SortableTag implements Comparable<SortableTag> {
@@ -15,6 +14,7 @@ public abstract class SortableTag implements Comparable<SortableTag> {
     this.word = word;
   }
 
+  @Override
   public int compareTo(SortableTag anotherTag) {
     if (this.getClass() != anotherTag.getClass()) {
       throw new IllegalStateException(String.format("These classes are uncomparable: %s and %s",

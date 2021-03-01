@@ -26,12 +26,12 @@ public interface KittyGoodsShop {
   KittyToy sellToy();
 
   /**
-   * Utilization of unused food is very important for saving the planet!
+   * Utilization of unused food is very important for saving the planet.
    */
   void returnFood(KittyFood food);
 
   /**
-   * Utilization of used toy is very important for saving the planet!
+   * Utilization of used toy is very important for saving the planet.
    */
   void returnToy(KittyToy toy);
 

@@ -5,19 +5,19 @@ import java.util.List;
 /**
  * ! REMOVE ME !
  *
- * Solution:
+ * <p>Solution:
  * replace this interface with next couple:
  * interface NameStore
  *     add()
  *     find()
  *     remove()
  *
- * interface NameFormatter
+ * <p>interface NameFormatter
  *     format()
  *     isNameLike()
  *     isPatternValid()
  *
- * Explanation:
+ * <p>Explanation:
  * We have proportional number of methods for storage and formatter.
  * Also, the name of interface is a hint about mixed responsibility.
  */

@@ -1,16 +1,18 @@
 package net.broscorp.oop.solid.lsp;
 
-public class Armory {
+import org.junit.jupiter.api.Test;
 
-  public static void main(String[] args) {
-    WeaponReloader weaponReloader = new WeaponReloader();
+public class ReloadTest {
+
+  @Test
+  void testShootAndReload() {
     Weapon weapon = new Beretta();
 
     weapon.unBlock();
     weapon.shoot();
     weapon.shoot();
 
-    weapon = weaponReloader.reload(weapon);
+    weapon = new WeaponReloader().reload(weapon);
 
     weapon.unBlock();
     weapon.shoot();

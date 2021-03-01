@@ -12,7 +12,11 @@ public class AutoWearableSuite {
     this.dress = dress;
   }
 
-  public void dressUp(Human human) {
+  /**
+   * Dress a human.
+   * @param human is the person under the process.
+   */
+  public void dress(Human human) {
     for (Object wearing : dress) {
       if (wearing instanceof RedPants) {
         addPants(human, (RedPants) wearing);

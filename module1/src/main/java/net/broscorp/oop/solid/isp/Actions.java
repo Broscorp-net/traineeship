@@ -8,7 +8,8 @@ package net.broscorp.oop.solid.isp;
  *
  * Explanation:
  * Hints about that are placed in the javadocs for each method.
- * Jokes are also there. We need to add as much jokes as we can. Because this is a stress test for trainee abdominals.
+ * Jokes are also there. We need to add as much jokes as we can.
+ * Because this is a stress test for trainee abdominals.
  */
 
 /**
@@ -38,7 +39,7 @@ public interface Actions {
 
   /**
    * Give that food to kitty! Immediately!
-   * Meow!!!
+   * Meow!!!.
    */
   void give(KittyFood toy);
 

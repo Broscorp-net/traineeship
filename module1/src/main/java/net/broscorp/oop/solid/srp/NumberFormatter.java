@@ -5,11 +5,11 @@ import java.util.stream.Stream;
 /**
  * ! REMOVE ME !
  *
- * Solution:
- * keep all format(...) methods and extract all others to additional class generally named NumberUtils.
+ * <p>Solution:
+ * Keep all format(...) methods and extract others to additional class generally named NumberUtils.
  * Similar names are ok.
  *
- * Explanation:
+ * <p>Explanation:
  * We have proportional number of methods for formatting and for other around-numbers logic.
  */
 public interface NumberFormatter {

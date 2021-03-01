@@ -1,6 +1,5 @@
 package net.broscorp.oop.solid.srp;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -9,10 +8,10 @@ import java.util.stream.Collectors;
 /**
  * ! REMOVE ME !
  *
- * Solution:
+ * <p>Solution:
  * Don NOT extract anything.
  *
- * Explanation:
+ * <p>Explanation:
  * This class contains not so many methods and all of them match class name.
  * So the responsibility of this class is fine.
  */
