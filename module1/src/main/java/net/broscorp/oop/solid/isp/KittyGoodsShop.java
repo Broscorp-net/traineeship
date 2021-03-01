@@ -36,4 +36,3 @@ public interface KittyGoodsShop {
   void returnToy(KittyToy toy);
 
 }
-

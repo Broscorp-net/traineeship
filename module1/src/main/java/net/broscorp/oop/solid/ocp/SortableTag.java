@@ -45,4 +45,3 @@ public abstract class SortableTag implements Comparable<SortableTag> {
   }
 
 }
-

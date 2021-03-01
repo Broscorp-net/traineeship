@@ -13,7 +13,6 @@ public class DigitTag extends SortableTag {
       "seven",
       "eight",
       "nine",
-      "ten",
   };
 
   private DigitTag(String word) {
@@ -58,10 +57,6 @@ public class DigitTag extends SortableTag {
 
   static DigitTag nine() {
     return new DigitTag("nine");
-  }
-
-  static DigitTag ten() {
-    return new DigitTag("ten");
   }
 
 }
