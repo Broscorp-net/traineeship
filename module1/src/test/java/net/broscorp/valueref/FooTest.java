@@ -18,6 +18,27 @@ class FooTest {
   }
 
   /*
+  Java всегда передает параметры по значению.
+  Скопировать значение и передать копию.
+  Для примитивных типов все понятно мы получаем копию содержимого.
+  Со ссылками мы тоже получаете копию содержимого, но это копия ссылки на один и тот же объект.
+  */
+  @Test
+  @DisplayName("Should changed list")
+  void shouldChangedListFoo() {
+    int i = 5;
+    List<String> s = new ArrayList<>();
+
+    foo.foo(i, s);
+    assertEquals(5, i);
+    assertFalse(s.isEmpty());
+    assertTrue(s.stream().filter(s1 -> s1.equals("d")).findFirst().isPresent());
+
+  }
+
+
+
+  /*
   Ожидаем что List не null, иначе тест не пройдет,
    так как будет попытка добавления элемента в несуществующую коллекцию
    */
@@ -32,7 +53,7 @@ class FooTest {
 
   /*
   При передачи в метод List со значением null,
-   ожидаем выброса исключения NullPointerException
+   ожидаем выброс исключения NullPointerException
    */
   @Test
   @DisplayName("Should throw an exception")
