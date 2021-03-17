@@ -1,14 +1,12 @@
 package net.broscorp.boxing;
 
-import static java.lang.Integer.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static java.lang.Integer.valueOf;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/**
- * @author Aleksandr Nesterov
- */
 public class WrapperTypeTest {
 
   @Test
@@ -30,7 +28,7 @@ public class WrapperTypeTest {
   @Test
   void givenWrapperTypeEqualNull_whenCompareWithZero_thenNullPointerExceptionThrown() {
 
-    Assertions.assertThrows(NullPointerException.class, () -> {
+    assertThrows(NullPointerException.class, () -> {
       Double value = null;
       boolean result = value == 0;
     });
