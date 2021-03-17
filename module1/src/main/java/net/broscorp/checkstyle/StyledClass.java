@@ -1,3 +1,4 @@
+//qwe
 package net.broscorp.checkstyle;
 
 public class StyledClass {
