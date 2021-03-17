@@ -11,15 +11,16 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
 class GameOfLifeTest {
+
   GameOfLife game = new GameOfLife();
 
   public boolean equalsFile(String expected, String result) {
     Stream<String> gameStreamInput = new BufferedReader(
-            new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
+        new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
     List<String> gameListExpected = gameStreamInput.collect(Collectors.toList());
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     Stream<String> gameStreamResult = new BufferedReader(
-            new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
+        new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
     List<String> gameListResult = gameStreamResult.collect(Collectors.toList());
     return gameListExpected.equals(gameListResult);
   }
