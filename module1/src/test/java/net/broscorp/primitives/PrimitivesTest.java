@@ -4,13 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class PrimitivesTest {
-  
+
   @Test
   public void byteOverload() {
     byte a = Byte.MAX_VALUE;
     byte b = (byte) (a + 1);
     Assert.assertTrue(b < a);
-
   }
 
   @Test
