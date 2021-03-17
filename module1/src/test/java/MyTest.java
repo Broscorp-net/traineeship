@@ -40,5 +40,4 @@ class MyTest {
 		double b = 13.0;
 		assertNotEquals(0.33,a - b);
 	}
-
 }
