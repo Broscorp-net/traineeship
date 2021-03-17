@@ -2,8 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MyTest {
 
+class MyTest {
 	@Test
 	public void byteOverflowTest() {
 
@@ -38,7 +38,7 @@ class MyTest {
 	public void doubleFloatDefectTest(){
 		float a = 13.33f;
 		double b = 13.0;
-		assertNotEquals(0.33,a-b);
+		assertNotEquals(0.33,a - b);
 	}
 
 }

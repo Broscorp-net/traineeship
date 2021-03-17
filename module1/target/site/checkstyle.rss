@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2021</copyright>
     <item>
-      <title>File: 1,
+      <title>File: 5,
              Errors: 0,
-             Warnings: 6,
+             Warnings: 33,
              Infos: 0
       </title>
             <link>${project.url}/checkstyle.html</link>
@@ -46,13 +46,69 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#net.broscorp.valueref.Foo.java">net/broscorp/valueref/Foo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#net.broscorp.gamelife.GameOfLife.java">net/broscorp/gamelife/GameOfLife.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#MyTest.java">MyTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  31
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#net.broscorp.checkstyle.StyledClass.java">net/broscorp/checkstyle/StyledClass.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  6
+                  2
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#net.broscorp.generics.MyCoolList.java">net/broscorp/generics/MyCoolList.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
                 <td>
                   0
