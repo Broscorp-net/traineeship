@@ -39,7 +39,6 @@
         <configuration>
           <includes>
             <include>GameOfLifeTest.java</include>
-            <include>PrimitivesTest.java</include>
           </includes>
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
