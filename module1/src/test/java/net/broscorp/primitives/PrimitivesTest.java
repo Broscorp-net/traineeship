@@ -30,7 +30,7 @@ class PrimitivesTest {
   void longShouldCastToIntWhichShouldBeAnother() {
     long l = 9847483649L;
     int i = (int) l;
-    Assertions.assertEquals(1257549057, l);
+    Assertions.assertEquals(1257549057, i);
   }
 
   @Test
