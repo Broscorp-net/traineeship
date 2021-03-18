@@ -23,7 +23,6 @@ class PrimitivesTest {
   void longShouldCastToIntWhichNonEqualLong() {
     long first = 9847483649L;
     int i = (int) first;
-    System.out.println(i);
     Assertions.assertNotEquals(first, i);
   }
 
@@ -31,7 +30,6 @@ class PrimitivesTest {
   void longShouldCastToIntWhichShouldBeAnother() {
     long l = 9847483649L;
     int i = (int) l;
-    System.out.println(i);
     Assertions.assertEquals(1257549057, l);
   }
 
