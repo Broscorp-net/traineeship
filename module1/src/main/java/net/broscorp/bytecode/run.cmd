@@ -1,10 +1,10 @@
 @echo off
  set Name = SimpleThing
- javac   -d ../../../../../../target/classes  SimpleThing.java
+ javac   -d  /classes SimpleThing.java
  pause
  echo Successfully Compiled
- java -classpath ./../../../../../../target/classes net.broscorp.bytecode.SimpleThing
+ java -cp .;/classes net.broscorp.bytecode.SimpleThing
  echo Successfully Ran
  pause
- javap -classpath ./../../../../../../target/classes net.broscorp.bytecode.SimpleThing
+ javap -c -s -verbose -cp .;/classes net.broscorp.bytecode.SimpleThing
  pause
