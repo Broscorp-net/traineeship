@@ -3,7 +3,7 @@ package net.broscorp.boxing;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class Boxing {
+public class BoxingTest {
   @Test
   void resultTrue() {
     Integer x1 = -128;
