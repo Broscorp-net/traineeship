@@ -10,6 +10,10 @@ public class ReadConsole {
 
   }
 
+  /**
+   *
+   * @return Your message
+   */
   public static String readConsole() {
     System.out.println("Please write your message:");
     String str = null;
