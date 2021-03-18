@@ -2,8 +2,16 @@ package net.broscorp.classpath;
 
 import java.util.Scanner;
 
+/**
+ *
+ */
 public class ReadConsole {
 
+  /**
+   *
+   * @param args
+   *
+   */
   public static void main(String [] args) {
 
     WriteConsole.writeConsole(readConsole());
@@ -13,6 +21,7 @@ public class ReadConsole {
   /**
    *
    * @return Your message
+   *
    */
   public static String readConsole() {
     System.out.println("Please write your message:");
