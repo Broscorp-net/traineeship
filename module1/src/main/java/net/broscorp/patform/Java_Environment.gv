@@ -1,0 +1,28 @@
+digraph Java_Environment { rankdir=LR bgcolor="pink"  fontcolor="blue" label= "Java Environment" labelloc="top"
+
+
+    subgraph cluster1 {fillcolor="lightblue" label="Java Development Kit" fontcolor="black" style="filled" gradientangle="270"
+
+
+        subgraph cluster2 {fillcolor="cyan" label="Java Runtime Environment" fontcolor="black" style="filled" gradientangle="270"
+
+
+            subgraph cluster3 {fillcolor="violet" label="Java Virtual Machine" fontcolor="black" style="filled" gradientangle="270"
+
+		        node[color="white" style="filled"]
+		        JIT;
+		    }
+        }
+
+    }
+    subgraph cluster4 {fillcolor="lightgreen" label="" fontcolor="black" style="filled" gradientangle="270"
+	    node [shape=box width=1 height=1.5  ]
+		{rank=same; 1 2 3 4}
+    }
+
+    1[label="JDK (Java Development Kit) -\n это набор, который\n предоставляет среду\n для разработки и выполнения(запуска)\n программы Java. \n JDK = JRE + javac + jconsole +jvisualvm + demo + document + other"]
+    2[label="JRE (Java Runtime Environment) -\n это установочный пакет,\n который предоставляет среду\n только для запуска программы Java. \n JRE = JVM + JAVA binary code + another library + other"]
+    3[label="JVM (Java Virtual Machine) -\n любая программа Java,\n которую запускают с помощью JRE\n или JDK, переходит в JVM,\n а JVM отвечает за выполнение программы Java.\n Она также известна как интерпретатор. \n JVM = JIT + other"]
+    4[label="JIT (Just In Time compiler) -\n это инструмент, который может\n преобразовать байт-код в двоичный код."]
+
+}
