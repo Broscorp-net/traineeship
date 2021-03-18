@@ -41,6 +41,7 @@
           <includes>
             <include>GameOfLifeTest.java</include>
             <include>PrimitivesTest.java</include>
+            <include>BoxingTest.java</include>
           </includes>
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
