@@ -1,6 +1,9 @@
 package net.broscorp.boxing;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +21,7 @@ public class BoxingAndUnboxingTest {
  */
   @Test
   @DisplayName("Should return true")
-  public void souldReturnTrueTest(){
+  public void souldReturnTrueTest() {
     Integer one = 10;
     Integer two = 10;
     assertTrue(one == two);
@@ -27,7 +30,7 @@ public class BoxingAndUnboxingTest {
 
   @Test
   @DisplayName("Should return false")
-  public void souldReturnFalseTest(){
+  public void souldReturnFalseTest() {
     Integer one = new Integer(10);
     Integer two = new Integer(10);
     assertFalse(one == two);
@@ -42,10 +45,10 @@ public class BoxingAndUnboxingTest {
 
   @Test
   @DisplayName("Should throw NullPointerException")
-  public void souldThrowNullPointerExceptionTest(){
+  public void souldThrowNullPointerExceptionTest() {
     Integer one = null;
     int i = 0;
-    assertThrows(NullPointerException.class, ()->Math.max(one, i));
+    assertThrows(NullPointerException.class, () -> Math.max(one, i));
 
   }
 
