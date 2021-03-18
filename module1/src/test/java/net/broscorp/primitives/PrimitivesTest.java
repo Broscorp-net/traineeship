@@ -25,7 +25,7 @@ public class PrimitivesTest {
     int secondInt = firstInt + 1;
     Assertions.assertTrue(firstInt > secondInt);
   }
-  
+
   @Test
   public void longOverflow() {
     long firstLong = Long.MAX_VALUE;
@@ -49,11 +49,10 @@ public class PrimitivesTest {
 
   @Test
   public void errorInFlotAndDouble() {
-    float floatNum = (float) 245/22;
-    double doubleNum = (double) 245/22;
+    float floatNum = (float) 245 / 22;
+    double doubleNum = (double) 245 / 22;
     Assertions.assertNotEquals(floatNum, doubleNum);
   }
-
 
 
 }
