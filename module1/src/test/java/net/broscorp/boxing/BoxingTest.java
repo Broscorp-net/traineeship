@@ -1,27 +1,31 @@
 package net.broscorp.boxing;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+
 
 public class BoxingTest {
   @Test
   void resultTrue() {
     Integer x1 = -128;
     Integer x2 = -128;
-    Assertions.assertTrue(x1 == x2);
+    assertTrue(x1 == x2);
   }
 
   @Test
   void resultFalse() {
     Integer x1 = 128;
     Integer x2 = 128;
-    Assertions.assertFalse(x1 == x2);
+    assertFalse(x1 == x2);
   }
 
   @Test
   void throwException() {
     Integer x = null;
-    Assertions.assertThrows(NullPointerException.class, () -> {
+    assertThrows(NullPointerException.class, () -> {
       int y = x;
     });
   }
