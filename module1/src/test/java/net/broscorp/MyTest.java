@@ -27,9 +27,9 @@ class MyTest {
   }
 
   @Test
-  void errorWithFloatAndDouble(){
+  void errorWithFloatAndDouble() {
     float num1 = 2.0f - 1.1f;
     double num2 = 2.0 - 1.1;
-    Assertions.assertNotEquals(num1,num2);
+    Assertions.assertNotEquals(num1, num2);
   }
 }
