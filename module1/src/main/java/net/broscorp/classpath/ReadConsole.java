@@ -3,13 +3,14 @@ package net.broscorp.classpath;
 import java.util.Scanner;
 
 /**
- *
+ *Class for read and write to console
  */
 public class ReadConsole {
 
   /**
    *
    * @param args
+   * For ring methods
    *
    */
   public static void main(String [] args) {
@@ -21,6 +22,7 @@ public class ReadConsole {
   /**
    *
    * @return Your message
+   * From console
    *
    */
   public static String readConsole() {
