@@ -32,4 +32,26 @@ class MyTest {
     double num2 = 2.0 - 1.1;
     Assertions.assertNotEquals(num1, num2);
   }
+
+  @Test
+  void compareNumbersShouldBeTrue() {
+    Integer integer1 = 10;
+    Integer integer2 = 10;
+    Assertions.assertTrue(integer1 == integer2);
+  }
+
+  @Test
+  void compareNumbersShouldBeFalse() {
+    Integer integer1 = new Integer(10);
+    Integer integer2 = new Integer(10);
+    Assertions.assertFalse(integer1 == integer2);
+  }
+
+  @Test
+  void implicitConversionThrowError() {
+    Assertions.assertThrows(NullPointerException.class, () -> {
+      Integer integer = null;
+      int primitive = integer;
+    });
+  }
 }
