@@ -1,0 +1,33 @@
+digraph Relations
+{
+    subgraph "cluster JDK"
+    {
+        fontsize = 40
+        label="JDK"
+        style = filled
+        fillcolor = blue
+        subgraph "cluster JRE"
+        {
+            fontsize = 40
+            label=JRE
+            style = filled
+            fillcolor = green
+            subgraph "cluster JVM"
+        {
+            fontsize = 40
+            label=JVM
+            style = filled
+            fillcolor = yellow
+            JIT[shape=box, style = filled, fillcolor = red fontsize = 40];
+        }
+        }
+    }
+    subgraph "claster Description"{
+    jdk[shape = box fontsize = 14 label = "JDK - it`s development kit\n includes jre+jdk+javac\n+documentation+libraries."]
+    jre[shape = box fontsize = 14 label = "JRE - it`s runtime environment\n includes minimum for\n start app.\nThis is JVM+libraries"]
+    jvm[shape = box fontsize = 14 label = "JVM - it`s virtual machine.\nResponsible for executing the program.\n Includes JIT"]
+    jit[shape = box fontsize = 14 label = "JIT - it`s just in time compiler\n compiling bytecodes\ninto native machine \ncode at run time."]
+    }
+}
+
+
