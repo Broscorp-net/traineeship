@@ -3,15 +3,15 @@ package net.broscorp.classpath;
 import java.util.Scanner;
 
 /**
- * Class for read and write to console
+ * Class for read and write to console.
+ * @author Hryhorii Perets
+ * @version 1.0
  */
 public class ReadConsole {
 
   /**
-   *
-   * @param args
-   *  For ring methods
-   *
+   * For run all methods.
+   * @param args this method not have param
    */
   public static void main(String [] args) {
 
@@ -20,10 +20,8 @@ public class ReadConsole {
   }
 
   /**
-   *
+   * This method read from console.
    * @return Your message
-   *  From console
-   *
    */
   public static String readConsole() {
     System.out.println("Please write your message:");
