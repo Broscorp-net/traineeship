@@ -34,7 +34,7 @@ public class Primitives {
     return result;
   }
 
-  double doubleOverflow() {
+  protected double doubleOverflow() {
     double someValue = 1d;
     double result = someValue + Double.MAX_VALUE;
     return result;
