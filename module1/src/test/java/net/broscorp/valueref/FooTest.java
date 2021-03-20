@@ -1,6 +1,11 @@
 package net.broscorp.valueref;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +53,7 @@ class FooTest {
     int i = 5;
     List<String> s = new ArrayList<>();
 
-    assertDoesNotThrow(()->foo.foo(i, s));
+    assertDoesNotThrow(() -> foo.foo(i, s));
   }
 
   /*
@@ -61,7 +66,7 @@ class FooTest {
     int i = 0;
     List<String> s = null;
 
-    assertThrows(NullPointerException.class,()->foo.foo(i, s));
+    assertThrows(NullPointerException.class,() -> foo.foo(i, s));
   }
 
 }
