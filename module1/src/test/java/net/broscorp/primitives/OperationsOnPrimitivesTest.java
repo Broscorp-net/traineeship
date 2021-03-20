@@ -1,10 +1,9 @@
 package net.broscorp.primitives;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class OperationsOnPrimitivesTest {
 
@@ -15,8 +14,10 @@ public class OperationsOnPrimitivesTest {
   @Test
   void shouldNotBeOverflowAfterGetSameTypeResultBinaryMethodTest() {
     //      GIVEN:
-    byte a = 20, b = 45;
-    int c = Integer.MIN_VALUE, d = 5000;
+    byte a = 20;
+    byte b = 45;
+    int c = Integer.MIN_VALUE;
+    int d = 5000;
     BinaryOperator<Byte> sumByteOperator = (x, y) -> (byte) (x + y);
     BinaryOperator<Integer> sumIntOperator = Integer::sum;
     //      WHEN:
@@ -35,7 +36,8 @@ public class OperationsOnPrimitivesTest {
   @Test
   void shouldBeByteResultOverflowAfterGetSameTypeResultBinaryMethodTest() {
     //      GIVEN:
-    byte a = 120, b = 45;
+    byte a = 120;
+    byte b = 45;
     BinaryOperator<Byte> sumByteOperator = (x, y) -> (byte) (x + y);
     //      WHEN:
     byte overflowingSumByteResult =
@@ -49,7 +51,8 @@ public class OperationsOnPrimitivesTest {
   @Test
   void shouldBeIntResultOverflowAfterGetSameTypeResultBinaryMethodTest() {
     //      GIVEN:
-    int c = Integer.MIN_VALUE, d = -5000;
+    int c = Integer.MIN_VALUE;
+    int d = -5000;
     BinaryOperator<Integer> sumIntOperator = Integer::sum;
     //      WHEN:
     int overflowingSumIntResult =
@@ -89,8 +92,10 @@ public class OperationsOnPrimitivesTest {
   @Test
   void shouldBeCuriouslyConvertedResultsOfGetOtherTypeResultUnaryMethodTest() {
     //      GIVEN:
-    int i1 = 5, i2 = -5;
-    long l1 = 18L, l2 = 20L;
+    int i1 = 5;
+    int i2 = -5;
+    long l1 = 18L;
+    long l2 = 20L;
     Function<Long, Integer> longToIntConverter = (x) -> (int) x.longValue();
     Function<Integer, Long> intToLongConverter = (x) -> (long) x;
     //      WHEN:
@@ -112,8 +117,10 @@ public class OperationsOnPrimitivesTest {
   @Test
   void shouldBeDiffsOfConvertedFloatingPointValuesAfterGetOtherTypeResultUnaryMethodTest() {
     //      GIVEN:
-    float f1 = 4.6f, f2 = 2.3f;
-    double d1 = 4.6, d2 = 2.3;
+    float f1 = 4.6f;
+    float f2 = 2.3f;
+    double d1 = 4.6;
+    double d2 = 2.3;
     Function<Float, Double> floatToDoubleConverter = (x) -> (double) x;
     Function<Double, Float> doubleToFloatConverter = Double::floatValue;
     //      WHEN:
