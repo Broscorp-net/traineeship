@@ -68,7 +68,7 @@ public class Main {
       System.out.printf("%7s слова %s, в котором %d букв. \n","", str, str.length());
     }
 
-    System.out.println(philologist.randomSong(30, 2));
+    System.out.println(philologist.randomSong(3, 2));
 
   }
 

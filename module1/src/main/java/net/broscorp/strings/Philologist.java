@@ -38,7 +38,7 @@ public class Philologist {
    */
   public String cutWord(String originStr, String cutStr) {
     if (originStr != null) {
-      return originStr.replaceAll(cutStr, "");
+      return originStr.replaceAll(cutStr, "").trim();
     }
     return null;
   }
