@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.19">
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\checkstyle\StyledClass.java">
+</file>
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\gamelife\GameOfLife.java">
+</file>
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\generics\MyCoolList.java">
+</file>
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\primitives\PrimitivesTest.java">
+</file>
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\valueref\Foo.java">
+</file>
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\test\java\net\broscorp\gamelife\GameOfLifeTest.java">
+</file>
+<file name="C:\Users\onesterov\IdeaProjects\traineeship\module1\src\test\java\net\broscorp\MyTest.java">
+</file>
+</checkstyle>

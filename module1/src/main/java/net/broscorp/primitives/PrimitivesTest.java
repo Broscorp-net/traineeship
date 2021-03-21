@@ -1,6 +1,6 @@
 package net.broscorp.primitives;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -117,7 +117,7 @@ public class PrimitivesTest {
 
   @Test
   void givenLongValue_whenConvertToInt_thenDataLoss() {
-    long value = 2147483648l;
+    long value = 2147483648L;
 
     int actual = (int) value;
 
