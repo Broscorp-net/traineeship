@@ -1,0 +1,26 @@
+digraph Java {bgcolor = "#e8f78f"
+
+subgraph cluster_jdk {
+label = "JDK";
+fillcolor ="#e3b96f";
+style = "filled";
+DevelopmentTools;
+
+subgraph cluster_jre {
+label = "JRE";
+fillcolor = "#83d6d3";
+style = "filled";
+LibraryClasses;
+
+subgraph cluster_jvm {
+label = "JVM";
+fillcolor = "#66ed5c";
+style = "filled";
+node [shape = "hexagon" color = "#4287f5" style = "filled" label = "JIT" fontsize = 10]JIT;
+}
+}
+}
+}
+
+
+
