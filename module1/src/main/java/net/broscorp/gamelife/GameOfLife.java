@@ -38,7 +38,7 @@ public class GameOfLife {
       finishAreaLifeCycle  = nextStepLifeCycle(finishAreaLifeCycle);
     }
 
-    String stringForWriteToFile = getPreparedDataFoWrite(finishAreaLifeCycle);
+    List<String> stringForWriteToFile = getPreparedDataFoWrite(finishAreaLifeCycle);
 
     writeToFile(fileNameOutput, stringForWriteToFile);
 
@@ -76,7 +76,7 @@ public class GameOfLife {
     boolean[][]  fromFileAreaOfLife = new boolean[n][m];
 
     for (int i = 0; i < fromFileAreaOfLife.length; i++ ) {
-      String[] rowAreaOfLife = gameStartedList.get(i + 1).trim().split("\\s");
+      String[] rowAreaOfLife = gameStartedList.get(i + 1).split("\\s");
       for (int j = 0; j < fromFileAreaOfLife[0].length; j++) {
         fromFileAreaOfLife[i][j] = rowAreaOfLife[j].charAt(0) == 'X' ? true : false;
 
@@ -166,21 +166,22 @@ public class GameOfLife {
    * @param finishAreaLifeCycle
    * @return
    */
-    public String getPreparedDataFoWrite(boolean[][] finishAreaLifeCycle) {
-      StringBuilder stringBuilderForWriteToFile = new StringBuilder();
+    public List<String> getPreparedDataFoWrite(boolean[][] finishAreaLifeCycle) {
+      List<String> preparedListDataForWrite = new ArrayList<>();
+
       for (int i = 0; i < finishAreaLifeCycle.length; i++) {
+        StringBuilder stringBuilderForWriteToFile = new StringBuilder();
         for (int j = 0; j < finishAreaLifeCycle[0].length; j++) {
           stringBuilderForWriteToFile.append(finishAreaLifeCycle[i][j] ? 'X' : 'O');
           if (j == finishAreaLifeCycle[0].length - 1) {
-            stringBuilderForWriteToFile.append("\n ");
+            stringBuilderForWriteToFile.append(System.lineSeparator());
           } else {
             stringBuilderForWriteToFile.append("\u0020");
           }
         }
+        preparedListDataForWrite.add(stringBuilderForWriteToFile.toString().trim());
       }
-
-      System.out.println(stringBuilderForWriteToFile.toString());
-      return stringBuilderForWriteToFile.toString();
+      return preparedListDataForWrite;
     }
 
   /**
@@ -188,7 +189,7 @@ public class GameOfLife {
    * @param fileNameOutput
    * @param str
    */
-    public void writeToFile(String fileNameOutput, String str) {
+    public void writeToFile(String fileNameOutput, List<String> str) {
 
       //URI uri = ClassLoader.getSystemResource(fileNameOutput).toURI();
       //String mainPath = Paths.get(uri).toString();
@@ -196,7 +197,11 @@ public class GameOfLife {
         String mainPath = fileNameOutput;
         Path pathToFile = Paths.get(mainPath);
         try(BufferedWriter bufferedWriter = Files.newBufferedWriter(pathToFile, StandardCharsets.UTF_8) ) {
-            bufferedWriter.write(str);
+          for (String x: str) {
+            bufferedWriter.write(x);
+            bufferedWriter.write(System.lineSeparator());
+          }
+
         }
         catch (IOException ex) {
           ex.printStackTrace();
@@ -210,15 +215,18 @@ public class GameOfLife {
    * @return
    */
       public List<String>  readFromFile(String fileNameInput){
-    /*
+
         ClassLoader classLoader = GameOfLife.class.getClassLoader();
         Stream<String> gameStreamInput = new BufferedReader(
             new InputStreamReader(classLoader.getSystemResourceAsStream(fileNameInput))).lines();
         List<String> gameListStarted = gameStreamInput.collect(Collectors.toList());
         return gameListStarted;
-    */
-        List<String> gameListStarter = null;
 
+      /*
+        *
+        * For read files not from resources dir
+        *
+        List<String> gameListStarter = null;
         String mainPath = fileNameInput;
         Path pathToFile = Paths.get(mainPath);
         //System.out.println(pathToFile.toAbsolutePath());
@@ -228,23 +236,8 @@ public class GameOfLife {
         catch (IOException ex) {
           ex.printStackTrace();
         }
-
       return gameListStarter;
-
+      */
     }
-
-
-  public boolean equalsFile(String expected, String result) {
-    Stream<String> gameStreamInput = new BufferedReader(
-        new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
-    List<String> gameListExpected = gameStreamInput.collect(Collectors.toList());
-    ClassLoader classLoader = GameOfLife.class.getClassLoader();
-    System.out.println(gameListExpected);
-    Stream<String> gameStreamResult = new BufferedReader(
-        new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
-    List<String> gameListResult = gameStreamResult.collect(Collectors.toList());
-    System.out.println(gameListResult);
-    return gameListExpected.equals(gameListResult);
-  }
 
 }
