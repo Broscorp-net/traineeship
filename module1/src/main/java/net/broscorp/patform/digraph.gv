@@ -2,7 +2,7 @@ digraph Java {bgcolor = "#e8f78f"
 
 subgraph cluster_jdk {
 label = "JDK";
-fillcolor ="#e3b96f";
+fillcolor = "#e3b96f";
 style = "filled";
 DevelopmentTools;
 
