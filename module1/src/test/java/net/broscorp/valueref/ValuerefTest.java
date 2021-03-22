@@ -15,27 +15,28 @@ public class ValuerefTest {
   /*
     просто успешный тест
   */
+
   @Test
   public void passTest() {
     Assertions.assertDoesNotThrow(() -> foo.foo(1, listNewString));
   }
-
   /*
     При передачи null в метод,
     ожидаем выброс исключения NullPointerException
   */
+
   @Test
   public void failNullPointerExceptionList() {
     Assertions.assertThrows(NullPointerException.class, () -> {
       foo.foo(0, null);
     });
   }
-
   /*
     Array.asList()- это просто обертка над массивом с интерфейсом List.
     А массивы имеют фиксированный размер, поэтому добавление
     и удаление элементов не поддерживается
   */
+
   @Test
   public void failUnsupportedOperationException() {
     Assertions.assertThrows(UnsupportedOperationException.class, () -> {
