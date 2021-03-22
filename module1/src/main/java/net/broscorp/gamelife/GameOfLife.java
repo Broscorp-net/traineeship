@@ -5,11 +5,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -17,12 +18,38 @@ import java.util.stream.Stream;
 
 public class GameOfLife {
 
+  /**
+   *
+   * @param fileNameInput file with
+   * @param fileNameOutput result file
+   */
   public void game(String fileNameInput, String fileNameOutput){
 
+    List<String> gameStartedList = readFromFile(fileNameInput);
 
+    int cycles = numberLifeCycles(gameStartedList);
+
+    boolean[][] startAreaOfLifeCycle = areaOfLife(gameStartedList);
+
+    boolean[][] finishAreaLifeCycle = startAreaOfLifeCycle;
+
+
+    for (int i = 0; i < cycles; i++) {
+      finishAreaLifeCycle  = nextStepLifeCycle(finishAreaLifeCycle);
+    }
+
+    String stringForWriteToFile = getPreparedDataFoWrite(finishAreaLifeCycle);
+
+    writeToFile(fileNameOutput, stringForWriteToFile);
 
   }
 
+  /**
+   * Return random area life cycle
+   * @param n row
+   * @param m column
+   * @return random area
+   */
   public boolean[][] areaOfLife(int n, int m) {
     boolean[][] randomAreaOfLife = new boolean[n][m];
     Random random = new Random();
@@ -33,6 +60,48 @@ public class GameOfLife {
     return randomAreaOfLife;
   }
 
+  /**
+   * Return area life from list.
+   * @param gameStartedList source information
+   * @return current area
+   */
+  public boolean[][] areaOfLife(List<String> gameStartedList) {
+    int n = 0;
+    int m = 0;
+
+    String[] firstString = gameStartedList.get(0).trim().split(",");
+    n = Integer.parseInt(firstString[0]);
+    m = Integer.parseInt(firstString[1]);
+
+    boolean[][]  fromFileAreaOfLife = new boolean[n][m];
+
+    for (int i = 0; i < fromFileAreaOfLife.length; i++ ) {
+      String[] rowAreaOfLife = gameStartedList.get(i + 1).trim().split("\\s");
+      for (int j = 0; j < fromFileAreaOfLife[0].length; j++) {
+        fromFileAreaOfLife[i][j] = rowAreaOfLife[j].charAt(0) == 'X' ? true : false;
+
+      }
+    }
+    return fromFileAreaOfLife;
+  }
+
+  /**
+   * Return number life cycles.
+   * @param gameStartedList A source information
+   * @return number cycles
+   */
+  public int numberLifeCycles(List<String> gameStartedList) {
+    int cycle = 0;
+    String[] firstString = gameStartedList.get(0).trim().split(",");
+    cycle = Integer.parseInt(firstString[2]);
+    return cycle;
+  }
+
+  /**
+   * One iteration life cycle.
+   * @param previousLifeCycle previous result cycles
+   * @return result current life cycle
+   */
   public boolean[][] nextStepLifeCycle(boolean[][] previousLifeCycle) {
     boolean[][] nextLifeCycle = new boolean[previousLifeCycle.length][previousLifeCycle[0].length];
 
@@ -53,6 +122,14 @@ public class GameOfLife {
     return nextLifeCycle;
 
   }
+
+  /**
+   * Returned number living neighbors.
+   * @param currentAreaOfLife current array
+   * @param currentPositionX position x
+   * @param currentPositionY position y
+   * @return number neighbors
+   */
     public int numberOfLivingNeighbors(boolean[][] currentAreaOfLife, int currentPositionX, int currentPositionY) {
       int livingNeighbors = 0;
       for (int i = -1; i < 2; i++)
@@ -67,6 +144,13 @@ public class GameOfLife {
       return livingNeighbors;
     }
 
+  /**
+   * Returned position for neighbor.
+   * @param maxValue max value row or column
+   * @param currentPosition position current's cell
+   * @param step iterator value
+   * @return actual position
+   */
     public int getNeighborPosition(int maxValue, int currentPosition, int step) {
       if ((currentPosition + step) < 0) {
         return maxValue - 1;
@@ -75,54 +159,92 @@ public class GameOfLife {
         return 0;
       }
       return currentPosition + step;
-
     }
 
+  /**
+   *
+   * @param finishAreaLifeCycle
+   * @return
+   */
+    public String getPreparedDataFoWrite(boolean[][] finishAreaLifeCycle) {
+      StringBuilder stringBuilderForWriteToFile = new StringBuilder();
+      for (int i = 0; i < finishAreaLifeCycle.length; i++) {
+        for (int j = 0; j < finishAreaLifeCycle[0].length; j++) {
+          stringBuilderForWriteToFile.append(finishAreaLifeCycle[i][j] ? 'X' : 'O');
+          if (j == finishAreaLifeCycle[0].length - 1) {
+            stringBuilderForWriteToFile.append("\n ");
+          } else {
+            stringBuilderForWriteToFile.append("\u0020");
+          }
+        }
+      }
 
+      System.out.println(stringBuilderForWriteToFile.toString());
+      return stringBuilderForWriteToFile.toString();
+    }
+
+  /**
+   *
+   * @param fileNameOutput
+   * @param str
+   */
     public void writeToFile(String fileNameOutput, String str) {
-      try {
-        URI uri = ClassLoader.getSystemResource(fileNameOutput).toURI();
-        String mainPath = Paths.get(uri).toString();
-        Path path = Paths.get(mainPath);
-        try(BufferedWriter bufferedWriter = Files.newBufferedWriter(path) ) {
+
+      //URI uri = ClassLoader.getSystemResource(fileNameOutput).toURI();
+      //String mainPath = Paths.get(uri).toString();
+
+        String mainPath = fileNameOutput;
+        Path pathToFile = Paths.get(mainPath);
+        try(BufferedWriter bufferedWriter = Files.newBufferedWriter(pathToFile, StandardCharsets.UTF_8) ) {
             bufferedWriter.write(str);
         }
-
-      }
-      catch (URISyntaxException | IOException ex) {
-        ex.getStackTrace();
-      }
+        catch (IOException ex) {
+          ex.printStackTrace();
+        }
 
     }
 
-
-      public void readFromFile(String fileNameInput){
-        int n = 0;
-        int m = 0;
-        int cycle = 0;
-        boolean[][] areaOfLife = new boolean[n][m];
-/*
+  /**
+   *
+   * @param fileNameInput
+   * @return
+   */
+      public List<String>  readFromFile(String fileNameInput){
+    /*
         ClassLoader classLoader = GameOfLife.class.getClassLoader();
         Stream<String> gameStreamInput = new BufferedReader(
             new InputStreamReader(classLoader.getSystemResourceAsStream(fileNameInput))).lines();
         List<String> gameListStarted = gameStreamInput.collect(Collectors.toList());
-        for (String str: gameListStarted) {
-          System.out.println(str);
-        }
-*/
-        ClassLoader classLoader = GameOfLife.class.getClassLoader();
-        try(BufferedReader bufferedReader = new BufferedReader(
-            new InputStreamReader(classLoader.getSystemResourceAsStream(fileNameInput)))) {
-          int cf;
-          while ((cf = bufferedReader.read()) != 0) {
-            n =
-          }
+        return gameListStarted;
+    */
+        List<String> gameListStarter = null;
 
+        String mainPath = fileNameInput;
+        Path pathToFile = Paths.get(mainPath);
+        //System.out.println(pathToFile.toAbsolutePath());
+        try(BufferedReader bufferedReader = Files.newBufferedReader(pathToFile) ) {
+          gameListStarter = bufferedReader.lines().collect(Collectors.toList());
         }
         catch (IOException ex) {
-
+          ex.printStackTrace();
         }
 
+      return gameListStarter;
+
     }
+
+
+  public boolean equalsFile(String expected, String result) {
+    Stream<String> gameStreamInput = new BufferedReader(
+        new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
+    List<String> gameListExpected = gameStreamInput.collect(Collectors.toList());
+    ClassLoader classLoader = GameOfLife.class.getClassLoader();
+    System.out.println(gameListExpected);
+    Stream<String> gameStreamResult = new BufferedReader(
+        new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
+    List<String> gameListResult = gameStreamResult.collect(Collectors.toList());
+    System.out.println(gameListResult);
+    return gameListExpected.equals(gameListResult);
+  }
 
 }

@@ -1,5 +1,11 @@
 package net.broscorp.gamelife;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * @author Hryhorii Perets
  */
@@ -7,7 +13,14 @@ public class StartGameOfLife {
   public static void main(String[] args) {
     GameOfLife gameOfLife = new GameOfLife();
 
-    boolean[][] newAreaOfLife = gameOfLife.areaOfLife(15,15);
+    gameOfLife.game("inputFile.txt", "outputFile.txt");
+
+    System.out.println(gameOfLife.equalsFile("ExpectedGlider.txt", "outputGlider.txt"));
+
+
+  /*
+
+    boolean[][] newAreaOfLife = gameOfLife.areaOfLife(15, 15);
 
 /*
     for(boolean[] line: newAreaOfLife){
@@ -37,25 +50,32 @@ public class StartGameOfLife {
       System.out.println();
     }
 */
+    /*
     String str = "";
-    for(boolean[] line: newAreaOfLife){
-      for (boolean step: line){
+    for (boolean[] line : newAreaOfLife) {
+      for (boolean step : line) {
         if (step) {
-          str+=Character.toString('X');
+          str += Character.toString('X');
         } else {
-          str+=Character.toString('O');
+          str += Character.toString('O');
         }
-        str+=" ";
+        str += " ";
       }
-      str+="\n";
+      str += "\n";
     }
 
+    gameOfLife.writeToFile("outputFile.txt", str);
 
-    gameOfLife.writeToFile("inputFile.txt", str);
-    gameOfLife.readFromFile("inputFile.txt");
+    boolean[][] testArea = gameOfLife.areaOfLife(gameOfLife.readFromFile("inputFile.txt"));
 
+    for (boolean[] line : testArea) {
+      for (boolean step : line) {
+        System.out.printf("%s ",step);
+      }
+      System.out.println();
 
+    }
 
+    */
   }
-
 }
