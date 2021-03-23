@@ -1,0 +1,14 @@
+digraph D {
+  subgraph cluster_jdk {
+    label = "JDK";
+    Developer_tools;
+    subgraph cluster_jre {
+      label = "JRE";
+      library;
+      subgraph cluster_gc_2 {
+        label = "JMV";
+          JIT_compiler;
+      }
+    }
+  }
+}
