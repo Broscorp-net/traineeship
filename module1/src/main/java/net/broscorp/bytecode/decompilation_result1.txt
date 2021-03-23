@@ -1,0 +1,50 @@
+public class net.broscorp.bytecode.CheckCode {
+  public static int incr;
+
+  public net.broscorp.bytecode.CheckCode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #3                  // String Hello!\nDear user.
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: iconst_0
+       9: putstatic     #5                  // Field incr:I
+      12: getstatic     #5                  // Field incr:I
+      15: bipush        10
+      17: if_icmpgt     46
+      20: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      23: getstatic     #5                  // Field incr:I
+      26: invokestatic  #6                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      29: invokestatic  #7                  // Method method:(Ljava/lang/Integer;)Ljava/lang/Integer;
+      32: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+      35: getstatic     #5                  // Field incr:I
+      38: iconst_1
+      39: iadd
+      40: putstatic     #5                  // Field incr:I
+      43: goto          12
+      46: return
+
+  public static java.lang.Integer method(java.lang.Integer);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #9                  // String Method start
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: aload_0
+       9: invokevirtual #10                 // Method java/lang/Integer.intValue:()I
+      12: aload_0
+      13: invokevirtual #10                 // Method java/lang/Integer.intValue:()I
+      16: imul
+      17: invokestatic  #6                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      20: areturn
+
+  static {};
+    Code:
+       0: iconst_0
+       1: putstatic     #5                  // Field incr:I
+       4: return
+}

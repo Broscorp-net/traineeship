@@ -1,0 +1,35 @@
+public class net.broscorp.bytecode.CheckCode {
+  public net.broscorp.bytecode.CheckCode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #3                  // String Hello!\nDear user.
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: iconst_0
+       9: putstatic     #5                  // Field incr:I
+      12: getstatic     #5                  // Field incr:I
+      15: bipush        10
+      17: if_icmpgt     44
+      20: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      23: getstatic     #5                  // Field incr:I
+      26: getstatic     #5                  // Field incr:I
+      29: iadd
+      30: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+      33: getstatic     #5                  // Field incr:I
+      36: iconst_1
+      37: iadd
+      38: putstatic     #5                  // Field incr:I
+      41: goto          12
+      44: return
+
+  static {};
+    Code:
+       0: iconst_0
+       1: putstatic     #5                  // Field incr:I
+       4: return
+}
