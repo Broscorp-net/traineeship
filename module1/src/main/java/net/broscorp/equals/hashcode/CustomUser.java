@@ -43,7 +43,7 @@ public class CustomUser {
    *
    * @param id - id User
    * @param email - email User
-   * @param password - user password
+   * @param password - password User
    */
   public CustomUser(Integer id, String email, String password) {
     this.id = id;
