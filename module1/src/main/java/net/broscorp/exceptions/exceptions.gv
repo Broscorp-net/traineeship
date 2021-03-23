@@ -1,0 +1,9 @@
+digraph G {
+    Throwable -> Error
+    Throwable -> Exception
+    Error[label = "Error\n(uncheked)"]
+    Exception -> RuntimeException
+    RuntimeException[label = "RuntimeException\n(uncheked)"]
+    Exception -> Other
+    Other[label = "Other Checked Exceptions:\nIOException\nSQLException\nand more"]
+}
