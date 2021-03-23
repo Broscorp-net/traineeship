@@ -2,24 +2,29 @@ package net.broscorp.equals.hashcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class UserTest {
 
-  private static List<User> userList = new ArrayList<>();
+  private static final List<User> userList = new ArrayList<>();
 
   /**
    * init method.
    */
   @BeforeAll
   public static void init() {
-    userList.add(new User(1, "testUsername1", "testPassword1", 20, true));
-    userList.add(new User(2, "testUsername2", "testPassword2", 21, true));
-    userList.add(new User(1, "testUsername1", "testPassword1", 20, true));
-    userList.add(new User(2, "testUsername2", "testPassword2", 21, true));
-    userList.add(new User(1, "testUsername1", "testPassword1", 20, true));
+    String testUsername1 = RandomStringUtils.randomAlphabetic(15);
+    String testUsername2 = RandomStringUtils.randomAlphabetic(15);
+    String testPassword1 = RandomStringUtils.randomAlphabetic(15);
+    String testPassword2 = RandomStringUtils.randomAlphabetic(15);
+    userList.add(new User(1, testUsername1, testPassword1, 20, true));
+    userList.add(new User(2, testUsername2, testPassword2, 21, false));
+    userList.add(new User(1, testUsername1, testPassword1, 20, true));
+    userList.add(new User(2, testUsername2, testPassword2, 21, false));
+    userList.add(new User(1, testUsername1, testPassword1, 20, true));
     userList.add(new User(4, "BB", "Aa", 25, false));
     userList.add(new User(4, "Aa", "BB", 25, false));
     for (User user : userList) {

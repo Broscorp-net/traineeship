@@ -1,7 +1,13 @@
 package net.broscorp.equals.hashcode;
 
 import java.util.Objects;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
 public class User {
 
   private Integer id;
@@ -13,7 +19,7 @@ public class User {
   /**
    * Constructor for entity User.
    *
-   * @param id - id User
+   * @param id - id user
    * @param username - users username
    * @param password - user password
    * @param age - users age
@@ -46,16 +52,5 @@ public class User {
   @Override
   public int hashCode() {
     return Objects.hash(id, username, password, age, blocked);
-  }
-
-  @Override
-  public String toString() {
-    return "User{"
-        + "id=" + id
-        + ", username='" + username + '\''
-        + ", password='" + password + '\''
-        + ", age=" + age
-        + ", blocked=" + blocked
-        + '}';
   }
 }
