@@ -1,22 +1,31 @@
-package net.broscorp.customUser;
+package net.broscorp.custom;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import net.broscorp.equals.hashcode.CustomUser;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 public class CustomUserTest {
-  private final CustomUser user1 = new CustomUser(1, "email1", "password1");
-  private final CustomUser user2 = new CustomUser(1, "email2", "password2");
-  private final CustomUser user3 = new CustomUser(2, "email3", "password3");
-  private final CustomUser user4 = new CustomUser(1, "email1", "password1");
-  private final CustomUser user5 = new CustomUser(1, "email1", "password1");
-  private final CustomUser user6 = new CustomUser(1, "BB", "Aa");
-  private final CustomUser user7 = new CustomUser(1, "Aa", "BB");
-  private final List<CustomUser> users = Arrays.asList(user1, user2, user3, user4, user5, user6, user7);
+
+  private static List<CustomUser> users = new ArrayList<>();
+
+  /**
+   Все тесты нуждаются в одинаковых объектах, созданных до их запуска.
+   */
+  @BeforeAll
+  public static void init() {
+    users.add(new CustomUser(1, "email1", "password1"));
+    users.add(new CustomUser(1, "email2", "password2"));
+    users.add(new CustomUser(2, "email3", "password3"));
+    users.add(new CustomUser(1, "email1", "password1"));
+    users.add(new CustomUser(1, "email1", "password1"));
+    users.add(new CustomUser(1, "BB", "Aa"));
+    users.add(new CustomUser(1, "Aa", "BB"));
+  }
 
   @Test
   public void passEquals() {
