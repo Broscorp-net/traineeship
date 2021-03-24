@@ -1,0 +1,24 @@
+Compiled from "ByteCode.java"
+public class net.broscorp.bytecode.ByteCode {
+  public net.broscorp.bytecode.ByteCode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: bipush        10
+       5: if_icmpgt     27
+       8: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: iload_1
+      12: invokestatic  #3                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      15: invokestatic  #4                  // Method method:(Ljava/lang/Integer;)Ljava/lang/Integer;
+      18: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+      21: iinc          1, 1
+      24: goto          2
+      27: return
+}
