@@ -1,10 +1,10 @@
 package net.broscorp.primitives;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class PrimitivesTest {
+class PrimitivesTest {
 
   @Test
   void givenByteMinValue_whenSubtractOne_thenByteMaxValueReturned() {
