@@ -148,9 +148,9 @@ class PhilologistTest {
     String expected = "3 little bugs in the code,\n"
         + "3 little bugs in the code.\n"
         + "Take one down, patch it around 4 little bugs in the code.\n"
-        + "3 little bugs in the code,\n"
-        + "3 little bugs in the code.\n"
-        + "Take one down, patch it around 4 little bugs in the code.\n";
+        + "4 little bugs in the code,\n"
+        + "4 little bugs in the code.\n"
+        + "Take one down, patch it around 10 little bugs in the code.\n";
     String actual = philologist.randomSong(n, m);
     assertEquals(expected, actual);
   }

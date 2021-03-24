@@ -87,18 +87,19 @@ public class Philologist {
 
   /**
    * Random song with bags and verses.
-   * @param bags number of bags
+   * @param bugs number of bags
    * @param verses number of verses
    * @return The song with same verses
    */
-  public String randomSong(int bags, int verses) {
-    Random random = new Random(bags * verses);
-    int m = bags - 10 + random.nextInt(20);
+  public String randomSong(int bugs, int verses) {
+    Random random = new Random(bugs * verses);
     StringBuilder stringBuilder = new StringBuilder();
     for (int i = 0; i < verses; i++) {
-      stringBuilder.append(bags + " little bugs in the code,\n");
-      stringBuilder.append(bags + " little bugs in the code.\n");
+      int m = Math.abs(bugs - 10 + random.nextInt(20));
+      stringBuilder.append(bugs + " little bugs in the code,\n");
+      stringBuilder.append(bugs + " little bugs in the code.\n");
       stringBuilder.append("Take one down, patch it around " + m + " little bugs in the code.\n");
+      bugs = m;
     }
     return stringBuilder.toString();
   }
