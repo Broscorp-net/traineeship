@@ -1,0 +1,34 @@
+0000000000000000000000000000000000000000 a17bc021c81f500cd9f715444d66bdf3ddd439c0 Hryhorii Perets <grperets@gmail.com> 1616540143 +0200	commit (initial): Added first.txt
+a17bc021c81f500cd9f715444d66bdf3ddd439c0 f7e039548e595a9d32fe8cbbbaeeaae6b224ed3c Hryhorii Perets <grperets@gmail.com> 1616540271 +0200	commit: Added second.txt
+f7e039548e595a9d32fe8cbbbaeeaae6b224ed3c 8f6e5d1810b6879280b32b193a3e446f421d310a Hryhorii Perets <grperets@gmail.com> 1616540356 +0200	commit: Added third.txt
+8f6e5d1810b6879280b32b193a3e446f421d310a a17bc021c81f500cd9f715444d66bdf3ddd439c0 Hryhorii Perets <grperets@gmail.com> 1616540521 +0200	checkout: moving from master to feature
+a17bc021c81f500cd9f715444d66bdf3ddd439c0 4a4e74e0d7a9f361cc54265327e1a0db71f125da Hryhorii Perets <grperets@gmail.com> 1616540666 +0200	commit: Updated first.txt
+4a4e74e0d7a9f361cc54265327e1a0db71f125da 8d529f57006b4b2a40e08dd7a9e6513c96087999 Hryhorii Perets <grperets@gmail.com> 1616540744 +0200	commit: Added fourth.txt
+8d529f57006b4b2a40e08dd7a9e6513c96087999 0f4502518f92d4bf82877ffb26abcd4dc93764c2 Hryhorii Perets <grperets@gmail.com> 1616540798 +0200	commit: Added fifth.txt
+0f4502518f92d4bf82877ffb26abcd4dc93764c2 8f6e5d1810b6879280b32b193a3e446f421d310a Hryhorii Perets <grperets@gmail.com> 1616541580 +0200	rebase: checkout master
+8f6e5d1810b6879280b32b193a3e446f421d310a af7576f7c5abb87002d1dfc8b7bbd54feb41f6f8 Hryhorii Perets <grperets@gmail.com> 1616541580 +0200	rebase: Updated first.txt
+af7576f7c5abb87002d1dfc8b7bbd54feb41f6f8 f8d0b60f13c349bbaf22bcb19ddd317d9f7d9018 Hryhorii Perets <grperets@gmail.com> 1616541580 +0200	rebase: Added fourth.txt
+f8d0b60f13c349bbaf22bcb19ddd317d9f7d9018 34034f93d9370c1feb321604c79c5ae12b16218a Hryhorii Perets <grperets@gmail.com> 1616541580 +0200	rebase: Added fifth.txt
+34034f93d9370c1feb321604c79c5ae12b16218a 34034f93d9370c1feb321604c79c5ae12b16218a Hryhorii Perets <grperets@gmail.com> 1616541580 +0200	rebase finished: returning to refs/heads/feature
+34034f93d9370c1feb321604c79c5ae12b16218a 8f6e5d1810b6879280b32b193a3e446f421d310a Hryhorii Perets <grperets@gmail.com> 1616541942 +0200	checkout: moving from feature to master
+8f6e5d1810b6879280b32b193a3e446f421d310a 34034f93d9370c1feb321604c79c5ae12b16218a Hryhorii Perets <grperets@gmail.com> 1616542214 +0200	checkout: moving from master to feature
+34034f93d9370c1feb321604c79c5ae12b16218a c5df62ca5488f784b5ca1e056345bb76f946b592 Hryhorii Perets <grperets@gmail.com> 1616542322 +0200	commit: Simple update first.txt
+c5df62ca5488f784b5ca1e056345bb76f946b592 46dcc033532d3c973afce7ecf04d596508c0c35c Hryhorii Perets <grperets@gmail.com> 1616542363 +0200	commit: Simple update second.txt
+46dcc033532d3c973afce7ecf04d596508c0c35c 6cb91e531bb446bf73b63c18b09ee15b7f60709d Hryhorii Perets <grperets@gmail.com> 1616542415 +0200	commit: Simple update third.txt
+6cb91e531bb446bf73b63c18b09ee15b7f60709d c5df62ca5488f784b5ca1e056345bb76f946b592 Hryhorii Perets <grperets@gmail.com> 1616543972 +0200	rebase -i (start): checkout HEAD~3
+c5df62ca5488f784b5ca1e056345bb76f946b592 7aace63a39469d6ad6cd028e0c1526de94e554b8 Hryhorii Perets <grperets@gmail.com> 1616543972 +0200	rebase -i (squash): # This is a combination of 2 commits.
+7aace63a39469d6ad6cd028e0c1526de94e554b8 a6bc829164f26ce083f77fb10c8ac04c0abcc3ba Hryhorii Perets <grperets@gmail.com> 1616543972 +0200	rebase -i (squash): Simple update all files txt
+a6bc829164f26ce083f77fb10c8ac04c0abcc3ba a6bc829164f26ce083f77fb10c8ac04c0abcc3ba Hryhorii Perets <grperets@gmail.com> 1616543972 +0200	rebase -i (finish): returning to refs/heads/feature
+a6bc829164f26ce083f77fb10c8ac04c0abcc3ba 8f6e5d1810b6879280b32b193a3e446f421d310a Hryhorii Perets <grperets@gmail.com> 1616544510 +0200	checkout: moving from feature to master
+8f6e5d1810b6879280b32b193a3e446f421d310a a6bc829164f26ce083f77fb10c8ac04c0abcc3ba Hryhorii Perets <grperets@gmail.com> 1616544565 +0200	merge feature: Fast-forward
+a6bc829164f26ce083f77fb10c8ac04c0abcc3ba 9f04b244806fe0c95508a03b408d06771abd30a1 Hryhorii Perets <grperets@gmail.com> 1616545243 +0200	commit: Added sixth.txt
+9f04b244806fe0c95508a03b408d06771abd30a1 39279e4f69b26cbff30a86eeefed8ba930297fb8 Hryhorii Perets <grperets@gmail.com> 1616545283 +0200	commit: Updated sixth.txt
+39279e4f69b26cbff30a86eeefed8ba930297fb8 6e8c93248afc6fcfd78856974d89581b31fb6713 Hryhorii Perets <grperets@gmail.com> 1616545396 +0200	commit: Wrong information into sixth.txt
+6e8c93248afc6fcfd78856974d89581b31fb6713 6fcb13f7ad1defeafc3fffd8041a2184ae9b0157 Hryhorii Perets <grperets@gmail.com> 1616546464 +0200	revert: Revert "Wrong information into sixth.txt"
+6fcb13f7ad1defeafc3fffd8041a2184ae9b0157 8e6f39e940e14991681db5fa034bbf23143fece1 Hryhorii Perets <grperets@gmail.com> 1616546665 +0200	commit: Added file seventh.txt
+8e6f39e940e14991681db5fa034bbf23143fece1 a6bc829164f26ce083f77fb10c8ac04c0abcc3ba Hryhorii Perets <grperets@gmail.com> 1616546718 +0200	checkout: moving from master to feature
+a6bc829164f26ce083f77fb10c8ac04c0abcc3ba af15d0b8fed8b9d9bd51f700825c3d102df8d330 Hryhorii Perets <grperets@gmail.com> 1616546831 +0200	commit: Modified file first.txt
+af15d0b8fed8b9d9bd51f700825c3d102df8d330 8e6f39e940e14991681db5fa034bbf23143fece1 Hryhorii Perets <grperets@gmail.com> 1616546942 +0200	checkout: moving from feature to master
+8e6f39e940e14991681db5fa034bbf23143fece1 af15d0b8fed8b9d9bd51f700825c3d102df8d330 Hryhorii Perets <grperets@gmail.com> 1616547076 +0200	checkout: moving from master to feature
+af15d0b8fed8b9d9bd51f700825c3d102df8d330 8e6f39e940e14991681db5fa034bbf23143fece1 Hryhorii Perets <grperets@gmail.com> 1616547128 +0200	checkout: moving from feature to master
+8e6f39e940e14991681db5fa034bbf23143fece1 906ed99d6153a87941f10d7b69d55d461b81e525 Hryhorii Perets <grperets@gmail.com> 1616547169 +0200	cherry-pick: Modified file first.txt

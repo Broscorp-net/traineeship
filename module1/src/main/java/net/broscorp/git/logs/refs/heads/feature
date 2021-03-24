@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 a17bc021c81f500cd9f715444d66bdf3ddd439c0 Hryhorii Perets <grperets@gmail.com> 1616540179 +0200	branch: Created from master
+a17bc021c81f500cd9f715444d66bdf3ddd439c0 4a4e74e0d7a9f361cc54265327e1a0db71f125da Hryhorii Perets <grperets@gmail.com> 1616540666 +0200	commit: Updated first.txt
+4a4e74e0d7a9f361cc54265327e1a0db71f125da 8d529f57006b4b2a40e08dd7a9e6513c96087999 Hryhorii Perets <grperets@gmail.com> 1616540744 +0200	commit: Added fourth.txt
+8d529f57006b4b2a40e08dd7a9e6513c96087999 0f4502518f92d4bf82877ffb26abcd4dc93764c2 Hryhorii Perets <grperets@gmail.com> 1616540798 +0200	commit: Added fifth.txt
+0f4502518f92d4bf82877ffb26abcd4dc93764c2 34034f93d9370c1feb321604c79c5ae12b16218a Hryhorii Perets <grperets@gmail.com> 1616541580 +0200	rebase finished: returning to refs/heads/feature
+34034f93d9370c1feb321604c79c5ae12b16218a c5df62ca5488f784b5ca1e056345bb76f946b592 Hryhorii Perets <grperets@gmail.com> 1616542322 +0200	commit: Simple update first.txt
+c5df62ca5488f784b5ca1e056345bb76f946b592 46dcc033532d3c973afce7ecf04d596508c0c35c Hryhorii Perets <grperets@gmail.com> 1616542363 +0200	commit: Simple update second.txt
+46dcc033532d3c973afce7ecf04d596508c0c35c 6cb91e531bb446bf73b63c18b09ee15b7f60709d Hryhorii Perets <grperets@gmail.com> 1616542415 +0200	commit: Simple update third.txt
+6cb91e531bb446bf73b63c18b09ee15b7f60709d a6bc829164f26ce083f77fb10c8ac04c0abcc3ba Hryhorii Perets <grperets@gmail.com> 1616543972 +0200	rebase -i (finish): refs/heads/feature onto 34034f93d9370c1feb321604c79c5ae12b16218a
+a6bc829164f26ce083f77fb10c8ac04c0abcc3ba af15d0b8fed8b9d9bd51f700825c3d102df8d330 Hryhorii Perets <grperets@gmail.com> 1616546831 +0200	commit: Modified file first.txt
