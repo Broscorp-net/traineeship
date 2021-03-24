@@ -135,12 +135,15 @@ public class UserTest {
   public void findObjectsWithTheSameHashCodesAndEqualsReturnFalse() {
     for (int i = 0; i < userList.size(); i++) {
       for (int j = i + 1; j < userList.size(); j++) {
-        if ((userList.get(i).hashCode() == userList.get(j).hashCode())
-            && !(userList.get(i).equals(userList.get(j)))) {
-          System.out.println(
-              "Here is object " + userList.get(i) + ",\n here is object " + userList.get(i)
-                  + "\nthey are different but their hash is the same " + userList.get(j)
-                  .hashCode());
+        User firstUser = userList.get(i);
+        User secondUser = userList.get(j);
+        if ((firstUser.hashCode() == secondUser.hashCode())
+            && !(firstUser.equals(secondUser))) {
+          Assertions.assertEquals(firstUser.hashCode(), secondUser.hashCode());
+          Assertions.assertNotEquals(firstUser, secondUser);
+
+          System.out.println("Here is object " + firstUser + ",\n here is object " + secondUser
+              + "\nthey are different but their hash is the same " + secondUser.hashCode());
         }
       }
     }
