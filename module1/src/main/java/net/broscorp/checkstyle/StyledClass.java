@@ -5,3 +5,4 @@ public class StyledClass {
     System.out.println ( "Hello checkstyle" );
   }
 }
+
