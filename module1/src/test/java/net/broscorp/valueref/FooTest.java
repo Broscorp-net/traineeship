@@ -56,7 +56,6 @@ public class FooTest {
   /**
    * Int. When we pass primitives, a copy is passed to the Foo class of the foo method. 'anInt' and
    * 'i' are independent of each other.
-   * <p>
    * ArrayList. The situation is similar with links, in the method we get a copy of the link that
    * points to the value of the variable that we passed.
    */
