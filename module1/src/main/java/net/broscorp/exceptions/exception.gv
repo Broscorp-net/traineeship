@@ -1,0 +1,33 @@
+digraph Exception {
+    bgcolor = "#bdb8b7";
+
+    throwable [label = "Throwable (checked)";
+    fillcolor = "#95edec";
+    style = "filled";
+    ]
+
+    error [label = "Error (unchecked)";
+    fillcolor = "#db1f1f";
+    style = "filled";
+    ]
+
+    exception [label = "Exception (checked)";
+    fillcolor = "#409e36";
+    style = "filled";
+    ]
+
+    runtimeException [label = "RuntimeException (unchecked)";
+    fillcolor = "#e3b96f";
+    style = "filled";
+    ]
+
+    IOException [label = "IOException (checked)";
+    fillcolor = "#409e36";
+    style = "filled";
+    ]
+
+    throwable -> error [dir = none;]
+    throwable -> exception [dir = none;]
+    exception -> runtimeException [dir = none;]
+    exception -> IOException [dir = none;]
+}
