@@ -11,7 +11,7 @@ public class FooTest {
   private final List<String> listString = Arrays.asList("First", "Second", "Third");
   private final List<String> listNewString = new ArrayList<>(
       Arrays.asList("One", "Two", "Three"));
-  private final int anInt = 1;
+  private final int anInt = 5;
   private List<String> listEmpty;
   private final Integer varNull = null;
   private final Foo foo = new Foo();
@@ -53,4 +53,17 @@ public class FooTest {
     Assertions.assertDoesNotThrow(() -> foo.foo(anInt, listNewString));
   }
 
+  /**
+   * Int. When we pass primitives, a copy is passed to the Foo class of the foo method. 'anInt' and
+   * 'i' are independent of each other.
+   * <p>
+   * ArrayList. The situation is similar with links, in the method we get a copy of the link that
+   * points to the value of the variable that we passed.
+   */
+  @Test
+  public void checkingMethodOnChangedParam() {
+    foo.foo(anInt, listNewString);
+    Assertions.assertNotEquals(20, anInt);
+    Assertions.assertEquals("d", listNewString.get(listNewString.size() - 1));
+  }
 }
