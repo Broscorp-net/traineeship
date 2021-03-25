@@ -1,10 +1,14 @@
 package net.broscorp.override.overload;
 
 /**
- *
+ * Аннотация @Override следит за тем чтобы мы ПЕРЕОПРЕДИЛИЛИ (override) метод,
+ * а не ПЕРЕГРУЗИЛИ (overload) его.
+ * Если в родительском классе или интерфейсе не окажется метода с аналогичной сигнатурой, то
+ * получим предупреждение компилятора.
+ * @author Hryhorii Perets
+ * @version 1.0
  */
-
-public class MathOperationAddition implements MathOperation{
+public class MathOperationAddition implements MathOperation {
 
 
   @Override
@@ -26,4 +30,5 @@ public class MathOperationAddition implements MathOperation{
   public double mathOperation(Integer num1, Integer num2) {
     return num1 + num2;
   }
+
 }
