@@ -5,6 +5,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class StringOperation {
+
+  /**
+   * check string for palindrome.
+   *
+   * @param str input string
+   * @return boolean
+   */
   public boolean isPalindrome(String str) {
     String reverse = new StringBuilder(str)
         .reverse()
@@ -12,6 +19,12 @@ public class StringOperation {
     return str.equals(reverse);
   }
 
+  /**
+   * return Hello if exist.
+   *
+   * @param input string
+   * @return Hello if exist
+   */
   public String cutHello(String input) {
     String[] str = input.split(" ");
     for (int i = 0; i < str.length; i++) {
@@ -22,14 +35,31 @@ public class StringOperation {
     return "Hello doesn`t exist";
   }
 
+  /**
+   * Remove all letters l in string.
+   *
+   * @param input string
+   * @return string with remove all letters l
+   */
   public String removeL(String input) {
     return input.replace("l", "");
   }
 
+  /**
+   * Replace all letters o and q.
+   *
+   * @param input string
+   * @return string with replace letters o and q
+   */
   public String replaceOAndQ(String input) {
     return input.replace("o", "q");
   }
 
+  /**
+   * Print words and quantity letters in words.
+   *
+   * @param input string
+   */
   public void printLetterAndWords(String input) {
     String[] array = input.split(" ");
     Map<String, Integer> mapWords = new LinkedHashMap<>();
@@ -39,14 +69,21 @@ public class StringOperation {
     System.out.println(mapWords);
   }
 
-  public String textSong(int bugsCount, int verseCount) {
-    Random random = new Random(bugsCount * verseCount);
-    String songText = "%d little bugs in the code, \n" +
-        "%d little bugs in the code. \n" +
-        "Take one down, patch it around %d little bugs in the code.";
+  /**
+   * Method consumes quantity bugs and verses and return text of song.
+   *
+   * @param bugsQuantity   quantity bugs
+   * @param versesQuantity quantity verses
+   * @return text Song
+   */
+  public String textSong(int bugsQuantity, int versesQuantity) {
+    Random random = new Random(bugsQuantity * versesQuantity);
+    String songText = "%d little bugs in the code, \n"
+        + "%d little bugs in the code. \n"
+        + "Take one down, patch it around %d little bugs in the code.";
     StringBuilder builder = new StringBuilder();
-    int n = bugsCount;
-    for (int i = 0; i < verseCount; i++) {
+    int n = bugsQuantity;
+    for (int i = 0; i < versesQuantity; i++) {
       int m = n - 10 + random.nextInt(20);
       builder.append(String.format(songText, n, n, m));
       n = m;
