@@ -62,11 +62,12 @@ public class StringOperation {
    */
   public void printLetterAndWords(String input) {
     String[] array = input.split(" ");
-    Map<String, Integer> mapWords = new LinkedHashMap<>();
+    StringBuilder builder = new StringBuilder();
     for (int i = 0; i < array.length; i++) {
-      mapWords.put(array[i], array[i].length());
+      builder.append(String.format("Word : %s with "
+          + "quantity letters : %d\n", array[i], array[i].length()));
     }
-    System.out.println(mapWords);
+    System.out.println(builder);
   }
 
   /**
@@ -80,7 +81,7 @@ public class StringOperation {
     Random random = new Random(bugsQuantity * versesQuantity);
     String songText = "%d little bugs in the code, \n"
         + "%d little bugs in the code. \n"
-        + "Take one down, patch it around %d little bugs in the code.";
+        + "Take one down, patch it around %d little bugs in the code.\n";
     StringBuilder builder = new StringBuilder();
     int n = bugsQuantity;
     for (int i = 0; i < versesQuantity; i++) {
