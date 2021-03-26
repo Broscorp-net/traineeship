@@ -135,6 +135,7 @@ public class MyClassTest {
   //  unequal objects may improve the performance of hash tables.
   @Test
   public void shouldFindAndPrintOutUnequalObjectsWithSameHashCodesTest() {
+    //    GIVEN
     Map<Integer, List<MyClass>> hashCodeMap =
         myClassList.stream()
             .collect(
@@ -151,6 +152,7 @@ public class MyClassTest {
                   }
                 },
                 HashMap::putAll);
+    //    THEN
     List<MyClass> oneListFromHashCodeMap = new ArrayList<>(hashCodeMap.values().iterator().next());
     for (char c = 'A'; c < 'A' + oneListFromHashCodeMap.size(); c++) {
       System.out.println(
@@ -163,5 +165,10 @@ public class MyClassTest {
               + ";");
     }
     System.out.println("These objects are different, but their hash codes matches");
+    for (int i = 1; i < oneListFromHashCodeMap.size(); i++) {
+      Assertions.assertNotEquals(oneListFromHashCodeMap.get(i), oneListFromHashCodeMap.get(i - 1));
+      Assertions.assertEquals(oneListFromHashCodeMap.get(i).hashCode(),
+          oneListFromHashCodeMap.get(i - 1).hashCode());
+    }
   }
 }
