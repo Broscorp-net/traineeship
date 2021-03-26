@@ -16,6 +16,11 @@ public class GameOfLife {
   private int quantityCycle;
   private int[][] board;
 
+  /**
+   * start game method.
+   * @param fileNameInput name input file
+   * @param fileNameOutput name output file
+   */
   public void game(String fileNameInput, String fileNameOutput) {
     List<String> listFromFile = readFile(fileNameInput);
 
@@ -23,7 +28,7 @@ public class GameOfLife {
     height = getHeightFromFile(listFromFile.get(0));
     quantityCycle = getQuantityCycleFromFile(listFromFile.get(0));
     board = new int[width][height];
-    board(listFromFile);
+    createBoard(listFromFile);
 
     cycleSteps();
     List<String> listForWrite = listForWrite();
@@ -84,7 +89,7 @@ public class GameOfLife {
     this.board = newBoard;
   }
 
-  private void board(List<String> strings) {
+  private void createBoard(List<String> strings) {
     for (int i = 0; i < board.length; i++) {
       String[] row = strings.get(i + 1).split(" ");
       for (int j = 0; j < board[0].length; j++) {
