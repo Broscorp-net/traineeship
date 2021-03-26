@@ -1,0 +1,31 @@
+digraph Exceptions_Family {rankdir=BR bgcolor="pink"  fontcolor="blue" label= "" labelloc="top"
+  subgraph cluster1 {fillcolor="lightblue" label="" fontcolor="black" style="filled"
+
+    node [color=violet, style=filled];
+      "Error";
+      "Runtime Exception";
+
+    node [color=lightgreen, style=filled];
+      "Throwable";
+      "Exception";
+      "Other...";
+
+    node [color=tan, style=filled];
+      "Object"
+
+    "Object" -> "Throwable"
+	  "Throwable" -> "Error";
+	  "Throwable" -> "Exception";
+	  "Exception" -> "Other...";
+	  "Exception" -> "Runtime Exception";
+
+    subgraph cluster2 {fillcolor="" label="" fontcolor="black" style="filled"
+      node [shape=box, color=lightgreen, style=filled fontsize=12];
+
+        "checked" [color = lightgreen]
+        "unchecked" [color = violet]
+    }
+
+  }
+
+}
