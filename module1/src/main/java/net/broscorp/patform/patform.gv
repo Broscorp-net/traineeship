@@ -2,17 +2,16 @@ digraph JavaPlatform {
     /* The Java Development Kit (JDK) is a free Java development kit from Oracle Corporation
        (formerly Sun Microsystems) that includes the Java compiler (javac), standard Java
        class libraries, examples, documentation, various utilities, and the Java runtime
-       system (JRE ).*/
+       system (JRE ). Used by developers to create software in the Java programming language.*/
     JDK;
     /* The Java Runtime Environment (JRE) the minimum implementation of a virtual machine
        required to run Java applications, without a compiler and other development tools.
        Consists of a virtual machine - Java Virtual Machine - and a Java class library.*/
     JRE;
     /* Java Virtual Machine (JVM) - The Java Virtual Machine is the main part of the Java
-       runtime system, the so-called Java Runtime Environment (JRE). The Java Virtual Machine
-       runs Java bytecode that is previously generated from the Java source by the Java
-       compiler (javac). The JVM can also be used to run programs written in other
-       programming languages.*/
+       runtime system (JRE). The Java Virtual Machine runs Java bytecode that is previously
+       generated from the Java source by the Java compiler (javac). The JVM can also be used
+       to run programs written in other programming languages.*/
     JVM;
     /* JIT compiler is a component of the Java virtual machine for providing Just-in-time
        compilation - a technology for increasing the performance of software systems by
