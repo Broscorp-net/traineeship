@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CatTest {
+class EqualsHashcodeTest {
 
   private List<Cat> cats;
 
@@ -301,7 +301,7 @@ class CatTest {
     int hashCode = cats.get(0).hashCode();
     List<Cat> catList = cats.stream().filter(cat -> cat.hashCode() == hashCode)
         .collect(Collectors.toList());
+    assertTrue(catList.size() > 1);
   }
-
 
 }
