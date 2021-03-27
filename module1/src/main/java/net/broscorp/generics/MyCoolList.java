@@ -3,6 +3,7 @@ package net.broscorp.generics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class MyCoolList<E extends Number> {
@@ -21,10 +22,9 @@ public class MyCoolList<E extends Number> {
     return this.lists.remove(index);
   }
 
-  public MyCoolList map(Function f) {
-
-
-    throw new NotImplementedException();
+  public MyCoolList<E> map(Function<E, E> f) {
+    this.setLists(this.lists.stream().map(f).collect(Collectors.toList()));
+    return this;
   }
 
   public int size() {
