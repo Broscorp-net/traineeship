@@ -110,7 +110,7 @@ public class GameOfLife {
         }
       }
       line.append("\n");
-      listToWrite.add(line.toString());
+      listToWrite.add(line.toString().trim() + "\n");
     }
     return listToWrite;
   }
