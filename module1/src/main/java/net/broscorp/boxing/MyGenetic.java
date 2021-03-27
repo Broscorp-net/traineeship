@@ -30,7 +30,6 @@ public class MyGenetic<T> {
       throw new Exception();
     }
 
-//| Short| Integer,Long, Float, Double,  Boolean, Character
 
   }
 
@@ -46,18 +45,11 @@ public class MyGenetic<T> {
     return wraps;
   }
 
-  //| Short| Integer,Long, Float, Double,  Boolean, Character
+
   public String getValue() {
     return this.getInput().toString();
   }
 
-
-
-    /*public boolean isEqual(T first, T second)
-    {
-
-        return first.
-    }*/
 
   public boolean isEqualTrue(MyGenetic<?> first, MyGenetic<?> second) {
     if (first.getWraps() == second.getWraps() && first.getValue().equals(second.getValue())) {
