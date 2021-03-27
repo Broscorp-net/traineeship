@@ -6,23 +6,6 @@ public class MyGenetic<T> {
   private int wraps;
 
 
-  public T getInput() {
-    return input;
-  }
-
-  public void setInput(T input) {
-    this.input = input;
-  }
-
-  public int getWraps() {
-    return wraps;
-  }
-
-  //| Short| Integer,Long, Float, Double,  Boolean, Character
-  public String getValue() {
-    return this.getInput().toString();
-  }
-
   public MyGenetic(T input) throws Exception {
     this.input = input;
 
@@ -49,6 +32,23 @@ public class MyGenetic<T> {
 
 //| Short| Integer,Long, Float, Double,  Boolean, Character
 
+  }
+
+  public T getInput() {
+    return input;
+  }
+
+  public void setInput(T input) {
+    this.input = input;
+  }
+
+  public int getWraps() {
+    return wraps;
+  }
+
+  //| Short| Integer,Long, Float, Double,  Boolean, Character
+  public String getValue() {
+    return this.getInput().toString();
   }
 
 
