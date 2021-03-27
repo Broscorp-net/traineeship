@@ -1,0 +1,33 @@
+digraph G {
+    subgraph green_circle{
+		node[style = filled; fillcolor = green; shape = circle; fontsize = 14]
+		jsc;jbc;
+    }
+    subgraph siver_box{
+        node[shape = box3d style=filled color=bisque2]
+        JDK;JRE;JIT;
+    }
+    subgraph clusterJVM {
+        label = "Java Virtual Machine";
+        style=filled;
+        fillcolor = aquamarine2
+        JIT;
+    }
+
+    // JVM [label = "Java Virtual Machine"]
+    JRE [label = "Java Runtime Environment" xlabel="Java Runtime Environment (JRE) is an implementation of the JVM."]
+    JIT [label = "Just In Time compiler"
+         style=filled
+         color=blue3
+         xlabel="Java Virtual Machine (JVM) is an abstract computing machine.\nJust In Time compiler (JIT) is runs after the program has started executing,\n on the fly. It has access to runtime information\n and makes optimizations of the code for better performance."
+         ]
+    JDK [label = "Java Development Kit" xlabel="Java Development Kit (JDK) contains JRE\n along with various development tools like Java libraries,\n Java source compilers, Java debuggers, bundling and deployment tools."]
+    jsc [label = "Java Source Code"]
+    jbc [label = "Java Byte Code"]
+    jsc -> JDK
+    JDK -> jbc
+    jbc -> JIT
+    JIT -> JRE [label = "  implementation"]
+}
+
+
