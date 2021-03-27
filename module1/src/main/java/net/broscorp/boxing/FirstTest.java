@@ -23,8 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 * */
 
 
-public class FirstTest
-{
+public class FirstTest {
 
   private net.broscorp.boxing.tests.MyGenetic<?> input;
 
@@ -33,7 +32,6 @@ public class FirstTest
     // just an example, there can be any wrapper and any value
     input = new net.broscorp.boxing.tests.MyGenetic<Double>(2.0);
   }
-
 
 
   public net.broscorp.boxing.tests.MyGenetic<?> getInput() {
@@ -47,11 +45,11 @@ public class FirstTest
 
   @Test
   @DisplayName("Simple code should work")
-  public void testIsEqual()
-  {
+  public void testIsEqual() {
 
     try {
-      assertTrue(input.isEqualTrue(new net.broscorp.boxing.tests.MyGenetic<Double>(2.0), new net.broscorp.boxing.tests.MyGenetic<Double>(2.0)));
+      assertTrue(input.isEqualTrue(new net.broscorp.boxing.tests.MyGenetic<Double>(2.0),
+          new net.broscorp.boxing.tests.MyGenetic<Double>(2.0)));
 
     /*
       assertTrue(input.isEqualFalse(new MyGenetic<Double>(2.0), new MyGenetic<Double>(2.0)));
@@ -63,12 +61,6 @@ public class FirstTest
     }
 
   }
-
-
-
-
-
-
 
 
 }
