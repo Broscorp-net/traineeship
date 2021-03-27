@@ -1,11 +1,8 @@
 package module1.src.main.java.net.broscorp.boxing;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 
 public class FirstTest {
 
@@ -16,7 +13,6 @@ public class FirstTest {
     input = new net.broscorp.boxing.tests.MyGenetic<Double>(2.0);
   }
 
-
   public net.broscorp.boxing.tests.MyGenetic<?> getInput() {
     return input;
   }
@@ -24,7 +20,6 @@ public class FirstTest {
   public void setInput(net.broscorp.boxing.tests.MyGenetic<?> input) {
     this.input = input;
   }
-
 
   @Test
   @DisplayName("Simple code should work")
@@ -37,12 +32,10 @@ public class FirstTest {
       assertTrue(input.isEqualFalse(new net.broscorp.boxing.tests.MyGenetic<Double>(2.0),
           new net.broscorp.boxing.tests.MyGenetic<Double>(2.0)));
 
-
     } catch (Exception e) {
       e.printStackTrace();
     }
 
   }
-
 
 }

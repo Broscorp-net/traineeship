@@ -1,10 +1,8 @@
 package net.broscorp.boxing.tests;
 
 public class MyGenetic<T> {
-
   private T input;
   private int wraps;
-
 
   public MyGenetic(T input) throws Exception {
     this.input = input;
@@ -30,7 +28,6 @@ public class MyGenetic<T> {
       throw new Exception();
     }
 
-
   }
 
   public T getInput() {
@@ -49,7 +46,6 @@ public class MyGenetic<T> {
   public String getValue() {
     return this.getInput().toString();
   }
-
 
   public boolean isEqualTrue(MyGenetic<?> first, MyGenetic<?> second) {
     if (first.getWraps() == second.getWraps() && first.getValue().equals(second.getValue())) {
