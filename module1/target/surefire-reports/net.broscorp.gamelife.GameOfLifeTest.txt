@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: net.broscorp.gamelife.GameOfLifeTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in net.broscorp.gamelife.GameOfLifeTest
-gliderFigure  Time elapsed: 0.01 s  <<< ERROR!
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in net.broscorp.gamelife.GameOfLifeTest
+gliderFigure  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.NullPointerException
 	at net.broscorp.gamelife.GameOfLifeTest.equalsFile(GameOfLifeTest.java:22)
 	at net.broscorp.gamelife.GameOfLifeTest.gliderFigure(GameOfLifeTest.java:60)
@@ -22,7 +22,7 @@ java.lang.NullPointerException
 	at net.broscorp.gamelife.GameOfLifeTest.equalsFile(GameOfLifeTest.java:22)
 	at net.broscorp.gamelife.GameOfLifeTest.stableFigure2(GameOfLifeTest.java:36)
 
-oscillatorFigure2  Time elapsed: 0.001 s  <<< ERROR!
+oscillatorFigure2  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.NullPointerException
 	at net.broscorp.gamelife.GameOfLifeTest.equalsFile(GameOfLifeTest.java:22)
 	at net.broscorp.gamelife.GameOfLifeTest.oscillatorFigure2(GameOfLifeTest.java:48)

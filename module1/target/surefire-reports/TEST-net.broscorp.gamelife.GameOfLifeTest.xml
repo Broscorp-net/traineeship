@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="net.broscorp.gamelife.GameOfLifeTest" time="0.022" tests="6" errors="6" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="net.broscorp.gamelife.GameOfLifeTest" time="0.021" tests="6" errors="6" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\Roman\.jdks\openjdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\Roman\AppData\Local\Temp\surefire8175740796877992760\surefirebooter11679426954476631162.jar C:\Users\Roman\AppData\Local\Temp\surefire8175740796877992760 2021-03-28T00-32-36_604-jvmRun1 surefire7087308213032766772tmp surefire_018186449812676059661tmp"/>
+    <property name="sun.java.command" value="C:\Users\Roman\AppData\Local\Temp\surefire16183098422969824492\surefirebooter145114013053242833.jar C:\Users\Roman\AppData\Local\Temp\surefire16183098422969824492 2021-03-28T01-36-52_641-jvmRun1 surefire5585737681869648758tmp surefire_08970706760810393659tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Roman\IdeaProjects\myTraineeship\module1\target\test-classes;C:\Users\Roman\IdeaProjects\myTraineeship\module1\target\classes;C:\Users\Roman\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Roman\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Roman\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Roman\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Roman\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Roman\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\Roman\.m2\repository\junit\junit\4.4\junit-4.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Roman\AppData\Local\Temp\surefire8175740796877992760\surefirebooter11679426954476631162.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Roman\AppData\Local\Temp\surefire16183098422969824492\surefirebooter145114013053242833.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7-27"/>
@@ -56,7 +56,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="gliderFigure" classname="net.broscorp.gamelife.GameOfLifeTest" time="0.01">
+  <testcase name="gliderFigure" classname="net.broscorp.gamelife.GameOfLifeTest" time="0.011">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at net.broscorp.gamelife.GameOfLifeTest.equalsFile(GameOfLifeTest.java:22)
 	at net.broscorp.gamelife.GameOfLifeTest.gliderFigure(GameOfLifeTest.java:60)
@@ -80,7 +80,7 @@
 	at net.broscorp.gamelife.GameOfLifeTest.stableFigure2(GameOfLifeTest.java:36)
 </error>
   </testcase>
-  <testcase name="oscillatorFigure2" classname="net.broscorp.gamelife.GameOfLifeTest" time="0.001">
+  <testcase name="oscillatorFigure2" classname="net.broscorp.gamelife.GameOfLifeTest" time="0.002">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at net.broscorp.gamelife.GameOfLifeTest.equalsFile(GameOfLifeTest.java:22)
 	at net.broscorp.gamelife.GameOfLifeTest.oscillatorFigure2(GameOfLifeTest.java:48)

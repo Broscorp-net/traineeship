@@ -1,9 +1,20 @@
 package net.broscorp.boxing.tests;
 
+
+/** Summary.
+ * @param <T> generalized param
+ * @Depricated 9.0 a
+ * @version 1.0 asd
+ *  @author Roman
+ */
 public class MyGenetic<T> {
   private T input;
   private int wraps;
 
+  /** Summary.
+   * @param input there should be only wrapper classes
+   * @throws Exception if a user used not wrapper class
+   */
   public MyGenetic(T input) throws Exception {
     this.input = input;
 
@@ -30,23 +41,41 @@ public class MyGenetic<T> {
 
   }
 
+  /** Summary.
+   * @return just a regular getter/setter
+   */
   public T getInput() {
     return input;
   }
 
+  /** Summary.
+   * @param input just a regular getter/setter
+   */
   public void setInput(T input) {
     this.input = input;
   }
 
+  /** Summary.
+   * @return just a regular getter/setter
+   */
   public int getWraps() {
     return wraps;
   }
 
 
+  /** Summary.
+   * @return just a regular getter/setter
+   */
   public String getValue() {
     return this.getInput().toString();
   }
 
+
+  /** Summary.
+   * @param first param
+   * @param second param
+   * @return boolean true/false
+   */
   public boolean isEqualTrue(MyGenetic<?> first, MyGenetic<?> second) {
     if (first.getWraps() == second.getWraps() && first.getValue().equals(second.getValue())) {
       return true;
@@ -56,6 +85,11 @@ public class MyGenetic<T> {
 
   }
 
+  /** method isEqual returns false if params are equal.
+   * @param first param
+   * @param second param
+   * @return boolean false/true
+   */
   public boolean isEqualFalse(MyGenetic<?> first, MyGenetic<?> second) {
     if (first.getWraps() == second.getWraps() && first.getValue().equals(second.getValue())) {
       return false;

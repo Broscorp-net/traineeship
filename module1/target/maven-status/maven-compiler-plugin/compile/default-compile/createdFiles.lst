@@ -12,7 +12,6 @@ net\broscorp\oop\solid\srp\NameStoreAndFormatter.class
 net\broscorp\oop\solid\isp\KittyGoodsShop.class
 net\broscorp\oop\solid\ocp\BooleanTag.class
 net\broscorp\oop\solid\ocp\DigitTag.class
-module1\src\main\java\net\broscorp\boxing\FirstTest.class
 net\broscorp\oop\solid\lsp\Weapon.class
 net\broscorp\oop\solid\lsp\WeaponReloader.class
 net\broscorp\gamelife\GameOfLife.class
@@ -24,6 +23,7 @@ net\broscorp\oop\solid\lsp\steps\AbstractReloadStep.class
 net\broscorp\oop\solid\lsp\steps\VisualCheckStep.class
 net\broscorp\oop\solid\dsp\wearings\work\remote\RightQuantumSock.class
 net\broscorp\valueref\Foo.class
+FirstTest.class
 net\broscorp\checkstyle\StyledClass.class
 net\broscorp\oop\solid\isp\KittyFood.class
 net\broscorp\oop\solid\srp\AdderAndSubtractor.class

@@ -1,13 +1,21 @@
-package module1.src.main.java.net.broscorp.boxing;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/** asd.
+ *
+ * @version 1.0
+ * @author Roman
+ */
 public class FirstTest {
 
   private net.broscorp.boxing.tests.MyGenetic<?> input;
 
+  /** Summary.
+   * @throws Exception to catch "wrong class that is not a wrapper" exception
+   */
   @BeforeEach
   public void setUp() throws Exception {
     input = new net.broscorp.boxing.tests.MyGenetic<Double>(2.0);
