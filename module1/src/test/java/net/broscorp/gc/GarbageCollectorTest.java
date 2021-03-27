@@ -27,7 +27,7 @@ public class GarbageCollectorTest {
 
     int amountobjects = 250_000;
     for (int i = 0; i < amountobjects; i++) {
-       simpleObject = new SimpleObject(String.valueOf(i));
+      simpleObject = new SimpleObject(String.valueOf(i));
     }
     simpleObject = null;
 

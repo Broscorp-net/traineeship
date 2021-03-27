@@ -17,9 +17,10 @@ public class SimpleObject {
   protected void finalize() throws Throwable {
     try {
       System.out.printf("The finalize() for object %s started \n",message);
-      System.out.printf("SimpleObject with HashCode %d available in finalize() \n", this.hashCode());
+      System.out.printf("SimpleObject with HashCode %d available in finalize() \n",
+          this.hashCode());
 
-      } finally {
+    } finally {
       super.finalize();
     }
   }
