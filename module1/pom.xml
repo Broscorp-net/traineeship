@@ -8,7 +8,7 @@
 
   <parent>
     <groupId>net.broscorp</groupId>
-
+    <artifactId>module_0</artifactId>
     <version>1</version>
     <relativePath>../module1/pom.xml</relativePath>
   </parent>
