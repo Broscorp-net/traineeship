@@ -6,12 +6,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  <parent>
-    <groupId>net.broscorp</groupId>
-    <artifactId>module_0</artifactId>
-    <version>1</version>
-    <relativePath>../module1/pom.xml</relativePath>
-  </parent>
+
 
 
   <dependencies>
@@ -48,6 +43,9 @@
   </dependencies>
 
   <build>
+
+    <defaultGoal>install</defaultGoal>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -26,20 +26,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class FirstTest
 {
 
-  private MyGenetic<?>  input;
+  private net.broscorp.boxing.tests.MyGenetic<?> input;
 
   @BeforeEach
   public void setUp() throws Exception {
-    input = new MyGenetic<>(2.0);
+    // just an example, there can be any wrapper and any value
+    input = new net.broscorp.boxing.tests.MyGenetic<Double>(2.0);
   }
 
 
 
-  public MyGenetic<?> getInput() {
+  public net.broscorp.boxing.tests.MyGenetic<?> getInput() {
     return input;
   }
 
-  public void setInput(MyGenetic<?>  input) {
+  public void setInput(net.broscorp.boxing.tests.MyGenetic<?> input) {
     this.input = input;
   }
 
@@ -50,7 +51,7 @@ public class FirstTest
   {
 
     try {
-      assertTrue(input.isEqualTrue(new MyGenetic<Double>(2.0), new MyGenetic<Double>(2.0)));
+      assertTrue(input.isEqualTrue(new net.broscorp.boxing.tests.MyGenetic<Double>(2.0), new net.broscorp.boxing.tests.MyGenetic<Double>(2.0)));
 
     /*
       assertTrue(input.isEqualFalse(new MyGenetic<Double>(2.0), new MyGenetic<Double>(2.0)));
