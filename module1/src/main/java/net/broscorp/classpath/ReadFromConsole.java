@@ -13,5 +13,4 @@ public class ReadFromConsole {
     System.out.print("Enter message:");
     return input.nextLine();
   }
-
 }
