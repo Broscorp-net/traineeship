@@ -82,7 +82,7 @@ class MyCoolListTest {
 
   @Test
   @DisplayName("Should return the changed object")
-  void shouldMap() {
+  void shouldReturnMapObject() {
     final int expectedValue = 9;
     final int expectedSize = 4;
 
