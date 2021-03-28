@@ -1,0 +1,33 @@
+Warning: File .\SomeClass.class does not contain class SomeClass
+Compiled from "SomeClass.java"
+public class net.broscorp.bytecode.SomeClass {
+  public net.broscorp.bytecode.SomeClass();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: bipush        10
+       5: if_icmpge     28
+       8: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: iload_1
+      12: invokedynamic #13,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+      17: invokevirtual #17                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      20: iload_1
+      21: invokestatic  #23                 // Method increment:(I)I
+      24: istore_1
+      25: goto          2
+      28: return
+
+  public static int increment(int);
+    Code:
+       0: iload_0
+       1: iconst_1
+       2: iadd
+       3: ireturn
+}
