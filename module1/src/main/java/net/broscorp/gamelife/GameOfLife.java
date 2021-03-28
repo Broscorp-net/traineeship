@@ -20,7 +20,7 @@ public class GameOfLife {
 
   /**
    * This is method for run main functional.
-   * @param fileNameInput file with
+   * @param fileNameInput file with starting data
    * @param fileNameOutput result file
    */
   public void game(String fileNameInput, String fileNameOutput) {
@@ -126,6 +126,46 @@ public class GameOfLife {
 
   }
 
+
+  public int numberOfLivingNeighbors(boolean[][] currentAreaOfLife) {
+    int livingNeighbors = 0;
+    final int n = currentAreaOfLife.length + 2;
+    final int m = currentAreaOfLife[0].length + 2;
+    boolean[][] loopedAreaOfLife = new boolean[n][m];
+
+    /*
+     * Creating a looped area. Copy and relocation
+     */
+
+    for (int i = 0; i < currentAreaOfLife.length; i++) {
+      System.arraycopy(currentAreaOfLife[i], 0, loopedAreaOfLife[i + 1], 1, currentAreaOfLife.length);
+    }
+
+    for (int i = 1; i < n - 2; i++) {
+      loopedAreaOfLife[0][i] = currentAreaOfLife[n - 3][i - 1];
+      loopedAreaOfLife[n - 1][i] = currentAreaOfLife[0][i - 1];
+      loopedAreaOfLife[i][0] = currentAreaOfLife[i - 1][m - 3];
+      loopedAreaOfLife[i][m - 1] = currentAreaOfLife[i - 1][0];
+    }
+
+
+    loopedAreaOfLife[0][0] = currentAreaOfLife[n - 3][m - 3];
+    loopedAreaOfLife[n - 1][m - 1] = currentAreaOfLife[0][0];
+    loopedAreaOfLife[0][m - 1] = currentAreaOfLife[n - 3][0];
+    loopedAreaOfLife[n - 1][0] = currentAreaOfLife[0][m - 3];
+
+
+    for (boolean[] x:loopedAreaOfLife){
+      for (boolean y: x){
+        System.out.print(y +" ");
+      }
+      System.out.println();
+    }
+
+    return livingNeighbors;
+
+  }
+
   /**
     * Returned number living neighbors.
     * @param currentAreaOfLife current array
@@ -182,7 +222,7 @@ public class GameOfLife {
         if (j == finishAreaLifeCycle[0].length - 1) {
           stringBuilderForWriteToFile.append(System.lineSeparator());
         } else {
-          stringBuilderForWriteToFile.append("\u0020");
+          stringBuilderForWriteToFile.append(" ");
         }
       }
       preparedListDataForWrite.add(stringBuilderForWriteToFile.toString().trim());
@@ -197,14 +237,11 @@ public class GameOfLife {
    */
   public void writeToFile(String fileNameOutput, List<String> listPreparedToWrite) {
 
-    //Have problem do not created files into resource or target folders!!!
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     try {
       URI uri = classLoader.getSystemResource(fileNameOutput).toURI();
       Path pathToFile = Paths.get(uri);
 
-      //String mainPath = fileNameOutput;
-      //Path pathToFile = Paths.get(mainPath);
       try (BufferedWriter bufferedWriter = Files
               .newBufferedWriter(pathToFile, StandardCharsets.UTF_8)) {
         for (String row : listPreparedToWrite) {
@@ -213,7 +250,7 @@ public class GameOfLife {
         }
       }
     } catch (URISyntaxException | IOException ex) {
-      ex.printStackTrace();
+      throw new RuntimeException(ex);
     }
   }
 
@@ -227,25 +264,9 @@ public class GameOfLife {
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     Stream<String> gameStreamInput = new BufferedReader(
             new InputStreamReader(classLoader.getSystemResourceAsStream(fileNameInput))).lines();
-    List<String> gameListStarted = gameStreamInput.collect(Collectors.toList());
-    return gameListStarted;
+    List<String> gameStartDataList = gameStreamInput.collect(Collectors.toList());
+    return gameStartDataList;
 
-    //
-    // For read files not from resources dir!!!
-    /*
-     *
-        List<String> gameListStarter = null;
-        String mainPath = fileNameInput;
-        Path pathToFile = Paths.get(mainPath);
-        //System.out.println(pathToFile.toAbsolutePath());
-        try(BufferedReader bufferedReader = Files.newBufferedReader(pathToFile) ) {
-          gameListStarter = bufferedReader.lines().collect(Collectors.toList());
-        }
-        catch (IOException ex) {
-          ex.printStackTrace();
-        }
-      return gameListStarter;
-    */
   }
 
 }
