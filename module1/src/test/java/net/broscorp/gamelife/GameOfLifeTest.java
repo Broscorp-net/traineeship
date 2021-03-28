@@ -59,5 +59,4 @@ class GameOfLifeTest {
     game.game("inputGlider.txt", "outputGlider.txt");
     assertTrue(equalsFile("expectedGlider.txt", "outputGlider.txt"));
   }
-
 }
