@@ -1,28 +1,42 @@
 package net.broscorp.generics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class MyCoolList {
+public class MyCoolList<T extends Number> {
 
-  public void add(Object o) {
-    throw new NotImplementedException();
+  private final List<T> myCoolList = new ArrayList<>();
+
+  public void add(T o) {
+    myCoolList.add(o);
   }
 
-  public Object get(int index) {
-    throw new NotImplementedException();
+  public T get(int index) {
+    return myCoolList.get(index);
   }
 
-  public Object remove(int index) {
-    throw new NotImplementedException();
+  public T remove(int index) {
+    return myCoolList.remove(index);
   }
 
-  public MyCoolList map(Function f) {
-    throw new NotImplementedException();
+  /**
+   * Converting one value to another.
+   *
+   * @param f   - function variable
+   * @param <R> - result type received from T
+   * @return - list
+   */
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
+    MyCoolList<R> listR = new MyCoolList<>();
+    for (T t : myCoolList) {
+      listR.add(f.apply(t));
+    }
+    return listR;
   }
 
   public int size() {
-    throw new NotImplementedException();
+    return myCoolList.size();
   }
 
 }
