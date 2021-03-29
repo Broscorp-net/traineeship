@@ -23,25 +23,26 @@ class MyCoolListTest {
   @Test
   @DisplayName("Should add element in list")
   void shouldAddElementToList() {
-    final int expectedInteger = 3;
+    final int expectedAddInteger = 3;
 
     myCoolListInteger.add(5);
     myCoolListInteger.add(new Integer(10));
     myCoolListInteger.add(8);
 
-    final int actualInteger = myCoolListInteger.size();
+    final int actualAddInteger = myCoolListInteger.size();
 
-    assertEquals(expectedInteger, actualInteger);
+    assertEquals(expectedAddInteger, actualAddInteger);
 
     MyCoolList<Float> myCoolListFloat = new MyCoolList<>();
-    final int expectedFloat = 3;
+    final int expectedAddFloat = 3;
+
     myCoolListFloat.add(5.7F);
     myCoolListFloat.add(new Float(10.9F));
     myCoolListFloat.add(8F);
 
-    final int actualFloat = myCoolListFloat.size();
+    final int actualAddFloat = myCoolListFloat.size();
 
-    assertEquals(expectedFloat, actualFloat);
+    assertEquals(expectedAddFloat, actualAddFloat);
 
   }
 
@@ -83,7 +84,7 @@ class MyCoolListTest {
   @Test
   @DisplayName("Should return the changed object")
   void shouldReturnMapObject() {
-    final int expectedValue = 9;
+    final int expectedValue = 11;
     final int expectedSize = 4;
 
     myCoolListInteger.add(5);
@@ -91,13 +92,13 @@ class MyCoolListTest {
     myCoolListInteger.add(3);
     myCoolListInteger.add(Integer.valueOf(7));
 
-    myCoolListInteger.map((x) -> Math.decrementExact(x));
+    myCoolListInteger.map((x) -> Math.incrementExact(x));
 
     final int actualValue = myCoolListInteger.get(1);
     final int actualSize = myCoolListInteger.size();
 
-    assertEquals(9, actualValue);
-    assertEquals(4, actualSize);
+    assertEquals(expectedValue, actualValue);
+    assertEquals(expectedSize, actualSize);
 
   }
 
