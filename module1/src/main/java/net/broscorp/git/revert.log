@@ -1,0 +1,5 @@
+f9584ba (HEAD -> new-feature) HEAD@{0}: revert: Revert "some fix added"
+0a3a28f HEAD@{1}: commit: some fix added
+f6ec9cd HEAD@{2}: commit: some fix added
+5723c6f HEAD@{3}: commit: some fix spaces
+03e335d (master) HEAD@{4}: checkout: moving from master to new-feature

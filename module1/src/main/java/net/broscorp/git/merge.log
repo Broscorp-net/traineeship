@@ -1,0 +1,12 @@
+03e335d (HEAD -> master) HEAD@{0}: merge feature: Merge made by the 'recursive' strategy.
+05234f8 HEAD@{1}: checkout: moving from feature to master
+918f552 (feature) HEAD@{2}: rebase -i (finish): returning to refs/heads/feature
+918f552 (feature) HEAD@{3}: rebase -i (squash): git add files
+bcac0a4 HEAD@{4}: rebase -i (start): checkout HEAD~2
+d44c194 HEAD@{5}: checkout: moving from master to feature
+05234f8 HEAD@{6}: commit: some fix
+3d231f2 HEAD@{7}: checkout: moving from feature to master
+d44c194 HEAD@{8}: commit: git add file B
+bcac0a4 HEAD@{9}: commit: git add file A
+3d231f2 HEAD@{10}: checkout: moving from master to feature
+3d231f2 HEAD@{11}: commit (initial): git init

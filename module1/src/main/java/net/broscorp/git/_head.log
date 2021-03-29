@@ -1,0 +1,7 @@
+d44c194 (HEAD -> feature) HEAD@{0}: checkout: moving from master to feature
+05234f8 (master) HEAD@{1}: commit: some fix
+3d231f2 HEAD@{2}: checkout: moving from feature to master
+d44c194 (HEAD -> feature) HEAD@{3}: commit: git add file B
+bcac0a4 HEAD@{4}: commit: git add file A
+3d231f2 HEAD@{5}: checkout: moving from master to feature
+3d231f2 HEAD@{6}: commit (initial): git init

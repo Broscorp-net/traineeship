@@ -1,0 +1,10 @@
+918f552 (HEAD -> feature) HEAD@{0}: rebase -i (finish): returning to refs/heads/feature
+918f552 (HEAD -> feature) HEAD@{1}: rebase -i (squash): git add files
+bcac0a4 HEAD@{2}: rebase -i (start): checkout HEAD~2
+d44c194 HEAD@{3}: checkout: moving from master to feature
+05234f8 (master) HEAD@{4}: commit: some fix
+3d231f2 HEAD@{5}: checkout: moving from feature to master
+d44c194 HEAD@{6}: commit: git add file B
+bcac0a4 HEAD@{7}: commit: git add file A
+3d231f2 HEAD@{8}: checkout: moving from master to feature
+3d231f2 HEAD@{9}: commit (initial): git init

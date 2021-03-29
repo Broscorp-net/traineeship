@@ -1,0 +1,6 @@
+e677895 (HEAD -> master) HEAD@{0}: cherry-pick: add file C
+620129b HEAD@{1}: checkout: moving from feature to master
+d2d487f (feature) HEAD@{2}: commit: add file C
+620129b HEAD@{3}: checkout: moving from master to feature
+620129b HEAD@{4}: commit: add file B
+24f44f4 HEAD@{5}: commit (initial): add file A
