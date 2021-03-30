@@ -20,7 +20,7 @@ public class GameOfLife {
 
   /**
    * This is method for run main functional.
-   * @param fileNameInput file with starting data
+   * @param fileNameInput file with
    * @param fileNameOutput result file
    */
   public void game(String fileNameInput, String fileNameOutput) {
@@ -129,6 +129,7 @@ public class GameOfLife {
 
   }
 
+<<<<<<< HEAD
   /**
    * Creating a looped area.
    * @param currentAreaOfLife  base area
@@ -161,6 +162,8 @@ public class GameOfLife {
 
   }
 
+=======
+>>>>>>> parent of 2a55b7b... Corrected and added recommendations
   /**
    * Returned number living neighbors.
    * @param currentAreaOfLife current array
@@ -205,7 +208,7 @@ public class GameOfLife {
         if (j == finishAreaLifeCycle[0].length - 1) {
           stringBuilderForWriteToFile.append(System.lineSeparator());
         } else {
-          stringBuilderForWriteToFile.append(" ");
+          stringBuilderForWriteToFile.append("\u0020");
         }
       }
       preparedListDataForWrite.add(stringBuilderForWriteToFile.toString().trim());
@@ -220,11 +223,14 @@ public class GameOfLife {
    */
   public void writeToFile(String fileNameOutput, List<String> listPreparedToWrite) {
 
+    //Have problem do not created files into resource or target folders!!!
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     try {
       URI uri = classLoader.getSystemResource(fileNameOutput).toURI();
       Path pathToFile = Paths.get(uri);
 
+      //String mainPath = fileNameOutput;
+      //Path pathToFile = Paths.get(mainPath);
       try (BufferedWriter bufferedWriter = Files
               .newBufferedWriter(pathToFile, StandardCharsets.UTF_8)) {
         for (String row : listPreparedToWrite) {
@@ -233,7 +239,7 @@ public class GameOfLife {
         }
       }
     } catch (URISyntaxException | IOException ex) {
-      throw new RuntimeException(ex);
+      ex.printStackTrace();
     }
   }
 
@@ -247,9 +253,25 @@ public class GameOfLife {
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     Stream<String> gameStreamInput = new BufferedReader(
             new InputStreamReader(classLoader.getSystemResourceAsStream(fileNameInput))).lines();
-    List<String> gameStartDataList = gameStreamInput.collect(Collectors.toList());
-    return gameStartDataList;
+    List<String> gameListStarted = gameStreamInput.collect(Collectors.toList());
+    return gameListStarted;
 
+    //
+    // For read files not from resources dir!!!
+    /*
+     *
+        List<String> gameListStarter = null;
+        String mainPath = fileNameInput;
+        Path pathToFile = Paths.get(mainPath);
+        //System.out.println(pathToFile.toAbsolutePath());
+        try(BufferedReader bufferedReader = Files.newBufferedReader(pathToFile) ) {
+          gameListStarter = bufferedReader.lines().collect(Collectors.toList());
+        }
+        catch (IOException ex) {
+          ex.printStackTrace();
+        }
+      return gameListStarter;
+    */
   }
 
 }
