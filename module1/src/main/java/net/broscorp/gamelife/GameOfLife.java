@@ -33,11 +33,12 @@ public class GameOfLife {
 
     boolean[][] finishAreaLifeCycle = startAreaOfLifeCycle;
 
+
     for (int i = 0; i < cycles; i++) {
       finishAreaLifeCycle  = nextStepLifeCycle(finishAreaLifeCycle);
     }
 
-    List<String> listForWriteToFile = getPreparedDataForWrite(finishAreaLifeCycle);
+    List<String> listForWriteToFile = getPreparedDataFoWrite(finishAreaLifeCycle);
 
     writeToFile(fileNameOutput, listForWriteToFile);
 
@@ -104,22 +105,18 @@ public class GameOfLife {
    */
   public boolean[][] nextStepLifeCycle(boolean[][] previousLifeCycle) {
     boolean[][] nextLifeCycle = new boolean[previousLifeCycle.length][previousLifeCycle[0].length];
-    boolean[][] loopedAreaOfLife = loopedAreaOfLife(previousLifeCycle);
-
-    int numberOfLivingNeighbors = 0;
 
     for (int i = 0; i < previousLifeCycle.length; i++) {
       for (int j = 0; j < previousLifeCycle[0].length; j++) {
-        numberOfLivingNeighbors = numberOfLivingNeighbors(loopedAreaOfLife, i + 1, j + 1);
-        if (!loopedAreaOfLife[i + 1][j + 1]) {
-          if (numberOfLivingNeighbors == 3) {
+        if (!previousLifeCycle[i][j]) {
+          if (numberOfLivingNeighbors(previousLifeCycle, i, j) == 3) {
             nextLifeCycle[i][j] = true;
           }
         }
 
-        if (loopedAreaOfLife[i + 1][j + 1]) {
-          if ((numberOfLivingNeighbors == 2) || (
-              numberOfLivingNeighbors == 3)) {
+        if (previousLifeCycle[i][j]) {
+          if ((numberOfLivingNeighbors(previousLifeCycle, i, j) == 2) || (
+              numberOfLivingNeighbors(previousLifeCycle, i, j) == 3)) {
             nextLifeCycle[i][j] = true;
           }
         }
@@ -129,68 +126,47 @@ public class GameOfLife {
 
   }
 
-<<<<<<< HEAD
+
+
   /**
-   * Creating a looped area.
-   * @param currentAreaOfLife  base area
-   * @return looped area from initial area
-   */
-  public boolean[][] loopedAreaOfLife(boolean[][] currentAreaOfLife) {
-
-    final int n = currentAreaOfLife.length + 2;
-    final int m = currentAreaOfLife[0].length + 2;
-    boolean[][] loopedAreaOfLife = new boolean[n][m];
-
-    for (int i = 0; i < currentAreaOfLife.length; i++) {
-      System.arraycopy(currentAreaOfLife[i], 0, loopedAreaOfLife[i + 1], 1,
-          currentAreaOfLife.length);
-    }
-
-    for (int i = 1; i < n - 1; i++) {
-      loopedAreaOfLife[0][i] = currentAreaOfLife[n - 3][i - 1];
-      loopedAreaOfLife[n - 1][i] = currentAreaOfLife[0][i - 1];
-      loopedAreaOfLife[i][0] = currentAreaOfLife[i - 1][m - 3];
-      loopedAreaOfLife[i][m - 1] = currentAreaOfLife[i - 1][0];
-    }
-
-    loopedAreaOfLife[0][0] = currentAreaOfLife[n - 3][m - 3];
-    loopedAreaOfLife[n - 1][m - 1] = currentAreaOfLife[0][0];
-    loopedAreaOfLife[0][m - 1] = currentAreaOfLife[n - 3][0];
-    loopedAreaOfLife[n - 1][0] = currentAreaOfLife[0][m - 3];
-
-    return loopedAreaOfLife;
-
-  }
-
-=======
->>>>>>> parent of 2a55b7b... Corrected and added recommendations
-  /**
-   * Returned number living neighbors.
-   * @param currentAreaOfLife current array
-   * @param currentPositionX position x
-   * @param currentPositionY position y
-   * @return number neighbors
+    * Returned number living neighbors.
+    * @param currentAreaOfLife current array
+    * @param currentPositionX position x
+    * @param currentPositionY position y
+    * @return number neighbors
    */
   public int numberOfLivingNeighbors(boolean[][] currentAreaOfLife, int currentPositionX,
       int currentPositionY) {
     int livingNeighbors = 0;
-
-    for (int i = 0; i < 2; i++) {
-      if (currentAreaOfLife[currentPositionX - 1 ][currentPositionY + i]) {
-        livingNeighbors++;
-      }
-      if (currentAreaOfLife[currentPositionX + i ][currentPositionY + 1]) {
-        livingNeighbors++;
-      }
-      if (currentAreaOfLife[currentPositionX + 1 ][currentPositionY - i]) {
-        livingNeighbors++;
-      }
-      if (currentAreaOfLife[currentPositionX - i ][currentPositionY - 1]) {
-        livingNeighbors++;
+    for (int i = -1; i < 2; i++) {
+      for (int j = -1; j < 2; j++) {
+        if ((i == 0) && (j == 0)) {
+          continue;
+        }
+        if (currentAreaOfLife[getNeighborPosition(currentAreaOfLife.length, currentPositionX,
+              i)][getNeighborPosition(currentAreaOfLife[0].length, currentPositionY, j)]) {
+          livingNeighbors++;
+        }
       }
     }
-
     return livingNeighbors;
+  }
+
+  /**
+    * Returned position for neighbor.
+    * @param maxValue max value row or column
+    * @param currentPosition position current's cell
+    * @param step iterator value
+    * @return actual position
+   */
+  public int getNeighborPosition(int maxValue, int currentPosition, int step) {
+    if ((currentPosition + step) < 0) {
+      return maxValue - 1;
+    }
+    if ((currentPosition + step) > (maxValue - 1)) {
+      return 0;
+    }
+    return currentPosition + step;
   }
 
   /**
@@ -198,7 +174,7 @@ public class GameOfLife {
     * @param finishAreaLifeCycle area life cycle to write
     * @return list strings
    */
-  public List<String> getPreparedDataForWrite(boolean[][] finishAreaLifeCycle) {
+  public List<String> getPreparedDataFoWrite(boolean[][] finishAreaLifeCycle) {
     List<String> preparedListDataForWrite = new ArrayList<>();
 
     for (int i = 0; i < finishAreaLifeCycle.length; i++) {
@@ -223,14 +199,11 @@ public class GameOfLife {
    */
   public void writeToFile(String fileNameOutput, List<String> listPreparedToWrite) {
 
-    //Have problem do not created files into resource or target folders!!!
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     try {
       URI uri = classLoader.getSystemResource(fileNameOutput).toURI();
       Path pathToFile = Paths.get(uri);
 
-      //String mainPath = fileNameOutput;
-      //Path pathToFile = Paths.get(mainPath);
       try (BufferedWriter bufferedWriter = Files
               .newBufferedWriter(pathToFile, StandardCharsets.UTF_8)) {
         for (String row : listPreparedToWrite) {
@@ -239,7 +212,7 @@ public class GameOfLife {
         }
       }
     } catch (URISyntaxException | IOException ex) {
-      ex.printStackTrace();
+      throw new RuntimeException(ex);
     }
   }
 
@@ -253,25 +226,9 @@ public class GameOfLife {
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     Stream<String> gameStreamInput = new BufferedReader(
             new InputStreamReader(classLoader.getSystemResourceAsStream(fileNameInput))).lines();
-    List<String> gameListStarted = gameStreamInput.collect(Collectors.toList());
-    return gameListStarted;
+    List<String> gameStartDataList = gameStreamInput.collect(Collectors.toList());
+    return gameStartDataList;
 
-    //
-    // For read files not from resources dir!!!
-    /*
-     *
-        List<String> gameListStarter = null;
-        String mainPath = fileNameInput;
-        Path pathToFile = Paths.get(mainPath);
-        //System.out.println(pathToFile.toAbsolutePath());
-        try(BufferedReader bufferedReader = Files.newBufferedReader(pathToFile) ) {
-          gameListStarter = bufferedReader.lines().collect(Collectors.toList());
-        }
-        catch (IOException ex) {
-          ex.printStackTrace();
-        }
-      return gameListStarter;
-    */
   }
 
 }
