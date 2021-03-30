@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -139,6 +141,21 @@ class PhilologistTest {
     assertNull(philologist.splitString(str));
   }
 
+  @Test
+  @DisplayName("Should return the list of stings")
+  public void shouldReturnWordAndLength() {
+    String[] nullString = null;
+    String[] baseStrings = {"Hello", "World"};
+
+    List<String> expectedList = new ArrayList<>();
+    expectedList.add("Hello 5");
+    expectedList.add("World 5");
+
+    List<String> actualList = philologist.getWordWithLength(baseStrings);
+
+    assertNull(philologist.getWordWithLength(nullString));
+    assertEquals(expectedList, actualList);
+  }
 
   @Test
   @DisplayName("Should return string from randomSong")

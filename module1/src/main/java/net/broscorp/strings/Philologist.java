@@ -1,5 +1,7 @@
 package net.broscorp.strings;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -84,6 +86,22 @@ public class Philologist {
     return null;
   }
 
+  /**
+   * Return list words and lengths.
+   * @param strings base string
+   * @return words with lengths
+   */
+  public List<String> getWordWithLength(String[] strings) {
+    if (strings != null) {
+      List<String> wordsAndLengths = new ArrayList<>();
+      for (String word: strings) {
+        wordsAndLengths.add(word + " " + word.length());
+      }
+      return wordsAndLengths;
+    }
+    return null;
+  }
+
 
   /**
    * Random song with bags and verses.
@@ -103,6 +121,5 @@ public class Philologist {
     }
     return stringBuilder.toString();
   }
-
 
 }
