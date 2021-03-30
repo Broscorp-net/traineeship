@@ -20,7 +20,7 @@ public class GameOfLife {
 
   /**
    * This is method for run main functional.
-   * @param fileNameInput file with
+   * @param fileNameInput file with base data
    * @param fileNameOutput result file
    */
   public void game(String fileNameInput, String fileNameOutput) {
@@ -105,18 +105,19 @@ public class GameOfLife {
    */
   public boolean[][] nextStepLifeCycle(boolean[][] previousLifeCycle) {
     boolean[][] nextLifeCycle = new boolean[previousLifeCycle.length][previousLifeCycle[0].length];
-
+    int numberOfLivingNeighbors = 0;
     for (int i = 0; i < previousLifeCycle.length; i++) {
       for (int j = 0; j < previousLifeCycle[0].length; j++) {
+        numberOfLivingNeighbors = numberOfLivingNeighbors(previousLifeCycle, i, j);
         if (!previousLifeCycle[i][j]) {
-          if (numberOfLivingNeighbors(previousLifeCycle, i, j) == 3) {
+          if (numberOfLivingNeighbors == 3) {
             nextLifeCycle[i][j] = true;
           }
         }
 
         if (previousLifeCycle[i][j]) {
-          if ((numberOfLivingNeighbors(previousLifeCycle, i, j) == 2) || (
-              numberOfLivingNeighbors(previousLifeCycle, i, j) == 3)) {
+          if ((numberOfLivingNeighbors == 2) || (
+              numberOfLivingNeighbors == 3)) {
             nextLifeCycle[i][j] = true;
           }
         }
@@ -125,8 +126,6 @@ public class GameOfLife {
     return nextLifeCycle;
 
   }
-
-
 
   /**
     * Returned number living neighbors.
@@ -138,13 +137,16 @@ public class GameOfLife {
   public int numberOfLivingNeighbors(boolean[][] currentAreaOfLife, int currentPositionX,
       int currentPositionY) {
     int livingNeighbors = 0;
+    int neighborPositionX = 0;
+    int neighborPositionY = 0;
     for (int i = -1; i < 2; i++) {
       for (int j = -1; j < 2; j++) {
         if ((i == 0) && (j == 0)) {
           continue;
         }
-        if (currentAreaOfLife[getNeighborPosition(currentAreaOfLife.length, currentPositionX,
-              i)][getNeighborPosition(currentAreaOfLife[0].length, currentPositionY, j)]) {
+        neighborPositionX = getNeighborPosition(currentAreaOfLife.length, currentPositionX, i);
+        neighborPositionY = getNeighborPosition(currentAreaOfLife.length, currentPositionY, j);
+        if (currentAreaOfLife[neighborPositionX][neighborPositionY]) {
           livingNeighbors++;
         }
       }
@@ -160,13 +162,11 @@ public class GameOfLife {
     * @return actual position
    */
   public int getNeighborPosition(int maxValue, int currentPosition, int step) {
-    if ((currentPosition + step) < 0) {
-      return maxValue - 1;
-    }
-    if ((currentPosition + step) > (maxValue - 1)) {
-      return 0;
-    }
-    return currentPosition + step;
+
+    int neighborPosition = (step + currentPosition + maxValue) % maxValue;
+
+    return neighborPosition;
+
   }
 
   /**
@@ -184,7 +184,7 @@ public class GameOfLife {
         if (j == finishAreaLifeCycle[0].length - 1) {
           stringBuilderForWriteToFile.append(System.lineSeparator());
         } else {
-          stringBuilderForWriteToFile.append("\u0020");
+          stringBuilderForWriteToFile.append(" ");
         }
       }
       preparedListDataForWrite.add(stringBuilderForWriteToFile.toString().trim());
