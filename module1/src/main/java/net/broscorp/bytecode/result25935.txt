@@ -1,0 +1,38 @@
+Compiled from "Main.java"
+public class net.broscorp.bytecode.Main {
+  public net.broscorp.bytecode.Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: new           #3                  // class java/lang/StringBuilder
+       6: dup
+       7: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+      10: ldc           #5                  // String Hello
+      12: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: bipush        18
+      17: bipush        59
+      19: invokestatic  #7                  // Method increment:(II)I
+      22: invokevirtual #8                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      25: invokevirtual #9                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      28: invokevirtual #10                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      31: return
+
+  public static int increment(int, int);
+    Code:
+       0: iload_0
+       1: istore_2
+       2: iload_2
+       3: iload_0
+       4: iload_1
+       5: iadd
+       6: if_icmpge     15
+       9: iinc          2, 1
+      12: goto          2
+      15: iload_2
+      16: ireturn
+}
