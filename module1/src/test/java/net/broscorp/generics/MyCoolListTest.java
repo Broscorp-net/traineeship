@@ -1,12 +1,11 @@
 package net.broscorp.generics;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.function.Function;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 class MyCoolListTest {
   private MyCoolList<Integer> list = new MyCoolList<>();
@@ -43,14 +42,11 @@ class MyCoolListTest {
   }
 
   @Test
-  void listMapTypeShouldNotThrowException() {
+  void listMapTypeShouldReturnDoubleList() {
     Function<Integer, Double> function = Integer::doubleValue;
-    Executable executable = new Executable() {
-      @Override
-      public void execute() throws Throwable {
-        list.map(function);
-      }
-    };
-    assertDoesNotThrow(executable);
+
+    assertTrue(list.map(function).get(0) instanceof Double);
+    assertTrue(list.map(function).get(1) instanceof Double);
+    assertTrue(list.map(function).get(2) instanceof Double);
   }
 }
