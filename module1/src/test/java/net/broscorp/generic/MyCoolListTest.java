@@ -55,5 +55,4 @@ public class MyCoolListTest {
     myCoolList.add(2.1);
     Assertions.assertEquals(size + 2, myCoolList.size());
   }
-
 }
