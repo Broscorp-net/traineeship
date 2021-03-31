@@ -14,6 +14,11 @@ public class MyCoolList<T extends Number> {
     myCoolList = new Object[size];
   }
 
+  /**
+   * Array adding method.
+   *
+   * @param o - object for add
+   */
   public void add(T o) {
     Object[] arr = new Object[size() + 1];
     System.arraycopy(myCoolList, 0, arr, 0, arr.length - 1);
@@ -25,6 +30,12 @@ public class MyCoolList<T extends Number> {
     return (T) myCoolList[index];
   }
 
+  /**
+   * Method to remove an element from an array.
+   *
+   * @param index - index for delete
+   * @return - deleted object by index
+   */
   public T remove(int index) {
     int el = size();
     if (index >= size() || index < 0) {
