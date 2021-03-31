@@ -1,7 +1,8 @@
 package net.broscorp.inner.classes;
 
-import java.util.Collection;
 import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import net.broscorp.generics.MyCoolList;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -9,52 +10,36 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 /**
  * @author Hryhorii Perets
  */
-public class MyCoolCollection<E> implements Collection<E> {
+public class MyCoolCollection<E> implements Iterable<E> {
 
-  private E data;
-  private MyCoolCollection<E> next;
-  private MyCoolCollection<E> previous;
+  private Node<E> head;
+  private Node<E> tail;
 
-  @Override
-  public boolean add(Object o) {
-    throw new NotImplementedException();
+
+  public void add(E item) {
+    Node<E> newNode = new Node<>(item, tail);
+    if (isEmpty()) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      tail.setNext(newNode);
+      tail = newNode;
+    }
   }
 
-  @Override
-  public boolean remove(Object o) {
-    return false;
+  public E get(int index) {
+    E item = null;
+    Iterator<E> iterator = iterator();
+    for (int i = 0; i <= index; i++) {
+     if (iterator.hasNext()) {
+      item = iterator.next();
+     }
+   }
+
+    return item;
   }
 
-  @Override
-  public boolean addAll(Collection c) {
-    return false;
-  }
-
-  @Override
-  public void clear() {
-
-  }
-
-  @Override
-  public boolean retainAll(Collection c) {
-    return false;
-  }
-
-  @Override
-  public boolean removeAll(Collection c) {
-    return false;
-  }
-
-  @Override
-  public boolean containsAll(Collection c) {
-    return false;
-  }
-
-  public Object get(int index) {
-    throw new NotImplementedException();
-  }
-
-  public Object remove(int index) {
+  public E remove(int index) {
     throw new NotImplementedException();
   }
 
@@ -63,52 +48,94 @@ public class MyCoolCollection<E> implements Collection<E> {
   }
 
   public int size() {
-    throw new NotImplementedException();
+    int size = 0;
+    Iterator<E> iterator = iterator();
+    while (iterator.hasNext()) {
+      iterator.next();
+      size++;
+    }
+    return size;
   }
 
-  @Override
   public boolean isEmpty() {
+    if (this.head == null) {
+      return true;
+    }
     return false;
   }
 
-  @Override
-  public boolean contains(Object o) {
-    return false;
-  }
+
 
   @Override
   public Iterator<E> iterator() {
+    return new MyCoolIterator<>(head);
+  }
+
+  @Override
+  public void forEach(Consumer<? super E> action) {
+
+  }
+
+  @Override
+  public Spliterator<E> spliterator() {
     return null;
   }
 
-  @Override
-  public Object[] toArray() {
-    return new Object[0];
-  }
 
-  @Override
-  public Object[] toArray(Object[] a) {
-    return new Object[0];
+  private class Node<E> {
+    private E item;
+    private Node<E> next;
+
+    public Node(E item, Node<E> next) {
+      this.item = item;
+      this.next = next;
+    }
+
+    public E getItem() {
+      return item;
+    }
+
+    public void setItem(E item) {
+      this.item = item;
+    }
+
+    public Node<E> getNext() {
+      return next;
+    }
+
+    public void setNext(Node<E> next) {
+      this.next = next;
+    }
+
+
   }
 
   public class MyCoolIterator<E> implements Iterator<E> {
 
-    private MyCoolCollection<E> myCoolCollection;
+    private Node<E> currentNode;
 
+    public MyCoolIterator(Node<E> currentNode) {
+      this.currentNode = currentNode;
+    }
 
     @Override
     public boolean hasNext() {
+      if (currentNode != null) {
+        return true;
+      }
       return false;
     }
 
     @Override
     public E next() {
-      return null;
+      E item = currentNode.getItem();
+      currentNode = currentNode.getNext();
+      return item;
     }
 
     @Override
     public void remove() {
-
+      throw new UnsupportedOperationException();
     }
   }
 
