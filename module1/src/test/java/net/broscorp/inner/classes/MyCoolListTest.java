@@ -13,7 +13,6 @@ public class MyCoolListTest {
   private final double last = 3;
   private final double step = 0.5;
 
-
   @BeforeEach
   void init() {
     myCoolList = new MyCoolList<>();

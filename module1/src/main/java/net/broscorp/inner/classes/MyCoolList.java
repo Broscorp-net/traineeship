@@ -8,18 +8,56 @@ import java.util.function.Function;
 
 public class MyCoolList<T extends Number> implements Iterable<T> {
 
-  private final List<T> myCoolList = new ArrayList<>();
+  private Object[] myCoolList;
 
+  public MyCoolList() {
+    myCoolList = new Object[0];
+  }
+
+  public MyCoolList(Integer size) {
+    myCoolList = new Object[size];
+  }
+
+  /**
+   * Array adding method.
+   *
+   * @param o - object for add
+   */
   public void add(T o) {
-    myCoolList.add(o);
+    Object[] arr = new Object[size() + 1];
+    System.arraycopy(myCoolList, 0, arr, 0, arr.length - 1);
+    arr[arr.length - 1] = o;
+    myCoolList = arr;
   }
 
   public T get(int index) {
-    return myCoolList.get(index);
+    return (T) myCoolList[index];
   }
 
+  /**
+   * Method to remove an element from an array.
+   *
+   * @param index - index for delete
+   * @return - deleted object by index
+   */
   public T remove(int index) {
-    return myCoolList.remove(index);
+    int el = size();
+    if (index >= size() || index < 0) {
+      System.out.println("Error!");
+      return null;
+    } else {
+      Object[] cop = new Object[size() - 1];
+      int k = 0;
+      for (int i = 0; i < el; i++) { //copy
+        if (i != index) {
+          cop[k] = myCoolList[i];
+          k++;
+        }
+      }
+      T deletedIndex = (T) myCoolList[index];
+      myCoolList = cop;
+      return deletedIndex;
+    }
   }
 
   /**
@@ -31,14 +69,14 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
    */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> listR = new MyCoolList<>();
-    for (T t : myCoolList) {
-      listR.add(f.apply(t));
+    for (Object t : myCoolList) {
+      listR.add(f.apply((T) t));
     }
     return listR;
   }
 
   public int size() {
-    return myCoolList.size();
+    return myCoolList.length;
   }
 
   @Override
@@ -47,12 +85,11 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
   }
 
   /**
-   *  InnerClass имеет доступ ко всем полям внешнего класса, в том числе и закрытым.
-   *  Объект InnerClass не может существовать без объекта внешнего класса.
-   *  Для StaticInnerClass же иначе, может существовать сам по себе, но при создании такого класса
-   *  нужно указать название внешнего. Например MyCoolList.MyIterator = new MyCoolList.MyIterator().
-   *  StaticInnerClass может обращаться только к статическим полям(переменные и методы)
-   *  внешнего класса.
+   * InnerClass имеет доступ ко всем полям внешнего класса, в том числе и закрытым. Объект
+   * InnerClass не может существовать без объекта внешнего класса. Для StaticInnerClass же иначе,
+   * может существовать сам по себе, но при создании такого класса нужно указать название внешнего.
+   * Например MyCoolList.MyIterator = new MyCoolList.MyIterator(). StaticInnerClass может обращаться
+   * только к статическим полям(переменные и методы) внешнего класса.
    */
   private class MyIterator implements Iterator<T> {
 
@@ -65,11 +102,16 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
     @Override
     public T next() {
-      if (cursor >= size()) {
+      int i = cursor;
+      if (i >= size()) {
         throw new NoSuchElementException();
       }
-      cursor++;
-      return get(cursor - 1);
+      Object[] elementDate = MyCoolList.this.myCoolList;
+      if (i >= elementDate.length) {
+        throw new IndexOutOfBoundsException();
+      }
+      cursor = i + 1;
+      return (T) elementDate[i];
     }
   }
 }
