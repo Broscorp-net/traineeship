@@ -34,6 +34,7 @@
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M1</version>
         <configuration>
@@ -58,6 +59,7 @@
           <failsOnError>true</failsOnError>
           <failOnViolation>true</failOnViolation>
           <violationSeverity>warning</violationSeverity>
+          <violationIgnore>NoFinalizer</violationIgnore>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
         </configuration>
         <executions>
