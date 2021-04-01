@@ -1,5 +1,7 @@
 package net.broscorp.strings;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -16,15 +18,12 @@ public class StringActivityTest {
   void init() {
     stringActivity = new StringActivity();
     inputText = "Hello world!";
-
   }
 
   @Test
   void palindromeTest() {
-    String truePalindrome = "Madam";
-    Assertions.assertTrue(stringActivity.palindrome(truePalindrome));
-    String falsePalindrome = "Test";
-    Assertions.assertFalse(stringActivity.palindrome(falsePalindrome));
+    Assertions.assertTrue(stringActivity.palindrome("Madam"));
+    Assertions.assertFalse(stringActivity.palindrome("Test"));
   }
 
   @Test
@@ -44,18 +43,26 @@ public class StringActivityTest {
 
   @Test
   void replaceOtoQTest() {
-    String expected = inputText.replace("o", "q");
     Assertions
-        .assertEquals(expected, stringActivity.replaceOtoQ(inputText, "o", "q"));
+        .assertEquals("Hellq wqrld!", stringActivity.replaceOtoQ(inputText, "o", "q"));
   }
 
   @Test
-  void outputListWordsTest() {
+  void outputListWithLengthWordTest() {
+    PrintStream standardOut = System.out;
+    ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStreamCaptor));
+
     List<String> listTest = Arrays.asList("First", "Count", "Second");
     Map<String, Integer> mapTest = stringActivity.outputListWords(listTest);
+
     for (String s : listTest) {
       Assertions.assertEquals(s.length(), mapTest.get(s));
     }
+    Assertions.assertEquals(mapTest.toString(), outputStreamCaptor.toString().trim());
+    Assertions.assertEquals("{Second=6, Count=5, First=5}", outputStreamCaptor.toString().trim());
+
+    System.setOut(standardOut);
   }
 
   @Test
