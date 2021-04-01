@@ -18,7 +18,8 @@ public class GameOfLife {
 
   /**
    * start game method.
-   * @param fileNameInput name input file
+   *
+   * @param fileNameInput  name input file
    * @param fileNameOutput name output file
    */
   public void game(String fileNameInput, String fileNameOutput) {
@@ -53,11 +54,29 @@ public class GameOfLife {
   }
 
   private int getState(int x, int y) {
-    if (x < 0 || x >= width) {
-      return 0;
+    if (x < 0 && y < 0) {
+      return this.board[width - 1][height - 1];
     }
-    if (y < 0 || y >= height) {
-      return 0;
+    if (x >= width && y >= height) {
+      return this.board[0][0];
+    }
+    if (x >= width && y < 0) {
+      return this.board[0][height - 1];
+    }
+    if (x < 0 && y >= height) {
+      return this.board[width - 1][0];
+    }
+    if (x < 0) {
+      return this.board[width - 1][y];
+    }
+    if (x >= width) {
+      return this.board[0][y];
+    }
+    if (y < 0) {
+      return this.board[x][height - 1];
+    }
+    if (y >= height) {
+      return this.board[x][0];
     }
     return this.board[x][y];
   }
@@ -74,14 +93,20 @@ public class GameOfLife {
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
         int aliveNeighbours = countAliveNeighbours(x, y);
-
+        if (getState(x, y) == 0) {
+          if (aliveNeighbours == 3) {
+            newBoard[x][y] = 1;
+          }
+        }
         if (getState(x, y) == 1) {
+          if (aliveNeighbours > 3) {
+            newBoard[x][y] = 0;
+          }
           if (aliveNeighbours < 2) {
             newBoard[x][y] = 0;
-          } else if (aliveNeighbours == 2 || aliveNeighbours == 3) {
+          }
+          if (aliveNeighbours == 2 || aliveNeighbours == 3) {
             newBoard[x][y] = 1;
-          } else if (aliveNeighbours > 3) {
-            newBoard[x][y] = 0;
           }
         }
       }
@@ -100,10 +125,10 @@ public class GameOfLife {
 
   private List<String> listForWrite() {
     List<String> listToWrite = new ArrayList<>();
-    for (int y = 0; y < height; y++) {
+    for (int y = 0; y < width; y++) {
       StringBuilder line = new StringBuilder();
-      for (int x = 0; x < width; x++) {
-        if (this.board[x][y] == 0) {
+      for (int x = 0; x < height; x++) {
+        if (this.board[y][x] == 0) {
           line.append("O ");
         } else {
           line.append("X ");
@@ -121,7 +146,7 @@ public class GameOfLife {
         writer.write(list.get(i));
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new RuntimeException(e);
     }
   }
 
@@ -141,7 +166,6 @@ public class GameOfLife {
     try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
       return stream.collect(Collectors.toList());
     } catch (IOException exception) {
-      exception.printStackTrace();
       throw new IllegalArgumentException(exception);
     }
   }
