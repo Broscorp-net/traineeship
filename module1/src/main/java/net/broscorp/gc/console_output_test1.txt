@@ -1,0 +1,32 @@
+. . .
+The finalize() method has started for SimplePojo instance 983258, quantity of finalize() calls = 987787
+The finalize() method has started for SimplePojo instance 978727, quantity of finalize() calls = 987788
+[47.471s][info][gc,start       ] GC(340) Pause Young (Allocation Failure)
+[47.603s][info][gc,heap        ] GC(340) DefNew: 544256K(612224K)->67968K(612224K) Eden: 544256K(544256K)->0K(544256K) From: 0K(67968K)->67968K(67968K)
+[47.603s][info][gc,heap        ] GC(340) Tenured: 535084K(1360276K)->999791K(1360276K)
+[47.603s][info][gc,metaspace   ] GC(340) Metaspace: 4373K(6400K)->4373K(6400K) NonClass: 3859K(5632K)->3859K(5632K) Class: 514K(768K)->514K(768K)
+[47.603s][info][gc             ] GC(340) Pause Young (Allocation Failure) 1054M->1042M(1926M) 132.038ms
+[47.603s][info][gc,cpu         ] GC(340) User=0.14s Sys=0.00s Real=0.13s
+The finalize() method has started for SimplePojo instance 990120, quantity of finalize() calls = 987789
+. . .
+The finalize() method has started for SimplePojo instance 990055, quantity of finalize() calls = 992318
+[47.680s][info][gc,start       ] GC(341) Pause Young (Allocation Failure)
+[47.680s][info][gc             ] GC(341) Pause Young (Allocation Failure) 1574M->1574M(1926M) 0.063ms
+[47.680s][info][gc,cpu         ] GC(341) User=0.00s Sys=0.00s Real=0.00s
+[47.680s][info][gc,start       ] GC(342) Pause Full (Allocation Failure)
+[47.680s][info][gc,phases,start] GC(342) Phase 1: Mark live objects
+[47.686s][info][gc,phases      ] GC(342) Phase 1: Mark live objects 6.308ms
+[47.686s][info][gc,phases,start] GC(342) Phase 2: Compute new object addresses
+[47.691s][info][gc,phases      ] GC(342) Phase 2: Compute new object addresses 4.986ms
+[47.691s][info][gc,phases,start] GC(342) Phase 3: Adjust pointers
+[47.695s][info][gc,phases      ] GC(342) Phase 3: Adjust pointers 3.400ms
+[47.695s][info][gc,phases,start] GC(342) Phase 4: Move objects
+[47.806s][info][gc,phases      ] GC(342) Phase 4: Move objects 111.669ms
+[47.807s][info][gc,heap        ] GC(342) DefNew: 612224K(612224K)->0K(612224K) Eden: 544256K(544256K)->0K(544256K) From: 67968K(67968K)->0K(67968K)
+[47.807s][info][gc,heap        ] GC(342) Tenured: 999791K(1360276K)->535201K(1360276K)
+[47.807s][info][gc,metaspace   ] GC(342) Metaspace: 4373K(6400K)->4373K(6400K) NonClass: 3859K(5632K)->3859K(5632K) Class: 514K(768K)->514K(768K)
+[47.807s][info][gc             ] GC(342) Pause Full (Allocation Failure) 1574M->522M(1926M) 126.782ms
+[47.807s][info][gc,cpu         ] GC(342) User=0.13s Sys=0.00s Real=0.13s
+The finalize() method has started for SimplePojo instance 992354, quantity of finalize() calls = 992319
+The finalize() method has started for SimplePojo instance 992480, quantity of finalize() calls = 992320
+. . .

@@ -1,0 +1,24 @@
+. . .
+[47.005s][info][gc,phases      ] GC(334) Phase 1: Mark live objects 5.631ms
+[47.005s][info][gc,phases,start] GC(334) Phase 2: Compute new object addresses
+[47.010s][info][gc,phases      ] GC(334) Phase 2: Compute new object addresses 5.099ms
+[47.010s][info][gc,phases,start] GC(334) Phase 3: Adjust pointers
+[47.013s][info][gc,phases      ] GC(334) Phase 3: Adjust pointers 3.289ms
+[47.014s][info][gc,phases,start] GC(334) Phase 4: Move objects
+[47.129s][info][gc,phases      ] GC(334) Phase 4: Move objects 115.257ms
+[47.129s][info][gc,heap        ] GC(334) DefNew: 624895K(624896K)->0K(624896K) Eden: 555520K(555520K)->0K(555520K) From: 69375K(69376K)->0K(69376K)
+[47.129s][info][gc,heap        ] GC(334) Tenured: 1021186K(1388544K)->546601K(1388544K)
+[47.129s][info][gc,metaspace   ] GC(334) Metaspace: 4383K(6400K)->4383K(6400K) NonClass: 3869K(5632K)->3869K(5632K) Class: 514K(768K)->514K(768K)
+[47.129s][info][gc             ] GC(334) Pause Full (Allocation Failure) 1607M->533M(1966M) 129.733ms
+[47.129s][info][gc,cpu         ] GC(334) User=0.13s Sys=0.00s Real=0.13s
+The finalize() method has started for ReciprocalRefObject instance 988908, quantity of finalize() calls = 988831
+. . .
+The finalize() method has started for ReciprocalRefObject instance 984207, quantity of finalize() calls = 993460
+[47.210s][info][gc,start       ] GC(335) Pause Young (Allocation Failure)
+[47.331s][info][gc,heap        ] GC(335) DefNew: 555520K(624896K)->69375K(624896K) Eden: 555520K(555520K)->0K(555520K) From: 0K(69376K)->69375K(69376K)
+[47.331s][info][gc,heap        ] GC(335) Tenured: 546601K(1388544K)->1021186K(1388544K)
+[47.331s][info][gc,metaspace   ] GC(335) Metaspace: 4383K(6400K)->4383K(6400K) NonClass: 3869K(5632K)->3869K(5632K) Class: 514K(768K)->514K(768K)
+[47.331s][info][gc             ] GC(335) Pause Young (Allocation Failure) 1076M->1065M(1966M) 121.283ms
+[47.331s][info][gc,cpu         ] GC(335) User=0.11s Sys=0.00s Real=0.12s
+The finalize() method has started for ReciprocalRefObject instance 995910, quantity of finalize() calls = 993461
+. . .

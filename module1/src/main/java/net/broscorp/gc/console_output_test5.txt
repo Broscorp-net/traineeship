@@ -1,0 +1,41 @@
+. . .
+The finalize() method has started for PrivateRefObject instance 2, quantity of finalize() calls = 8562
+[1.693s][info][gc,start       ] GC(13) Pause Young (Allocation Failure)
+[2.008s][info][gc,promotion   ] GC(13) Promotion failed
+[2.008s][info][gc             ] GC(13) Pause Young (Allocation Failure) 1492M->1966M(1966M) 315.703ms
+[2.008s][info][gc,cpu         ] GC(13) User=0.92s Sys=0.27s Real=0.32s
+[2.008s][info][gc,start       ] GC(14) Pause Full (Allocation Failure)
+[2.008s][info][gc,phases,start] GC(14) Phase 1: Mark live objects
+[2.016s][info][gc,phases      ] GC(14) Phase 1: Mark live objects 7.669ms
+[2.016s][info][gc,phases,start] GC(14) Phase 2: Compute new object addresses
+[2.023s][info][gc,phases      ] GC(14) Phase 2: Compute new object addresses 6.856ms
+[2.023s][info][gc,phases,start] GC(14) Phase 3: Adjust pointers
+[2.028s][info][gc,phases      ] GC(14) Phase 3: Adjust pointers 5.273ms
+[2.028s][info][gc,phases,start] GC(14) Phase 4: Move objects
+[2.064s][info][gc,phases      ] GC(14) Phase 4: Move objects 35.889ms
+[2.065s][info][gc,heap        ] GC(14) DefNew: 555520K(624896K)->129734K(624896K) Eden: 555520K(555520K)->129734K(555520K) From: 0K(69376K)->0K(69376K)
+[2.065s][info][gc,heap        ] GC(14) Tenured: 972375K(1388544K)->1388507K(1388544K)
+[2.065s][info][gc,metaspace   ] GC(14) Metaspace: 4344K(6400K)->4344K(6400K) NonClass: 3831K(5632K)->3831K(5632K) Class: 513K(768K)->513K(768K)
+[2.065s][info][gc             ] GC(14) Pause Full (Allocation Failure) 1966M->1482M(1966M) 56.348ms
+[2.065s][info][gc,cpu         ] GC(14) User=0.19s Sys=0.00s Real=0.06s
+The finalize() method has started for PrivateRefObject instance 10761, quantity of finalize() calls = 8563
+. . .
+The finalize() method has started for PrivateRefObject instance 9310, quantity of finalize() calls = 10072
+SIZE OF LOCAL LIST = 9986
+The finalize() method has started for PrivateRefObject instance 12151, quantity of finalize() calls = 10073
+. . .
+The finalize() method has started for PrivateRefObject instance 9565, quantity of finalize() calls = 10577
+[2.127s][info][gc,heap,exit   ] Heap
+[2.128s][info][gc,heap,exit   ]  def new generation   total 624896K, used 392363K [0x0000000080e00000, 0x00000000ab400000, 0x00000000ab400000)
+[2.128s][info][gc,heap,exit   ]   eden space 555520K,  70% used [0x0000000080e00000, 0x0000000098d2ad88, 0x00000000a2c80000)
+[2.128s][info][gc,heap,exit   ]   from space 69376K,   0% used [0x00000000a7040000, 0x00000000a7040000, 0x00000000ab400000)
+The finalize() method has started for PrivateRefObject instance 11896, quantity of finalize() calls = 10578
+[2.128s][info][gc,heap,exit   ]   to   space 69376K,   0% used [0x00000000a2c80000, 0x00000000a2c80000, 0x00000000a7040000)
+The finalize() method has started for PrivateRefObject instance 9566, quantity of finalize() calls = 10579
+[2.128s][info][gc,heap,exit   ]  tenured generation   total 1388544K, used 1388507K [0x00000000ab400000, 0x0000000100000000, 0x0000000100000000)
+[2.128s][info][gc,heap,exit   ]    the space 1388544K,  99% used [0x00000000ab400000, 0x00000000ffff6f60, 0x00000000ffff7000, 0x0000000100000000)
+[2.128s][info][gc,heap,exit   ]  Metaspace       used 4501K, capacity 6359K, committed 6528K, reserved 1056768K
+The finalize() method has started for PrivateRefObject instance 11895, quantity of finalize() calls = 10580
+[2.128s][info][gc,heap,exit   ]   class space    used 534K, capacity 771K, committed 896K, reserved 1048576K
+The finalize() method has started for PrivateRefObject instance 9567, quantity of finalize() calls = 10581
+The finalize() method has started for PrivateRefObject instance 11894, quantity of finalize() calls = 10582

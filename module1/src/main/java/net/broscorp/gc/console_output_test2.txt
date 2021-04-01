@@ -1,0 +1,40 @@
+[0.012s][info][gc] Using Serial
+[0.013s][info][gc,init] Version: 15.0.1+9-18 (release)
+[0.013s][info][gc,init] CPUs: 8 total, 8 available
+[0.013s][info][gc,init] Memory: 8134M
+[0.013s][info][gc,init] Large Page Support: Disabled
+[0.013s][info][gc,init] NUMA Support: Disabled
+[0.013s][info][gc,init] Compressed Oops: Enabled (32-bit)
+[0.013s][info][gc,init] Heap Min Capacity: 8M
+[0.013s][info][gc,init] Heap Initial Capacity: 128M
+[0.013s][info][gc,init] Heap Max Capacity: 2034M
+[0.013s][info][gc,init] Pre-touch: Disabled
+[0.014s][info][gc,metaspace] CDS archive(s) mapped at: [0x0000000800000000-0x0000000800b50000-0x0000000800b50000), size 11862016, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+[0.014s][info][gc,metaspace] Compressed class space mapped at: 0x0000000800b50000-0x0000000840b50000, size: 1073741824
+[0.014s][info][gc,metaspace] Narrow klass base: 0x0000000800000000, Narrow klass shift: 3, Narrow klass range: 0x100000000
+[0.415s][info][gc,start    ] GC(0) Pause Young (Allocation Failure)
+[0.429s][info][gc,heap     ] GC(0) DefNew: 34906K(39296K)->4352K(39296K) Eden: 34906K(34944K)->0K(34944K) From: 0K(4352K)->4352K(4352K)
+[0.429s][info][gc,heap     ] GC(0) Tenured: 0K(87424K)->19724K(87424K)
+[0.429s][info][gc,metaspace] GC(0) Metaspace: 3888K(6400K)->3888K(6400K) NonClass: 3399K(5632K)->3399K(5632K) Class: 489K(768K)->489K(768K)
+[0.429s][info][gc          ] GC(0) Pause Young (Allocation Failure) 34M->23M(123M) 14.169ms
+[0.429s][info][gc,cpu      ] GC(0) User=0.02s Sys=0.00s Real=0.01s
+. . .
+[1.763s][info][gc,promotion   ] GC(13) Promotion failed
+[1.763s][info][gc             ] GC(13) Pause Young (Allocation Failure) 1529M->1966M(1966M) 207.028ms
+[1.763s][info][gc,cpu         ] GC(13) User=0.05s Sys=0.16s Real=0.21s
+[1.763s][info][gc,start       ] GC(14) Pause Full (Allocation Failure)
+[1.763s][info][gc,phases,start] GC(14) Phase 1: Mark live objects
+[1.769s][info][gc,phases      ] GC(14) Phase 1: Mark live objects 5.943ms
+[1.769s][info][gc,phases,start] GC(14) Phase 2: Compute new object addresses
+[1.775s][info][gc,phases      ] GC(14) Phase 2: Compute new object addresses 5.581ms
+[1.775s][info][gc,phases,start] GC(14) Phase 3: Adjust pointers
+[1.780s][info][gc,phases      ] GC(14) Phase 3: Adjust pointers 5.531ms
+[1.780s][info][gc,phases,start] GC(14) Phase 4: Move objects
+[1.813s][info][gc,phases      ] GC(14) Phase 4: Move objects 32.072ms
+[1.813s][info][gc,heap        ] GC(14) DefNew: 555520K(624896K)->156660K(624896K) Eden: 555520K(555520K)->156660K(555520K) From: 0K(69376K)->0K(69376K)
+[1.813s][info][gc,heap        ] GC(14) Tenured: 1010641K(1388544K)->1388544K(1388544K)
+[1.813s][info][gc,metaspace   ] GC(14) Metaspace: 4085K(6400K)->4085K(6400K) NonClass: 3582K(5632K)->3582K(5632K) Class: 502K(768K)->502K(768K)
+[1.813s][info][gc             ] GC(14) Pause Full (Allocation Failure) 1966M->1508M(1966M) 49.603ms
+[1.813s][info][gc,cpu         ] GC(14) User=0.06s Sys=0.00s Real=0.05s
+SIZE OF LOCAL LIST = 15000
+. . .

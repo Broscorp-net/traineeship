@@ -1,0 +1,39 @@
+. . .
+The finalize() method has started for StaticRefObject instance 1, quantity of finalize() calls = 8553
+[1.659s][info][gc,start       ] GC(13) Pause Young (Allocation Failure)
+[1.929s][info][gc,promotion   ] GC(13) Promotion failed
+[1.929s][info][gc             ] GC(13) Pause Young (Allocation Failure) 1490M->1966M(1966M) 270.291ms
+[1.929s][info][gc,cpu         ] GC(13) User=0.72s Sys=0.13s Real=0.27s
+[1.929s][info][gc,start       ] GC(14) Pause Full (Allocation Failure)
+[1.929s][info][gc,phases,start] GC(14) Phase 1: Mark live objects
+[1.935s][info][gc,phases      ] GC(14) Phase 1: Mark live objects 5.658ms
+[1.935s][info][gc,phases,start] GC(14) Phase 2: Compute new object addresses
+[1.941s][info][gc,phases      ] GC(14) Phase 2: Compute new object addresses 5.700ms
+[1.941s][info][gc,phases,start] GC(14) Phase 3: Adjust pointers
+[1.945s][info][gc,phases      ] GC(14) Phase 3: Adjust pointers 4.095ms
+[1.945s][info][gc,phases,start] GC(14) Phase 4: Move objects
+[1.970s][info][gc,phases      ] GC(14) Phase 4: Move objects 25.563ms
+[1.971s][info][gc,heap        ] GC(14) DefNew: 555520K(624896K)->123971K(624896K) Eden: 555520K(555520K)->123971K(555520K) From: 0K(69376K)->0K(69376K)
+[1.971s][info][gc,heap        ] GC(14) Tenured: 971091K(1388544K)->1388438K(1388544K)
+[1.971s][info][gc,metaspace   ] GC(14) Metaspace: 4368K(6400K)->4368K(6400K) NonClass: 3855K(5632K)->3855K(5632K) Class: 513K(768K)->513K(768K)
+[1.971s][info][gc             ] GC(14) Pause Full (Allocation Failure) 1966M->1476M(1966M) 41.357ms
+[1.971s][info][gc,cpu         ] GC(14) User=0.05s Sys=0.00s Real=0.04s
+The finalize() method has started for StaticRefObject instance 10691, quantity of finalize() calls = 8554
+. . .
+The finalize() method has started for StaticRefObject instance 9223, quantity of finalize() calls = 9926
+SIZE OF STATIC LIST = 9842
+The finalize() method has started for StaticRefObject instance 12179, quantity of finalize() calls = 9927
+. . .
+The finalize() method has started for StaticRefObject instance 9422, quantity of finalize() calls = 10319
+[2.035s][info][gc,heap,exit   ] Heap
+The finalize() method has started for StaticRefObject instance 11980, quantity of finalize() calls = 10320
+[2.035s][info][gc,heap,exit   ]  def new generation   total 624896K, used 395243K [0x0000000080e00000, 0x00000000ab400000, 0x00000000ab400000)
+[2.035s][info][gc,heap,exit   ]   eden space 555520K,  71% used [0x0000000080e00000, 0x0000000098ffaea8, 0x00000000a2c80000)
+The finalize() method has started for StaticRefObject instance 9423, quantity of finalize() calls = 10321
+[2.035s][info][gc,heap,exit   ]   from space 69376K,   0% used [0x00000000a7040000, 0x00000000a7040000, 0x00000000ab400000)
+[2.035s][info][gc,heap,exit   ]   to   space 69376K,   0% used [0x00000000a2c80000, 0x00000000a2c80000, 0x00000000a7040000)
+[2.035s][info][gc,heap,exit   ]  tenured generation   total 1388544K, used 1388438K [0x00000000ab400000, 0x0000000100000000, 0x0000000100000000)
+[2.035s][info][gc,heap,exit   ]    the space 1388544K,  99% used [0x00000000ab400000, 0x00000000fffe5888, 0x00000000fffe5a00, 0x0000000100000000)
+[2.035s][info][gc,heap,exit   ]  Metaspace       used 4526K, capacity 6359K, committed 6528K, reserved 1056768K
+[2.035s][info][gc,heap,exit   ]   class space    used 534K, capacity 771K, committed 896K, reserved 1048576K
+The finalize() method has started for StaticRefObject instance 11979, quantity of finalize() calls = 10322
