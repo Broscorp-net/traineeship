@@ -100,16 +100,8 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
     @Override
     public T next() {
-      int i = cursor;
-      if (i >= size()) {
-        throw new NoSuchElementException();
-      }
-      Object[] elementDate = MyCoolList.this.myCoolList;
-      if (i >= elementDate.length) {
-        throw new IndexOutOfBoundsException();
-      }
-      cursor = i + 1;
-      return (T) elementDate[i];
+      return (T) myCoolList[cursor++];
+
     }
   }
 }
