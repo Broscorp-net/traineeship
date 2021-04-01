@@ -13,6 +13,7 @@ public class StringActivityTest {
 
   private StringActivity stringActivity;
   private String inputText;
+  private final PrintStream standardOut = System.out;
 
   @BeforeEach
   void init() {
@@ -49,7 +50,6 @@ public class StringActivityTest {
 
   @Test
   void outputListWithLengthWordTest() {
-    PrintStream standardOut = System.out;
     ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outputStreamCaptor));
 
