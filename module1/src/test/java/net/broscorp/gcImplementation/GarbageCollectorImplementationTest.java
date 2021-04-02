@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import net.broscorp.gcImplementation.gc.GarbageCollector;
+import net.broscorp.gcImplementation.gc.GarbageCollectorImplementation;
 import net.broscorp.gcImplementation.model.ApplicationBean;
 import net.broscorp.gcImplementation.model.HeapInfo;
 import net.broscorp.gcImplementation.process.Application;
@@ -14,7 +15,7 @@ class GarbageCollectorImplementationTest {
 
   private final Application application = new Application();
 
-  private final GarbageCollector gc = null;
+  private final GarbageCollector gc = new GarbageCollectorImplementation();
 
   @Test
   public void unlinkedObjectsCollectionTest() {
