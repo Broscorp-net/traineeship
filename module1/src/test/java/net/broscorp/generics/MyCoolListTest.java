@@ -1,6 +1,7 @@
 package net.broscorp.generics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -63,6 +64,20 @@ class MyCoolListTest {
   }
 
   @Test
+  @DisplayName("Should throw ArrayIndexOutOfBoundsException in get")
+  void shouldThrowArrayIndexOutOfBoundsExceptionInGet() {
+    myCoolListInteger.add(5);
+    myCoolListInteger.add(new Integer(10));
+    myCoolListInteger.add(3);
+    myCoolListInteger.add(Integer.valueOf(7));
+
+    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.get(-1));
+    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.get(4));
+  }
+
+
+
+  @Test
   @DisplayName("Should remove element from list")
   void shouldRemoveElementFromList() {
     final int expectedElement = 7;
@@ -79,6 +94,18 @@ class MyCoolListTest {
     assertEquals(expectedElement, actualElement);
     assertEquals(expectedSize, actualSize);
 
+  }
+
+  @Test
+  @DisplayName("Should throw ArrayIndexOutOfBoundsException in remove")
+  void shouldThrowArrayIndexOutOfBoundsExceptionInRemove() {
+    myCoolListInteger.add(5);
+    myCoolListInteger.add(new Integer(10));
+    myCoolListInteger.add(3);
+    myCoolListInteger.add(Integer.valueOf(7));
+
+    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.remove(-1));
+    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.remove(4));
   }
 
   @Test

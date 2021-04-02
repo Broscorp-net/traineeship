@@ -10,7 +10,7 @@ public class MyCoolList<E extends Number> implements List<E> {
 
   private final int defaultSize = 16;
   private Object[] array = new Object[defaultSize];
-  private int currentPosition = -1;
+  private int currentSize = -1;
 
   /**
    * Returns the element at index.
@@ -18,35 +18,35 @@ public class MyCoolList<E extends Number> implements List<E> {
    * @return value element at index
    */
   public E get(int index) {
-    if ((index > -1) && (index <= currentPosition)) {
+    if ((index > -1) && (index <= currentSize)) {
       return (E)array[index];
     }
-    return null;
+    throw new ArrayIndexOutOfBoundsException();
   }
 
   @Override
   public E set(int index, E element) {
-    if ((index > -1) && (index <= currentPosition)) {
+    if ((index > -1) && (index <= currentSize)) {
       array[index] = element;
       return (E)array[index];
     }
-    return null;
+    throw new ArrayIndexOutOfBoundsException();
   }
 
   @Override
   public boolean add(E element) {
-    if (++currentPosition <= array.length - 1) {
-      array[currentPosition] = element;
+    if (++currentSize <= array.length - 1) {
+      array[currentSize] = element;
       return true;
     }
-    if (currentPosition > array.length - 1) {
+    if (currentSize > array.length - 1) {
       Object[] arrayBiger = new Object[array.length * 2];
       System.arraycopy(array, 0, arrayBiger, 0, array.length);
       array = arrayBiger;
-      array[currentPosition] = element;
+      array[currentSize] = element;
       return true;
     } else {
-      currentPosition--;
+      currentSize--;
       return false;
     }
   }
@@ -54,19 +54,19 @@ public class MyCoolList<E extends Number> implements List<E> {
   @Override
   public void add(int index, E element) {
 
-    if (++currentPosition <= array.length - 1) {
-      System.arraycopy(array, index, array, index + 1, currentPosition - index - 1);
+    if (++currentSize <= array.length - 1) {
+      System.arraycopy(array, index, array, index + 1, currentSize - index - 1);
       array[index] = element;
     }
-    if (currentPosition > array.length - 1) {
+    if (currentSize > array.length - 1) {
       Object[] arrayBiger = new Object[array.length * 2];
       System.arraycopy(array, 0, arrayBiger, 0, array.length);
       array = arrayBiger;
-      System.arraycopy(array, index, array, index + 1, currentPosition - index - 1);
+      System.arraycopy(array, index, array, index + 1, currentSize - index - 1);
       array[index] = element;
 
     } else {
-      currentPosition--;
+      currentSize--;
     }
   }
 
@@ -76,13 +76,13 @@ public class MyCoolList<E extends Number> implements List<E> {
    * @return removed element
    */
   public E remove(int index) {
-    if ((index > -1) && (index <= currentPosition)) {
+    if ((index > -1) && (index <= currentSize)) {
       Object removedElement = array[index];
-      System.arraycopy(array, index + 1, array, index, currentPosition - index);
-      currentPosition--;
+      System.arraycopy(array, index + 1, array, index, currentSize - index);
+      currentSize--;
       return (E)removedElement;
     }
-    return null;
+    throw new ArrayIndexOutOfBoundsException();
   }
 
   @Override
@@ -121,22 +121,19 @@ public class MyCoolList<E extends Number> implements List<E> {
    * @return modified list
    */
   public MyCoolList<E> map(Function<E, E> f) {
-    for (int i = 0; i <= currentPosition; i++) {
+    for (int i = 0; i <= currentSize; i++) {
       array[i] = f.apply((E)array[i]);
     }
     return this;
   }
 
   public int size() {
-    return currentPosition + 1;
+    return currentSize + 1;
   }
 
   @Override
   public boolean isEmpty() {
-    if (currentPosition == -1) {
-      return true;
-    }
-    return false;
+    return  (currentSize == -1);
   }
 
   @Override
