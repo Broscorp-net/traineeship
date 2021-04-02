@@ -64,15 +64,15 @@ class MyCoolListTest {
   }
 
   @Test
-  @DisplayName("Should throw ArrayIndexOutOfBoundsException in get")
-  void shouldThrowArrayIndexOutOfBoundsExceptionInGet() {
+  @DisplayName("Should throw IndexOutOfBoundsException in get")
+  void shouldThrowIndexOutOfBoundsExceptionInGet() {
     myCoolListInteger.add(5);
     myCoolListInteger.add(new Integer(10));
     myCoolListInteger.add(3);
     myCoolListInteger.add(Integer.valueOf(7));
 
-    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.get(-1));
-    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.get(4));
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolListInteger.get(-1));
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolListInteger.get(4));
   }
 
 
@@ -97,15 +97,15 @@ class MyCoolListTest {
   }
 
   @Test
-  @DisplayName("Should throw ArrayIndexOutOfBoundsException in remove")
-  void shouldThrowArrayIndexOutOfBoundsExceptionInRemove() {
+  @DisplayName("Should throw IndexOutOfBoundsException in remove")
+  void shouldThrowIndexOutOfBoundsExceptionInRemove() {
     myCoolListInteger.add(5);
     myCoolListInteger.add(new Integer(10));
     myCoolListInteger.add(3);
     myCoolListInteger.add(Integer.valueOf(7));
 
-    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.remove(-1));
-    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.remove(4));
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolListInteger.remove(-1));
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolListInteger.remove(4));
   }
 
   @Test

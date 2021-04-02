@@ -21,7 +21,7 @@ public class MyCoolList<E extends Number> implements List<E> {
     if ((index > -1) && (index <= currentSize)) {
       return (E)array[index];
     }
-    throw new ArrayIndexOutOfBoundsException();
+    throw new IndexOutOfBoundsException();
   }
 
   @Override
@@ -30,7 +30,7 @@ public class MyCoolList<E extends Number> implements List<E> {
       array[index] = element;
       return (E)array[index];
     }
-    throw new ArrayIndexOutOfBoundsException();
+    throw new IndexOutOfBoundsException();
   }
 
   @Override
@@ -82,7 +82,7 @@ public class MyCoolList<E extends Number> implements List<E> {
       currentSize--;
       return (E)removedElement;
     }
-    throw new ArrayIndexOutOfBoundsException();
+    throw new IndexOutOfBoundsException();
   }
 
   @Override
