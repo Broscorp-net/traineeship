@@ -17,7 +17,7 @@ public class GarbageCollectorTest {
   @Test
   @Order(1)
   public void checkWorkOfGcOnMultipleObjectsWithoutRefs() {
-    for (int i = 1; i <= 100_000; i++) {
+    for (int i = 1; i <= 10_000; i++) {
       SimplePojo simplePojo = new SimplePojo(String.valueOf(i));
     }
   }
@@ -44,7 +44,7 @@ public class GarbageCollectorTest {
   @Test
   @Order(3)
   public void checkWorkOfGarbageCollectorOnMultiplePairsOfObjectsWithReciprocalRefs() {
-    for (int i = 1; i <= 100_000; i = i + 2) {
+    for (int i = 1; i <= 10_000; i = i + 2) {
       ReciprocalRefObject reciprocalRefObject1 = new ReciprocalRefObject(String.valueOf(i));
       ReciprocalRefObject reciprocalRefObject2 = new ReciprocalRefObject(String.valueOf(i + 1));
       reciprocalRefObject1.setOtherReciprocalRefObject(reciprocalRefObject2);
