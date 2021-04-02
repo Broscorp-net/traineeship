@@ -42,7 +42,7 @@ public class MyCoolCollection<E> implements Iterable<E> {
       }
       return item;
     }
-    return item;
+    throw new IndexOutOfBoundsException();
   }
 
   /**
@@ -73,7 +73,7 @@ public class MyCoolCollection<E> implements Iterable<E> {
       item = currentNode.item;
       return item;
     }
-    return item;
+    throw new IndexOutOfBoundsException();
   }
 
   /**
@@ -110,10 +110,7 @@ public class MyCoolCollection<E> implements Iterable<E> {
    * @return false or true
    */
   public boolean isEmpty() {
-    if (this.head == null) {
-      return true;
-    }
-    return false;
+    return (this.head == null);
   }
 
   @Override
@@ -183,10 +180,7 @@ public class MyCoolCollection<E> implements Iterable<E> {
 
     @Override
     public boolean hasNext() {
-      if (currentNode != null) {
-        return true;
-      }
-      return false;
+      return  (currentNode != null);
     }
 
     @Override

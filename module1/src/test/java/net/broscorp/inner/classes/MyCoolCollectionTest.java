@@ -1,7 +1,7 @@
 package net.broscorp.inner.classes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,19 +62,16 @@ class MyCoolCollectionTest {
   }
 
   @Test
-  @DisplayName("Should not return object from collection")
-  void shouldGetNullFromCollection() {
+  @DisplayName("Should throw IndexOutOfBoundsException in get")
+  void shouldThrowIndexOutOfBoundsExceptionInGet() {
 
     myCoolCollection.add(1);
     myCoolCollection.add(5);
     myCoolCollection.add(10);
     myCoolCollection.add(7);
 
-    Integer actualValue1 = myCoolCollection.get(-1);
-    Integer actualValue2 = myCoolCollection.get(5);
-
-    assertNull(actualValue1);
-    assertNull(actualValue2);
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolCollection.get(-1));
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolCollection.get(4));
 
   }
 
@@ -106,27 +103,16 @@ class MyCoolCollectionTest {
   }
 
   @Test
-  @DisplayName("Should not remove object from collection")
-  void shouldNotRemoveObjectFromCollection() {
-
-    final int expectedSize = 4;
+  @DisplayName("Should throw IndexOutOfBoundsException in remove")
+  void shouldThrowIndexOutOfBoundsExceptionInRemove() {
 
     myCoolCollection.add(1);
     myCoolCollection.add(5);
     myCoolCollection.add(10);
     myCoolCollection.add(7);
 
-    myCoolCollection.remove(-5);
-
-    int actualSize = myCoolCollection.size();
-
-    assertEquals(expectedSize, actualSize);
-
-    myCoolCollection.remove(4);
-
-    actualSize = myCoolCollection.size();
-
-    assertEquals(expectedSize, actualSize);
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolCollection.get(-1));
+    assertThrows(IndexOutOfBoundsException.class, () -> myCoolCollection.get(4));
 
   }
 
