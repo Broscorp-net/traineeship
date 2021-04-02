@@ -17,7 +17,7 @@ public class GarbageCollectorTest {
   @Test
   @Order(1)
   public void checkWorkOfGcOnMultipleObjectsWithoutRefs() {
-    for (int i = 1; i <= 1_000_000; i++) {
+    for (int i = 1; i <= 100_000; i++) {
       SimplePojo simplePojo = new SimplePojo(String.valueOf(i));
     }
   }
@@ -30,7 +30,7 @@ public class GarbageCollectorTest {
   @Order(2)
   public void checkWorkOfGcOnMultipleObjectsWithRefs() {
     List<SimplePojo> list = new ArrayList<>();
-    for (int i = 1; i <= 15_000; i++) {
+    for (int i = 1; i <= 3_000; i++) {
       SimplePojo simplePojo = new SimplePojo(String.valueOf(i));
       list.add(simplePojo);
     }
@@ -44,7 +44,7 @@ public class GarbageCollectorTest {
   @Test
   @Order(3)
   public void checkWorkOfGarbageCollectorOnMultiplePairsOfObjectsWithReciprocalRefs() {
-    for (int i = 1; i <= 1_000_000; i = i + 2) {
+    for (int i = 1; i <= 100_000; i = i + 2) {
       ReciprocalRefObject reciprocalRefObject1 = new ReciprocalRefObject(String.valueOf(i));
       ReciprocalRefObject reciprocalRefObject2 = new ReciprocalRefObject(String.valueOf(i + 1));
       reciprocalRefObject1.setOtherReciprocalRefObject(reciprocalRefObject2);
@@ -59,11 +59,12 @@ public class GarbageCollectorTest {
   @Test
   @Order(4)
   public void checkWorkOfGcOnMultipleObjectsWithStaticRefInFinalizeMethod() {
-    for (int i = 1; i <= 15_000; i++) {
+    for (int i = 1; i <= 3_000; i++) {
       StaticRefObject staticRefObject = new StaticRefObject(String.valueOf(i));
     }
     System.out.println("SIZE OF STATIC LIST = " + StaticRefObject.staticRefObjectList.size());
   }
+
 
   /**
    * Test creates a large number of objects, then loses external references to them, but objects get
@@ -74,7 +75,7 @@ public class GarbageCollectorTest {
   @Order(5)
   public void checkWorkOfGcOnMultipleObjectsWithLocalRefInFinalizeMethod() {
     List<PrivateFieldRefObject> localList = new ArrayList<>();
-    for (int i = 1; i <= 15_000; i++) {
+    for (int i = 1; i <= 3_000; i++) {
       PrivateFieldRefObject privateFieldRefObject = new PrivateFieldRefObject(String.valueOf(i),
           localList);
     }
