@@ -71,8 +71,8 @@ class MyCoolListTest {
     myCoolListInteger.add(3);
     myCoolListInteger.add(Integer.valueOf(7));
 
-    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.get(-1));
-    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.get(4));
+    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.get(-1));
+    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.get(4));
   }
 
 
@@ -104,8 +104,8 @@ class MyCoolListTest {
     myCoolListInteger.add(3);
     myCoolListInteger.add(Integer.valueOf(7));
 
-    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.remove(-1));
-    assertThrows(ArrayIndexOutOfBoundsException.class, () ->myCoolListInteger.remove(4));
+    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.remove(-1));
+    assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolListInteger.remove(4));
   }
 
   @Test
