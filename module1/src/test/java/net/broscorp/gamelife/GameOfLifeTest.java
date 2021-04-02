@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 class GameOfLifeTest {
   GameOfLife game = new GameOfLife();
 
