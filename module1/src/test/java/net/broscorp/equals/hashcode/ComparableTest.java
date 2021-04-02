@@ -79,8 +79,11 @@ class ComparableTest {
     assertTrue(first.equals(second));
     assertFalse(first.equals(third));
 
-    assertTrue(first.equals(second));
-    assertFalse(first.equals(third));
+    assertFalse(second.equals(third));
+    assertTrue(second.equals(first));
+
+    assertFalse(third.equals(first));
+    assertFalse(third.equals(second));
   }
 
   /*
