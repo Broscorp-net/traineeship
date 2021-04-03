@@ -1,140 +1,133 @@
 package net.broscorp.primitives;
 
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 public class OperationsOnPrimitivesTest {
 
-  OperationsOnPrimitives testOperationsOnPrimitives = new OperationsOnPrimitives();
-
   //  Tests for numeric types overflow demonstration:
 
+  //  Right results (without type overflow) of operations on numbers of byte and int types
   @Test
-  void shouldNotBeOverflowAfterGetSameTypeResultBinaryMethodTest() {
+  void getNotOverflowResultsTest() {
     //      GIVEN:
     byte a = 20;
     byte b = 45;
     int c = Integer.MIN_VALUE;
     int d = 5000;
-    BinaryOperator<Byte> sumByteOperator = (x, y) -> (byte) (x + y);
-    BinaryOperator<Integer> sumIntOperator = Integer::sum;
-    //      WHEN:
-    byte correctSumByteResult =
-        testOperationsOnPrimitives.getSameTypeResultBinaryMethod(a, b, sumByteOperator);
-    int correctSumIntResult =
-        testOperationsOnPrimitives.getSameTypeResultBinaryMethod(c, d, sumIntOperator);
     //      THEN:
-    Assertions.assertTrue(Byte.MAX_VALUE > correctSumByteResult);
-    Assertions.assertTrue(Integer.MIN_VALUE < correctSumIntResult);
-
-    Assertions.assertEquals(65, correctSumByteResult);
-    Assertions.assertEquals(-2_147_478_648, correctSumIntResult);
+    assertTrue(Byte.MAX_VALUE > (byte) (a + b));
+    assertTrue(Integer.MIN_VALUE < c + d);
+    assertEquals(65, (byte) (a + b));
+    assertEquals(-2_147_478_648, c + d);
   }
 
+  //  An overflow of byte type as a result of operation on numbers of byte type
   @Test
-  void shouldBeByteResultOverflowAfterGetSameTypeResultBinaryMethodTest() {
+  void getOverflowByteResultTest() {
     //      GIVEN:
     byte a = 120;
     byte b = 45;
-    BinaryOperator<Byte> sumByteOperator = (x, y) -> (byte) (x + y);
-    //      WHEN:
-    byte overflowingSumByteResult =
-        testOperationsOnPrimitives.getSameTypeResultBinaryMethod(a, b, sumByteOperator);
     //      THEN:
-    Assertions.assertTrue(Byte.MAX_VALUE > overflowingSumByteResult);
-    Assertions.assertNotEquals(165, overflowingSumByteResult);
-    Assertions.assertEquals(-91, overflowingSumByteResult);
+    assertTrue(Byte.MAX_VALUE > (byte) (a + b));
+    assertNotEquals(165, (byte) (a + b));
+    assertEquals(-91, (byte) (a + b));
   }
 
+  //  An overflow of int type as a result of operation on numbers of int type
   @Test
-  void shouldBeIntResultOverflowAfterGetSameTypeResultBinaryMethodTest() {
+  void getOverflowIntResultTest() {
     //      GIVEN:
     int c = Integer.MIN_VALUE;
     int d = -5000;
-    BinaryOperator<Integer> sumIntOperator = Integer::sum;
-    //      WHEN:
-    int overflowingSumIntResult =
-        testOperationsOnPrimitives.getSameTypeResultBinaryMethod(c, d, sumIntOperator);
     //      THEN:
-    Assertions.assertTrue(Integer.MIN_VALUE < overflowingSumIntResult);
-    Assertions.assertNotEquals(-2_147_488_648L, overflowingSumIntResult);
-    Assertions.assertEquals(2_147_478_648, overflowingSumIntResult);
+    assertTrue(Integer.MIN_VALUE < c + d);
+    assertNotEquals(-2_147_488_648L, c + d);
+    assertEquals(2_147_478_648, c + d);
   }
 
-  //  Tests for demonstration of converting between primitive types and the problems arising from
-  // this:
+  //  Tests for demonstration of converting between primitive types
+  //  and the problems come from this:
 
+  //  Right results of converting long to int and double to float
   @Test
-  void shouldBeClearlyConvertedResultsOfGetOtherTypeResultUnaryMethodTest() {
+  void getRightConvertedResultsTest() {
     //      GIVEN:
     long l = Integer.MAX_VALUE;
     float f = 4.6f;
     double d = 2.3;
-    Function<Long, Integer> longToIntConverter = (x) -> (int) x.longValue();
-    Function<Float, Double> floatToDoubleConverter = Float::doubleValue;
-    Function<Double, Float> doubleToFloatConverter = Double::floatValue;
-    //      WHEN:
-    int longToIntConvertResult =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(l, longToIntConverter);
-    double floatToDoubleConvertResult =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(
-            (float) (f / d), floatToDoubleConverter);
-    float doubleToFloatConvertResult =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(d, doubleToFloatConverter);
     //      THEN:
-    Assertions.assertEquals(l, longToIntConvertResult);
-    Assertions.assertEquals(2.0, floatToDoubleConvertResult);
-    Assertions.assertEquals(2.3f, doubleToFloatConvertResult);
+    assertEquals(Integer.MAX_VALUE, (int) l);
+    assertEquals(2.3f, (float) d);
+    assertEquals(2.0f, (float) (f / d));
   }
 
+  //  An overflow of int type as a result of converting long to int
   @Test
-  void shouldBeCuriouslyConvertedResultsOfGetOtherTypeResultUnaryMethodTest() {
+  void getOverflowWhenConvertingLongToIntTest() {
+    //      GIVEN:
+    long l1 = (long) Integer.MAX_VALUE + 1; // = 2_147_483_648L
+    long l2 = (long) Integer.MIN_VALUE - 1; // = - 2_147_483_649L
+    //      WHEN:
+    int i1 = (int) l1;
+    int i2 = (int) l2;
+    //      THEN:
+    assertNotEquals(2_147_483_648L, i1);
+    assertEquals(Integer.MIN_VALUE, i1);
+
+    assertNotEquals(-2_147_483_649L, i2);
+    assertEquals(Integer.MAX_VALUE, i2);
+  }
+
+  //  Loss of number accuracy when converting float to double
+  @Test
+  void getLossAccuracyOfNumberWhenConvertingFloatToDoubleTest() {
+    //      GIVEN:
+    float f1 = 4.7f;
+    float f2 = 2.2f;
+    //      THEN:
+    assertNotEquals(4.7, (double) f1);
+    assertNotEquals(2.5, (double) (f1 - f2));
+  }
+
+  //  Tests for demonstration of floating point errors:
+
+  //  Automatic rounding for results of arithmetic operations with int and long types
+  @Test
+  void getAutomaticallyRoundedIntegerResultWhenDivisionOfIntAndLongTest() {
     //      GIVEN:
     int i1 = 5;
-    int i2 = -5;
-    long l1 = 18L;
+    int i2 = 18;
+    long l1 = -15L;
     long l2 = 20L;
-    Function<Long, Integer> longToIntConverter = (x) -> (int) x.longValue();
-    Function<Integer, Long> intToLongConverter = (x) -> (long) x;
-    //      WHEN:
-    int longToIntConvertResult =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(l1 / i1, longToIntConverter);
-    long intToLongConvertResult =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(
-            (int) (i2 / l2), intToLongConverter);
     //      THEN:
-    Assertions.assertNotEquals(3.6, longToIntConvertResult);
-    Assertions.assertEquals(3, longToIntConvertResult);
+    assertNotEquals(3.6, i2 / i1);
+    assertEquals(3, i2 / i1);
 
-    Assertions.assertNotEquals(-0.25, intToLongConvertResult);
-    Assertions.assertEquals(0, intToLongConvertResult);
+    assertNotEquals(-0.75, l1 / l2);
+    assertEquals(0, l1 / l2);
+
+    assertNotEquals(-1.2, i2 / l1);
+    assertEquals(-1, i2 / l1);
   }
 
-  //  Test for demonstration of floating point errors:
-
+  // The result of an arithmetic operation on floating point numbers may be inaccurate
   @Test
-  void shouldBeDiffsOfConvertedFloatingPointValuesAfterGetOtherTypeResultUnaryMethodTest() {
+  void getInaccurateResultsOfArithmeticOperationOnFloatsAndDoublesTest() {
     //      GIVEN:
-    float f1 = 4.6f;
-    float f2 = 2.3f;
-    double d1 = 4.6;
-    double d2 = 2.3;
-    Function<Float, Double> floatToDoubleConverter = (x) -> (double) x;
-    Function<Double, Float> doubleToFloatConverter = Double::floatValue;
-    //      WHEN:
-    double floatToDoubleConvertResult1 =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(f1, floatToDoubleConverter);
-    double floatToDoubleConvertResult2 =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(f1 - f2, floatToDoubleConverter);
-    float doubleToFloatConvertResult =
-        testOperationsOnPrimitives.getOtherTypeResultUnaryMethod(d1 - d2, doubleToFloatConverter);
+    float f1 = 4.7f;
+    float f2 = 2.2f;
+    float f3 = 6.9f;
+    double d1 = 4.72;
+    double d2 = 2.23;
+    double d3 = 6.95;
     //      THEN:
-    Assertions.assertNotEquals(4.6, floatToDoubleConvertResult1);
-
-    Assertions.assertEquals(2.3f, doubleToFloatConvertResult);
-    Assertions.assertNotEquals(2.3, floatToDoubleConvertResult2);
-    Assertions.assertEquals(doubleToFloatConvertResult, floatToDoubleConvertResult2);
+    assertNotEquals(2.5f, f1 - f2);
+    assertNotEquals(f3, f1 + f2);
+    assertNotEquals(d3, d1 + d2);
+    assertNotEquals(2.49, d1 - d2);
   }
 }
