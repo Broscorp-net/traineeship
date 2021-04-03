@@ -3,10 +3,9 @@ package net.broscorp.equals.hashcode;
 import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -136,39 +135,25 @@ public class MyClassTest {
   @Test
   public void shouldFindAndPrintOutUnequalObjectsWithSameHashCodesTest() {
     //    GIVEN
-    Map<Integer, List<MyClass>> hashCodeMap =
-        myClassList.stream()
-            .collect(
-                HashMap::new,
-                (hm, e) -> {
-                  List<MyClass> tempList = hm.get(e.hashCode());
-                  if (tempList == null) {
-                    tempList = new ArrayList<>();
-                    tempList.add(e);
-                    hm.put(e.hashCode(), tempList);
-                  } else {
-                    tempList.add(e);
-                    hm.put(e.hashCode(), tempList);
-                  }
-                },
-                HashMap::putAll);
+    int sameHashCode = myClassList.get(new Random().nextInt(myClassList.size())).hashCode();
     //    THEN
-    List<MyClass> oneListFromHashCodeMap = new ArrayList<>(hashCodeMap.values().iterator().next());
-    for (char c = 'A'; c < 'A' + oneListFromHashCodeMap.size(); c++) {
+    List<MyClass> sameHashCodeList = myClassList.stream().filter(i -> i.hashCode() == sameHashCode)
+        .collect(Collectors.toList());
+    for (char c = 'A'; c < 'A' + sameHashCodeList.size(); c++) {
       System.out.println(
           "Here is object "
               + c
               + ": "
-              + oneListFromHashCodeMap.get(c - 'A')
+              + sameHashCodeList.get(c - 'A')
               + ", it's hashcode = "
-              + oneListFromHashCodeMap.get(c - 'A').hashCode()
+              + sameHashCodeList.get(c - 'A').hashCode()
               + ";");
     }
     System.out.println("These objects are different, but their hash codes matches");
-    for (int i = 1; i < oneListFromHashCodeMap.size(); i++) {
-      Assertions.assertNotEquals(oneListFromHashCodeMap.get(i), oneListFromHashCodeMap.get(i - 1));
-      Assertions.assertEquals(oneListFromHashCodeMap.get(i).hashCode(),
-          oneListFromHashCodeMap.get(i - 1).hashCode());
+    for (int i = 1; i < sameHashCodeList.size(); i++) {
+      Assertions.assertNotEquals(sameHashCodeList.get(i), sameHashCodeList.get(i - 1));
+      Assertions.assertEquals(sameHashCodeList.get(i).hashCode(),
+          sameHashCodeList.get(i - 1).hashCode());
     }
   }
 }
