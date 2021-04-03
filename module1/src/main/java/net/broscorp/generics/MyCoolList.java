@@ -5,13 +5,16 @@ import java.util.function.Function;
 public class MyCoolList<T extends Number> {
 
   private Object[] myCoolList;
+  private int curSize = 0;
+  private int defSize = 5;
 
   public MyCoolList() {
-    myCoolList = new Object[0];
+    myCoolList = new Object[defSize];
   }
 
   public MyCoolList(Integer size) {
     myCoolList = new Object[size];
+    defSize = size;
   }
 
   /**
@@ -20,14 +23,29 @@ public class MyCoolList<T extends Number> {
    * @param o - object for add
    */
   public void add(T o) {
-    Object[] arr = new Object[size() + 1];
-    System.arraycopy(myCoolList, 0, arr, 0, arr.length - 1);
-    arr[arr.length - 1] = o;
-    myCoolList = arr;
+    if (curSize == myCoolList.length) {
+      defSize = size() * 2;
+      Object[] arr = new Object[defSize];
+      System.arraycopy(myCoolList, 0, arr, 0, size());
+      arr[curSize++] = o;
+      myCoolList = arr;
+    } else {
+      myCoolList[curSize++] = o;
+    }
   }
 
+  /**
+   * Method for getting object by index.
+   *
+   * @param index index getting element
+   * @return getting object by index or exception
+   */
   public T get(int index) {
-    return (T) myCoolList[index];
+    if (index < 0 || index > size() - 1) {
+      throw new ArrayIndexOutOfBoundsException();
+    } else {
+      return (T) myCoolList[index];
+    }
   }
 
   /**
@@ -40,7 +58,7 @@ public class MyCoolList<T extends Number> {
     int el = size();
     if (index >= size() || index < 0) {
       System.out.println("Error!");
-      return null;
+      throw new ArrayIndexOutOfBoundsException();
     } else {
       Object[] cop = new Object[size() - 1];
       int k = 0;
@@ -50,9 +68,10 @@ public class MyCoolList<T extends Number> {
           k++;
         }
       }
-      T deletedIndex = (T) myCoolList[index];
+      T deletedObj = (T) myCoolList[index];
       myCoolList = cop;
-      return deletedIndex;
+      curSize--;
+      return deletedObj;
     }
   }
 
@@ -65,14 +84,14 @@ public class MyCoolList<T extends Number> {
    */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> listR = new MyCoolList<>();
-    for (Object t : myCoolList) {
-      listR.add(f.apply((T) t));
+    for (int i = 0; i < size(); i++) {
+      listR.add(f.apply((T) myCoolList[i]));
     }
     return listR;
   }
 
   public int size() {
-    return myCoolList.length;
+    return curSize;
   }
 
 }

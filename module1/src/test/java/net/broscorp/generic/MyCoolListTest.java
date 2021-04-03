@@ -13,7 +13,6 @@ public class MyCoolListTest {
   private final double last = 3;
   private final double step = 0.5;
 
-
   @BeforeEach
   void init() {
     myCoolList = new MyCoolList<>();
@@ -35,6 +34,9 @@ public class MyCoolListTest {
       Assertions.assertEquals(i, myCoolList.get(j));
       j++;
     }
+    Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> myCoolList.get(-1));
+    Assertions.assertThrows(ArrayIndexOutOfBoundsException.class,
+        () -> myCoolList.get(myCoolList.size() + 1));
   }
 
   @Test
