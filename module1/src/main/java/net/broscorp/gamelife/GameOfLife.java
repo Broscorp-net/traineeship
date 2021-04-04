@@ -1,58 +1,47 @@
 package net.broscorp.gamelife;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class GameOfLife {
 
-  private final static String testName = "C:\\Users\\BogdanDAN\\Desktop\\Broscorp\\traineeship\\module1\\src\\test\\resources\\inputGlider.txt";
-
-  private static String[][] startTwoArray;
-  private static int[][] generateTwoArray;
+  private int[][] generateDualArray;
   private int iter;
-  private int mRows;
-  private int nColumns;
+  private int rows;
+  private int columns;
 
-  public static void main(String[] args) {
-    GameOfLife gameOfLife = new GameOfLife();
-    List<String> list = gameOfLife.readFile(testName);
-    if (list != null) {
-      gameOfLife.createTwoArrays(list);
-      System.out.println("iter" + gameOfLife.iter);
-      for (int i = 0; i < gameOfLife.iter; i++) {
-        gameOfLife.nextGeneration();
-      }
-      System.out.println("Next Generation");
-      for (int l = 0; l < gameOfLife.mRows; l++) {
-        for (int m = 0; m < gameOfLife.nColumns; m++) {
-          if (generateTwoArray[l][m] == 0) {
-            System.out.print(" O");
-          } else {
-            System.out.print(" X");
-          }
-        }
-        System.out.println();
-      }
-    } else {
-      System.out.println("list == null");
-    }
-  }
-
+  /**
+   * The method that launches the game.
+   * Rules:
+   * - Any live cell with fewer than two live neighbours
+   * dies, as if by underpopulation.
+   * - Any live cell with two or three live neighbours lives on to
+   * the next generation.
+   * - Any live cell with more than three live neighbours dies, as if by
+   * overpopulation.
+   * - Any dead cell with exactly three live neighbours becomes a live cell, as if
+   * by reproduction.
+   *
+   * @param fileNameInput  - incoming file for Game
+   * @param fileNameOutput - output file for Game
+   */
   public void game(String fileNameInput, String fileNameOutput) {
-
-  }
-
-  private List<String> readFile(String fileName) {
-    try {
-      Stream<String> gameStreamResult = Files.lines(Paths.get(fileName));
-      return gameStreamResult.collect(Collectors.toList());
-    } catch (IOException ex) {
-      System.err.println(ex);
-      return null;
+    List<String> list = readFile(fileNameInput);
+    if (list != null) {
+      createDualArrays(list);
+      for (int i = 0; i < iter; i++) {
+        nextGeneration();
+      }
+      writeFile(fileNameOutput);
+    } else {
+      throw new NullPointerException();
     }
   }
 
@@ -62,81 +51,98 @@ public class GameOfLife {
     for (int i = 0; i < sizes.length; i++) {
       sizes[i] = Integer.parseInt(arr[i]);
     }
-    mRows = sizes[0];
-    nColumns = sizes[1];
+    rows = sizes[0];
+    columns = sizes[1];
     iter = sizes[2];
   }
 
-  private void createTwoArrays(List<String> stringList) {
+  private void createDualArrays(List<String> stringList) {
     generateSizes(stringList.get(0));
-    startTwoArray = new String[mRows][nColumns];
-    generateTwoArray = new int[mRows][nColumns];
-    for (int i = 0; i < mRows; i++) {
+    generateDualArray = new int[rows][columns];
+    for (int i = 0; i < rows; i++) {
       String[] arr = stringList.get(i + 1).split(" ");
-      for (int j = 0; j < nColumns; j++) {
-        startTwoArray[i][j] = arr[j];
+      for (int j = 0; j < columns; j++) {
         if (arr[j].equals("O")) {
-          generateTwoArray[i][j] = 0;
+          generateDualArray[i][j] = 0;
         } else {
-          generateTwoArray[i][j] = 1;
+          generateDualArray[i][j] = 1;
         }
       }
     }
   }
 
   private void nextGeneration() {
-    int[][] future = new int[mRows][nColumns];
+    int[][] futureArr = new int[rows][columns];
 
-    int it = 0;
+    for (int l = 0; l < rows; l++) {
+      for (int m = 0; m < columns; m++) {
 
-    for (int l = 0; l < mRows; l++) {
-      for (int m = 0; m < nColumns; m++) {
+        int aliveNeighbours = aliveNeighbors(rows, columns, l, m);
 
-        int aliveNeighbours = liveNeighbors(generateTwoArray, mRows, nColumns, l, m);
-        ;
-////        for (int i = 0; i <= 1; i++) {
-////          for (int j = 0; j <= 3; j++) {
-////            aliveNeighbours += generateTwoArray[i][j] & 1;
-////          }
-////        }
-//        for (int i = Math.max(l - 1, 0); i <= Math.min(i + 1, mRows - 1); i++) {
-//          for (int j = Math.max(m - 1, 0); j <= Math.min(j + 1, nColumns - 1); j++) {
-//            aliveNeighbours += generateTwoArray[i][j] & 1;
-//          }
-//        }
-////        lives -= board[i][j] & 1;
-//
-//        aliveNeighbours -= generateTwoArray[l][m];
-        it++;
-        System.out.println(generateTwoArray[l][m] + " aliveNeighbours " + aliveNeighbours);
-        if ((generateTwoArray[l][m] == 1) && (aliveNeighbours < 2)) {
-          future[l][m] = 0;
-        } else if ((generateTwoArray[l][m] == 1) && (aliveNeighbours > 3)) {
-          future[l][m] = 0;
-        } else if ((generateTwoArray[l][m] == 0) && (aliveNeighbours == 3)) {
-          future[l][m] = 1;
+        if ((generateDualArray[l][m] == 1) && (aliveNeighbours < 2)) {
+          futureArr[l][m] = 0;
+        } else if ((generateDualArray[l][m] == 1) && (aliveNeighbours > 3)) {
+          futureArr[l][m] = 0;
+        } else if ((generateDualArray[l][m] == 0) && (aliveNeighbours == 3)) {
+          futureArr[l][m] = 1;
         } else {
-          future[l][m] = generateTwoArray[l][m];
+          futureArr[l][m] = generateDualArray[l][m];
         }
       }
     }
-    System.out.println("////" + it);
-    generateTwoArray = future;
+    generateDualArray = futureArr;
   }
 
-  public int liveNeighbors(int[][] board, int m, int n, int i, int j) {
-    int lives = 0;
+  /**
+   * A method that defines living neighbors.
+   *
+   * @param m - max by rows
+   * @param n - max by column
+   * @param i - index by rows
+   * @param j - index by column
+   * @return number alive neighbors
+   */
+  public int aliveNeighbors(int m, int n, int i, int j) {
+    int alive = 0;
     for (int x = -1; x <= 1; x++) {
       for (int y = -1; y <= 1; y++) {
-        lives += board[(i + x + m) % m][(j + y + n) % n];
+        alive += generateDualArray[(i + x + m) % m][(j + y + n) % n];
       }
     }
-    lives -= board[i][j];
-    return lives;
+    alive -= generateDualArray[i][j];
+    return alive;
+  }
+
+  private List<String> readFile(String fileName) {
+    Stream<String> gameStreamResult = new BufferedReader(
+        new InputStreamReader(ClassLoader.getSystemResourceAsStream(fileName))).lines();
+    return gameStreamResult.collect(Collectors.toList());
   }
 
   private void writeFile(String fileName) {
 
+    StringBuilder stringBuilder = new StringBuilder();
+    for (int l = 0; l < rows; l++) {
+      for (int m = 0; m < columns; m++) {
+        if (generateDualArray[l][m] == 0) {
+          stringBuilder.append("O");
+        } else {
+          stringBuilder.append("X");
+        }
+        if (m != columns - 1) {
+          stringBuilder.append(" ");
+        }
+      }
+      if (l != rows - 1) {
+        stringBuilder.append("\n");
+      }
+    }
+    File file = new File(GameOfLife.class.getClassLoader().getResource(".").getFile() + fileName);
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+      writer.write(stringBuilder.toString());
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
 
