@@ -59,7 +59,6 @@
           <failsOnError>true</failsOnError>
           <failOnViolation>true</failOnViolation>
           <violationSeverity>warning</violationSeverity>
-          <violationIgnore>NoFinalizer</violationIgnore>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
         </configuration>
         <executions>
