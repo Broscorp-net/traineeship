@@ -1,0 +1,20 @@
+digraph Exceptions {label = "Exceptions in Java" labelloc = "top"
+
+"Object" [shape = octagon];
+
+node [shape = rectangle];
+"Throwable (checked)";
+"Exception (checked)";
+"Other subclasses of Exception (checked)";
+
+node [shape = oval];
+"Error (unchecked)";
+"Subclasses of Error (unchecked)";
+"RuntimeException (unchecked)";
+"Subclasses of RuntimeException (unchecked)";
+
+"Object" -> "Throwable (checked)" -> "Exception (checked)";
+"Throwable (checked)" -> "Error (unchecked)" -> "Subclasses of Error (unchecked)";
+"Exception (checked)" -> "RuntimeException (unchecked)" -> "Subclasses of RuntimeException (unchecked)";
+"Exception (checked)" -> "Other subclasses of Exception (checked)";
+}
