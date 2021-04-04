@@ -6,7 +6,7 @@ public class MyCoolList<T extends Number> {
 
   private Object[] myCoolList;
   private int curSize = 0;
-  private int defSize = 5;
+  private static final int defSize = 5;
 
   public MyCoolList() {
     myCoolList = new Object[defSize];
@@ -14,7 +14,6 @@ public class MyCoolList<T extends Number> {
 
   public MyCoolList(Integer size) {
     myCoolList = new Object[size];
-    defSize = size;
   }
 
   /**
@@ -24,8 +23,7 @@ public class MyCoolList<T extends Number> {
    */
   public void add(T o) {
     if (curSize == myCoolList.length) {
-      defSize = size() * 2;
-      Object[] arr = new Object[defSize];
+      Object[] arr = new Object[size() * 2];
       System.arraycopy(myCoolList, 0, arr, 0, size());
       arr[curSize++] = o;
       myCoolList = arr;
