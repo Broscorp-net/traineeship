@@ -11,34 +11,34 @@ public class FooTest {
   protected Foo foo = new Foo();
   protected List<String> lstr1 = null;
   protected List<String> lstr2 = new ArrayList<>(Arrays.asList("one", "two", "three"));
-  protected int a = 1;
+  protected int somevar = 1;
 
   /*относится ли обьект к класу Foo*/
   @Test
-  void FooClassTest() {
+  void fooclasstest() {
     Assertions.assertSame(foo.getClass(), Foo.class);
   }
 
   /*передаём null*/
   @Test
-  void FooNullTest() {
+  void foonulltest() {
     Assertions.assertThrows(NullPointerException.class, () -> {
-      foo.foo(a, lstr1);
+      foo.foo(somevar, lstr1);
     });
   }
 
   /*не выбрасывается ли исключение с заданными переменными*/
   @Test
-  void FooNotExcep() {
+  void foonotexcep() {
     Assertions.assertDoesNotThrow(() -> {
-      foo.foo(a, lstr2);
+      foo.foo(somevar, lstr2);
     });
   }
 
   /*не передаём null*/
   @Test
-  void FooNotNull() {
+  void foonotnull() {
     Assertions.assertNotNull(lstr2);
-    Assertions.assertNotNull(a);
+    Assertions.assertNotNull(somevar);
   }
 }
