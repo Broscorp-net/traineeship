@@ -39,7 +39,7 @@ public class GameOfLife {
       for (int i = 0; i < iter; i++) {
         dualArray = nextGeneration(dualArray);
       }
-      writeFile(fileNameOutput, dualArray);
+      writingToFile(fileNameOutput, dualArray);
     } else {
       throw new NullPointerException();
     }
@@ -78,7 +78,7 @@ public class GameOfLife {
     for (int l = 0; l < rows; l++) {
       for (int m = 0; m < columns; m++) {
 
-        int aliveNeighbours = aliveNeighbors(dualArray, rows, columns, l, m);
+        int aliveNeighbours = definitionAliveNeighbors(dualArray, rows, columns, l, m);
 
         if ((dualArray[l][m] == 1) && (aliveNeighbours < 2)) {
           futureArr[l][m] = 0;
@@ -104,7 +104,7 @@ public class GameOfLife {
    * @param indexByColumns - index by columns
    * @return number alive neighbors
    */
-  public int aliveNeighbors(int[][] dualArray, int numberRows, int numberColumns, int indexByRows,
+  public int definitionAliveNeighbors(int[][] dualArray, int numberRows, int numberColumns, int indexByRows,
       int indexByColumns) {
     int alive = 0;
     for (int x = -1; x <= 1; x++) {
@@ -125,7 +125,7 @@ public class GameOfLife {
     return gameStreamResult.collect(Collectors.toList());
   }
 
-  private void writeFile(String fileName, int[][] dualArray) {
+  private void writingToFile(String fileName, int[][] dualArray) {
 
     StringBuilder stringBuilder = new StringBuilder();
     int rows = dualArray.length;
