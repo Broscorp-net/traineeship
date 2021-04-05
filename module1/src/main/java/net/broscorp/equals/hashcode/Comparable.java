@@ -63,13 +63,8 @@ public class Comparable {
 
   @Override
   public int hashCode() {
-    LocalTime localTime = LocalTime.now();
     final int prime = 31;
     int result = 1;
-    result = prime * result + localTime.getHour();
-    result = prime * result + localTime.getMinute();
-    result = prime * result + localTime.getSecond();
-    result = prime * result + (bool ? 1231 : 1237);
     result = prime * result + character;
     result = prime * result + integer;
     result = prime * result + string.length();
