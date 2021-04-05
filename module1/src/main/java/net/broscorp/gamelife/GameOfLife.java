@@ -104,8 +104,8 @@ public class GameOfLife {
    * @param indexByColumns - index by columns
    * @return number alive neighbors
    */
-  public int definitionAliveNeighbors(int[][] dualArray, int numberRows, int numberColumns, int indexByRows,
-      int indexByColumns) {
+  public int definitionAliveNeighbors(int[][] dualArray, int numberRows, int numberColumns,
+      int indexByRows, int indexByColumns) {
     int alive = 0;
     for (int x = -1; x <= 1; x++) {
       for (int y = -1; y <= 1; y++) {
