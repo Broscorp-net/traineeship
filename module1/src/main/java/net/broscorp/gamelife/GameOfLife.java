@@ -12,11 +12,6 @@ import java.util.stream.Stream;
 
 public class GameOfLife {
 
-  private int[][] generateDualArray;
-  private int iter;
-  private int rows;
-  private int columns;
-
   /**
    * The method that launches the game.
    * Rules:
@@ -35,81 +30,92 @@ public class GameOfLife {
   public void game(String fileNameInput, String fileNameOutput) {
     List<String> list = readFile(fileNameInput);
     if (list != null) {
-      createDualArrays(list);
+      int[] sizes = readingSizes(list.get(0));
+      int rows = sizes[0];
+      int columns = sizes[1];
+      int iter = sizes[2];
+
+      int[][] dualArray = creatureDualArrays(list, rows, columns);
       for (int i = 0; i < iter; i++) {
-        nextGeneration();
+        dualArray = nextGeneration(dualArray);
       }
-      writeFile(fileNameOutput);
+      writeFile(fileNameOutput, dualArray);
     } else {
       throw new NullPointerException();
     }
   }
 
-  private void generateSizes(String s) {
+  private int[] readingSizes(String s) {
     String[] arr = s.split(",");
     int[] sizes = new int[3];
     for (int i = 0; i < sizes.length; i++) {
       sizes[i] = Integer.parseInt(arr[i]);
     }
-    rows = sizes[0];
-    columns = sizes[1];
-    iter = sizes[2];
+    return sizes;
   }
 
-  private void createDualArrays(List<String> stringList) {
-    generateSizes(stringList.get(0));
-    generateDualArray = new int[rows][columns];
+  private int[][] creatureDualArrays(List<String> stringList, int rows, int columns) {
+    int[][] dualArray = new int[rows][columns];
     for (int i = 0; i < rows; i++) {
       String[] arr = stringList.get(i + 1).split(" ");
       for (int j = 0; j < columns; j++) {
         if (arr[j].equals("O")) {
-          generateDualArray[i][j] = 0;
+          dualArray[i][j] = 0;
         } else {
-          generateDualArray[i][j] = 1;
+          dualArray[i][j] = 1;
         }
       }
     }
+    return dualArray;
   }
 
-  private void nextGeneration() {
+  private int[][] nextGeneration(int[][] dualArray) {
+    int rows = dualArray.length;
+    int columns = dualArray[0].length;
+
     int[][] futureArr = new int[rows][columns];
 
     for (int l = 0; l < rows; l++) {
       for (int m = 0; m < columns; m++) {
 
-        int aliveNeighbours = aliveNeighbors(rows, columns, l, m);
+        int aliveNeighbours = aliveNeighbors(dualArray, rows, columns, l, m);
 
-        if ((generateDualArray[l][m] == 1) && (aliveNeighbours < 2)) {
+        if ((dualArray[l][m] == 1) && (aliveNeighbours < 2)) {
           futureArr[l][m] = 0;
-        } else if ((generateDualArray[l][m] == 1) && (aliveNeighbours > 3)) {
+        } else if ((dualArray[l][m] == 1) && (aliveNeighbours > 3)) {
           futureArr[l][m] = 0;
-        } else if ((generateDualArray[l][m] == 0) && (aliveNeighbours == 3)) {
+        } else if ((dualArray[l][m] == 0) && (aliveNeighbours == 3)) {
           futureArr[l][m] = 1;
         } else {
-          futureArr[l][m] = generateDualArray[l][m];
+          futureArr[l][m] = dualArray[l][m];
         }
       }
     }
-    generateDualArray = futureArr;
+    return futureArr;
   }
 
   /**
    * A method that defines living neighbors.
    *
-   * @param m - max by rows
-   * @param n - max by column
-   * @param i - index by rows
-   * @param j - index by column
+   * @param dualArray      - array with elements
+   * @param numberRows     - number of rows
+   * @param numberColumns  - number of column
+   * @param indexByRows    - index by rows
+   * @param indexByColumns - index by columns
    * @return number alive neighbors
    */
-  public int aliveNeighbors(int m, int n, int i, int j) {
+  public int aliveNeighbors(int[][] dualArray, int numberRows, int numberColumns, int indexByRows,
+      int indexByColumns) {
     int alive = 0;
     for (int x = -1; x <= 1; x++) {
       for (int y = -1; y <= 1; y++) {
-        alive += generateDualArray[(i + x + m) % m][(j + y + n) % n];
+        int neighborIndexByRows = (indexByRows + x + numberRows) % numberRows;
+        int neighborIndexByColumns = (indexByColumns + y + numberColumns) % numberColumns;
+
+        alive += dualArray[neighborIndexByRows][neighborIndexByColumns];
       }
     }
-    alive -= generateDualArray[i][j];
+    alive -= dualArray[indexByRows][indexByColumns];
     return alive;
   }
 
@@ -119,12 +125,14 @@ public class GameOfLife {
     return gameStreamResult.collect(Collectors.toList());
   }
 
-  private void writeFile(String fileName) {
+  private void writeFile(String fileName, int[][] dualArray) {
 
     StringBuilder stringBuilder = new StringBuilder();
+    int rows = dualArray.length;
+    int columns = dualArray[0].length;
     for (int l = 0; l < rows; l++) {
       for (int m = 0; m < columns; m++) {
-        if (generateDualArray[l][m] == 0) {
+        if (dualArray[l][m] == 0) {
           stringBuilder.append("O");
         } else {
           stringBuilder.append("X");
