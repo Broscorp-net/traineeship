@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class BoxingTest {
 
   @Test
-  public void ComparingWrappersWithEqualValuesShouldReturnTrue() {
+  public void comparingWrappersWithEqualValuesShouldReturnTrue() {
     Integer int1 = new Integer(5);
     Integer int2 = int1;
 
@@ -14,7 +14,7 @@ public class BoxingTest {
   }
 
   @Test
-  public void ComparingWrappersWithEqualValuesShouldReturnFalse() {
+  public void comparingWrappersWithEqualValuesShouldReturnFalse() {
     Integer int1 = new Integer(5);
     Integer int2 = new Integer(5);
 
@@ -22,7 +22,7 @@ public class BoxingTest {
   }
 
   @Test
-  public void AutounboxingShouldThrowNullPointerExceptionWhenIntegerEqualsNull() {
+  public void autounboxingShouldThrowNullPointerExceptionWhenIntegerEqualsNull() {
     Integer int1 = null;
     int int2 = 0;
     Assertions.assertThrows(NullPointerException.class, () -> {
