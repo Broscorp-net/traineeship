@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 public class FooTest {
 
+  //Метод foo добавляет 15 к передаваемому числу, но он не возвращает ничего,
+  //а значит - изменения локальные
   @Test
   public void numbersDoesNotChange() {
     List<String> list = new ArrayList<>();
@@ -18,10 +20,11 @@ public class FooTest {
     Foo foo = new Foo();
     foo.foo(someInt, list);
 
-    Assertions.assertNotEquals(expectedNewInt, someInt,
-        "Метод foo добавляет 15 к передаваемому числу, но он не возвращает ничего, а значит - изменения локальные");
+    Assertions.assertNotEquals(expectedNewInt, someInt);
   }
 
+  //Список - объект, изменения в методе касаются списка везде, так как объекты передаются по ссылке,
+  //а значит - список пополнился строчкой "d"
   @Test
   public void addedStringDInList() {
     List<String> list = new ArrayList<>();
@@ -31,8 +34,7 @@ public class FooTest {
     int someNumber = 15;
     Foo foo = new Foo();
     foo.foo(someNumber, list);
-    Assertions.assertTrue(list.contains("d"),
-        "Список - объект, изменения в методе касаются списка везде, так как объекты передаются по ссылке, а значит список пополнился строчкой \"d\"");
+    Assertions.assertTrue(list.contains("d"));
     Assertions.assertEquals(4, list.size());
   }
 }
