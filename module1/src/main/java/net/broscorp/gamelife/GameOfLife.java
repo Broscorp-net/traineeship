@@ -13,15 +13,10 @@ import java.util.stream.Stream;
 public class GameOfLife {
 
   /**
-   * The method that launches the game.
-   * Rules:
-   * - Any live cell with fewer than two live neighbours
-   * dies, as if by underpopulation.
-   * - Any live cell with two or three live neighbours lives on to
-   * the next generation.
-   * - Any live cell with more than three live neighbours dies, as if by
-   * overpopulation.
-   * - Any dead cell with exactly three live neighbours becomes a live cell, as if
+   * The method that launches the game. Rules: - Any live cell with fewer than two live neighbours
+   * dies, as if by underpopulation. - Any live cell with two or three live neighbours lives on to
+   * the next generation. - Any live cell with more than three live neighbours dies, as if by
+   * overpopulation. - Any dead cell with exactly three live neighbours becomes a live cell, as if
    * by reproduction.
    *
    * @param fileNameInput  - incoming file for Game
@@ -29,23 +24,19 @@ public class GameOfLife {
    */
   public void game(String fileNameInput, String fileNameOutput) {
     List<String> list = readFile(fileNameInput);
-    if (list != null) {
-      int[] sizes = readingSizes(list.get(0));
-      int rows = sizes[0];
-      int columns = sizes[1];
-      int iter = sizes[2];
+    int[] sizes = readSizes(list.get(0));
+    int rows = sizes[0];
+    int columns = sizes[1];
+    int iter = sizes[2];
 
-      int[][] dualArray = creatureDualArrays(list, rows, columns);
-      for (int i = 0; i < iter; i++) {
-        dualArray = nextGeneration(dualArray);
-      }
-      writingToFile(fileNameOutput, dualArray);
-    } else {
-      throw new NullPointerException();
+    int[][] dualArray = createDualArrays(list, rows, columns);
+    for (int i = 0; i < iter; i++) {
+      dualArray = nextGeneration(dualArray);
     }
+    writeToFile(fileNameOutput, dualArray);
   }
 
-  private int[] readingSizes(String s) {
+  private int[] readSizes(String s) {
     String[] arr = s.split(",");
     int[] sizes = new int[3];
     for (int i = 0; i < sizes.length; i++) {
@@ -54,7 +45,7 @@ public class GameOfLife {
     return sizes;
   }
 
-  private int[][] creatureDualArrays(List<String> stringList, int rows, int columns) {
+  private int[][] createDualArrays(List<String> stringList, int rows, int columns) {
     int[][] dualArray = new int[rows][columns];
     for (int i = 0; i < rows; i++) {
       String[] arr = stringList.get(i + 1).split(" ");
@@ -125,7 +116,7 @@ public class GameOfLife {
     return gameStreamResult.collect(Collectors.toList());
   }
 
-  private void writingToFile(String fileName, int[][] dualArray) {
+  private void writeToFile(String fileName, int[][] dualArray) {
 
     StringBuilder stringBuilder = new StringBuilder();
     int rows = dualArray.length;
