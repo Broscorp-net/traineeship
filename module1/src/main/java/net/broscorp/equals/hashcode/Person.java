@@ -4,6 +4,13 @@ import java.util.Objects;
 
 public class Person {
 
+  /**
+   * Constructor parameters.
+   *
+   * @param id - person's id
+   * @param age - person's age
+   * @param name - person's name
+   */
   private int id;
   private int age;
   private String name;
