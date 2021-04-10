@@ -19,11 +19,11 @@ public class Person {
 
   @Override
   public String toString() {
-    return "Person{" +
-        "id=" + id +
-        ", age=" + age +
-        ", name='" + name + '\'' +
-        '}';
+    return "Person{"
+        + "id=" + id
+        + ", age=" + age
+        + ", name='" + name + '\''
+        + '}';
   }
 
   @Override

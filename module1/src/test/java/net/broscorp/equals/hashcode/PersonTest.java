@@ -13,16 +13,16 @@ public class PersonTest {
 
   @Test
   public void givenObjectShouldBeEqualsToItself() {
-    Person personX = new Person(1,10, "X");
+    Person personX = new Person(1, 10, "X");
 
     Assertions.assertTrue(personX.equals(personX));
   }
 
   @Test
   public void givenEqualObjectsShouldBeEqualToEachOther() {
-    Person personX = new Person(1, 10,"X");
-    Person personY = new Person(1, 10,"X");
-    Person personZ = new Person(1, 10,"X");
+    Person personX = new Person(1, 10, "X");
+    Person personY = new Person(1, 10, "X");
+    Person personZ = new Person(1, 10, "X");
 
     Assertions.assertTrue(personX.equals(personY));
     Assertions.assertTrue(personY.equals(personX));
@@ -32,15 +32,15 @@ public class PersonTest {
 
   @Test
   public void givenNotNullObjectWhenCompareWithNullShouldReturnFalse() {
-    Person personX = new Person(1, 10,"X");
+    Person personX = new Person(1, 10, "X");
 
     Assertions.assertFalse(personX.equals(null));
   }
 
   @Test
-  public void hashCodesOfEqualObjectsShouldBeEqual(){
-    Person personX = new Person(1, 10,"X");
-    Person personY = new Person(1, 10,"X");
+  public void hashCodesOfEqualObjectsShouldBeEqual() {
+    Person personX = new Person(1, 10, "X");
+    Person personY = new Person(1, 10, "X");
     int firstHash = personX.hashCode();
     int secondHash = personY.hashCode();
     Assertions.assertTrue(firstHash == secondHash);
@@ -65,7 +65,8 @@ public class PersonTest {
                 + ", вот объект "
                 + personList.get(iterator + 1)
                 + ", они разные, но их хеш совпадает");
-        Assertions.assertEquals(personList.get(iterator).hashCode(), personList.get(iterator + 1).hashCode());
+        Assertions.assertEquals(personList.get(iterator).hashCode(),
+            personList.get(iterator + 1).hashCode());
         Assertions.assertNotEquals(personList.get(iterator), personList.get(iterator + 1));
       }
     }
