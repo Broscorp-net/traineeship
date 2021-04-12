@@ -33,14 +33,12 @@ public class MyCoolListIteratorTest {
 
   @Test
   public void checkMethodHasNextOfMyCoolListIteratorTest() {
-    for (int i = 0; i < myCoolList.size(); i++) {
+    for (int i = 0; i < myCoolList.size() - 1; i++) {
       myCoolListIterator.next();
-      if (i < (myCoolList.size() - 1)) {
-        assertTrue(myCoolListIterator.hasNext());
-      } else {
-        assertFalse(myCoolListIterator.hasNext());
-      }
+      assertTrue(myCoolListIterator.hasNext());
     }
+    myCoolListIterator.next();
+    assertFalse(myCoolListIterator.hasNext());
   }
 
   @Test
