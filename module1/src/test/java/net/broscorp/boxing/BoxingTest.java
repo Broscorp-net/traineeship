@@ -29,11 +29,6 @@ class BoxingTest {
   @Test
   void unboxingExceptionTest() {
     Integer a = null;
-    try {
-      int b = a;
-      Assertions.fail("Exception fail");
-    } catch (NullPointerException ex) {
-      Assertions.assertTrue(1 == 1);
-    }
+    Assertions.assertThrows(NullPointerException.class,() -> Integer.reverse(a));
   }
 }
