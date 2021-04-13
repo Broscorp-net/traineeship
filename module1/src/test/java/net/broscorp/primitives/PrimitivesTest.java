@@ -1,5 +1,3 @@
-//import org.junit.Assert;
-//import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,13 +8,14 @@ public class PrimitivesTest {
   public void owerflowTest() {
     byte a = 127;
     byte b = (byte)(a + 1);
+    Assertions.assertEquals(Byte.MIN_VALUE,b);
   }
 
   @Test
   public void longToIntTest() {
-    long a = 50500040L;
+    long a = Long.MAX_VALUE;
     int  b = (int)a;
-    Assertions.assertEquals(b,a);
+    Assertions.assertTrue(b < 0);
   }
 
   @Test
