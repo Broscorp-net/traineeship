@@ -12,8 +12,10 @@ public class JunitPrimitives {
 
   @Test
   void whenByteOverflow() {
-    byte testByte = 120;
-    testByte += 12;
+    byte actual = 120;
+    byte expected = -124;
+    actual += 12;
+    Assertions.assertSame(expected, actual);
   }
 
   @Test
@@ -40,9 +42,9 @@ public class JunitPrimitives {
 
   @Test
   void floatingPointError() {
-    double first = 2.0;
-    double second = 1.1;
-    System.out.println(first - second);
+    double actual = 2.0 - 1.1;
+    double expected = 0.8999999999999999;
+    Assertions.assertEquals(expected, actual);
   }
 
 }
