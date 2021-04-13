@@ -30,17 +30,17 @@ public class BoxingTest {
 
   @Test
     void whenIntegerIsInARangeOfByteValues() {
-    Assertions.assertSame(firstCacheInteger, secondCacheInteger);
+    Assertions.assertTrue(firstCacheInteger == secondCacheInteger);
   }
 
   @Test
     void whenIntegerIsCreatedViaNew() {
-    Assertions.assertNotSame(firstCacheInteger, newObjectInteger);
+    Assertions.assertFalse(firstCacheInteger == newObjectInteger);
   }
 
   @Test
     void whenIntegerIsOutOfRangeByteValues() {
-    Assertions.assertNotSame(firstNoCacheInteger, secondNoCacheInteger);
+    Assertions.assertFalse(firstNoCacheInteger == secondNoCacheInteger);
   }
 
   void nullIntegerCastToInt() {
