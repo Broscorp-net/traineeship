@@ -113,7 +113,7 @@ public class GameOfLife {
             .replace(fileNameInput, fileNameOutput)
             .replace("file:/", "")
             .replaceAll("/", "\\\\");
-    File file = new File(pathToResource);
+    File file = new File(Paths.get(pathToResource).toUri());
     try (PrintWriter out = new PrintWriter(new FileWriter(file, false))) {
       for (ArrayList<String> list : stateList) {
         out.println(list.toString().replaceAll("[\\[\\],]", ""));
