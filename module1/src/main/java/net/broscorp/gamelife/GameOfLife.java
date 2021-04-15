@@ -61,7 +61,7 @@ public class GameOfLife {
       currentStateList = newStateList;
       generationCounter++;
     }
-    outputStateListToFile(currentStateList, fileNameInput, fileNameOutput);
+    outputStateListToFile(currentStateList, fileNameOutput);
   }
 
   private List<ArrayList<String>> getInitParamsFromFile(String fileNameInput) {
@@ -105,21 +105,13 @@ public class GameOfLife {
         : numberOfAliveNeighbors;
   }
 
-  private void outputStateListToFile(
-      List<ArrayList<String>> stateList, String fileNameInput, String fileNameOutput) {
-    String pathToResource =
-        ClassLoader.getSystemResource(fileNameInput)
-            .toString()
-            .replace(fileNameInput, fileNameOutput)
-            .replace("file:/", "")
-            .replaceAll("\\\\/", File.separator);
-    File file = new File(Paths.get(pathToResource).toUri());
+  private void outputStateListToFile(List<ArrayList<String>> stateList, String fileNameOutput) {
+    File file = new File(fileNameOutput);
     try (PrintWriter out = new PrintWriter(new FileWriter(file, false))) {
       for (ArrayList<String> list : stateList) {
         out.println(list.toString().replaceAll("[\\[\\],]", ""));
       }
     } catch (IOException e) {
-      e.printStackTrace();
       System.out.println("File not found");
     }
   }
