@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Map;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -18,17 +19,21 @@ public class StringHandlerTest {
   }
 
   @Test
-  public void checkIfWordIsPalindromeTest() {
-    assertFalse(stringHandler.checkIfWordIsPalindrome("test"));
+  public void checkWordIsPalindromeTest() {
     assertTrue(stringHandler.checkIfWordIsPalindrome("saippuakivikauppias"));
   }
 
   @Test
+  public void checkWordIsNotPalindromeTest() {
+    assertFalse(stringHandler.checkIfWordIsPalindrome("test"));
+  }
+
+  @Test
   public void removeEverythingExceptFirstOccurrenceOfDesiredSubstringTest() {
-    assertEquals(
-        "Hello",
+    String realResultOfMethod =
         stringHandler.removeEverythingExceptFirstOccurrenceOfDesiredSubstring(
-            originalString, "Hello"));
+            originalString, "Hello");
+    assertEquals("Hello", realResultOfMethod);
   }
 
   // This test checks the method that removes all letters "l" from the phrase "Hello World". Each
@@ -53,9 +58,11 @@ public class StringHandlerTest {
 
   @Test
   public void getAllWordsWithNumberOfLettersInEachTest() {
-    assertEquals(
-        "{hello=5, world=5}",
-        stringHandler.getAllWordsWithNumberOfLettersInEach(originalString).toString());
+    Map<String, Integer> resultWordMap =
+        stringHandler.getAllWordsWithNumberOfLettersInEach(originalString);
+    for (Map.Entry<String, Integer> e : resultWordMap.entrySet()) {
+      assertEquals(e.getKey().length(), e.getValue());
+    }
   }
 
   @Test
