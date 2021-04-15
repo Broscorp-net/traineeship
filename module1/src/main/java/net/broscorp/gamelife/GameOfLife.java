@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GameOfLife {
@@ -106,7 +107,10 @@ public class GameOfLife {
   }
 
   private void outputStateListToFile(List<ArrayList<String>> stateList, String fileNameOutput) {
-    File file = new File(fileNameOutput);
+    File file =
+        new File(
+            Objects.requireNonNull(getClass().getClassLoader().getResource(".")).getFile()
+                + fileNameOutput);
     try (PrintWriter out = new PrintWriter(new FileWriter(file, false))) {
       for (ArrayList<String> list : stateList) {
         out.println(list.toString().replaceAll("[\\[\\],]", ""));
