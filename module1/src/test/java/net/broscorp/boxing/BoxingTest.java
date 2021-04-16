@@ -23,10 +23,15 @@ public class BoxingTest {
 
   @Test
   public void comparingWrappersWithEqualValuesShouldReturnFalse2() {
-    Integer int1 = new Integer(5);
-    Integer int2 = new Integer(2 + 3);
+    Integer int1 = 5;
+    Integer int2 = 5;
 
-    Assertions.assertFalse(int1 == int2);
+    Assertions.assertTrue(int1 == int2);
+
+    Integer int3 = 250;
+    Integer int4 = 250;
+
+    Assertions.assertFalse(int3 == int4);
   }
 
   @Test
