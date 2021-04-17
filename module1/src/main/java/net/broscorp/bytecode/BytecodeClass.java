@@ -2,6 +2,9 @@ package net.broscorp.bytecode;
 
 public class BytecodeClass {
 
+  /**
+   * Just a class for a task
+   */
   public static void main(String[] args) {
     int increment = 0;
     while (increment < 10) {
