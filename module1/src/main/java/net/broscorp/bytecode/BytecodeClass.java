@@ -3,7 +3,7 @@ package net.broscorp.bytecode;
 public class BytecodeClass {
 
   /**
-   * Just a class for a task
+   * Just a class for a task.
    */
   public static void main(String[] args) {
     int increment = 0;
@@ -18,6 +18,9 @@ public class BytecodeClass {
     System.out.println("Hello :)");
   }
 
+  /**
+   * Just a new Method to see changes.
+   */
   public static void newMethod() {
     int iterator = 0;
     iterator++;
