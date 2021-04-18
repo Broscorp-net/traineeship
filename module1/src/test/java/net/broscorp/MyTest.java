@@ -1,12 +1,21 @@
 package net.broscorp;
 
-import org.junit.jupiter.api.Assertions;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 
 class MyTest {
 
   @Test
-  void test() {
-    Assertions.assertTrue(true);
+  public void tryWithResourcesException() throws IOException {
+    try (FileReader fw = new FileReader("test.txt")) {
+      int read = fw.read();
+    } catch (FileNotFoundException ignored) {
+      //перехватываем FileNotFoundException, у которого предок IOException
+    } finally {
+      System.out.println("bye bye");
+    }
   }
 }

@@ -1,0 +1,13 @@
+digraph G {
+ th [label="Throwable"]
+ ex [label="Exception"]
+ er [label="Error \nshould not be caught\ncould be declared\nirrecoverable erros"]
+ run_ex[label="Runtime Exception \nshould be caught\ncould be declared\nrecoverable errors"]
+
+ {rank=same;ex;er}
+ {rank=sink;run_ex}
+ {rank=source;th}
+ run_ex -> ex
+ ex-> th
+ er-> th
+}
