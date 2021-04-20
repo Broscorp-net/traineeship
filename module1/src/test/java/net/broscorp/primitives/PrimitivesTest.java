@@ -61,8 +61,9 @@ public class PrimitivesTest {
   }
 
   @Test
-  public void errorsWhileWorkingWithFloats(){
+  public void errorsWhileWorkingWithFloats() {
     float someFloat = 2.5f + 3.2f;
+
     Assertions.assertFalse(someFloat == 5.7);
   }
 }
