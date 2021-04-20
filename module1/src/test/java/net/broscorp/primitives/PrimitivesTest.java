@@ -3,6 +3,7 @@ package net.broscorp.primitives;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PrimitivesTest {
@@ -57,5 +58,11 @@ public class PrimitivesTest {
     float doubleToFloat = (float) someDouble;
 
     assertNotEquals(158.168, doubleToFloat);
+  }
+
+  @Test
+  public void errorsWhileWorkingWithFloats(){
+    float someFloat = 2.5f + 3.2f;
+    Assertions.assertFalse(someFloat == 5.7);
   }
 }
