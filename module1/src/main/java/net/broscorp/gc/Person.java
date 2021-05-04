@@ -2,32 +2,22 @@ package net.broscorp.gc;
 
 public class Person {
 
-  private int id;
-  private String name;
+  /**
+   * Person is another person.
+   */
+  private Person person;
 
-  public Person(int id, String name) {
-    this.id = id;
-    this.name = name;
+  public Person getPerson() {
+    return person;
   }
 
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPerson(Person person) {
+    this.person = person;
   }
 
   @Override
-  protected void finalize() {
-    System.out.printf("Object" + id + "deleted by GC\n");
+  protected void finalize() throws Throwable {
+    System.out.printf("Object" + this.toString() + "deleted by GC\n");
+    super.finalize();
   }
 }
