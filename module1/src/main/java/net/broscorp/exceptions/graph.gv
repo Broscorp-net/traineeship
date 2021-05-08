@@ -1,0 +1,14 @@
+digraph Exceptions {
+  Throwable[shape=box color=purple];
+  IOException[shape=box color=green];
+  Exception[shape=box color=green];
+  Error[shape=oval color=red];
+  RuntimeException[shape=oval color=red];
+  checked[shape=box color=green];
+  unchecked[shape=oval color=red];
+
+  Throwable -> Exception [color=green];
+  Throwable -> Error [color=red];
+  Exception -> RuntimeException [color=red];
+  Exception -> IOException [color=green];
+}
