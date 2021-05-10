@@ -1,28 +1,63 @@
 package net.broscorp.generics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import java.util.stream.Collectors;
 
-public class MyCoolList {
+public class MyCoolList<T extends Number> {
 
-  public void add(Object o) {
-    throw new NotImplementedException();
+  private List<T> myList = new ArrayList<>();
+
+  /**
+   * Adds new element to the list.
+   *
+   * @param t is parametrized object.
+   */
+  public void add(T t) {
+    myList.add(t);
   }
 
-  public Object get(int index) {
-    throw new NotImplementedException();
+  /**
+   * Gets concrete element from list.
+   *
+   * @param index is elements index in list.
+   * @return element in list by this index.
+   */
+  public T get(int index) throws IndexOutOfBoundsException {
+    return myList.get(index);
   }
 
-  public Object remove(int index) {
-    throw new NotImplementedException();
+  /**
+   * Removes concrete element from the list.
+   *
+   * @param index is elements index in list.
+   * @return list without removed element.
+   */
+  public T remove(int index) throws IndexOutOfBoundsException {
+    return myList.remove(index);
   }
 
-  public MyCoolList map(Function f) {
-    throw new NotImplementedException();
-  }
-
+  /**
+   * Returns int, that means current size of the list.
+   *
+   * @return size of the list.
+   */
   public int size() {
-    throw new NotImplementedException();
+    return myList.size();
+  }
+
+  public List<T> getMyList() {
+    return myList;
+  }
+
+  public void setMyList(List<T> myList) {
+    this.myList = myList;
+  }
+
+  public MyCoolList<T> map(Function<T, T> function) {
+    this.setMyList(myList.stream().map(function).collect(Collectors.toList()));
+    return this;
   }
 
 }
