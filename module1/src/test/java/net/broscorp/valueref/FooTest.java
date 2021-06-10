@@ -11,7 +11,7 @@ public class FooTest {
   private final List<String> listString = Arrays.asList("First", "Second", "Third");
   private final List<String> listNewString = new ArrayList<>(
       Arrays.asList("One", "Two", "Three"));
-  private final int anInt = 5;
+  private final int Int = 5;
   private List<String> ListEmpty;
   private final Integer varNull = null;
   private final Foo foo = new Foo();
@@ -22,7 +22,7 @@ public class FooTest {
   @Test
   public void checkOnNullPointerExceptionList() {
     Assertions.assertThrows(NullPointerException.class, () -> {
-      foo.foo(anInt, ListEmpty);
+      foo.foo(Int, ListEmpty);
     }, "List strings was empty");
   }
 
@@ -44,13 +44,13 @@ public class FooTest {
   @Test
   public void checkOnUnsupportedOperationException() {
     Assertions.assertThrows(UnsupportedOperationException.class, () -> {
-      foo.foo(anInt, listString);
+      foo.foo(Int, listString);
     }, "Resize");
   }
 
   @Test
   public void fooNotThrowException() {
-    Assertions.assertDoesNotThrow(() -> foo.foo(anInt, listNewString));
+    Assertions.assertDoesNotThrow(() -> foo.foo(Int, listNewString));
   }
 
   /**
@@ -61,8 +61,8 @@ public class FooTest {
    */
   @Test
   public void checkingMethodOnChangedParam() {
-    foo.foo(anInt, listNewString);
-    Assertions.assertNotEquals(20, anInt);
+    foo.foo(Int, listNewString);
+    Assertions.assertNotEquals(20, Int);
     Assertions.assertEquals("d", listNewString.get(listNewString.size() - 1));
   }
 }
