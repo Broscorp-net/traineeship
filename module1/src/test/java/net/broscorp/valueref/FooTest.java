@@ -12,7 +12,7 @@ public class FooTest {
   private final List<String> listNewString = new ArrayList<>(
       Arrays.asList("One", "Two", "Three"));
   private final int anInt = 5;
-  private List<String> listEmpty;
+  private List<String> ListEmpty;
   private final Integer varNull = null;
   private final Foo foo = new Foo();
 
@@ -22,7 +22,7 @@ public class FooTest {
   @Test
   public void checkOnNullPointerExceptionList() {
     Assertions.assertThrows(NullPointerException.class, () -> {
-      foo.foo(anInt, listEmpty);
+      foo.foo(anInt, ListEmpty);
     }, "List strings was empty");
   }
 
