@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class FooTest {
+public class FooTest{
 
   private final List<String> listString = Arrays.asList("First", "Second", "Third");
   private final List<String> listNewString = new ArrayList<>(
