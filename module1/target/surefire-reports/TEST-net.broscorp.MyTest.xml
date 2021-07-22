@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\Envy\AppData\Local\Temp\surefire14128315883006146858\surefirebooter6759892336643269328.jar C:\Users\Envy\AppData\Local\Temp\surefire14128315883006146858 2021-07-22T17-35-12_309-jvmRun1 surefire9679630428423678519tmp surefire_013123575434008304512tmp"/>
+    <property name="sun.java.command" value="C:\Users\Envy\AppData\Local\Temp\surefire4856625849035789840\surefirebooter14739833094135944146.jar C:\Users\Envy\AppData\Local\Temp\surefire4856625849035789840 2021-07-22T20-32-12_932-jvmRun1 surefire3913303557150162623tmp surefire_04044668667774338259tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Envy\IdeaProjects\traineeship\module1\target\test-classes;C:\Users\Envy\IdeaProjects\traineeship\module1\target\classes;C:\Users\Envy\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Envy\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Envy\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Envy\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Envy\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Envy\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Envy\AppData\Local\Temp\surefire14128315883006146858\surefirebooter6759892336643269328.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Envy\AppData\Local\Temp\surefire4856625849035789840\surefirebooter14739833094135944146.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>

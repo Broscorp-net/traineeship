@@ -3,20 +3,24 @@ package net.broscorp.valueref;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class FooTest {
   private Foo obj;
-  private int i;
+  private int num;
   private List<String> list;
+
+  /**
+   * Method setup variables.
+   */
 
   @BeforeEach
   public void setUp() {
-    i = 10;
+    num = 10;
     obj = new Foo();
     list = new ArrayList<>();
   }
@@ -33,8 +37,8 @@ public class FooTest {
    */
   @Test
   public void fooAdditionTest() {
-    obj.foo(i, list);
-    assertEquals(10, i);
+    obj.foo(num, list);
+    assertEquals(10, num);
     assertTrue(list.contains("d"));
   }
 }
