@@ -1,5 +1,5 @@
 package net.broscorp.generics;
-
+/*
 import java.util.function.Function;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -26,3 +26,4 @@ public class MyCoolList {
   }
 
 }
+*/
