@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.19">
-<file name="C:\Users\Envy\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\checkstyle\StyledClass.java">
-</file>
 <file name="C:\Users\Envy\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\gamelife\GameOfLife.java">
 </file>
 <file name="C:\Users\Envy\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\generics\MyCoolList.java">
@@ -11,5 +9,7 @@
 <file name="C:\Users\Envy\IdeaProjects\traineeship\module1\src\test\java\net\broscorp\gamelife\GameOfLifeTest.java">
 </file>
 <file name="C:\Users\Envy\IdeaProjects\traineeship\module1\src\test\java\net\broscorp\MyTest.java">
+</file>
+<file name="C:\Users\Envy\IdeaProjects\traineeship\module1\src\test\java\net\broscorp\primitives\PrimitivesTest.java">
 </file>
 </checkstyle>
