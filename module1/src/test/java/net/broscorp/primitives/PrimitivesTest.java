@@ -80,7 +80,7 @@ public class PrimitivesTest {
   }
 
   /**
-   * Assert that casting to a larger range primitive (upcasting) is implicit
+   * Assert that casting to a larger range primitive (upcasting) is implicit.
    */
 
   @ParameterizedTest
