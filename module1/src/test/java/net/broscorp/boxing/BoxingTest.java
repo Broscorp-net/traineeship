@@ -64,11 +64,11 @@ public class BoxingTest {
   }
 
   /**
-   * Implicit unboxing causes exception
+   * Implicit unboxing causes exception.
    */
 
   @Test
-  void testThrowsNPE() {
+  void testThrowsNullPointerException() {
     Integer num = null;
     assertThrows(NullPointerException.class, () -> {
       int i = num;
