@@ -215,10 +215,10 @@ public class PrimitiveTypesTest {
     double x = 0.8;
     double y = 0.10;
     //when
-    double xPlusOne = x + 0.1;
-    double yMinusOne = y - 0.1;
+    double sumResult = x + 0.1;
+    double subResult = y - 0.1;
     //then
-    assertNotEquals(xPlusOne, yMinusOne);
+    assertNotEquals(sumResult, subResult);
   }
 
   @Test
