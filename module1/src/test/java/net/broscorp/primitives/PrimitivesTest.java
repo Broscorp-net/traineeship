@@ -14,62 +14,62 @@ class PrimitivesTest {
   @Test
   void testPositiveOverflowNumberTypes() {
     assertTrue((Integer.MAX_VALUE + 10) < Integer.MAX_VALUE);
-    assertTrue(Integer.MAX_VALUE + 1 == Integer.MIN_VALUE);
+    assertEquals(Integer.MAX_VALUE + 1, Integer.MIN_VALUE);
   }
 
   @DisplayName("Negative overflow Integer type")
   @Test
   void testNegativeOverflowNumberTypes() {
     assertTrue((Integer.MIN_VALUE - 10) > Integer.MIN_VALUE);
-    assertTrue(Integer.MIN_VALUE - 1 == Integer.MAX_VALUE);
+    assertEquals(Integer.MIN_VALUE - 1, Integer.MAX_VALUE);
   }
 
   @DisplayName("Conversion long to integer errors are possible")
   @Test
   void testConversionLongToInt() {
-    long xLong = Integer.MAX_VALUE + 10L;
-    int xInt = (int) xLong;
-    assertNotEquals(xLong, xInt);
+    long varLong = Integer.MAX_VALUE + 10L;
+    int varInt = (int) varLong;
+    assertNotEquals(varLong, varInt);
   }
 
   @DisplayName("Conversion integer to long - no errors")
   @Test
   void testConversionIntToLong() {
-    int xInt = Integer.MAX_VALUE;
-    long xLong;
-    xLong = xInt;
-    assertEquals(xLong, xInt);
+    int varInt = Integer.MAX_VALUE;
+    long varLong;
+    varLong = varInt;
+    assertEquals(varLong, varInt);
   }
 
   @DisplayName("Conversion double to float errors are possible")
   @Test
   void testConversionDoubleTofFoat() {
-    double xdouble = Double.MAX_VALUE + 10.;
-    float xfloat = (int) xdouble;
-    assertNotEquals(xdouble, xfloat);
+    double varDouble = Double.MAX_VALUE + 10.;
+    float varFloat = (int) varDouble;
+    assertNotEquals(varDouble, varFloat);
   }
 
   @DisplayName("Conversion float to double - no errors")
   @Test
   void testConversionFloatToDouble() {
-    float xfloat = Float.MAX_VALUE;
-    double xdouble;
-    xdouble = xfloat;
-    assertEquals(xdouble, xfloat);
+    float varFloat = Float.MAX_VALUE;
+    double varDouble;
+    varDouble = varFloat;
+    assertEquals(varDouble, varFloat);
   }
 
   @DisplayName("Conversion int to float - loss of precision possible")
   @Test
   void testConversionIntToFloat() {
-    int xInt = 1234567890;
-    float xFloat = xInt;
-    assertNotEquals((int) xFloat, xInt);
+    int varInt = 1234567890;
+    float varFloat = varInt;
+    assertNotEquals((int) varFloat, varInt);
   }
 
   @DisplayName("Error with floating point")
   @Test
   void testFloatingPointError() {
-    float xFloat = 0.1111111f;
-    assertNotEquals(0.5555555, xFloat * 5);
+    float varFloat = 0.1111111f;
+    assertNotEquals(0.5555555, varFloat * 5);
   }
 }
