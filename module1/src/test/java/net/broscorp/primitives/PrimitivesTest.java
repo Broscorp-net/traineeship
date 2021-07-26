@@ -172,9 +172,15 @@ public class PrimitivesTest {
     int i = 13;
     double b = 13 / 3;
     assertNotEquals(i % 2, 0);
-    assertNotEquals(4.33333333333, 4.0);
     assertEquals(4.0, b);
   }
+
+  /**
+   * Below happens due to binary representation of a number. Floating point numbers cannot represent
+   * a number accurately. Decimal 0.1 has binary infinite repeating  representation. However, float
+   * is only 32-bit and double is 64-bit which is not enough for precise representation of decimals.
+   * Therefore arithmetic operations result in accumulation of rounding error
+   */
 
   @Test
   void testRoundingErrorWithSum() {
@@ -182,6 +188,14 @@ public class PrimitivesTest {
     double b = 0.1;
     double sum = a + b;
     assertEquals(0.7999999999999999, sum);
+  }
+
+  @Test
+  void testRoundingErrorWithSumOfFloatAndDouble() {
+    float a = 0.7f;
+    double b = 0.1;
+    double sum = a + b;
+    assertEquals(0.799999988079071, sum);
   }
 
   @Test
