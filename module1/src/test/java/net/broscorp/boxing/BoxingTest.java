@@ -15,7 +15,7 @@ public class BoxingTest {
         Integer i2 = 18;
 
         assertSame(i, i2);
-//        this example is simple
+
     }
 
     @Test
