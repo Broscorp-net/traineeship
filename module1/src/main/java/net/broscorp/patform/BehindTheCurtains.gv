@@ -1,31 +1,31 @@
-digraph G{
-    compound=true;
-    subgraph clusterJDK{
-    JDK->OtherDevTools;
-    JDK->Compiler;
-    label="Provides development environment.\n Superset of JRE";
-    }
-    subgraph clusterJRE{
-    JRE->JCL;
-    label="Provides libraries required by JVM to run the program \n Superset of JVM";
-    }
-    subgraph clusterJVM{
-    label= "Platform to run bytecode. Implemets WORA principle \n - loads bytecode,\n - verifies bytecode, \n - executes bytecode";
-    JVM->ClassLoader;
-    JVM->Memory;
-JVM->ExecutionEngine;
-    }
-    subgraph clusterJIT{
-    label= "Part of JVM \n Delivers fast rendering of bytecode to machine code \n Delivers machine code optimization";
-    JIT
-    }
-    JDK->JRE;
-    JRE->JVM;
-    JIT -> CodeCache
-    Memory -> Meta;
-    Memory -> Heap;
-    Memory -> Stack;
-    ExecutionEngine -> JIT;
-    ExecutionEngine -> Interpreter;
-    ExecutionEngine -> GC;
-}
+digraph Interaction{
+     compound=true;
+     subgraph clusterJDK{
+     JDK->OtherDevTools;
+     JDK->Compiler;
+     label="Provides development environment.\n Superset of JRE";
+     }
+     subgraph clusterJRE{
+     JRE->JCL;
+     label="Provides libraries required by JVM to run the program \n Superset of JVM";
+     }
+     subgraph clusterJVM{
+     label= "Platform to run bytecode. Implemets WORA principle \n - loads bytecode,\n - verifies bytecode, \n - executes bytecode";
+     JVM->ClassLoader;
+     JVM->Memory;
+     JVM->ExecutionEngine;
+     }
+     subgraph clusterJIT{
+     label= "Part of JVM \n Delivers fast rendering of bytecode to machine code \n Delivers machine code optimization";
+     JIT
+     }
+     JDK->JRE;
+     JRE->JVM;
+     JIT -> CodeCache
+     Memory -> Meta;
+     Memory -> Heap;
+     Memory -> Stack;
+     ExecutionEngine -> JIT;
+     ExecutionEngine -> Interpreter;
+     ExecutionEngine -> GC;
+ }
