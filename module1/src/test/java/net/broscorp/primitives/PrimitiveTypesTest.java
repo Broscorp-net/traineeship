@@ -199,14 +199,14 @@ public class PrimitiveTypesTest {
   // Precision Errors
 
   @Test
-  public void floatSumPrecisionError() {
+  public void floatSumRoundingError() {
     //given
-    float i = 0.0f;
+    float x = 0.4f;
+    float y = 0.3f;
     //when
-    for (; i < 1.0f; i += 0.1f) {
-    }
+    float result = x + y;
     //them
-    assertNotEquals(i, 1.0f);
+    assertNotEquals(0.7f, result);
   }
 
   @Test
