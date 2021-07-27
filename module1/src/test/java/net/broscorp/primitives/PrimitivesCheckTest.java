@@ -7,12 +7,6 @@ import org.junit.jupiter.api.Test;
 
 class PrimitivesCheckTest {
 
-  PrimitivesCheck primitive;
-
-  @BeforeEach
-  void init() {
-    primitive = new PrimitivesCheck();
-  }
 
   /**
    * This test is indicative for all numeric types.
@@ -20,21 +14,21 @@ class PrimitivesCheckTest {
   @Test
   void typeOverflowTest() {
     byte expected = Byte.MAX_VALUE;
-    byte actual = primitive.typeOverflow(expected);
-    Assertions.assertEquals(expected, actual);
+    byte actual = expected++;
+    Assertions.assertNotEquals(expected, actual);
   }
 
   @Test
   void longToIntConversionTest() {
     long expected = Long.MAX_VALUE;
-    int actual = primitive.longToIntConversion(expected);
-    Assertions.assertEquals(expected, actual);
+    int actual = (int)expected;
+    Assertions.assertNotEquals(expected, actual);
   }
 
   @Test
   void floatToDoubleConversionTest() {
     float expected = Float.MIN_VALUE;
-    double actual = primitive.floatToDoubleConversion(expected);
+    double actual = expected;
     Assertions.assertEquals(expected, actual);
   }
 
@@ -44,17 +38,17 @@ class PrimitivesCheckTest {
    */
 
   @Test
-  void internalBinaryRepresentationOfNumbers() {
+  void internalBinaryRepresentationOfNumbersTest() {
     double expected = 0.1;
-    double actual = primitive.internalBinaryRepresentationOfNumbers(0.5, 0.4);
-    Assertions.assertEquals(expected, actual);
+    double actual = 0.5 - 0.4;
+    Assertions.assertNotEquals(expected, actual);
   }
 
   @Test
   void smallestValueForTypeDoubleTest() {
     double minFirst = Double.MIN_VALUE;
     double minSecond = 0.0;
-    Assertions.assertEquals(minFirst, minSecond);
+    Assertions.assertNotEquals(minFirst, minSecond);
   }
 
   @Test
@@ -63,6 +57,6 @@ class PrimitivesCheckTest {
     float f2 = 0.3f;
     float num = 0.7f;
     float res = f1 + f2;
-    Assertions.assertEquals(num, res);
+    Assertions.assertNotEquals(num, res);
   }
 }
