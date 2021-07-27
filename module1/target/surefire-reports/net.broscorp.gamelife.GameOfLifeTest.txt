@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: net.broscorp.gamelife.GameOfLifeTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in net.broscorp.gamelife.GameOfLifeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.015 s - in net.broscorp.gamelife.GameOfLifeTest

@@ -1,0 +1,26 @@
+digraph graphname {
+    JDK
+    /* JDK is the software development environment used for creation
+       Java applications. It consists of : Java Runtime Environment
+       (interpreter/loader (java)), compiler (javac), archiver (jar),
+       documentation generator (javadoc) and other tools.
+    */
+    -> JRE
+    /*
+       Java Runtime Environment is the minimum realization
+       that is needed for execution of applications. Consists of
+       Virtual machine and standard library of classes.
+    */
+    -> JVM
+    /*
+       Virtual machine that enables a computer to run Java programs
+       as well as programs written in other languages that are also
+       compiled to Java bytecode. It includes JIT compiler.
+    */
+    -> JIT
+    /*
+       The JIT compiler's role is to turn class files
+       (composed of bytecode, which is the JVM's instruction set)
+       into machine code that the CPU executes directly.
+    */
+}
