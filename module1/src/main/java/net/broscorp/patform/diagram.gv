@@ -1,0 +1,6 @@
+digraph G {
+  "JDK" -> "JVM"
+  "JDK" -> "JRE"
+  "JVM" -> "JRE"
+  "JVM" -> "JIT"
+}
