@@ -1,2 +1,4 @@
 net\broscorp\valueref\Foo.class
+net\broscorp\equals\hashcode\UserExtends.class
 net\broscorp\gamelife\GameOfLife.class
+net\broscorp\equals\hashcode\User.class
