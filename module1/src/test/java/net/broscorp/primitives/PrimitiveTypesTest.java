@@ -205,7 +205,7 @@ public class PrimitiveTypesTest {
     float y = 0.3f;
     //when
     float result = x + y;
-    //them
+    //then
     assertNotEquals(0.7f, result);
   }
 
