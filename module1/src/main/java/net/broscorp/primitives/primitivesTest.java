@@ -9,6 +9,7 @@ public class primitivesTest {
     @Test
     void overflowNumber() {
         int integer = Integer.MAX_VALUE + 1;
+
         Assertions.assertEquals(Integer.MIN_VALUE, integer);
     }
 
@@ -17,6 +18,7 @@ public class primitivesTest {
     void conversionInteger(){
         long l = Long.MAX_VALUE;
         int integer = (int) l;
+
         Assertions.assertEquals(-858993460, integer);
     }
 
@@ -25,12 +27,14 @@ public class primitivesTest {
     void conversionFloat(){
         float valueFloat = 1.4e-10f;
         double valueDouble = valueFloat;
+
         Assertions.assertEquals(valueDouble,valueFloat);
     }
 
     @Test
     void infelicity(){
         double a = 2.0 - 1.1;
+
         Assertions.assertEquals(0.8999999999999999, a);
     }
 }
