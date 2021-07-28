@@ -1,19 +1,47 @@
-digraph G {
+graph G {
   bgcolor="cadetblue3"
   label="JDK"
   fontcolor="white"
+  node [fontcolor="white" fontsize="10" fillcolor="#66cccc" style="filled"]
+  javac
+  javap
+  jdb
+  jar
+  javadoc
     subgraph clusterJRE {
       fillcolor="deepskyblue"
       label="JRE"
       fontcolor="white"
       style="filled"
+      node [fontcolor="white" fontsize="10" fillcolor="#0099ff" style="filled"]
+      JavaClassLibraries
          subgraph clusterJVM {
             fillcolor="red"
             label="JVM"
             fontcolor="white"
             style="filled"
-		        node [shape=Mrecord fillcolor="lightgreen" style="filled" gradientangle=90]
+		        node [fontcolor="black" shape=Mrecord fillcolor="lightgreen" style="filled"]
+            ClassLoader
 		        JIT;
-		     }
-	  }
+	      }
+    }
 }
+
+/*
+JDK - пакет инструментов для разработки программного обеспечения на JAVA. Он включает в себя
+среду выполнения JRE, компилятор javac, дизассемблер javap, отладчик jdb, архиватор jar, генератор
+документации javadoc, библиотеки и др.
+
+JRE - среда выполнения, это набор необходимыж программ и библиотек для запуска и выполнения Java
+программ, скомпилированных в байт-код компилятором javac. Среда включает в себя виртуальную машину
+JVM и набор библиотек
+
+JVM - виртуальная машина Java. Это ключевой элемент всей системы Java. Она выполняет код,
+написанный программистами и скомпилированный в байт-код, и обеспечивает платформенную независимость
+выполнения программ. Она включает в себя компилятор в машинные коды JIT и загрузчик классов.
+
+JIT - Just inTime компилятор и предназначен для увеличения производительности JVM, он может
+компилировать "на лету" байт-код в машинные коды, это происходит например тогда, когда программа
+генерирует новый код во время своего выполнения, либо для компиляции наиболее часто выполняющихся
+участков кода (hot spot)
+*/
