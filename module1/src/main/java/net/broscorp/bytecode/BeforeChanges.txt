@@ -1,4 +1,4 @@
-Compiled from "ByteCode.java"
+Compiled from "Bytecode.java"
 public class net.broscorp.bytecode.Bytecode {
   public net.broscorp.bytecode.Bytecode();
     Code:
@@ -9,28 +9,32 @@ public class net.broscorp.bytecode.Bytecode {
   public static void main(java.lang.String[]);
     Code:
        0: bipush        15
-       2: invokestatic  #2                  // Method increment:(I)I
-       5: istore_1
-       6: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
-       9: ldc           #4                  // String Hello Bytecode!
-      11: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      14: ldc           #6                  // String mvn clean install
-      16: invokestatic  #7                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      19: pop
-      20: ldc           #8                  // String javac src/main/java/net/broscorp/bytecode/ByteCode.java
-      22: invokestatic  #7                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      25: pop
-      26: ldc           #9                  // String java net.broscorp.bytecode.ByteCode
-      28: invokestatic  #7                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      31: astore_2
-      32: ldc           #10                 // String javap -c src/main/java/net/broscorp/bytecode/ByteCode
-      34: invokestatic  #7                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      37: astore_3
-      38: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
-      41: aload_3
-      42: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      45: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
-      48: aload_2
-      49: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      52: return
+       2: istore_1
+       3: iconst_0
+       4: istore_2
+       5: iload_2
+       6: iload_1
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          5
+      19: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      22: ldc           #3                  // String Hello Bytecode!
+      24: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      27: ldc           #5                  // String javac src/main/java/net/broscorp/bytecode/Bytecode.java
+      29: invokestatic  #6                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
+      32: pop
+      33: ldc           #7                  // String java src.main.java.net.broscorp.bytecode.Bytecode
+      35: invokestatic  #6                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
+      38: astore_2
+      39: ldc           #8                  // String javap -c src/main/java/net/broscorp/bytecode/Bytecode
+      41: invokestatic  #6                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
+      44: astore_3
+      45: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      48: aload_3
+      49: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      55: aload_2
+      56: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      59: return
 }

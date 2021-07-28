@@ -1,4 +1,4 @@
-Compiled from "ByteCode.java"
+Compiled from "Bytecode.java"
 public class net.broscorp.bytecode.Bytecode {
   public net.broscorp.bytecode.Bytecode();
     Code:
@@ -29,23 +29,20 @@ public class net.broscorp.bytecode.Bytecode {
       36: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
       39: ldc           #6                  // String Hello Bytecode!
       41: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      44: ldc           #8                  // String mvn clean install
+      44: ldc           #8                  // String javac src/main/java/net/broscorp/bytecode/Bytecode.java
       46: invokestatic  #9                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
       49: pop
-      50: ldc           #10                 // String javac src/main/java/net/broscorp/bytecode/ByteCode.java
+      50: ldc           #10                 // String java src.main.java.net.broscorp.bytecode.Bytecode
       52: invokestatic  #9                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      55: pop
-      56: ldc           #11                 // String java net.broscorp.bytecode.ByteCode
-      58: invokestatic  #9                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      61: astore        4
-      63: ldc           #12                 // String javap -c src/main/java/net/broscorp/bytecode/ByteCode
-      65: invokestatic  #9                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
-      68: astore        5
-      70: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
-      73: aload         5
-      75: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      78: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
-      81: aload         4
-      83: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      86: return
+      55: astore        4
+      57: ldc           #11                 // String javap -c src/main/java/net/broscorp/bytecode/Bytecode
+      59: invokestatic  #9                  // Method executeShellScript:(Ljava/lang/String;)Ljava/lang/String;
+      62: astore        5
+      64: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      67: aload         5
+      69: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      72: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      75: aload         4
+      77: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      80: return
 }
