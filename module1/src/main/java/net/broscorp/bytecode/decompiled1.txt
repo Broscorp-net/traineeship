@@ -1,0 +1,29 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package net.broscorp.bytecode;
+
+import java.util.Random;
+
+public class Solution {
+    public Solution() {
+    }
+
+    public static void main(String[] var0) {
+        int var1 = 5;
+        Solution var2 = new Solution();
+
+        for(int var3 = 0; var3 < 5; ++var3) {
+            ++var1;
+        }
+
+        var2.method();
+        System.out.println("Greetings");
+    }
+
+    public int method() {
+        return (new Random()).nextInt(11);
+    }
+}
