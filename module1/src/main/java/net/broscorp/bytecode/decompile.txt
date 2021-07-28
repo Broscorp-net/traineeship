@@ -1,0 +1,19 @@
+
+public class Main {
+    public static int x;
+
+    public Main() {
+    }
+
+    public static void hello() {
+        System.out.println("Hello");
+    }
+
+    public static void main(String[] var0) {
+        for(int var1 = 0; var1 < 5; ++var1) {
+            System.out.println(x + var1);
+        }
+
+        hello();
+    }
+}
