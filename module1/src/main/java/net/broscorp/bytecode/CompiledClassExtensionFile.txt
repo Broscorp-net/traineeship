@@ -1,0 +1,73 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package net.broscorp.bytecode;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Bytecode {
+  public Bytecode() {
+  }
+
+  public static void main(String[] var0) {
+    Bytecode var1 = new Bytecode();
+    List var2 = var1.returnList(25);
+    int var3 = 15;
+
+    for(int var4 = 0; var4 < var3; ++var4) {
+      ++var3;
+    }
+
+    System.out.println("Hello Bytecode!");
+    executeShellScript("mvn clean install");
+    executeShellScript("javac src/main/java/net/broscorp/bytecode/ByteCode.java");
+    String var6 = executeShellScript("java net.broscorp.bytecode.ByteCode");
+    String var5 = executeShellScript("javap -c src/main/java/net/broscorp/bytecode/ByteCode");
+    System.out.println(var5);
+    System.out.println(var6);
+  }
+
+  private static int increment(int var0) {
+    int var1 = var0;
+
+    for(int var2 = 0; var2 < var0; ++var2) {
+      ++var1;
+    }
+
+    return var1;
+  }
+
+  private static String executeShellScript(String var0) {
+    StringBuilder var1 = new StringBuilder();
+
+    try {
+      Process var3 = Runtime.getRuntime().exec(var0);
+      BufferedReader var4 = new BufferedReader(new InputStreamReader(var3.getInputStream()));
+
+      String var5;
+      while((var5 = var4.readLine()) != null) {
+        var1.append(var5).append("\n");
+      }
+    } catch (IOException var6) {
+      var6.getMessage();
+    }
+
+    return var1.toString();
+  }
+
+  private List<Integer> returnList(int var1) {
+    ArrayList var2 = new ArrayList();
+
+    for(int var3 = 0; var3 < var1; ++var3) {
+      var2.add((int)(Math.random() * 100.0D));
+    }
+
+    return var2;
+  }
+}
