@@ -1,0 +1,19 @@
+digraph G {
+  bgcolor="cadetblue3"
+  label="JDK"
+  fontcolor="white"
+    subgraph clusterJRE {
+      fillcolor="deepskyblue"
+      label="JRE"
+      fontcolor="white"
+      style="filled"
+         subgraph clusterJVM {
+            fillcolor="red"
+            label="JVM"
+            fontcolor="white"
+            style="filled"
+		        node [shape=Mrecord fillcolor="lightgreen" style="filled" gradientangle=90]
+		        JIT;
+		     }
+	  }
+}
