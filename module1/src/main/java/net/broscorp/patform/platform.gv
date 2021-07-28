@@ -1,0 +1,69 @@
+digraph G {
+
+	subgraph cluster_jdk {
+		style=filled;
+		color=darkolivegreen1;
+
+    JDK[shape=rectangle];
+		JDK -> jar;
+    JDK -> javadoc;
+    JDK -> javac;
+
+		label = "Java Development Kit\n"
+		+ "The JDK includes tools useful\n"
+		+ "for developing and testing programs\n"
+		+ "written in the Java programming language\n"
+		+ "and running on the Java platform.";
+	}
+
+	subgraph cluster_jre {
+    style=filled;
+
+    JRE[shape=rectangle];
+    JRE -> "class libraries";
+    JRE -> "java";
+
+		label = "Java Runtime Environment\n"
+		+ "The JRE contains the JVM, runtime class libraries,\n"
+		+ "and Java application launcher that are necessary\n"
+		+ "to run programs written in the Java.";
+
+		color=coral;
+	}
+
+
+	subgraph cluster_jvm {
+		style=filled;
+		color=goldenrod2;
+		label = "Java Virtual Machine\n"
+		+ "A JVM is a virtual machine that enables a computer\n"
+		+ "to run Java programs as well as programs written\n"
+		+ "in other languages that are also compiled to Java bytecode.";
+
+    JVM[shape=rectangle];
+    JVM -> JIT;
+		JVM -> "class loader subsystem";
+		JVM -> "runtime data area";
+		JVM -> "JNI";
+		JVM -> "native method lib";
+
+    subgraph cluster_jit {
+		        style=filled;
+		        color=cadetblue1;
+
+            JIT [shape=rectangle, label = " JIT\n"
+            + "The JIT-compiler compiles all bytecode to machine code.\n"
+            + "Then for repeated method calls, it directly provides the native code\n"
+            + "and the execution using native code is much faster than\n"
+            + "interpreting instructions one by one. The native code is stored in the cache,\n"
+            + "thus the compiled code can be executed quicker."];
+
+			      interpreter;
+			      GC;
+		        label = "Execution Engine";
+	  }
+	}
+        JDK -> JRE;
+        JRE -> JVM;
+
+}
