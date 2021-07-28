@@ -13,6 +13,10 @@ public class Bytecode {
    */
   public static void main(String[] args) {
 
+    Bytecode bytecode = new Bytecode();
+
+    List<Integer> list = bytecode.returnList(25);
+
     int i = 15;
     for (int j = 0; j < i; j++) {
       i++;
@@ -21,8 +25,9 @@ public class Bytecode {
     System.out.println("Hello Bytecode!");
 
     executeShellScript("javac src/main/java/net/broscorp/bytecode/Bytecode.java");
+    //won't work from code but works fine from shell
     String execute = executeShellScript(
-        "java src.main.java.net.broscorp.bytecode.Bytecode");//won't work from code but works fine from shell
+        "java src.main.java.net.broscorp.bytecode.Bytecode");
     String decompile = executeShellScript("javap -c src/main/java/net/broscorp/bytecode/Bytecode");
 
     System.out.println(decompile);
@@ -52,5 +57,17 @@ public class Bytecode {
       e.getMessage();
     }
     return output.toString();
+  }
+
+
+  /**
+   * Added one non-static method and ints invocation through class instance variable.
+   */
+  private List<Integer> returnList(int limit) {
+    List<Integer> list = new ArrayList<>();
+    for (int i = 0; i < limit; i++) {
+      list.add((int) (Math.random() * 100));
+    }
+    return list;
   }
 }
