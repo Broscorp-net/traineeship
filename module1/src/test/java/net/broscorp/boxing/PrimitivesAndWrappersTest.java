@@ -10,8 +10,8 @@ public class PrimitivesAndWrappersTest {
 
   @Test
   public void twoWrapperTypesEqualTest() {
-    Integer x1 = 1;
-    Integer x2 = 1;
+    Integer x1 = 5;
+    Integer x2 = 5;
     assertTrue(x1 == x2);
   }
 
