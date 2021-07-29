@@ -9,6 +9,8 @@ class ExampleClass {
     }
 
     printHelloWorld(2, "suns in my sky");
+
+    System.out.println("Hello, World!");
   }
 
   private static void printHelloWorld(int i, String message) {

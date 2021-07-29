@@ -100,3 +100,44 @@ class ExampleClass {
       10: invokevirtual #25                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
       13: return
 }
+
+================= ++++++++ =================
+
+Compiled from "ExampleClass.java"
+class ExampleClass {
+  public java.lang.String text;
+
+  private java.lang.Double value;
+
+  ExampleClass();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: bipush        10
+       5: if_icmpge     14
+       8: iinc          1, 1
+      11: goto          2
+      14: iconst_2
+      15: ldc           #7                  // String suns in my sky
+      17: invokestatic  #9                  // Method printHelloWorld:(ILjava/lang/String;)V
+      20: getstatic     #15                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      23: ldc           #21                 // String Hello, World!
+      25: invokevirtual #23                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      28: return
+
+  private static void printHelloWorld(int, java.lang.String);
+    Code:
+       0: getstatic     #15                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: iload_0
+       4: aload_1
+       5: invokedynamic #29,  0             // InvokeDynamic #0:makeConcatWithConstants:(ILjava/lang/String;)Ljava/lang/String;
+      10: invokevirtual #23                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      13: return
+}
