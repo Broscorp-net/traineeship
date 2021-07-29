@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class WrappersAndBoxingTest {
 
-  //1.	Написать тест, в котором сравнение двух оберточных типов с одинаковым значением через __==__ даёт true.
+  //1.Написать тест, в котором сравнение двух оберточных типов с одинаковым значением
+  // через __==__ даёт true.
 
   @Test
   public void comparisonOfTwoCharactersWithTheSameValueTrueTest() {
@@ -14,7 +15,8 @@ public class WrappersAndBoxingTest {
     Assertions.assertTrue(characterFirst == characterSecond);
   }
 
-  //2.  Написать тест, в котором сравнение двух оберточных типов с одинаковым значением через __==__ даёт false.
+  //2.Написать тест, в котором сравнение двух оберточных типов с одинаковым значением
+  // через __==__ даёт false.
   // (дополнительная похвала если придумать два таких варианта)
 
   @Test
@@ -25,7 +27,7 @@ public class WrappersAndBoxingTest {
   }
 
   /**
-   * Cache to support the object identity semantics of autoboxing for values between 0 and 127
+   * Cache to support the object identity semantics of autoboxing for values between 0 and 127.
    */
   @Test
   public void comparisonOfTwoCharactersWithTheSameValueFalseTestNew() {
@@ -47,11 +49,11 @@ public class WrappersAndBoxingTest {
     Assertions.assertFalse(firstInt == secondInt);
   }
 
-  //3.	Написать тест в котором неявный анбоксинг вызывает исключение.
+  //3.Написать тест в котором неявный анбоксинг вызывает исключение.
 
   @Test
-  public void implicitUnboxingThrowsAnExceptionTest(){
-    Assertions.assertThrows(IllegalArgumentException.class, () ->{
+  public void implicitUnboxingThrowsAnExceptionTest() {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
       char[] chars = Character.toChars(-1);
     });
   }
