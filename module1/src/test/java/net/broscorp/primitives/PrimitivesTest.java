@@ -33,7 +33,7 @@ public class PrimitivesTest {
 
   @Test
   public void convertFloatToDoubleTest() {
-    float f = 9000.55f;
+    float f = 9000.55F;
     double d = f;
     assertNotEquals(Float.toString(f), Double.toString(d));
   }
