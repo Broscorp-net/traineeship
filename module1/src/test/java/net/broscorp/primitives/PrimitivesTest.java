@@ -29,7 +29,7 @@ class PrimitivesTest {
 
   @Test
   void floatPoint() {
-    double a = 0.1 + 0.2;
-    assertEquals(0.30000000000000004, a);
+    double a = 0.1 + 0.1;
+    assertEquals(0.20000000000000002, a);
   }
 }
