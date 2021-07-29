@@ -1,0 +1,8 @@
+digraph G {
+
+Throwable -> Error [ label = VM_Error ]
+Throwable -> Exception
+Exception -> RunTimeException [ label = unchecked]
+Exception -> IOException [ label = checked ]
+
+}
