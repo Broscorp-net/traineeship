@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FooTest {
@@ -16,10 +17,11 @@ public class FooTest {
         List<String> list = new ArrayList<>();
 
         foo.foo(i, list);
-
-        assertSame(1, i);
+        //assertSame compares references to objects
+        assertEquals(1, i);
         //Variables on the stack exist as long as the method in which they were created is executed
-        assertEquals("d", list.get(list.indexOf("d")));
+        assertEquals(1, list.size());
+        assertEquals(Arrays.asList("d"), list);
     }
 
 }
