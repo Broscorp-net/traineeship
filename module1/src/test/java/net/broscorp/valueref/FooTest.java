@@ -6,24 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FooTest {
   private Foo obj;
   private int num;
   private List<String> list;
-
-  /**
-   * Method setup variables.
-   */
-
-  @BeforeEach
-  public void setUp() {
-    num = 10;
-    obj = new Foo();
-    list = new ArrayList<>();
-  }
 
   /**
    * As far as first argument of the method is
@@ -37,6 +25,10 @@ public class FooTest {
    */
   @Test
   public void fooAdditionTest() {
+    num = 10;
+    obj = new Foo();
+    list = new ArrayList<>();
+
     obj.foo(num, list);
     assertEquals(10, num);
     assertTrue(list.contains("d"));
