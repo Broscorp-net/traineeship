@@ -1,10 +1,10 @@
 package net.broscorp.exceprions;
 
+import java.io.BufferedReader;
+
 import java.io.FileReader;
 
 import java.io.IOException;
-
-import java.io.Reader;
 
 import net.broscorp.exceptions.MyException;
 
@@ -16,7 +16,8 @@ public class ExceptionsTest {
   @Test
   void tes1() {
 
-    try (Reader reader = new FileReader("Aloha")) {
+    try (BufferedReader br = new BufferedReader(new FileReader("Aloha"))) {
+      br.readLine();
     } catch (IOException e) {
       // e.printStackTrace();
       System.out.println(e.getMessage());
