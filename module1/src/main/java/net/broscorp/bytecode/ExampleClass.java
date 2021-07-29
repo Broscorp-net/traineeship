@@ -5,11 +5,11 @@ class ExampleClass {
     for (int i = 0; i < 10; i++) {
     }
 
-    printHelloWorld();
+    printHelloWorld(2, "suns in my sky");
   }
 
-  private static void printHelloWorld() {
-    System.out.println("Hello World!");
+  private static void printHelloWorld(int i, String message) {
+    System.out.println(i + " " + message);
   }
 }
 
