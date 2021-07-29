@@ -1,12 +1,12 @@
 package net.broscorp.exceprions;
 
-import net.broscorp.exceptions.MyException;
-
 import java.io.FileReader;
 
 import java.io.IOException;
 
 import java.io.Reader;
+
+import net.broscorp.exceptions.MyException;
 
 import org.junit.jupiter.api.Test;
 
