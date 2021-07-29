@@ -5,23 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class FooTest {
-
-  private Foo foo;
-  private int firstParamFoo;
-  private List<String> ls;
-
-  @BeforeEach
-  void init() {
-    foo = new Foo();
-    firstParamFoo = 1;
-    ls = new ArrayList<>();
-    ls.add("abc");
-    ls.add("bc");
-  }
 
   /*
   Параметр i в методе foo() является примитивом и передается по значению, т.е. в метод передается
@@ -34,9 +20,16 @@ class FooTest {
   */
   @Test
   void fooTest() {
+
+    int firstParamFoo = 1;
+    List<String> ls = new ArrayList<>();
+    ls.add("abc");
+    ls.add("bc");
+    Foo foo = new Foo();
     int firstParamBeforeFoo = firstParamFoo;
     int sizeListBeforeFoo = ls.size();
     final List<String> listBeforeFoo = ls;
+
     foo.foo(firstParamFoo, ls);
     int firstParamAfterFoo = firstParamFoo;
     int sizeListAfterFoo = ls.size();
