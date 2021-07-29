@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-  /**javadoc
+  /**javadoc.
    *
    * */
   public static void main(String[] args) {
