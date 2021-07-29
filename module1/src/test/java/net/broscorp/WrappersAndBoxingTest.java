@@ -53,8 +53,9 @@ public class WrappersAndBoxingTest {
 
   @Test
   public void implicitUnboxingThrowsAnExceptionTest() {
-    Assertions.assertThrows(IllegalArgumentException.class, () -> {
-      char[] chars = Character.toChars(-1);
+    Character character = null;
+    Assertions.assertThrows(NullPointerException.class, () -> {
+      char ch = character;
     });
   }
 
