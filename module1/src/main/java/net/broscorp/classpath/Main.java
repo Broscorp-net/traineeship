@@ -6,8 +6,8 @@ public class Main {
 
   public static void main(String[] args) {
 
-      Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     System.out.print("Hello, how are you?  -  ");
-      Writer.write(scanner.nextLine());
+    Writer.write(scanner.nextLine());
   }
 }
