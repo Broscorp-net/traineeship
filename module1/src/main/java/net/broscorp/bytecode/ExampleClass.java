@@ -1,7 +1,7 @@
 class ExampleClass {
 
   public String text;
-  private Double aDouble;
+  private Double value; // was aDouble
 
   public static void main(String[] args) {
 
