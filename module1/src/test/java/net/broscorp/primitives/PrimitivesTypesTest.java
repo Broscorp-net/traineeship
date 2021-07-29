@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class PrimitivesTest {
+public class PrimitivesTypesTest {
 
   @Test
   public void addToIntMaxValueTest() {
