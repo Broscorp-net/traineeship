@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 
 public class FooTest {
@@ -21,9 +21,9 @@ public class FooTest {
 
     foo.foo(i, list);
     // assertSame compares references to objects
-    assertEquals(1, i);
+    Assertions.assertEquals(1, i);
     // Variables on the stack exist as long as the method in which they were created is executed
-    assertEquals(1, list.size());
-    assertEquals(Arrays.asList("d"), list);
+    Assertions.assertEquals(1, list.size());
+    Assertions.assertEquals(Arrays.asList("d"), list);
   }
 }
