@@ -17,6 +17,7 @@ public class WorkWithByteCode {
       System.out.println(num + "...");
     } else {
       System.out.println("ByteCode!!!");
+      System.out.println("Changed");
     }
   }
 }
