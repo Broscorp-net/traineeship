@@ -1,0 +1,21 @@
+Compiled from "WorkWithByteCode.java"
+public class net.broscorp.bytecode.WorkWithByteCode {
+  public net.broscorp.bytecode.WorkWithByteCode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_5
+       1: istore_1
+       2: iload_1
+       3: bipush        -2
+       5: if_icmple     18
+       8: iload_1
+       9: invokestatic  #2                  // Method callPrint:(I)V
+      12: iinc          1, -1
+      15: goto          2
+      18: return
+}
