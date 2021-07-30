@@ -1,68 +1,101 @@
 package net.broscorp.equals.hashcode;
 
-import org.junit.jupiter.api.Test;
+import java.util.Arrays;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import org.junit.jupiter.api.Test;
 
 public class StudentTest {
 
-    @Test
-    void testContract() {
+  @Test
+  void testReflection() {
+    Student s1 = new Student(1, "Oleg", "Collage");
 
-        Student student1 = new Student(1, "Petya", "University");
-        Student student2 = new Student(2, "Vasya", "Collage");
-        Student student3 = new Student(1, "Petya", "University");
+    assertTrue(s1.equals(s1));
+  }
 
-        assertEquals(student1, student3);
+  @Test
+  void testSymmetric() {
+    Student s1 = new Student(1, "Oleg", "Collage");
+    Student s2 = new Student(1, "Oleg", "Collage");
 
-        assertNotEquals(student1, student2);
+    assertTrue(s1.equals(s2));
+    assertTrue(s2.equals(s1));
+  }
 
-        assertNotSame(student1, student3);
+  @Test
+  void testTransitive() {
+    Student s1 = new Student(1, "Oleg", "Collage");
+    Student s2 = new Student(1, "Oleg", "Collage");
+    Student s3 = new Student(1, "Oleg", "Collage");
 
-        int hash = student1.hashCode();
+    assertTrue(s1.equals(s2));
+    assertTrue(s2.equals(s3));
+    assertTrue(s1.equals(s3));
+  }
 
-        assertEquals(hash, student3.hashCode());
+  @Test
+  void testConsistent() {
+    Student s1 = new Student(1, "Oleg", "Collage");
+    Student s2 = new Student(1, "Oleg", "Collage");
 
+    assertTrue(s1.equals(s2));
+
+    s2.setCourse(2);
+
+    assertFalse(s1.equals(s2));
+  }
+
+  @Test
+  void testNotNull() {
+    Student s1 = new Student(1, "Oleg", "Collage");
+    Student s2 = null;
+
+    assertFalse(s1.equals(s2));
+  }
+
+  @Test
+  void hashSearch() {
+    List<Student> list =
+        Arrays.asList(
+            new Student(1, "Viktor", "University"),
+            new Student(3, "Aleksey", "School"),
+            new Student(4, "Vitaliy", "University"),
+            new Student(4, "Oleg", "Collage"),
+            new Student(1, "Filipp", "University"),
+            new Student(4, "Ivan", "Academy"));
+
+    for (int i = 0; i < list.size(); i++) {
+      for (int j = 0; j < list.size(); j++) {
+        boolean hash = list.get(i).hashCode() == list.get(j).hashCode();
+        boolean equals = list.get(i).equals(list.get(j));
+        if (equals) {
+          assertTrue(hash);
+          assertTrue(equals);
+
+        } else if (hash && !equals) {
+
+          assertTrue(hash);
+          assertFalse(equals);
+        }
+      }
     }
+  }
 
-    @Test
-    void hashSearch() {
-        List<Student> list = new ArrayList<Student>();
-        Student s1 = new Student(1, "Viktor", "University");
-        Student s2 = new Student(3, "Aleksey", "School");
-        Student s3 = new Student(4, "Vitaliy", "University");
-        Student s4 = new Student(2, "Oleg", "Collage");
-        Student s5 = new Student(1, "Filip", "University");
-        Student s6 = new Student(4, "Ivan", "Academy");
-        list.add(s1);
-        list.add(s2);
-        list.add(s3);
-        list.add(s4);
-        list.add(s5);
-        list.add(s6);
+  @Test
+  void contractRules() {
 
+    Student s1 = new Student(1, "Roma", "School");
+    Student s2 = new Student(1, "Oleg", "School");
 
-        List<Student> chekList = Search.search(list, list.get(0).hashCode());
-
-        assertEquals(list.get(0), chekList.get(0));
-        assertEquals(list.get(4), chekList.get(1));
-    }
-
-    @Test
-    void contractRules(){
-
-        Student s1 = new Student(1, "Roma", "School");
-        Student s2 = new Student(1, "Oleg", "School");
-
-        //these students have the same hashcode
-        assertEquals(s1.hashCode(), s2.hashCode());
-        // but equals return false;
-        assertNotEquals(s1, s2);
-
-    }
-
-
+    // these students have the same hashcode
+    assertTrue(s1.hashCode() == s2.hashCode());
+    // but equals return false;
+    assertFalse(s1.equals(s2));
+  }
 }
