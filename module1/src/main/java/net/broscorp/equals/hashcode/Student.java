@@ -1,8 +1,6 @@
 package net.broscorp.equals.hashcode;
-/*
- *student.
- */
 
+/** student. */
 public class Student {
 
   private int course;
@@ -10,9 +8,8 @@ public class Student {
   private String name;
 
   private String institution;
-  /*
-   *constructor.
-   */
+
+  /** constructor. */
   public Student(int course, String name, String institution) {
     this.course = course;
     this.name = name;
@@ -45,8 +42,12 @@ public class Student {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     Student student = (Student) o;
     return course == student.course
         && name.equals(student.name)
