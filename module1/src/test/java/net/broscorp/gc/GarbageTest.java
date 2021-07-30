@@ -57,7 +57,9 @@ public class GarbageTest {
     GC.SAVE = new GC();
 
     GC.SAVE = null;
+    System.out.println("clean gc");
     System.gc();
+    System.out.println("sleep 5000 millis");
     Thread.sleep(5000);
 
     if (GC.SAVE != null) {
