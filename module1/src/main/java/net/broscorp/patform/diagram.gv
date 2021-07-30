@@ -1,6 +1,19 @@
 digraph G {
-  "JDK" -> "JVM"
-  "JDK" -> "JRE"
-  "JVM" -> "JRE"
-  "JVM" -> "JIT"
+    /*
+    JDK contains JRE, JVM implements JVE
+    */
+    "JDK" -> "JVM" [ label = "byte code"]
+    /*contains JRE
+    along with various development tools like Java libraries
+    */
+    "JDK" -> "JRE"
+    /*
+    JVM becomes an instance of JRE
+     at runtime of a Java program
+    */
+    "JVM" -> "JRE" [ label = "implements"]
+    /*
+    makes optimizations of the code for better performance
+    */
+    "JVM" -> "JIT" [ label = "optimization"]
 }
