@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class PrimitivesTest {
   @Test
-  void overloop() throws Exception {
+  void overFlow() throws Exception {
 
     byte c = Byte.MAX_VALUE;
 
@@ -32,7 +32,7 @@ public class PrimitivesTest {
   }
 
   @Test
-  void infelicity() {
+  void precisionLoss() {
     double a = 0.1;
 
     double b = 0.2;
