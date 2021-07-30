@@ -1,4 +1,7 @@
 package net.broscorp.equals.hashcode;
+/*
+ *student.
+ */
 
 public class Student {
 
@@ -7,7 +10,9 @@ public class Student {
   private String name;
 
   private String institution;
-
+  /*
+   *constructor.
+   */
   public Student(int course, String name, String institution) {
     this.course = course;
     this.name = name;
