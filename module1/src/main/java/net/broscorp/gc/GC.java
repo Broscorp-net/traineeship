@@ -4,7 +4,7 @@ class GC {
 
   static GC SAVE;
 
-  @Override
+
   protected void finalize() throws Throwable {
     super.finalize();
     System.out.println("execute");
