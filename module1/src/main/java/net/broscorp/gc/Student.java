@@ -14,9 +14,15 @@ public class Student {
     return name;
   }
 
-
+  @Override
   protected void finalize() throws Throwable {
-    super.finalize();
-    System.out.println(name + " says : " + " bye!");
+    try {
+      System.out.println("override finalize.. ");
+    } catch (Throwable t) {
+      System.out.println(t.getMessage());
+    } finally {
+      super.finalize();
+      System.out.println(name + " says : " + " bye!");
+    }
   }
 }
