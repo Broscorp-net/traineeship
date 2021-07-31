@@ -1,0 +1,47 @@
+digraph G {
+
+  subgraph cluster_0 {
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=white,shape=square];
+    JIT;
+    label = "JVM";
+  }
+
+  subgraph cluster_1 {
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=white, shape=square];
+    Compiler;
+    JRE;
+    label = "JDK"
+  }
+
+  /*
+    Java code is compiled in Java Compiler, which is deployed as
+    a part of JDK.
+  */
+  "Java Code"-> Compiler [label = "compiles"];
+
+  /*
+    Compiler translated Java code to binaries and optionally packages it.
+  */
+  Compiler->"JAR, WAR, binaries ..." [label = "package"];
+
+  /*
+    Binaries are then being run in JRE. If they were packaged, they are un-
+    packed before. JRE is a part of JDK or can be downloaded separately if
+    user does not need to develop Java apps.
+  */
+  "JAR, WAR, binaries ..." -> JRE [label = "deploy"];
+
+  /*
+    JRE sets up Java Virtual Machine. Binaries are then translated to JIT for
+    possible optimizations and then are run in JVM. JVM interacts with OS inde-
+    pendently, so the binaries don't need to be different for different OS and
+    hardware.
+  */
+  JRE -> JIT [label = "optimized"];
+
+
+}
