@@ -1,0 +1,14 @@
+digraph G {
+
+	throwable[label = "Throwable\n (checked)"];
+  exception[label = "Exception\n (checked)"];
+  error[label = "Error\n (unchecked)"];
+  runtime_exception[label = "Runtime Exception\n (unchecked)"];
+
+  throwable -> exception;
+  throwable -> error;
+  exception -> runtime_exception;
+
+	note [shape=note, label = "Checked exceptions must be handled by client code.\n"
+	      + "Unchecked exceptions do not require to be handled."];
+}
