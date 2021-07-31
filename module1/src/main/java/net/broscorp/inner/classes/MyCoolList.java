@@ -51,7 +51,7 @@ public class MyCoolList<T> implements Iterable {
   /**
    * a static nested class has access to the fields of the external class only with the static
    * modifier or by accessing the name of the implemented object of the outer class, and not the
-   * static one can access all the fields of the external class
+   * static one can access all the fields of the external class.
    */
   class Itr implements Iterator<T> {
     int cursor;
