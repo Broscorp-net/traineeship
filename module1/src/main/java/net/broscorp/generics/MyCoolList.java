@@ -1,5 +1,6 @@
 package net.broscorp.generics;
 
+/** javadoc. */
 import java.util.ArrayList;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class MyCoolList<T> {
     myList.remove(index);
   }
 
+  /** map. */
   public MyCoolList<T> map(Function<T, T> f) {
     MyCoolList<T> newList = new MyCoolList<>();
     newList.myList = this.myList.stream().map(f).collect(Collectors.toList());
