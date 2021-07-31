@@ -1,0 +1,48 @@
+Compiled from "MyClass.java"
+public class net.broscorp.bytecode.MyClass {
+  public net.broscorp.bytecode.MyClass();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static java.lang.Integer multiply(int);
+    Code:
+       0: iload_0
+       1: bipush        10
+       3: imul
+       4: invokestatic  #7                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       7: areturn
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: invokestatic  #7                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       4: astore_1
+       5: iconst_0
+       6: istore_2
+       7: iload_2
+       8: bipush        10
+      10: if_icmpge     33
+      13: aload_1
+      14: astore_3
+      15: aload_1
+      16: invokevirtual #13                 // Method java/lang/Integer.intValue:()I
+      19: iconst_1
+      20: iadd
+      21: invokestatic  #7                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      24: astore_1
+      25: aload_3
+      26: pop
+      27: iinc          2, 1
+      30: goto          7
+      33: getstatic     #17                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      36: aload_1
+      37: invokevirtual #13                 // Method java/lang/Integer.intValue:()I
+      40: invokestatic  #23                 // Method multiply:(I)Ljava/lang/Integer;
+      43: invokevirtual #28                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+      46: getstatic     #17                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      49: ldc           #34                 // String Hi, may i sit here?
+      51: invokevirtual #36                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      54: return
+}
