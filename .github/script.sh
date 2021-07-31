@@ -1,6 +1,6 @@
 #!/bin/sh
 git fetch origin master:master
-changed_files=$(git diff --name-only --diff-filter=ACMRT master | grep -e .class$ -e .iml$ -e .war$ -e .jar$ -e .xml$ -e .idea| xargs)
+changed_files=$(git diff --name-only --diff-filter=ACMRT master | grep -e .class$ -e .iml$ -e .war$ -e .jar$ -e .xml$ -e .lst$ -e .idea| xargs)
 if [ -z "$changed_files" ]
 then
 echo "Trash files not found"
