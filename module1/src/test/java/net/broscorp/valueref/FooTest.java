@@ -11,19 +11,6 @@ import org.junit.jupiter.api.Test;
 
 class FooTest {
 
-  private Foo foo;
-  private List<String> list;
-  private int num = 12354652;
-
-  @BeforeEach
-  void setup() {
-    list = new ArrayList<>();
-    foo = new Foo();
-    list.add("a");
-    list.add("b");
-    list.add("c");
-  }
-
   /**
    * Place in the memory where methods are executed is called stack. This is also the place where
    * primitives are placed. Stack stores references to the object instances allocated in the Heap
@@ -39,6 +26,13 @@ class FooTest {
 
   @Test
   void testFooShouldAddElement() {
+
+    Foo foo = new Foo();
+    List<String> list = new ArrayList<>();
+    int num = 12354652;
+    list.add("a");
+    list.add("b");
+    list.add("c");
     assertEquals(3, list.size());
 
     foo.foo(num, list);
