@@ -16,7 +16,7 @@ public class Cars {
 
   @Override
   protected void finalize() throws Throwable {
-    System.out.println("Object " + this + " removed" );
+    System.out.println("Object " + this + " removed");
     super.finalize();
   }
 }

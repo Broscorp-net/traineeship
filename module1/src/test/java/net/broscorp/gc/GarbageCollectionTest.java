@@ -9,7 +9,7 @@ class GarbageCollectionTest {
   @Test
   void garbageCollectionTest() {
     Cars car;
-    int count = 1000000;
+    int count = 20000;
     for (int i = 0; i < count; i++) {
       car = new Cars("car " + i, i);
       car = null;
@@ -19,8 +19,8 @@ class GarbageCollectionTest {
   @Test
   void restoreObjectBeforeGarbage() throws Throwable {
     CarsRestore car = new CarsRestore("Test Car", 1234);
-    String name = car.getName();
-    int number = car.getNum();
+    final String name = car.getName();
+    final int number = car.getNum();
     car = null;
     System.gc();
     Thread.sleep(3000);
@@ -40,7 +40,7 @@ class GarbageCollectionTest {
 
   void createObject() {
     Cars car1 = new Cars();
-    System.out.println("Object " + car1 + " created");
+    System.out.println("Object  cd " + car1 + " created");
     Cars car2 = new Cars();
     System.out.println("Object " + car2 + " created");
     car1.other = car2;
