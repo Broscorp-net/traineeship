@@ -1,0 +1,16 @@
+digraph G {
+  node[shape=Mrecord  fillcolor="aqua" style=filled];
+    "Trowable"
+    "Exception"
+  node[shape=box]
+    "Checked"
+  node[shape=Mrecord  fillcolor=coral style=filled]
+    "Error"
+    "Runtime Exception"
+  node[shape=box]
+    "Unchecked"
+
+  "Trowable" -> "Error"
+  "Trowable" -> "Exception"
+  "Exception" -> "Runtime Exception"
+}
