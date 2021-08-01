@@ -8,6 +8,7 @@ public class WrappersAndBoxingTest {
   //1.Написать тест, в котором сравнение двух оберточных типов с одинаковым значением
   // через __==__ даёт true.
 
+
   @Test
   public void comparisonOfTwoCharactersWithTheSameValueTrueTest() {
     Character characterFirst = 'A';
@@ -19,6 +20,7 @@ public class WrappersAndBoxingTest {
   // через __==__ даёт false.
   // (дополнительная похвала если придумать два таких варианта)
 
+
   @Test
   public void comparisonOfTwoCharactersWithTheSameValueFalseTest() {
     Character characterFirst = new Character('A');
@@ -29,6 +31,7 @@ public class WrappersAndBoxingTest {
   /**
    * Cache to support the object identity semantics of autoboxing for values between 0 and 127.
    */
+
   @Test
   public void comparisonOfTwoCharactersWithTheSameValueFalseTestNew() {
     Character characterFirst = Character.valueOf('Я');
@@ -51,11 +54,12 @@ public class WrappersAndBoxingTest {
 
   //3.Написать тест в котором неявный анбоксинг вызывает исключение.
 
+
   @Test
   public void implicitUnboxingThrowsAnExceptionTest() {
     Character character = null;
     Assertions.assertThrows(NullPointerException.class, () -> {
-      char ch = character;
+      char ch = character;//исправил на неявное преобразование
     });
   }
 
