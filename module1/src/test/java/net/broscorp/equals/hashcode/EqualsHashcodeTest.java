@@ -47,8 +47,10 @@ public class EqualsHashcodeTest {
 
   @Test
   void testIfTwoObjectsAreEqualTheyMustProduceSameHashCode() {
-    assertEquals(list.get(0), list.get(1));
-    assertEquals(list.get(0).hashCode(), list.get(1).hashCode());
+    EqualsHashcode element1 = new EqualsHashcode("Foo", 5);
+    EqualsHashcode element2 = new EqualsHashcode("Foo", 5);
+    assertEquals(element1, element2);
+    assertEquals(element1.hashCode(), element2.hashCode());
   }
 
   @Test
@@ -72,17 +74,19 @@ public class EqualsHashcodeTest {
 
   @Test
   void testEqualsIsSymmetric() {
-    boolean compare = list.get(0).equals(list.get(1));
-    boolean compareVisaVersa = list.get(1).equals(list.get(0));
+    EqualsHashcode element1 = new EqualsHashcode("Foo", 5);
+    EqualsHashcode element2 = new EqualsHashcode("Foo", 5);
+    boolean compare = element1.equals(element2);
+    boolean compareVisaVersa = element2.equals(element1);
     boolean isSymmetric = compare == compareVisaVersa;
     assertTrue(isSymmetric);
   }
 
   @Test
   void testEqualsIsTransitive() {
-    EqualsHashcode item1 = list.get(0);
-    EqualsHashcode item2 = list.get(1);
-    EqualsHashcode item3 = list.get(2);
+    EqualsHashcode item1 = new EqualsHashcode("Foo", 5);
+    EqualsHashcode item2 = new EqualsHashcode("Foo", 5);
+    EqualsHashcode item3 = new EqualsHashcode("Foo", 5);
     boolean compareFirsAndSecond = item1.equals(item2);
     boolean compareSecondAndThird = item2.equals(item3);
     boolean compareFirstToThird = item3.equals(item1);
@@ -95,8 +99,8 @@ public class EqualsHashcodeTest {
 
   @Test
   void testEqualsIsConsistent() {
-    EqualsHashcode item1 = list.get(0);
-    EqualsHashcode item2 = list.get(1);
+    EqualsHashcode item1 = new EqualsHashcode("Foo", 5);
+    EqualsHashcode item2 = new EqualsHashcode("Foo", 5);
     for (int i = 0; i < 100; i++) {
       assertEquals(item1, item2);
     }
@@ -104,9 +108,8 @@ public class EqualsHashcodeTest {
 
   @Test
   void testEqualsReturnsFalseWhenNonNullObjectsIsComparedWithNull() {
-    for (int i = 0; i < 100; i++) {
-      assertNotEquals(list.get(i), null);
-    }
+    EqualsHashcode obj = new EqualsHashcode("Foo", 5);
+    assertNotEquals(obj, null);
   }
 
   /**
@@ -148,22 +151,14 @@ public class EqualsHashcodeTest {
       List<EqualsHashcode> list) {
     Map<Integer, Set<EqualsHashcode>> map = new HashMap();
     for (int i = 0; i < list.size(); i++) {
-      for (int j = i; j < list.size(); j++) {
-        EqualsHashcode object1 = list.get(i);
-        EqualsHashcode object2 = list.get(j);
-        int hash1 = object1.hashCode();
-        int hash2 = object2.hashCode();
-        if (hash1 == hash2 && !object1.equals(object2)) {
-          if (map.containsKey(hash1)) {
-            map.get(hash1).add(object1);
-            map.get(hash1).add(object2);
-          } else {
-            Set<EqualsHashcode> set = new HashSet<>();
-            set.add(object1);
-            set.add(object2);
-            map.put(hash1, set);
-          }
-        }
+      Set<EqualsHashcode> set = new HashSet<>();
+      EqualsHashcode object = list.get(i);
+      int hash = object.hashCode();
+      if (map.containsKey(hash)) {
+        map.get(hash).add(object);
+      } else {
+        set.add(object);
+        map.put(hash, set);
       }
     }
     return map;
