@@ -5,9 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 
 class FooTest {
 
@@ -26,19 +24,13 @@ class FooTest {
 
   @Test
   void testFooShouldAddElement() {
-
     Foo foo = new Foo();
     List<String> list = new ArrayList<>();
     int num = 12354652;
-    list.add("a");
-    list.add("b");
-    list.add("c");
-    assertEquals(3, list.size());
-
+    assertEquals(0, list.size());
     foo.foo(num, list);
-
     assertEquals(12354652, num);
     assertTrue(list.contains("d"));
-    assertEquals(4, list.size());
+    assertEquals(1, list.size());
   }
 }
