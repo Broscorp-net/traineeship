@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Main {
 
+  /**
+   * Input from console & output to console.
+   */
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Input your text:");
@@ -11,3 +14,4 @@ public class Main {
     Output.printToConsole(input);
   }
 }
+
