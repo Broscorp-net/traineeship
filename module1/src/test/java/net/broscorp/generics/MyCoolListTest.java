@@ -1,5 +1,6 @@
 package net.broscorp.generics;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.function.Function;
@@ -46,16 +47,17 @@ class MyCoolListTest {
   @Test
   void map() {
     MyCoolList<Integer> list = new MyCoolList<>();
-    Function<Integer, Integer> function = x -> x * x;
+    Function<Integer, Long> function = Long::valueOf;
     list.add(1);
     list.add(2);
     list.add(3);
 
-    MyCoolList<Integer> newList = list.map(function);
+    MyCoolList<Long> newList = list.map(function);
 
     for (int i = 1; i <= 3; i++) {
 
-      assertTrue(Math.pow(i, 2) == newList.get(i - 1));
+      assertEquals(list.size(), newList.size());
+      assertEquals(Long.class, newList.get(0).getClass());
     }
   }
 
