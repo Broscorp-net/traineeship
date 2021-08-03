@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * I could've implement it using native Java array or bi-directional linked list, but since task
  * relates only to generics I made a simple wrapper around class ArrayList.
  */
-public class MyCoolList<T> implements Iterable {
+public class MyCoolList<T extends Number> implements Iterable {
 
   public List<T> myList = new ArrayList<>();
 
@@ -32,8 +32,8 @@ public class MyCoolList<T> implements Iterable {
   }
 
   /** map. */
-  public MyCoolList<T> map(Function<T, T> f) {
-    MyCoolList<T> newList = new MyCoolList<>();
+  public <P extends Number> MyCoolList<P> map(Function<T, P> f) {
+    MyCoolList<P> newList = new MyCoolList<>();
     newList.myList = this.myList.stream().map(f).collect(Collectors.toList());
     return newList;
   }
@@ -43,7 +43,7 @@ public class MyCoolList<T> implements Iterable {
   }
 
   @Override
-  public Iterator iterator() {
+  public Iterator<T> iterator() {
 
     return new Itr();
   }
