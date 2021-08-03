@@ -1,8 +1,9 @@
 package net.broscorp.override.overload;
 
 /**
- * Overriding - using a method from a class or interface of an ancestor,
- * provided that the return type and method parameters do not change.
+ * Overriding - using a method from a class or interface of an ancestor, provided that the return
+ * type and method parameters do not change. I use this annotation for acquire functionality in a
+ * class inheriting from its ancestor class or interface.
  */
 public interface MathOperation {
 
