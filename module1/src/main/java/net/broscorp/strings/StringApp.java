@@ -1,11 +1,12 @@
 package net.broscorp.strings;
+
 /** imports. */
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class StringApp {
-
+  /** HELLO. */
   private static final String HELLO = "Hello World";
 
   public boolean palindrome(String str) {
@@ -19,6 +20,7 @@ public class StringApp {
     }
     return true;
   }
+
   /** say hello. */
   public String hello(String str) {
     List<String> list = Arrays.asList(str.split(" "));
@@ -34,7 +36,7 @@ public class StringApp {
     return str.replace("o", "q");
   }
 
-  /** number of words and letters */
+  /** number of words and letters. */
   public void numberOfWordsAndLetters(String str) {
 
     List<String> list = Arrays.asList(str.split(" "));
