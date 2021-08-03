@@ -62,17 +62,4 @@ public class StringApp {
       n = m;
     }
   }
-
-  public static void main(String[] args) {
-    StringApp app = new StringApp();
-
-    app.numberOfWordsAndLetters(HELLO);
-
-    app.littleBugs(15, 5);
-
-    //    System.out.println(app.deleteL(HELLO));
-    //    System.out.println(app.hello(HELLO));
-    //    System.out.println(app.change_O(HELLO));
-    //    System.out.println(app.palindrome("kazako"));
-  }
 }
