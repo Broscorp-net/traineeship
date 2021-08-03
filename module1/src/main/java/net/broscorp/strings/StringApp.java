@@ -9,6 +9,9 @@ public class StringApp {
   /** HELLO. */
   private static final String HELLO = "Hello World";
 
+  /**
+   * javadoc.
+   */
   public boolean palindrome(String str) {
     List<String> list = Arrays.asList(str.split(""));
     for (int i = 0; i < list.size() / 2; i++) {
