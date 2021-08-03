@@ -1,5 +1,5 @@
 package net.broscorp.strings;
-
+/** imports. */
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -19,7 +19,7 @@ public class StringApp {
     }
     return true;
   }
-
+  /** say hello. */
   public String hello(String str) {
     List<String> list = Arrays.asList(str.split(" "));
 
@@ -34,6 +34,7 @@ public class StringApp {
     return str.replace("o", "q");
   }
 
+  /** number of words and letters */
   public void numberOfWordsAndLetters(String str) {
 
     List<String> list = Arrays.asList(str.split(" "));
@@ -46,6 +47,7 @@ public class StringApp {
     }
   }
 
+  /** little bugs. */
   public void littleBugs(int n, int countOfPunchlines) {
     int rng = n * countOfPunchlines;
 
