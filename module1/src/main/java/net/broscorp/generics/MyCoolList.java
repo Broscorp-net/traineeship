@@ -1,20 +1,20 @@
 package net.broscorp.generics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class MyCoolList {
+public class MyCoolList<T extends Number> {
+
+  public List<T> listInt;
+
+  public MyCoolList() {
+    this.listInt = new ArrayList<>();
+  }
 
   public void add(Object o) {
-    throw new NotImplementedException();
-  }
-
-  public Object get(int index) {
-    throw new NotImplementedException();
-  }
-
-  public Object remove(int index) {
-    throw new NotImplementedException();
+//    listInt.add(listInt.size(), (Number) o);
   }
 
   public MyCoolList map(Function f) {
@@ -22,7 +22,20 @@ public class MyCoolList {
   }
 
   public int size() {
-    throw new NotImplementedException();
+    return listInt.size();
+  }
+
+  public T get(int index) {
+//    if (index >= 0 && index < listInt.size() - 1) {
+      return listInt.get(index);
+//    }
+//    return
+  }
+
+  public Object remove(int index) {
+    Object removedObject = listInt.get(index);
+    listInt.remove(index);
+    return removedObject;
   }
 
 }
