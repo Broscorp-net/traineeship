@@ -1,7 +1,8 @@
 package net.broscorp.valueref;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,19 +27,15 @@ class FooTest {
     ls.add("abc");
     ls.add("bc");
     Foo foo = new Foo();
-    int firstParamBeforeFoo = firstParamFoo;
     int sizeListBeforeFoo = ls.size();
-    final List<String> listBeforeFoo = ls;
 
     foo.foo(firstParamFoo, ls);
-    int firstParamAfterFoo = firstParamFoo;
-    int sizeListAfterFoo = ls.size();
 
-    // compare value first parameter before and after method call
-    assertEquals(firstParamBeforeFoo, firstParamAfterFoo);
+    // check value of primitive, it did not increase by 15
+    assertNotEquals(16, firstParamFoo);
     // List's size increase by 1
-    assertEquals(sizeListBeforeFoo + 1, sizeListAfterFoo);
-    // compare references on List
-    assertSame(listBeforeFoo, ls);
+    assertEquals(sizeListBeforeFoo + 1, ls.size());
+    // ArrayList now contains "d"
+    assertTrue(ls.contains("d"));
   }
 }
