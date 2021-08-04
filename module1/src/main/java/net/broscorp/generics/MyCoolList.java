@@ -13,8 +13,8 @@ public class MyCoolList<T extends Number> {
     this.listInt = new ArrayList<>();
   }
 
-  public void add(Object o) {
-//    listInt.add(listInt.size(), (Number) o);
+  public void add(T o) {
+    listInt.add(listInt.size(), o);
   }
 
   public MyCoolList map(Function f) {
@@ -25,16 +25,30 @@ public class MyCoolList<T extends Number> {
     return listInt.size();
   }
 
-  public T get(int index) {
-//    if (index >= 0 && index < listInt.size() - 1) {
+  /**
+   * getting element from ArrayList by index.
+   * @param index - index of element.
+   * @return element's value or stroke "Wrong index".
+   */
+  public Object get(int index) {
+    try {
       return listInt.get(index);
-//    }
-//    return
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("Wrong index, it should be in the range 0..." + (listInt.size() - 1));
+      return "Wrong index";
+    }
   }
 
+  /**
+   * remove element from ArrayList by index.
+   * @param index - index of element.
+   * @return removed element or stroke "Wrong index".
+   */
   public Object remove(int index) {
-    Object removedObject = listInt.get(index);
-    listInt.remove(index);
+    Object removedObject = this.get(index);
+    if (removedObject != "Wrong index") {
+      listInt.remove(index);
+    }
     return removedObject;
   }
 
