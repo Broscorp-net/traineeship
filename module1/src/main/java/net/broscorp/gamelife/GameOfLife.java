@@ -6,10 +6,11 @@ public class GameOfLife {
 
   public void game(String fileNameInput, String fileNameOutput) {
     CellState[][] arr = null;
+    int countOfIteration;
     try (BufferedReader br = new BufferedReader(new FileReader(fileNameInput))) {
       int rows = Integer.parseInt(br.readLine());
       int cols = Integer.parseInt(br.readLine());
-      int countOfIteration = Integer.parseInt(br.readLine());
+      countOfIteration = Integer.parseInt(br.readLine());
       arr = new CellState[cols][rows];
       for (int i = 0; i < 3; i++) {
         String[] strArr = br.readLine().trim().split(" ");
@@ -20,6 +21,9 @@ public class GameOfLife {
     } catch (IOException e) {
       System.out.println(e.getMessage() + " - Reader");
     }
+
+
+
     if (arr != null) {
       try {
         BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameOutput));

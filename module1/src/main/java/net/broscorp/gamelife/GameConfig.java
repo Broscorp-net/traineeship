@@ -35,7 +35,7 @@ public class GameConfig {
     }
   }
 
-  private int countLive(int i, int j, CellState[][] board) {
+  private int countLive(int i, int j, CellState[][] states) {
     int count = 0;
     int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
 
@@ -43,9 +43,19 @@ public class GameConfig {
       int x = i + dir[0];
       int y = j + dir[1];
 
-      if (x >= 0 && y >= 0 && x < board.length && y < board[0].length) {
+      if(x == -1){
+        x = states.length + x;
+      }else if(x == states.length){
+        x = 0;
+      }else if(y == -1){
+        y = states.length + y;
+      }else if(y == states.length){
+        y = 0;
+      }
 
-        if (board[x][y] == alive || board[x][y] == dying) count++;
+      if (x < states.length && y < states[0].length) {
+
+        if (states[x][y] == alive || states[x][y] == dying) count++;
       }
     }
 
