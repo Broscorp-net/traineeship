@@ -1,0 +1,28 @@
+Compiled from "Application.java"
+public class net.broscorp.bytecode.Application {
+  public net.broscorp.bytecode.Application();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        20
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: ldc           #7                  // String Jack
+      21: invokestatic  #9                  // Method simpleMethod:(Ljava/lang/String;)V
+      24: getstatic     #15                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      27: iload_1
+      28: invokedynamic #21,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+      33: invokevirtual #25                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      36: return
+}
