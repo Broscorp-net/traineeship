@@ -24,7 +24,7 @@ class Faculty {
 
   @Override
   protected void finalize() throws Throwable {
+    System.out.println(this.hashCode() + "destroy...");
     super.finalize();
-    System.out.println("Faculty of " + name + " destroy...");
   }
 }
