@@ -38,17 +38,18 @@ public class GlassTest {
 
   @Test
   public void gcWildRefGlassTest() {
-    ((Runnable) () -> {
-      GlassReference glass1 = new GlassReference(1);
-      GlassReference glass2 = new GlassReference(2);
+    (
+        (Runnable) () -> {
+          GlassReference glass1 = new GlassReference(1);
+          GlassReference glass2 = new GlassReference(2);
 
-      glass1.glass = glass2;
-      glass2.glass = glass1;
-    }).run();
+          glass1.glass = glass2;
+          glass2.glass = glass1;
+        }
+    )
+        .run();
 
     System.gc();
 
   }
-
-
 }
