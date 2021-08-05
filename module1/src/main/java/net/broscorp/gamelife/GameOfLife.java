@@ -1,8 +1,6 @@
 package net.broscorp.gamelife;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class GameOfLife {
 
@@ -20,7 +18,28 @@ public class GameOfLife {
         }
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println(e.getMessage() + " - Reader");
+    }
+    if (arr != null) {
+      try {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameOutput));
+        bw.write(String.valueOf(arr.length));
+        bw.newLine();
+        bw.write(String.valueOf(arr[0].length));
+        bw.newLine();
+        for (int i = 0; i < arr.length; i++) {
+          for (int j = 0; j < arr[0].length; j++) {
+            bw.write(arr[i][j].getValue());
+          }
+          bw.newLine();
+        }
+        bw.flush();
+        bw.close();
+      } catch (IOException e) {
+        System.out.println(e.getMessage() + " - Writer");
+      }
+    }else{
+      System.out.println("have bug in a code");
     }
   }
 }

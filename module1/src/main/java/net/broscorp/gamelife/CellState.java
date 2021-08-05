@@ -8,6 +8,10 @@ enum CellState {
 
   private final String value;
 
+  public String getValue() {
+    return value;
+  }
+
   CellState(String value) {
     this.value = value;
   }
