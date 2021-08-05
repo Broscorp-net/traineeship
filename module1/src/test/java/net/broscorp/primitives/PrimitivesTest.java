@@ -34,9 +34,17 @@ public class PrimitivesTest {
   }
 
   @Test
+  public void failExplicitCastTest() {
+    float number = 1.111f;
+
+    assertNotEquals((double) number * 1000, number * 1000);
+  }
+
+
+  @Test
   public void accuracyStarvingTest() {
 
-    double sneakyDouble = 2.0 - 1.1;
+    double sneakyDouble = 2.0f - 1.1;
     assertNotEquals(0.9d, sneakyDouble);
 
     double seackyDoubleBrother = 0.0;
