@@ -2,18 +2,13 @@ package net.broscorp.gamelife;
 
 public class GameConfig {
 
+  CellState resurrect = CellState.RESURRECT;
+  CellState dying = CellState.DYING;
+  CellState alive = CellState.ALIVE;
+  CellState dead = CellState.DEAD;
+
   public void mainProcess(CellState[][] states) {
-    CellState resurrect = CellState.RESURRECT;
-    CellState dying = CellState.DYING;
-    CellState alive = CellState.ALIVE;
-    CellState dead = CellState.DEAD;
 
-    //        private int die = 2;
-    //        private int live = 3;
-
-    // we only flip the 1 to die and 0 to live
-    // so when we find a die around, it must be a previous 1
-    // then we can count the 1s without being affected
     int rows = states.length;
     int cols = states[0].length;
     for (int i = 0; i < rows; i++) {
@@ -38,5 +33,22 @@ public class GameConfig {
         if (states[i][j] == resurrect) states[i][j] = alive;
       }
     }
+  }
+
+  private int countLive(int i, int j, CellState[][] board) {
+    int count = 0;
+    int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+
+    for (int[] dir : dirs) {
+      int x = i + dir[0];
+      int y = j + dir[1];
+
+      if (x >= 0 && y >= 0 && x < board.length && y < board[0].length) {
+
+        if (board[x][y] == alive || board[x][y] == dying) count++;
+      }
+    }
+
+    return count;
   }
 }
