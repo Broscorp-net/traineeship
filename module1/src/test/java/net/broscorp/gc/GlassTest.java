@@ -25,7 +25,7 @@ public class GlassTest {
       System.out.println("Running gc");
       System.gc();
 
-      Thread.sleep(1);
+      Thread.sleep(1000);
 
     } catch (Throwable throwable) {
       throwable.printStackTrace();
