@@ -6,7 +6,7 @@ public class GlassTest {
 
   @Test
   public void gcGlassTest() {
-    for (int i = 0; i < 10_000_000; i++) {
+    for (int i = 0; i < 100_000; i++) {
       Glass glass = new Glass(i);
     }
   }
