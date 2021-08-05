@@ -1,0 +1,37 @@
+digraph G {
+    sourceCode[shape=ellipse, fillcolor=chartreuse3, style=filled];
+
+    JavaByteCode[shape=box, style=filled, fillcolor=chartreuse4];
+
+
+    JDK->JavaByteCode
+
+
+    sourceCode -> JDK
+
+
+    JavaByteCode->JRE
+
+    subgraph clusterJDK{
+    bgcolor="#2AE4C5"
+    label="JDK — это реализация спецификации платформы Java,\n включающая в себя компилятор и библиотеки классов. \n Обобщенное определение: \n JDK — это программный пакет, который вы загружаете\n для создания Java-приложений."
+    JDK->
+    subgraph clusterJavaCompiller{
+    bgcolor="#2A61E4"
+    label="Java Compiller"
+    compiller
+    }
+    subgraph clusterJRE{
+    bgcolor="#2AE468"
+    label="Компилятор Just-In-Time  \n является компонентом JRE  \n который повышает производительность приложений \n Java во время выполнения."
+    JRE->JVM
+
+    subgraph clusterJVM{
+    bgcolor="#E4552A"
+    label="JVM - виртуальная машина Java.\n Включает в себя JIT.\n Обеспечивает выполнение кода \n не зависимо от системы на которой \n он запускается."
+    JVM
+    }
+
+    }
+    }
+}
