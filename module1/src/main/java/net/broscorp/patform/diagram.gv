@@ -11,7 +11,7 @@ digraph G {
     JVM becomes an instance of JRE
      at runtime of a Java program
     */
-    "JVM" -> "JRE" [ label = "implements"]
+    "JRE" -> "JVM" [ label = "implements"]
     /*
     makes optimizations of the code for better performance
     */
