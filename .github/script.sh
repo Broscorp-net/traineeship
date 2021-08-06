@@ -6,7 +6,7 @@ then
 echo "It's okay. There are no prohibited files in your commit."
 exit 0;
 else
-  echo " Error: Trash files found!!!! Please delete trash files:"
+  echo "Error: There are files in your commit that shouldn't be there. Pay attention to the following extensions: .class, .iml, .war, .jar, .xml, .lst, .idea and delete their"
   echo $changed_files
 exit 1;
 fi
