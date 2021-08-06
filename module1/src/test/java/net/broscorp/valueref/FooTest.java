@@ -25,7 +25,7 @@ public class FooTest {
   private final Foo garbageAdder = new Foo();
 
   @Test
-  public void referenceTest() {
+  public void valueTest() {
     int x = 0;
 
     garbageAdder.foo(x, new ArrayList<>());
@@ -35,7 +35,7 @@ public class FooTest {
   }
 
   @Test
-  public void valueTest() {
+  public void referenceTest() {
     List<String> list = new ArrayList<>();
 
     garbageAdder.foo(0, list);
