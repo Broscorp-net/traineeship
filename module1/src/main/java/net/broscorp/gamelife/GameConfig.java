@@ -1,11 +1,13 @@
 package net.broscorp.gamelife;
 
+/** config class. */
 public class GameConfig {
 
   static final int[][] AROUND_SHIFTS = {
     {1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
   };
 
+  /** main method of all game. */
   public void mainProcess(CellState[][] states) {
 
     int rows = states.length;
