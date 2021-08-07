@@ -10,9 +10,9 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class GameOfLife {
-  /**
-   * @param fileNameInput - inputPath
-   * @param fileNameOutput - outputPath
+  /**javadoc.
+   * @param fileNameInput - inputPath.
+   * @param fileNameOutput - outputPath.
    */
   public void game(String fileNameInput, String fileNameOutput) {
     CellState[][] states;
