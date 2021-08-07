@@ -1,0 +1,11 @@
+digraph G {
+    Throwable[shape=box3d, fillcolor=lightcoral, style=filled]
+    Exception[shape = box, fillcolor=dodgerblue2, style=filled]
+    Error[shape = box, fillcolor=firebrick1, style=filled]
+    RuntimeException[shape = box, fillcolor=chartreuse2, style=filled]
+
+    Serializable->Throwable[label=checked]
+    Throwable->Error[label=unchecked]
+    Throwable->Exception[label=checked]
+    Exception->RuntimeException[label=unchecked]
+}
