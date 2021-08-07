@@ -25,8 +25,12 @@ public class GameConfig {
 
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        if (states[i][j] == CellState.DYING) states[i][j] = CellState.DEAD;
-        if (states[i][j] == CellState.RESURRECT) states[i][j] = CellState.ALIVE;
+        if (states[i][j] == CellState.DYING) {
+          states[i][j] = CellState.DEAD;
+        }
+        if (states[i][j] == CellState.RESURRECT) {
+          states[i][j] = CellState.ALIVE;
+        }
       }
     }
   }
@@ -38,15 +42,16 @@ public class GameConfig {
       int x = i + dir[0];
       int y = j + dir[1];
 
-            if (x == -1) {
-              x = states.length - 1;
-            } else if (x == states.length) {
-              x = 0;
-            } else if (y == -1) {
-              y = states.length - 1;
-            } else if (y == states.length) {
-              y = 0;
-            }
+      if (x == -1) {
+        x = states.length - 1;
+      } else if (x == states.length) {
+        x = 0;
+      }
+      if (y == -1) {
+        y = states.length - 1;
+      } else if (y == states.length) {
+        y = 0;
+      }
 
       if (x >= 0 && y >= 0 && x < states.length && y < states[0].length) {
 
