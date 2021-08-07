@@ -17,7 +17,7 @@ public class MyClosableExceptionClass extends IOException implements Closeable {
   }
 
   @Override
-  public void close() throws IOException{
+  public void close() throws IOException {
     System.out.println("MyClosableExceptionClass was closed");
   }
 }
