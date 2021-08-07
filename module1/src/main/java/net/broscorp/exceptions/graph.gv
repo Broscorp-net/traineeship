@@ -1,0 +1,29 @@
+digraph G {
+compound=true;
+
+node[shape=default]
+Throwable->Exceptions;
+Throwable->Errors;
+
+subgraph cluster0{
+    label="Unchecked";
+
+    node [style=filled,color=white, shape=ellipse];
+    "RuntimeException";
+    "NullPointerException"
+}
+
+subgraph cluster1{
+    //These exceptions are considered declarative
+
+    label="Checked";
+
+    node [style=filled,color=white, shape=ellipse];
+    "IOException";
+    "ArithmeticException"
+}
+
+Exceptions->"ArithmeticException" [lhead=cluster1, minlen=2];
+Exceptions->"RuntimeException" [lhead=cluster0, minlen=2];
+
+}
