@@ -39,11 +39,11 @@ public class GameConfig {
       int y = j + dir[1];
 
             if (x == -1) {
-              x = states.length + x;
+              x = states.length - 1;
             } else if (x == states.length) {
               x = 0;
             } else if (y == -1) {
-              y = states.length + y;
+              y = states.length - 1;
             } else if (y == states.length) {
               y = 0;
             }

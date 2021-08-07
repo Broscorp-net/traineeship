@@ -34,19 +34,19 @@ class GameOfLifeTest {
 
   @Test
   public void stableFigure2() {
-    game.game("inputStable2.txt", "outputStable2.txt");
+    game.game("src/test/resources/inputStable2.txt", "src/test/resources/outputStable2.txt");
     assertTrue(equalsFile("expectedStable2.txt", "outputStable2.txt"));
   }
 
   @Test
   public void oscillatorFigure() {
-    game.game("inputOscillator.txt", "outputOscillator.txt");
+    game.game("src/test/resources/inputOscillator.txt", "src/test/resources/outputOscillator.txt");
     assertTrue(equalsFile("expectedOscillator.txt", "outputOscillator.txt"));
   }
 
   @Test
   public void oscillatorFigure2() {
-    game.game("inputOscillator2.txt", "outputOscillator2.txt");
+    game.game("src/test/resources/inputOscillator2.txt", "src/test/resources/outputOscillator2.txt");
     assertTrue(equalsFile("expectedOscillator2.txt", "outputOscillator2.txt"));
   }
 

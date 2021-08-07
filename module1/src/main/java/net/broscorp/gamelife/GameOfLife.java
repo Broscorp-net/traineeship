@@ -18,7 +18,7 @@ public class GameOfLife {
       int rows = Integer.parseInt(commands[0]);
       int cols = Integer.parseInt(commands[1]);
       countOfIteration = Integer.parseInt(commands[2]);
-      states = new CellState[cols][rows];
+      states = new CellState[rows][cols];
       for (int i = 0; i < rows; i++) {
         String[] strArr = reader.readLine().trim().split(" ");
         System.out.println(Arrays.toString(strArr));
@@ -39,16 +39,18 @@ public class GameOfLife {
     if (states != null) {
 
       try {
-        BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameOutput));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileNameOutput));
         for (int i = 0; i < states.length; i++) {
 
           String joiner =
               Arrays.stream(states[i]).map(CellState::getValue).collect(Collectors.joining(" "));
-          bw.write(joiner);
-          bw.newLine();
+          writer.write(joiner);
+          if (i != states.length - 1) {
+            writer.newLine();
+          }
         }
-        bw.flush();
-        bw.close();
+        writer.flush();
+        writer.close();
       } catch (IOException e) {
         System.out.println(e.getMessage() + " - Writer");
       }
