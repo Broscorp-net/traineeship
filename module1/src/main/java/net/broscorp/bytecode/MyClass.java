@@ -1,5 +1,9 @@
 package net.broscorp.bytecode;
 
+/**
+ * Sample class used for a disassembling test. Commented code show the difference in code between
+ * decompiled outputs.
+ */
 public class MyClass {
 
   /*public static void multiply(int x){
@@ -10,7 +14,11 @@ public class MyClass {
     return x * 10;
   }
 
-
+  /**
+   * Main method.
+   *
+   * @param args - Command line params.
+   */
   public static void main(String[] args) {
     Integer variable = 0;
 
