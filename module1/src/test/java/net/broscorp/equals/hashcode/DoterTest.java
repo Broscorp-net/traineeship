@@ -29,8 +29,8 @@ public class DoterTest {
     assertFalse(doter1.equals(null));
 
     //consistent hashcode
-    assertTrue(doter1.hashCode() == doter1.hashCode() &&
-        doter1.hashCode() == doter1.hashCode());
+    assertTrue(doter1.hashCode() == doter1.hashCode()
+        && doter1.hashCode() == doter1.hashCode());
     //equal to hashcode
     assertTrue(doter1.equals(doter2) && doter1.hashCode() == doter2.hashCode());
   }

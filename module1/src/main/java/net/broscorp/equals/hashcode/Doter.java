@@ -11,7 +11,6 @@ public class Doter {
 
   /**
    * This object represents general dota 2 player.
-   * <p>
    * Integer ranked = not null positive field BigDecimal toxicity = not null decimal field in range
    * [0-1] String nickname = any not null string
    */
@@ -38,7 +37,10 @@ public class Doter {
     return toxicity;
   }
 
-  public void setToxicity(BigDecimal toxicity) {
+  /**
+   * Must be in range [0.0d - 1.0d]
+   */
+  public void setToxicity(@NotNull BigDecimal toxicity) {
     if (toxicity.compareTo(BigDecimal.valueOf(0.0d)) >= 0
         && toxicity.compareTo(BigDecimal.valueOf(1.0d)) <= 0) {
       this.toxicity = toxicity;
@@ -78,10 +80,10 @@ public class Doter {
 
   @Override
   public String toString() {
-    return "Doter{" +
-        "ranked=" + ranked +
-        ", toxicity=" + toxicity +
-        ", nickname='" + nickname + '\'' +
-        '}';
+    return "Doter{"
+        + "ranked=" + ranked
+        + ", toxicity=" + toxicity
+        + ", nickname='" + nickname + '\''
+        + '}';
   }
 }
