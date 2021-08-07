@@ -28,7 +28,7 @@ class GameOfLifeTest {
 
   @Test
   public void stableFigure() {
-    game.game("inputStable1.txt", "outputStable1.txt");
+    game.game("src/test/resources/inputStable1.txt", "src/test/resources/outputStable1.txt");
     assertTrue(equalsFile("expectedStable1.txt", "outputStable1.txt"));
   }
 

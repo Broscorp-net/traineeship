@@ -1,20 +1,28 @@
 package net.broscorp.gamelife;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class GameOfLife {
 
   public void game(String fileNameInput, String fileNameOutput) {
     CellState[][] states = null;
     int countOfIteration;
-    try (BufferedReader br = new BufferedReader(new FileReader(fileNameInput))) {
-      int rows = Integer.parseInt(br.readLine());
-      int cols = Integer.parseInt(br.readLine());
-      countOfIteration = Integer.parseInt(br.readLine());
+    System.out.println("Ok");
+    try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileNameInput))) {
+      System.out.println("OkOk");
+      String[] commands = reader.readLine().trim().split(",");
+      int rows = Integer.parseInt(commands[0]);
+      int cols = Integer.parseInt(commands[1]);
+      countOfIteration = Integer.parseInt(commands[2]);
       states = new CellState[cols][rows];
-      for (int i = 0; i < 3; i++) {
-        String[] strArr = br.readLine().trim().split(" ");
-        for (int j = 0; j < 3; j++) {
+      for (int i = 0; i < rows; i++) {
+        String[] strArr = reader.readLine().trim().split(" ");
+        System.out.println(Arrays.toString(strArr));
+        for (int j = 0; j < cols; j++) {
           states[i][j] = CellState.from(strArr[j]);
         }
       }
@@ -32,14 +40,11 @@ public class GameOfLife {
 
       try {
         BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameOutput));
-        bw.write(String.valueOf(states.length));
-        bw.newLine();
-        bw.write(String.valueOf(states[0].length));
-        bw.newLine();
         for (int i = 0; i < states.length; i++) {
-          for (int j = 0; j < states[0].length; j++) {
-            bw.write(states[i][j].getValue());
-          }
+
+          String joiner =
+              Arrays.stream(states[i]).map(CellState::getValue).collect(Collectors.joining(" "));
+          bw.write(joiner);
           bw.newLine();
         }
         bw.flush();

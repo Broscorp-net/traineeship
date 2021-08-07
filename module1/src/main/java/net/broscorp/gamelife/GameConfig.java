@@ -6,11 +6,6 @@ public class GameConfig {
     {1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
   };
 
-  CellState resurrect = CellState.RESURRECT;
-  CellState dying = CellState.DYING;
-  CellState alive = CellState.ALIVE;
-  CellState dead = CellState.DEAD;
-
   public void mainProcess(CellState[][] states) {
 
     int rows = states.length;
@@ -18,14 +13,11 @@ public class GameConfig {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         int around = countLive(i, j, states);
-        if (states[i][j] == dead && around == 3) {
-          states[i][j] = resurrect;
-        } else if (states[i][j] == alive) {
-          if (around == 2 || around == 3) {
-            continue;
-          }
-          if (around < 2 || around > 3) {
-            states[i][j] = dying;
+        if (states[i][j] == CellState.DEAD && around == 3) {
+          states[i][j] = CellState.RESURRECT;
+        } else if (states[i][j] == CellState.ALIVE) {
+          if (around != 2 && around != 3) {
+            states[i][j] = CellState.DYING;
           }
         }
       }
@@ -33,8 +25,8 @@ public class GameConfig {
 
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        if (states[i][j] == dying) states[i][j] = dead;
-        if (states[i][j] == resurrect) states[i][j] = alive;
+        if (states[i][j] == CellState.DYING) states[i][j] = CellState.DEAD;
+        if (states[i][j] == CellState.RESURRECT) states[i][j] = CellState.ALIVE;
       }
     }
   }
@@ -46,19 +38,19 @@ public class GameConfig {
       int x = i + dir[0];
       int y = j + dir[1];
 
-      if (x == -1) {
-        x = states.length + x;
-      } else if (x == states.length) {
-        x = 0;
-      } else if (y == -1) {
-        y = states.length + y;
-      } else if (y == states.length) {
-        y = 0;
-      }
+            if (x == -1) {
+              x = states.length + x;
+            } else if (x == states.length) {
+              x = 0;
+            } else if (y == -1) {
+              y = states.length + y;
+            } else if (y == states.length) {
+              y = 0;
+            }
 
-      if (x < states.length && y < states[0].length) {
+      if (x >= 0 && y >= 0 && x < states.length && y < states[0].length) {
 
-        if (states[x][y] == alive || states[x][y] == dying) {
+        if (states[x][y] == CellState.ALIVE || states[x][y] == CellState.DYING) {
           count++;
         }
       }
