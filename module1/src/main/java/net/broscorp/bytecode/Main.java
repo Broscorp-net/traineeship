@@ -9,7 +9,7 @@ public class Main {
     System.out.println("Hello");
   }
 
-  /**
+  /**javadoc.
    * @param args - string.
    * */
   public static void main(String[] args) {
