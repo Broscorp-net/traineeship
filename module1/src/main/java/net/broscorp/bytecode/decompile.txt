@@ -1,0 +1,111 @@
+Classfile /C:/Users/User/IdeaProjects/BrosCorpExem/traineeship/module1/src/main/java/net/broscorp/bytecode/Main.class
+  Last modified 30.07.2021; size 603 bytes
+  MD5 checksum 0822a388a006a8c99284c508b8c0191c
+  Compiled from "Main.java"
+public class net.broscorp.bytecode.Main
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #9.#22         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #23.#24        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = String             #25            // Hello
+   #4 = Methodref          #26.#27        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #5 = Fieldref           #8.#28         // net/broscorp/bytecode/Main.x:I
+   #6 = Methodref          #26.#29        // java/io/PrintStream.println:(I)V
+   #7 = Methodref          #8.#30         // net/broscorp/bytecode/Main.hello:()V
+   #8 = Class              #31            // net/broscorp/bytecode/Main
+   #9 = Class              #32            // java/lang/Object
+  #10 = Utf8               x
+  #11 = Utf8               I
+  #12 = Utf8               <init>
+  #13 = Utf8               ()V
+  #14 = Utf8               Code
+  #15 = Utf8               LineNumberTable
+  #16 = Utf8               hello
+  #17 = Utf8               main
+  #18 = Utf8               ([Ljava/lang/String;)V
+  #19 = Utf8               StackMapTable
+  #20 = Utf8               SourceFile
+  #21 = Utf8               Main.java
+  #22 = NameAndType        #12:#13        // "<init>":()V
+  #23 = Class              #33            // java/lang/System
+  #24 = NameAndType        #34:#35        // out:Ljava/io/PrintStream;
+  #25 = Utf8               Hello
+  #26 = Class              #36            // java/io/PrintStream
+  #27 = NameAndType        #37:#38        // println:(Ljava/lang/String;)V
+  #28 = NameAndType        #10:#11        // x:I
+  #29 = NameAndType        #37:#39        // println:(I)V
+  #30 = NameAndType        #16:#13        // hello:()V
+  #31 = Utf8               net/broscorp/bytecode/Main
+  #32 = Utf8               java/lang/Object
+  #33 = Utf8               java/lang/System
+  #34 = Utf8               out
+  #35 = Utf8               Ljava/io/PrintStream;
+  #36 = Utf8               java/io/PrintStream
+  #37 = Utf8               println
+  #38 = Utf8               (Ljava/lang/String;)V
+  #39 = Utf8               (I)V
+{
+  public static int x;
+    descriptor: I
+    flags: ACC_PUBLIC, ACC_STATIC
+
+  public net.broscorp.bytecode.Main();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 6: 0
+
+  public static void hello();
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #3                  // String Hello
+         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 11: 0
+        line 12: 8
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=2, args_size=1
+         0: iconst_0
+         1: istore_1
+         2: iload_1
+         3: iconst_5
+         4: if_icmpge     24
+         7: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        10: getstatic     #5                  // Field x:I
+        13: iload_1
+        14: iadd
+        15: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        18: iinc          1, 1
+        21: goto          2
+        24: invokestatic  #7                  // Method hello:()V
+        27: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 7
+        line 16: 18
+        line 20: 24
+        line 23: 27
+      StackMapTable: number_of_entries = 2
+        frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+        frame_type = 250 /* chop */
+          offset_delta = 21
+}
+SourceFile: "Main.java"
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

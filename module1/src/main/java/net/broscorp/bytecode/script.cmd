@@ -1,7 +1,5 @@
 javac Main.java
 
-java Main
+javap -c -s -verbose Main.class > decompile.txt
 
-printf "\n\n|||||||||||||||\n\n" >> decompile.txt
-
-javap -c -p  Main  >&1 | tee -a  decompile.txt
+echo \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\>>decompile.txt

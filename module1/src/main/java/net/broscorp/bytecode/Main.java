@@ -24,8 +24,3 @@ public class Main {
 }
 
 
-//2. ~C:\Users\User\IdeaProjects\BrosCorpExem\traineeship\module1\src\main\java\net\broscorp\bytecode\ javac Main.java
-//
-//   ~java -classpath C:\Users\User\IdeaProjects\BrosCorpExem\traineeship\module1\src\main\java\ net.broscorp.bytecode Main
-//
-//
