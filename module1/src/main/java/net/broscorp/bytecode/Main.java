@@ -1,5 +1,6 @@
 package net.broscorp.bytecode;
 
+/** main. */
 public class Main {
 
   public static int x;
@@ -8,6 +9,7 @@ public class Main {
     System.out.println("Hello");
   }
 
+  /** @param args - string. */
   public static void main(String[] args) {
 
     for (int i = 0; i < 5; i++) {
