@@ -1,51 +1,62 @@
 Classfile /C:/Users/User/IdeaProjects/BrosCorpExem/traineeship/module1/src/main/java/net/broscorp/bytecode/Main.class
-  Last modified 30.07.2021; size 603 bytes
-  MD5 checksum 0822a388a006a8c99284c508b8c0191c
+  Last modified 08.08.2021; size 730 bytes
+  MD5 checksum 9fba387a9ab9531e2959c3166fd8f070
   Compiled from "Main.java"
 public class net.broscorp.bytecode.Main
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
-   #1 = Methodref          #9.#22         // java/lang/Object."<init>":()V
-   #2 = Fieldref           #23.#24        // java/lang/System.out:Ljava/io/PrintStream;
-   #3 = String             #25            // Hello
-   #4 = Methodref          #26.#27        // java/io/PrintStream.println:(Ljava/lang/String;)V
-   #5 = Fieldref           #8.#28         // net/broscorp/bytecode/Main.x:I
-   #6 = Methodref          #26.#29        // java/io/PrintStream.println:(I)V
-   #7 = Methodref          #8.#30         // net/broscorp/bytecode/Main.hello:()V
-   #8 = Class              #31            // net/broscorp/bytecode/Main
-   #9 = Class              #32            // java/lang/Object
-  #10 = Utf8               x
-  #11 = Utf8               I
-  #12 = Utf8               <init>
-  #13 = Utf8               ()V
-  #14 = Utf8               Code
-  #15 = Utf8               LineNumberTable
-  #16 = Utf8               hello
-  #17 = Utf8               main
-  #18 = Utf8               ([Ljava/lang/String;)V
-  #19 = Utf8               StackMapTable
-  #20 = Utf8               SourceFile
-  #21 = Utf8               Main.java
-  #22 = NameAndType        #12:#13        // "<init>":()V
-  #23 = Class              #33            // java/lang/System
-  #24 = NameAndType        #34:#35        // out:Ljava/io/PrintStream;
-  #25 = Utf8               Hello
-  #26 = Class              #36            // java/io/PrintStream
-  #27 = NameAndType        #37:#38        // println:(Ljava/lang/String;)V
-  #28 = NameAndType        #10:#11        // x:I
-  #29 = NameAndType        #37:#39        // println:(I)V
-  #30 = NameAndType        #16:#13        // hello:()V
-  #31 = Utf8               net/broscorp/bytecode/Main
-  #32 = Utf8               java/lang/Object
-  #33 = Utf8               java/lang/System
-  #34 = Utf8               out
-  #35 = Utf8               Ljava/io/PrintStream;
-  #36 = Utf8               java/io/PrintStream
-  #37 = Utf8               println
-  #38 = Utf8               (Ljava/lang/String;)V
-  #39 = Utf8               (I)V
+   #1 = Methodref          #11.#25        // java/lang/Object."<init>":()V
+   #2 = Fieldref           #26.#27        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = String             #28            // Hello
+   #4 = Methodref          #29.#30        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #5 = Methodref          #31.#32        // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+   #6 = Fieldref           #10.#33        // net/broscorp/bytecode/Main.x:I
+   #7 = Methodref          #29.#34        // java/io/PrintStream.println:(I)V
+   #8 = Methodref          #31.#35        // java/lang/Integer.intValue:()I
+   #9 = Methodref          #10.#36        // net/broscorp/bytecode/Main.hello:()V
+  #10 = Class              #37            // net/broscorp/bytecode/Main
+  #11 = Class              #38            // java/lang/Object
+  #12 = Utf8               x
+  #13 = Utf8               I
+  #14 = Utf8               <init>
+  #15 = Utf8               ()V
+  #16 = Utf8               Code
+  #17 = Utf8               LineNumberTable
+  #18 = Utf8               hello
+  #19 = Utf8               main
+  #20 = Utf8               ([Ljava/lang/String;)V
+  #21 = Utf8               StackMapTable
+  #22 = Class              #39            // java/lang/Integer
+  #23 = Utf8               SourceFile
+  #24 = Utf8               Main.java
+  #25 = NameAndType        #14:#15        // "<init>":()V
+  #26 = Class              #40            // java/lang/System
+  #27 = NameAndType        #41:#42        // out:Ljava/io/PrintStream;
+  #28 = Utf8               Hello
+  #29 = Class              #43            // java/io/PrintStream
+  #30 = NameAndType        #44:#45        // println:(Ljava/lang/String;)V
+  #31 = Class              #39            // java/lang/Integer
+  #32 = NameAndType        #46:#47        // valueOf:(I)Ljava/lang/Integer;
+  #33 = NameAndType        #12:#13        // x:I
+  #34 = NameAndType        #44:#48        // println:(I)V
+  #35 = NameAndType        #49:#50        // intValue:()I
+  #36 = NameAndType        #18:#15        // hello:()V
+  #37 = Utf8               net/broscorp/bytecode/Main
+  #38 = Utf8               java/lang/Object
+  #39 = Utf8               java/lang/Integer
+  #40 = Utf8               java/lang/System
+  #41 = Utf8               out
+  #42 = Utf8               Ljava/io/PrintStream;
+  #43 = Utf8               java/io/PrintStream
+  #44 = Utf8               println
+  #45 = Utf8               (Ljava/lang/String;)V
+  #46 = Utf8               valueOf
+  #47 = Utf8               (I)Ljava/lang/Integer;
+  #48 = Utf8               (I)V
+  #49 = Utf8               intValue
+  #50 = Utf8               ()I
 {
   public static int x;
     descriptor: I
@@ -60,7 +71,7 @@ Constant pool:
          1: invokespecial #1                  // Method java/lang/Object."<init>":()V
          4: return
       LineNumberTable:
-        line 6: 0
+        line 3: 0
 
   public static void hello();
     descriptor: ()V
@@ -72,40 +83,51 @@ Constant pool:
          5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
          8: return
       LineNumberTable:
-        line 11: 0
-        line 12: 8
+        line 8: 0
+        line 9: 8
 
   public static void main(java.lang.String[]);
     descriptor: ([Ljava/lang/String;)V
     flags: ACC_PUBLIC, ACC_STATIC
     Code:
-      stack=3, locals=2, args_size=1
-         0: iconst_0
-         1: istore_1
-         2: iload_1
-         3: iconst_5
-         4: if_icmpge     24
-         7: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
-        10: getstatic     #5                  // Field x:I
-        13: iload_1
-        14: iadd
-        15: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
-        18: iinc          1, 1
-        21: goto          2
-        24: invokestatic  #7                  // Method hello:()V
-        27: return
+      stack=3, locals=3, args_size=1
+         0: bipush        10
+         2: invokestatic  #5                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+         5: astore_1
+         6: iconst_0
+         7: istore_2
+         8: iload_2
+         9: iconst_5
+        10: if_icmpge     42
+        13: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        16: getstatic     #6                  // Field x:I
+        19: iload_2
+        20: iadd
+        21: invokevirtual #7                  // Method java/io/PrintStream.println:(I)V
+        24: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        27: aload_1
+        28: invokevirtual #8                  // Method java/lang/Integer.intValue:()I
+        31: iload_2
+        32: iadd
+        33: invokevirtual #7                  // Method java/io/PrintStream.println:(I)V
+        36: iinc          2, 1
+        39: goto          8
+        42: invokestatic  #9                  // Method hello:()V
+        45: return
       LineNumberTable:
-        line 16: 0
-        line 17: 7
-        line 16: 18
-        line 20: 24
-        line 23: 27
+        line 13: 0
+        line 15: 6
+        line 16: 13
+        line 17: 24
+        line 15: 36
+        line 20: 42
+        line 21: 45
       StackMapTable: number_of_entries = 2
-        frame_type = 252 /* append */
-          offset_delta = 2
-          locals = [ int ]
+        frame_type = 253 /* append */
+          offset_delta = 8
+          locals = [ class java/lang/Integer, int ]
         frame_type = 250 /* chop */
-          offset_delta = 21
+          offset_delta = 33
 }
 SourceFile: "Main.java"
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
