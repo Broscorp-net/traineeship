@@ -3,6 +3,10 @@ package net.broscorp.classpath;
 import java.util.Scanner;
 
 public class First {
+
+  /**
+   * main.
+   */
   public static void main(String[] args) {
     while (true) {
       Scanner scanner = new Scanner(System.in);
