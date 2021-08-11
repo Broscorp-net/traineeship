@@ -19,15 +19,18 @@ import java.util.stream.Collectors;
  * Nested classes are divided into two categories: non-static and static. Non-static nested classes
  * are called inner classes. Nested classes that are declared static are called static nested
  * classes.
+ * </p>
  * <p>
  * As with instance methods and variables, an inner class is associated with an instance of its
  * enclosing class and has direct access to that object's methods and fields. Also, because an inner
  * class is associated with an instance, it cannot define any static members itself.
+ * </p>
  * <p>
  * Static nested class cannot refer directly to instance variables or methods defined in its
  * enclosing class: it can use them only through an object reference
+ * </p>
  *
- * @param <T>
+ * @param <T> any iterable element.
  */
 public class MyCoolList<T extends Number> implements Iterable<T> {
 
