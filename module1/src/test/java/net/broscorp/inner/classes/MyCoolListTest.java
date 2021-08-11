@@ -8,6 +8,7 @@ package net.broscorp.inner.classes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
@@ -51,12 +52,11 @@ class MyCoolListTest {
     myCoolList.add(-25);
     myCoolList.add(0);
 
-    int index = 0;
-    for (Integer i : myCoolList) {
-      if (i < 0) {
-        myCoolList.remove(index);
+    Iterator<Integer> iterator = myCoolList.iterator();
+    while (iterator.hasNext()) {
+      if (iterator.next() < 0) {
+        iterator.remove();
       }
-      index++;
     }
 
     assertEquals(3, myCoolList.size());
@@ -78,7 +78,7 @@ class MyCoolListTest {
       return item;
     });
 
-    assertEquals(newCoolList.get(4), myCoolList.get(4));
+    assertEquals(newCoolList.get(3), myCoolList.get(3));
   }
 
   @Test
@@ -90,12 +90,11 @@ class MyCoolListTest {
 
     assertEquals(4, myCoolList.size());
 
-    int index = 0;
-    for (Integer i : myCoolList) {
-      if (i <= 0) {
-        myCoolList.remove(index);
+    Iterator<Integer> iterator = myCoolList.iterator();
+    while (iterator.hasNext()) {
+      if (iterator.next() <= 0) {
+        iterator.remove();
       }
-      index++;
     }
 
     assertEquals(2, myCoolList.size());

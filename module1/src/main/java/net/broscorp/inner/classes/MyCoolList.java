@@ -17,6 +17,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
 
   protected List<T> list = new ArrayList<>();
+  protected final ListIterator iterator = new ListIterator();
 
   public void add(T o) {
     list.add(o);
@@ -36,6 +37,11 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
     T item = list.get(index);
     list.remove(index);
     return item;
+  }
+
+  public T remove(T element) {
+    list.remove(element);
+    return element;
   }
 
   /**
@@ -69,21 +75,17 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
     @Override
     public boolean hasNext() {
-      return list.size() < index;
+      return list.size() > index;
     }
 
     @Override
     public T next() {
-      if (hasNext()) {
-        index++;
-        return list.get(index);
-      }
-      throw new IndexOutOfBoundsException();
+      return list.get(index++);
     }
 
     @Override
     public void remove() {
-      list.remove(index);
+      list.remove(--index);
     }
 
   }
