@@ -1,11 +1,20 @@
-package net.broscorp.generics;
+/*
+ * Copyright (c) 2021.
+ * Danylo Havrylchenko
+ * GitHub: @akellanotavailable
+ */
+
+package net.broscorp.inner.classes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class MyCoolList<T extends Number> {
+public class MyCoolList<T extends Number> implements Iterable<T> {
+
 
   protected List<T> list = new ArrayList<>();
 
@@ -45,4 +54,37 @@ public class MyCoolList<T extends Number> {
     return this.list.size();
   }
 
+  public Iterator<T> iterator() {
+    return new ListIterator();
+  }
+
+  private class ListIterator implements Iterator<T> {
+
+    @Override
+    public void forEachRemaining(Consumer<? super T> action) {
+      Iterator.super.forEachRemaining(action);
+    }
+
+    private int index = 0;
+
+    @Override
+    public boolean hasNext() {
+      return list.size() < index;
+    }
+
+    @Override
+    public T next() {
+      if (hasNext()) {
+        index++;
+        return list.get(index);
+      }
+      throw new IndexOutOfBoundsException();
+    }
+
+    @Override
+    public void remove() {
+      list.remove(index);
+    }
+
+  }
 }
