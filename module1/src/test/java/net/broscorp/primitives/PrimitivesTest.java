@@ -10,12 +10,6 @@ import org.junit.jupiter.api.Test;
 class PrimitivesTest {
 
   @Test
-  void test() {
-    testOverflow();
-    testCast();
-    testFloatCalculation();
-  }
-
   void testOverflow() {
     int value = Integer.MAX_VALUE;
     int overflowValue = value + 10;
@@ -25,11 +19,26 @@ class PrimitivesTest {
     assertFalse(overflowValue > value);
   }
   
+  @Test
   void testCast() {
     assertFalse(longToIntCompare(123456789012345L));
     assertTrue(longToIntCompare(12345L));
     
     assertTrue(floatToDoubleCompare(12345.4612456F));
+  }
+  
+  @Test
+  void testFloatCalculation() {
+    float f = 1.1F; 
+    BigDecimal dec = new BigDecimal(1.1);
+    
+    for (int i = 0; i < 10; i++) {
+      f += 1.1F;
+      dec = dec.add(new BigDecimal(1.1));
+    }
+    
+    System.out.println("Correct value: " + dec.floatValue() + " | Actual value " + f);
+    assertNotEquals(dec.floatValue(), f);
   }
   
   boolean longToIntCompare(long l) {
@@ -46,19 +55,6 @@ class PrimitivesTest {
     System.out.println("Origin float: " + floatValue + " -> " 
                       + "Converted double: " + doubleValue);
     return floatValue == doubleValue;
-  }
-  
-  void testFloatCalculation() {
-    float f = 1.1F; 
-    BigDecimal dec = new BigDecimal(1.1);
-    
-    for (int i = 0; i < 10; i++) {
-      f += 1.1F;
-      dec = dec.add(new BigDecimal(1.1));
-    }
-    
-    System.out.println("Correct value: " + dec.floatValue() + " | Actual value " + f);
-    assertNotEquals(dec.floatValue(), f);
   }
   
 }
