@@ -13,6 +13,22 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html
+ * <p>
+ * Nested classes are divided into two categories: non-static and static. Non-static nested classes
+ * are called inner classes. Nested classes that are declared static are called static nested
+ * classes.
+ * <p>
+ * As with instance methods and variables, an inner class is associated with an instance of its
+ * enclosing class and has direct access to that object's methods and fields. Also, because an inner
+ * class is associated with an instance, it cannot define any static members itself.
+ * <p>
+ * Static nested class cannot refer directly to instance variables or methods defined in its
+ * enclosing class: it can use them only through an object reference
+ *
+ * @param <T>
+ */
 public class MyCoolList<T extends Number> implements Iterable<T> {
 
 
