@@ -21,6 +21,7 @@ class FooTest {
    * operation that causes its mutation. Therefore, after the method ends up its operation only
    * reference to the ArrayList instance will be destroyed, object data modified.
    */
+
   @Test
   void testFooShouldAddElement() {
     Foo foo = new Foo();
