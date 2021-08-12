@@ -7,7 +7,7 @@
 package net.broscorp.override.overload;
 
 /**
- * @Override Override forces an inheritor to change a function body of its parent
+ * Override forces an inheritor to change a function body of its parent.
  */
 
 public interface MathOperation {
