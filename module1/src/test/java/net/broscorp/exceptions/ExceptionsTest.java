@@ -1,5 +1,7 @@
 package net.broscorp.exceptions;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,16 +9,6 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 class ExceptionsTest {
-
-  @Test
-  void shouldHandleFileNotFoundException() {
-    handleExceptions("NoFile.txt");
-  }
-
-  @Test
-  void shouldHandleIoException() {
-    handleExceptions("src\\main\\java\\net\\broscorp\\exceptions\\file.txt");
-  }
 
   private void handleExceptions(String path) {
     String text = "";
@@ -33,5 +25,19 @@ class ExceptionsTest {
     } finally {
       System.out.println("FileNotFoundException handled. Bye!");
     }
+  }
+
+  @Test
+  void shouldNotThrowFileNotFoundException() {
+    assertDoesNotThrow(() -> {
+      handleExceptions("NoFile.txt");
+    });
+  }
+
+  @Test
+  void shouldNotThrowIoException() {
+    assertDoesNotThrow(() -> {
+      handleExceptions("src\\main\\java\\net\\broscorp\\exceptions\\file.txt");
+    });
   }
 }
