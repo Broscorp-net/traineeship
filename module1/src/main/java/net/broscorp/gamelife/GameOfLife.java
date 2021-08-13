@@ -21,7 +21,6 @@ public class GameOfLife {
    * @param fileNameOutput contains the result of the calculation.
    */
   public void game(String fileNameInput, String fileNameOutput) {
-
     Configuration config = parse(readFromFile(fileNameInput));
 
     int iterations = config.getIterations();
@@ -75,7 +74,6 @@ public class GameOfLife {
     int columns = Integer.parseInt(args[1]);
     int iterations = Integer.parseInt(args[2]);
 
-    // concatenate the rest of the list into one line and convert to 2D byte array.
     byte[][] inputFigure = convertToMatrix(inputData, rows, columns);
 
     return new Configuration(rows, columns, iterations, inputFigure);
