@@ -1,15 +1,13 @@
 package net.broscorp.primitives;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import org.junit.jupiter.api.Test;
 
 public class PrimitivesTest {
 
   @Test
   void overflow() {
-    System.out.println("[" + Byte.MIN_VALUE +" , " +  Byte.MAX_VALUE + "]");
+    System.out.println("[" + Byte.MIN_VALUE + " , " +  Byte.MAX_VALUE + "]");
     System.out.println("Byte.SIZE  =   " + Byte.SIZE);
 
     byte value = Byte.MAX_VALUE;
@@ -21,7 +19,7 @@ public class PrimitivesTest {
 
   @Test
   void testLongToInt() {
-    long longBigNumber = 214748364710L;
+    long longBigNumber = Long.MAX_VALUE;
     int intSmallNumber = 1000;
 
     intSmallNumber = (int) longBigNumber;
@@ -32,7 +30,7 @@ public class PrimitivesTest {
 
   @Test
   void testDoubleToFloat() {
-    double doubleNumber = 1.1529215e+18;
+    double doubleNumber = Double.MAX_VALUE;
     float floatNumber = (float) doubleNumber;
 
     System.out.println(floatNumber);
