@@ -25,7 +25,7 @@ class StringsJoyTest {
   private static final PrintStream originalOut = System.out;
   private static final PrintStream originalErr = System.err;
   private static final String TEST_STR_RESULT =
-      "words: Greetings, traveler, ; letters count: 17\r\n";
+      "words: Greetings, traveler, ; letters count: 17" + System.lineSeparator();
 
   @BeforeAll
   public static void setUpStreams() {
