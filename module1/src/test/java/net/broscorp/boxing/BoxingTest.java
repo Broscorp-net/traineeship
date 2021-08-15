@@ -32,8 +32,9 @@ public class BoxingTest {
 
   @Test
   void unboxingExceptionTest() {
+    Integer integer = null;
     assertThrows(NullPointerException.class, () ->  {
-      int value = new Integer(null);
+      int value = integer + 1;
     });
   }
 }
