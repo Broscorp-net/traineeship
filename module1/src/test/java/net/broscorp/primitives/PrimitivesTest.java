@@ -1,7 +1,9 @@
 package net.broscorp.primitives;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.text.DecimalFormat;
 import org.junit.jupiter.api.Test;
 
 public class PrimitivesTest {
@@ -37,6 +39,20 @@ public class PrimitivesTest {
     System.out.println(floatNumber);
 
     assertFalse(doubleNumber == floatNumber);
+  }
+
+  @Test
+  void testPromlemsWithDouble() {
+    Double value = 1.0;
+    Double value2 = 0.6;
+
+    for (int i = 0; i < 4; i++) {
+      value -= 0.1;
+    }
+
+    System.out.println(value);
+    assertFalse(value == value2);
+    assertTrue(Math.ceil(value) == Math.ceil(value2));
   }
 }
 
