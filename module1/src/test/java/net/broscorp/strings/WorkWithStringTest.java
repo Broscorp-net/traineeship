@@ -32,7 +32,7 @@ class WorkWithStringTest {
 
   @Test
   @DisplayName("Replace all 'o' to 'q'")
-  void replaceCharsTest(){
+  void replaceCharsTest() {
     assertEquals("Hellq Wqrld",
         workWithString.replaceChars("Hello World", "o", "q"));
   }
