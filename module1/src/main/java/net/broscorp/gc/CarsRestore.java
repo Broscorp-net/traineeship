@@ -6,23 +6,34 @@ public class CarsRestore {
   private int num;
   static CarsRestore cr;
 
-  public CarsRestore(String name, int num) {
+  CarsRestore(String name, int num) {
     this.name = name;
     this.num = num;
   }
 
-  public String getName() {
+  String getName() {
     return name;
   }
 
-  public int getNum() {
+  int getNum() {
     return num;
   }
 
   @Override
   protected void finalize() throws Throwable {
-    System.out.println("Restore");
     cr = this;
+    System.out.println("Finalization called, but this Object restored in process.");
     super.finalize();
+  }
+
+  @Override
+  public String toString() {
+    return "CarsRestore{"
+        + "name = '"
+        + name
+        + '\''
+        + ", number = "
+        + num
+        + '}';
   }
 }

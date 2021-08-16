@@ -6,7 +6,7 @@
 Survivors. Вновь созданные объекты помещаются в Eden. При заполнении этого сегмента JVM запускает 
 Garbage Collection (GC), который анализирует ссылки на объекты в Eden, неиспользуемые и недостижимые
 он помечает к удалению, живые переносит в сегмент Survivors, а Eden очищается. Survivors также 
-разделен на 2 сегмента, при заполнении одного вызывается GC и происходит опять маркировка, перенос  во 
+разделен на 2 сегмента, при заполнении одного вызывается GC и происходит опять маркировка, перенос во 
 2-й сегмент, очистка 1-го и сегменты меняются местами. Объекты пережившие несколько чисток попадают 
 в Old Generation.
 При наблюдении за работой метода в JConsole можно увидеть заполнение и очистку памяти в разных 
@@ -16,14 +16,39 @@ Garbage Collection (GC), который анализирует ссылки на
 Old Generation GC запускается с той же частотой, что и в Survivors, но заполнение происходит 
 постепенно и ступенчато.  
 Переопределение метода finalize() приводит к значительному
-замедлению скорости работы программы, примерно в 430 раз.
+замедлению скорости работы программы, примерно в 430 раз.   
+___Результат теста:___   
+...  
+Finalization called. Object name = 'car 9629', number = 9629 removed  
+Finalization called. Object name = 'car 9630', number = 9630 removed  
+Finalization called. Object name = 'car 9631', number = 9631 removed  
+Finalization called. Object name = 'car 9632', number = 9632 removed  
+Finalization called. Object name = 'car 9633', number = 9633 removed  
+Finalization called. Object name = 'car 9634', number = 9634 removed  
+Finalization called. Object name = 'car 9635', number = 9635 removed  
+Finalization called. Object name = 'car 9636', number = 9636 removed  
+Finalization called. Object name = 'car 9637', number = 9637 removed  
+Finalization called. Object name = 'car 9638', number = 9638 removed  
+...  
 2. Тест - _restoreObjectBeforeGarbage()_ - восстановление достижимости объекта   
 На этапе финализации объект сделать снова доступным возможно, но после этого он останется в 
 памяти до окончания работы JVM, так как повторно метод finalize() для объектов не вызывается.
 Большое количество таких объектов может привести к Out of memory error либо к значительным утечкам 
 памяти.   
 Тест показал, что хотя ссылка на объект была  установлена в null, в методе finalize() объект был 
-восстановлен с теми же значениями полей.
+восстановлен с теми же значениями полей.  
+___Результат теста:___  
+New Object CarsRestore{name = 'Test Car', number = 1234} created    
+Reference on Object 'Test Car' is null  
+Finalization called, but this Object restored in process.  
+Object CarsRestore{name = 'Test Car', number = 1234} is available again.
 3. Тест - _pairRef()_ - проверка удаления пар, ссылающихся друг на друга.  
 Oбъекты, которые ссылаются друг на друга и больше на них никто не ссылается - являются 
-недостижимыми, поэтому GC удалит их.
+недостижимыми, поэтому GC удалит их.  
+___Результат теста:___   
+Object Car1 name = 'Mazda', number = 1234 created  
+Object Car2 name = 'VW', number = 4567 created  
+Car1.other = Car2 name = 'VW', number = 4567  
+Car2.other = Car1 name = 'Mazda', number = 1234  
+Finalization called. Object name = 'VW', number = 4567 removed  
+Finalization called. Object name = 'Mazda', number = 1234 removed  
