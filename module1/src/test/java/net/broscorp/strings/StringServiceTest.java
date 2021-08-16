@@ -92,13 +92,12 @@ public class StringServiceTest {
   public void shouldPrintWordsWithItsSize() {
     //given
     StringService service = new StringService();
+    String expected = "Hello contains 5 letters;\r\n"
+        + "World contains 5 letters;\r\n";
     //when
-    service.printNumberOfCharacters("Hello World");
+    String result = service.printNumberOfCharacters("Hello World");
     //then
-    /*
-      Hello contains 5 letters;
-      World contains 5 letters;
-     */
+    assertEquals(expected, result);
   }
 
   @Test

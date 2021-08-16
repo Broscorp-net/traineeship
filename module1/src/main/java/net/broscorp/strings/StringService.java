@@ -53,11 +53,16 @@ public class StringService {
   /** The method prints each word with its length from the input string.
    * @param string - the source.
    */
-  public void printNumberOfCharacters(String string) {
+  public String printNumberOfCharacters(String string) {
     String[] words = string.split(" ");
+    StringBuilder result = new StringBuilder();
     Arrays.stream(words)
-      .forEach(w -> System.out.printf("%s contains %d letters;%n", w, w.length()));
+      .forEach(w -> result.append(String.format("%s contains %d letters;%n", w, w.length())));
+
+    System.out.print(result.toString());
+    return result.toString();
   }
+
 
   /** The method creates a song.
    * @param bugs - number of bugs.
