@@ -1,11 +1,13 @@
 digraph Exceptions{
 
-  throwable [label = "Throwable \n checked"];
-  exception [label = "Exception \n checked"];
-  runtimeExc [label = "Runtime Exception \n checked"];
+  throwable [label = "Throwable"];
+  exception [label = "Exception"];
+  compileExc [label = "Compile Time Exception \n checked"];
+  runtimeExc [label = "Runtime Exception \n unchecked"];
   error [label = "Error \n unchecked"];
 
   throwable -> exception;
   throwable -> error;
   exception -> runtimeExc;
+  exception -> compileExc;
 }
