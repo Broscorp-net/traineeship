@@ -92,8 +92,8 @@ public class StringServiceTest {
   public void shouldPrintWordsWithItsSize() {
     //given
     StringService service = new StringService();
-    String expected = "Hello contains 5 letters;\r\n"
-        + "World contains 5 letters;\r\n";
+    String expected = "Hello contains 5 letters;" + System.lineSeparator()
+        + "World contains 5 letters;" + System.lineSeparator();
     //when
     String result = service.printNumberOfCharacters("Hello World");
     //then
