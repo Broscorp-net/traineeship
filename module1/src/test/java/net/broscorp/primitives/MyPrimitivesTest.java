@@ -39,10 +39,9 @@ public class MyPrimitivesTest {
   void floatingPointErrorTest() {
     float a = 10;
 
-    float aDiv = a / 3; //expected result    3.3333333333333333
-                        // but actual result 3.3333332538604736
+    float adiv = a / 3; //expected result 3.3333333333333333, but actual result 3.3333332538604736
 
-    assertEquals(3.3333332538604736, aDiv, 0);
+    assertEquals(3.3333332538604736, adiv, 0);
   }
 
 }
