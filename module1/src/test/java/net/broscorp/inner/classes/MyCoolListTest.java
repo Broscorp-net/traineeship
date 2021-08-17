@@ -104,9 +104,4 @@ class MyCoolListTest {
     assertEquals(3, myCoolList.size());
   }
 
-  @Test
-  void iteratorTest() {
-
-  }
-
 }
