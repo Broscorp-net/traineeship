@@ -1,6 +1,7 @@
 package net.broscorp.valueref;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +11,7 @@ class FooTest {
 
   private ArrayList<String> list;
   private Foo obj;
+  private int i = 10;
 
   @BeforeEach
   void startTest() {
@@ -22,8 +24,11 @@ class FooTest {
 
   @Test
   void foo() throws Exception {
-    obj.foo(10, list);
+    obj.foo(i, list);
     assertEquals(4, list.size()); // True
+    assertNotEquals(25, i); /* Not equals (True), внутри увеличивается
+    только копия i (10 += 15). Когда метод заканчивает работу копия удаляется. И
+    параметр i по-прежнему 10.*/
 
     /* добавляем элемент 'd' в list. Длинна list становиться 4 так
     как у нас было 3 элемента. Значение параметра i останется прежним после вызова
