@@ -24,7 +24,7 @@ public class GameOfLife {
       int ySize = Integer.parseInt(args[1]);
       Integer iterations = Integer.valueOf(args[2]);
 
-      Character[][] field = new Character[xSize][ySize];
+      Field field = new Field(xSize, ySize);
 
       String[] line;
 
@@ -32,14 +32,13 @@ public class GameOfLife {
         line = fileReader.readLine().split(" ");
 
         for (int j = 0; j < xSize; j++) {
-          field[i][j] = line[j].charAt(0);
-
-          if (field[i][j] == 'X') {
-
+          if (line[j].charAt(0) == 'X') {
+            field.createCell(j, i);
           }
         }
       }
 
+      field.printField(System.out);
 
     } catch (FileNotFoundException exception) {
       System.out.println("Could not load file provided");

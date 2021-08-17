@@ -6,7 +6,7 @@
 
 package net.broscorp.gamelife;
 
-import com.sun.tools.javac.util.Pair;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,16 +30,16 @@ public class Field {
     liveCells.remove(Pair.of(x, y));
   }
 
-  public void printField() {
+  public void printField(PrintStream output) {
     for (int i = 0; i < ySize; i++) {
       for (int j = 0; j < xSize; j++) {
         if (liveCells.contains(Pair.of(j, i))) {
-          System.out.print("X ");
+          output.print("X ");
         } else {
-          System.out.print("O ");
+          output.print("O ");
         }
       }
-      System.out.println();
+      output.println();
     }
   }
 
