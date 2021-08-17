@@ -3,12 +3,16 @@ compound=true;
 
 node[shape=default]
 Throwable->Exceptions;
+Errors [style=filled, color=red];
 Throwable->Errors;
+
+"Errors are also considered unchecked" [shape=plaintext];
+"Errors are also considered unchecked"->Errors[style=dotted];
 
 subgraph cluster0{
     label="Unchecked";
 
-    node [style=filled,color=white, shape=ellipse];
+    node [style=filled,color=red, shape=ellipse];
     "RuntimeException";
     "NullPointerException"
 }
