@@ -42,7 +42,7 @@ class MyCoolListTest {
       min = Math.min(min, i);
     }
 
-    assertEquals(-25, min);
+    assertEquals(min, myCoolList.get(2));
   }
 
   @Test

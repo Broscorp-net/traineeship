@@ -44,8 +44,6 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
     this.list = (T[]) new Number[size];
   }
 
-  protected final ListIterator iterator = new ListIterator();
-
   /**
    * Add element in the end of the list.
    *
