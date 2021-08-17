@@ -24,8 +24,7 @@ class StringsJoyTest {
   private static final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
   private static final PrintStream originalOut = System.out;
   private static final PrintStream originalErr = System.err;
-  private static final String TEST_STR_RESULT =
-      "words: Greetings, traveler, ; letters count: 17" + System.lineSeparator();
+  private static final String TEST_STR_RESULT = "Greetings - 9";
 
   @BeforeAll
   public static void setUpStreams() {
@@ -65,7 +64,7 @@ class StringsJoyTest {
   @Test
   void countWordsAndLetters() {
     StringsJoy.countWordsAndLetters("Greetings traveler");
-    assertEquals(TEST_STR_RESULT, outContent.toString());
+    assertTrue(outContent.toString().contains(TEST_STR_RESULT));
   }
 
   @Test

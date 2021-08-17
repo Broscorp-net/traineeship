@@ -78,9 +78,8 @@ public class StringsJoy {
     while (matcher.find()) {
       words.add(matcher.group());
     }
-    System.out.print("words: ");
-    words.forEach((String s) -> System.out.print(s + ", "));
-    System.out.println("; letters count: " + string.replaceAll(" ", "").length());
+    System.out.println("words: ");
+    words.forEach((String s) -> System.out.println(s + " - " + s.length()));
   }
 
   /**
