@@ -8,7 +8,6 @@ package net.broscorp.inner.classes;
 
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -109,11 +108,6 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
   }
 
   private class ListIterator implements Iterator<T> {
-
-    @Override
-    public void forEachRemaining(Consumer<? super T> action) {
-      Iterator.super.forEachRemaining(action);
-    }
 
     private int index = 0;
 
