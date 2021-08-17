@@ -11,7 +11,7 @@ class FooTest {
 
   private ArrayList<String> list;
   private Foo obj;
-  private int i = 10;
+  private int intArgument = 10;
 
   @BeforeEach
   void startTest() {
@@ -24,14 +24,14 @@ class FooTest {
 
   @Test
   void foo() throws Exception {
-    obj.foo(i, list);
+    obj.foo(intArgument, list);
     assertEquals(4, list.size()); // True
-    assertNotEquals(25, i); /* Not equals (True), внутри увеличивается
-    только копия i (10 += 15). Когда метод заканчивает работу копия удаляется. И
-    параметр i по-прежнему 10.*/
+    assertNotEquals(25, intArgument); /* Not equals (True), внутри увеличивается
+    только копия intArgument (10 += 15). Когда метод заканчивает работу копия удаляется. И
+    параметр intArgument по-прежнему 10.*/
 
     /* добавляем элемент 'd' в list. Длинна list становиться 4 так
-    как у нас было 3 элемента. Значение параметра i останется прежним после вызова
+    как у нас было 3 элемента. Значение параметра intArgument останется прежним после вызова
     метода foo().
     Первый параметр передача по значению. Вызываемый метод
     создает свою копию значения аргумента и использует ее, но на исходный параметр
