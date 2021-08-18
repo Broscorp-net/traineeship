@@ -70,6 +70,7 @@ class PersonTest {
                 .append(" not equals ").append("next person: ")
                 .append(next.getName()).append(" but hashcode equal ")
                 .append(current.hashCode()).append(" == ").append(next.hashCode());
+            System.out.println(message.toString());
             break;
           }
         }
