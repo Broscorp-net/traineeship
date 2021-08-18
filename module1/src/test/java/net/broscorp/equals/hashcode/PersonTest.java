@@ -60,18 +60,18 @@ class PersonTest {
     persons.add(radim);
     persons.add(daniel);
 
+    firstLoop:
     for (int i = 0; i < persons.size(); i++) {
       Person current = persons.get(i);
       for (int j = 1; j < persons.size(); j++) {
         Person next = persons.get(j);
         if (!current.equals(next)) {
           if (current.hashCode() == next.hashCode()) {
-            message.append("current person: ").append(current.getName())
-                .append(" not equals ").append("next person: ")
+            message.append(current.getName()).append(" not equals ")
                 .append(next.getName()).append(" but hashcode equal ")
                 .append(current.hashCode()).append(" == ").append(next.hashCode());
-            System.out.println(message.toString());
-            break;
+            System.out.print(message.toString());
+            break firstLoop;
           }
         }
       }
