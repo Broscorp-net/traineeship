@@ -1,24 +1,56 @@
 package net.broscorp.generics;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class MyCoolList<T extends Number> {
 
-  private List<T> list = new ArrayList<>();
+  private T[] collection;
+  private int lastIndex;
+  private int size;
+
+  public MyCoolList() {
+    this.collection = malloc(10);
+    this.lastIndex = -1;
+    this.size = 10;
+  }
+
+  private MyCoolList(T[] collection) {
+    this.collection = collection;
+    this.lastIndex = collection.length - 1;
+    this.size = collection.length;
+  }
 
   public void add(T o) {
-    this.list.add(o);
+    if (lastIndex + 1 == size) {
+      collection = Arrays.copyOf(collection, size * 2);
+    }
+
+    collection[++lastIndex] = o;
   }
 
   public T get(int index) {
-    return this.list.get(index);
+    if (!isValidIndex(index)) {
+      throw new RuntimeException();
+    }
+
+    return collection[index];
   }
 
   public T remove(int index) {
-    return this.list.remove(index);
+    if (!isValidIndex(index)) {
+      throw new RuntimeException();
+    }
+
+    T removed = collection[index];
+
+    if (lastIndex - index >= 0) {
+      System.arraycopy(collection, index + 1, collection, index, lastIndex - index);
+    }
+
+    lastIndex--;
+    return removed;
   }
 
   /**
@@ -28,19 +60,28 @@ public class MyCoolList<T extends Number> {
    * @return the new list.
    */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
-    MyCoolList<R> mappedList = new MyCoolList<>();
-    mappedList.setList(
-        list.stream().map(f).collect(Collectors.toList())
-    );
-    return mappedList;
+
+    final int size = lastIndex + 1;
+    R[] mappedCollection = malloc(size);
+
+    for (int i = 0; i < size; i++) {
+      mappedCollection[i] = f.apply(collection[i]);
+    }
+
+    return new MyCoolList<>(mappedCollection);
   }
 
   public int size() {
-    return this.list.size();
+    return lastIndex + 1;
   }
 
-  private void setList(List<T> list) {
-    this.list = list;
+  private boolean isValidIndex(int index) {
+    return index >= 0 && index < (lastIndex + 1);
+  }
+
+  @SuppressWarnings("unchecked")
+  private <E extends Number> E[] malloc(int size) {
+    return (E[]) Array.newInstance(java.lang.Number.class, size);
   }
 
 }

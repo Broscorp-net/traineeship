@@ -55,6 +55,22 @@ public class MyCoolListTest {
   }
 
   @Test
+  public void shouldRemoveLastItemByIndex() {
+    //given
+    MyCoolList<Integer> coolList = new MyCoolList<>();
+    coolList.add(0);
+    coolList.add(1);
+    coolList.add(2);
+    coolList.add(3);
+    int size = coolList.size();
+    //when
+    Integer actualItem = coolList.remove(size - 1);
+    //then
+    assertEquals(size - 1, coolList.size());
+    assertEquals(3, actualItem);
+  }
+
+  @Test
   public void shouldMapIntegersToDouble() {
     //given
     MyCoolList<Integer> coolList = new MyCoolList<>();
