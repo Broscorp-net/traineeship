@@ -5,6 +5,13 @@ public class Person implements Cloneable {
   private int age;
   private String inn;
 
+  /**
+   * Creates a person with the specified characteristics.
+   * @param name a String containing the name of the person
+   * @param age a int specifying the current person age
+   * @param inn a String containing the id number of the person
+   */
+
   public Person(String name, int age, String inn) {
     this.name = name;
     this.age = age;
@@ -37,8 +44,8 @@ public class Person implements Cloneable {
 
   @Override
   public String toString() {
-    return "Person name: " + this.name + ", age: " + this.age + ", inn: " +
-        this.inn;
+    return "Person name: " + this.name + ", age: " + this.age + ", inn: "
+        + this.inn;
   }
 
   @Override
@@ -51,7 +58,7 @@ public class Person implements Cloneable {
       return false;
     }
 
-    if(person.getClass().equals(Person.class)) {
+    if (person.getClass().equals(Person.class)) {
       Person currentPerson = (Person) person;
       return this.name.equals(currentPerson.name)
           && this.age == currentPerson.age
