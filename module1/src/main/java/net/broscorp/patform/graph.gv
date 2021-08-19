@@ -1,0 +1,21 @@
+graph G {
+
+    bgcolor= "grey";
+    node [shape=box3d fontname=Arial];
+
+    jdk [label="JDK"];
+    jre [label="JRE"];
+    devTools [label="Development Tools"];
+    jvm [label="JVM"];
+    javaApi [label="Java Class Library (Java API)"];
+    jit [label="JIT (Just-in-time compiler"];
+
+    jdk -- jre;
+    jdk -- devTools;
+
+    jre -- jvm;
+    jre -- javaApi;
+
+    jvm -- jit;
+}
+
