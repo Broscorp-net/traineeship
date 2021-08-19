@@ -17,7 +17,7 @@ public class MyCoolListIteratorTest {
   private static MyCoolList<Integer> list;
 
   @BeforeEach
-  void listInit() {
+  void listInitialization() {
     list = new MyCoolList<>();
     for (int i = 0; i < 10; i++) {
       list.add(i);
