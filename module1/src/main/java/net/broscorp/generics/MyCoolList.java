@@ -40,7 +40,7 @@ public class MyCoolList<T extends Number> {
    */
   public T get(int index) {
     if (!isValidIndex(index)) {
-      throw new IndexOutOfBoundsException();
+      throw new IndexOutOfBoundsException("Index " + index + " is out of range");
     }
 
     return collection[index];
@@ -54,7 +54,7 @@ public class MyCoolList<T extends Number> {
    */
   public T remove(int index) {
     if (!isValidIndex(index)) {
-      throw new IndexOutOfBoundsException();
+      throw new IndexOutOfBoundsException("Index " + index + " is out of range");
     }
 
     T removed = collection[index];
@@ -74,7 +74,6 @@ public class MyCoolList<T extends Number> {
    * @return the new list.
    */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
-
     final int size = lastIndex + 1;
     R[] mappedCollection = malloc(size);
 

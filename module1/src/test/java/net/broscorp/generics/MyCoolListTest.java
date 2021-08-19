@@ -1,6 +1,7 @@
 package net.broscorp.generics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -53,6 +54,18 @@ public class MyCoolListTest {
     Integer actualItem = coolList.get(0);
     //then
     assertEquals(expectedItem, actualItem);
+  }
+
+  @Test
+  public void shouldThrowIndexOutOfBoundsException() {
+    //given
+    MyCoolList<Long> coolList = new MyCoolList<>();
+    //when
+    //then
+    assertThrows(IndexOutOfBoundsException.class, () -> {
+      coolList.get(25);
+    });
+
   }
 
   @Test
