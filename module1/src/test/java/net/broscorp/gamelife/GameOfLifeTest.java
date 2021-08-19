@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled
+//@Disabled
 class GameOfLifeTest {
   GameOfLife game = new GameOfLife();
 
@@ -39,7 +39,7 @@ class GameOfLifeTest {
   }
 
   @Test
-  public void oscillatorFigure() {
+  public void oscillatorFigure() throws InterruptedException {
     game.game("inputOscillator.txt", "outputOscillator.txt");
     assertTrue(equalsFile("expectedOscillator.txt", "outputOscillator.txt"));
   }
