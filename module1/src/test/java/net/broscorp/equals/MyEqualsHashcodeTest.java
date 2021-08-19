@@ -54,9 +54,9 @@ public class MyEqualsHashcodeTest {
     assertEquals(box1.hashCode(), box2.hashCode());
 
     for (int i = 0; i < boxesHashCodeCollision.size() / 2 - 1; i++) {
-      System.out.println("Âîò îáúåêò " + boxesHashCodeCollision.get(2 * i) + " , âîò îáúåêò "
-          + boxesHashCodeCollision.get(2 * i + 1) + " , îíè ðàçíûå, íî èõ õåø "
-          + boxesHashCodeCollision.get(2 * i).hashCode() + " - ñîïàäàåò.");
+      System.out.println("Ð’Ð¾Ñ‚ Ð¾Ð±ÑŠÐµÐºÑ‚ " + boxesHashCodeCollision.get(2 * i) + " , Ð²Ð¾Ñ‚ Ð¾Ð±ÑŠÐµÐºÑ‚ "
+          + boxesHashCodeCollision.get(2 * i + 1) + " , Ð¾Ð½Ð¸ Ñ€Ð°Ð·Ð½Ñ‹Ðµ, Ð½Ð¾ Ð¸Ñ… Ñ…ÐµÑˆ "
+          + boxesHashCodeCollision.get(2 * i).hashCode() + " - ÑÐ¾Ð¿Ð°Ð´Ð°ÐµÑ‚.");
     }
   }
 }
