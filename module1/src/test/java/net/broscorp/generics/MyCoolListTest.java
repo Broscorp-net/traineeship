@@ -29,6 +29,21 @@ public class MyCoolListTest {
   }
 
   @Test
+  public void shouldAddItemAndExpandList() {
+    //given
+    MyCoolList<Integer> coolList = new MyCoolList<>();
+    for (int i = 0; i < 10; i++) {
+      coolList.add(i);
+    }
+    int beforeListSize = coolList.size();
+    //when
+    coolList.add(150);
+    int afterListSize = coolList.size();
+    //then
+    assertEquals(beforeListSize + 1, afterListSize);
+  }
+
+  @Test
   public void shouldGetItemByIndex() {
     //given
     MyCoolList<Integer> coolList = new MyCoolList<>();
@@ -41,7 +56,7 @@ public class MyCoolListTest {
   }
 
   @Test
-  public void shouldRemoveItemByIndex() {
+  public void shouldRemoveFistItemByIndex() {
     //given
     MyCoolList<Integer> coolList = new MyCoolList<>();
     Integer expectedItem = 111;
@@ -55,19 +70,33 @@ public class MyCoolListTest {
   }
 
   @Test
+  public void shouldRemoveMiddleItemByIndex() {
+    //given
+    MyCoolList<Integer> coolList = new MyCoolList<>();
+    coolList.add(0);
+    coolList.add(1);
+    coolList.add(2);
+    int size = coolList.size();
+    //when
+    Integer actualItem = coolList.remove(1);
+    //then
+    assertEquals(size - 1, coolList.size());
+    assertEquals(1, actualItem);
+  }
+
+  @Test
   public void shouldRemoveLastItemByIndex() {
     //given
     MyCoolList<Integer> coolList = new MyCoolList<>();
     coolList.add(0);
     coolList.add(1);
     coolList.add(2);
-    coolList.add(3);
     int size = coolList.size();
     //when
     Integer actualItem = coolList.remove(size - 1);
     //then
     assertEquals(size - 1, coolList.size());
-    assertEquals(3, actualItem);
+    assertEquals(2, actualItem);
   }
 
   @Test

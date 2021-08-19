@@ -8,43 +8,56 @@ public class MyCoolList<T extends Number> {
 
   private T[] collection;
   private int lastIndex;
-  private int size;
 
   public MyCoolList() {
-    this.collection = malloc(10);
-    this.lastIndex = -1;
-    this.size = 10;
+    collection = malloc(10);
+    lastIndex = -1;
   }
 
   private MyCoolList(T[] collection) {
     this.collection = collection;
-    this.lastIndex = collection.length - 1;
-    this.size = collection.length;
+    lastIndex = collection.length - 1;
   }
 
+  /**
+   * Appends the object to the end of this list.
+   * @param o the object to store.
+   */
   public void add(T o) {
-    if (lastIndex + 1 == size) {
-      collection = Arrays.copyOf(collection, size * 2);
+    final int allocatedMemory = collection.length;
+    if (lastIndex + 1 == allocatedMemory) {
+      collection = Arrays.copyOf(collection, allocatedMemory * 2);
     }
 
     collection[++lastIndex] = o;
   }
 
+  /**
+   * Returns the element at the specified position in this list.
+   * @param index index of the element to return.
+   * @return the element at the specified position in this list.
+   * @throws IndexOutOfBoundsException if the index is out of range.
+   */
   public T get(int index) {
     if (!isValidIndex(index)) {
-      throw new RuntimeException();
+      throw new IndexOutOfBoundsException();
     }
 
     return collection[index];
   }
 
+  /**
+   * Removes the element at the specified position in this list.
+   * @param index the index of the element to be removed.
+   * @return the element previously at the specified position.
+   * @throws IndexOutOfBoundsException if the index is out of range.
+   */
   public T remove(int index) {
     if (!isValidIndex(index)) {
-      throw new RuntimeException();
+      throw new IndexOutOfBoundsException();
     }
 
     T removed = collection[index];
-
     if (lastIndex - index >= 0) {
       System.arraycopy(collection, index + 1, collection, index, lastIndex - index);
     }
@@ -54,9 +67,10 @@ public class MyCoolList<T extends Number> {
   }
 
   /**
-   * Map wrapping.
-   * @param f - the function for mapping.
-   * @param <R> - the type for the output list.
+   * Returns a list consisting of the results of applying the given
+   * function to the elements of this list.
+   * @param f the function to apply to each element.
+   * @param <R> the element type of the new list.
    * @return the new list.
    */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
