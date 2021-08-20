@@ -20,7 +20,8 @@ class GameOfLife {
   void game(String fileNameInput, String fileNameOutput) {
 
     Stream<String> gameStreamInput = new BufferedReader(
-        new InputStreamReader(ClassLoader.getSystemResourceAsStream(fileNameInput))).lines();
+        new InputStreamReader(
+            Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(fileNameInput)))).lines();
     List<String> gameList = gameStreamInput.collect(Collectors.toList());
     int[][] gameFieldCurr = initGameField(gameList);
     int[][] gameFieldNext = new int[fieldRows][fieldColumns];
