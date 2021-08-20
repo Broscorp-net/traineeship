@@ -7,21 +7,20 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 //@Disabled
 class GameOfLifeTest {
+
   GameOfLife game = new GameOfLife();
 
   public boolean equalsFile(String expected, String result) {
     Stream<String> gameStreamInput = new BufferedReader(
-            new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
+        new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
     List<String> gameListExpected = gameStreamInput.collect(Collectors.toList());
     ClassLoader classLoader = GameOfLife.class.getClassLoader();
     Stream<String> gameStreamResult = new BufferedReader(
-            new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
+        new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
     List<String> gameListResult = gameStreamResult.collect(Collectors.toList());
     return gameListExpected.equals(gameListResult);
   }
@@ -39,7 +38,7 @@ class GameOfLifeTest {
   }
 
   @Test
-  public void oscillatorFigure() throws InterruptedException {
+  public void oscillatorFigure() {
     game.game("inputOscillator.txt", "outputOscillator.txt");
     assertTrue(equalsFile("expectedOscillator.txt", "outputOscillator.txt"));
   }
