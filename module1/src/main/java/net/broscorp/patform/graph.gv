@@ -1,21 +1,29 @@
-graph G {
+digraph G {
 
-    bgcolor= "grey";
-    node [shape=box3d fontname=Arial];
+    subgraph cluster_0 {
+      style=filled;
+      color=lightgrey;
+      node [style=filled,color=white];
+      JDK -> JRE;
+      JDK -> "Development tools";
+      JRE -> JVM;
+      JRE -> JavaApi;
+      JVM -> JIT;
+      label = "Graph";
+    }
 
-    jdk [label="JDK"];
-    jre [label="JRE"];
-    devTools [label="Development Tools"];
-    jvm [label="JVM"];
-    javaApi [label="Java Class Library (Java API)"];
-    jit [label="JIT (Just-in-time compiler"];
+    subgraph cluster_1 {
+      node [style=filled];
+      JDK -- 1
+      label = "Java Developer Kit(JDK) contains tools needed to develop the Java programs";
+      color=blue
+    }
 
-    jdk -- jre;
-    jdk -- devTools;
-
-    jre -- jvm;
-    jre -- javaApi;
-
-    jvm -- jit;
+    subgraph cluster_2 {
+      node [style=filled];
+      JRE -- 2;
+      label = "JRE to run the programs.";
+      color=blue
+    }
 }
 
