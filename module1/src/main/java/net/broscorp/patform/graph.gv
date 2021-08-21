@@ -1,29 +1,34 @@
 digraph G {
 
     subgraph cluster_0 {
-      style=filled;
-      color=lightgrey;
-      node [style=filled,color=white];
-      JDK -> JRE;
-      JDK -> "Development tools";
-      JRE -> JVM;
-      JRE -> JavaApi;
-      JVM -> JIT;
-      label = "Graph";
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=white];
+    JDK [shape=doubleoctagon, fillcolor=chocolate]
+    JRE [shape=filled, fillcolor=lightblue]
+    "Development tools" [shape=filled, fillcolor=tomato]
+    JVM [shape=filled, fillcolor=indigo]
+    JavaApi [shape=box3d, fillcolor=plum]
+    JIT [shape=octagon, fillcolor=seagreen]
+
+    JDK -> JRE;
+    JDK -> "Development tools";
+    JRE -> JVM;
+    JRE -> JavaApi;
+    JVM -> JIT;
+    label = "Graph";
     }
 
     subgraph cluster_1 {
-      node [style=filled];
-      JDK -- 1
-      label = "Java Developer Kit(JDK) contains tools needed to develop the Java programs";
-      color=blue
-    }
 
-    subgraph cluster_2 {
-      node [style=filled];
-      JRE -- 2;
-      label = "JRE to run the programs.";
-      color=blue
+    node [shape=box, color=lightblue]
+
+    "JDK - Java Developer Kit(JDK) contains tools needed to develop the Java programs" -> "JRE - Java Run-time Environment helps in running the programs"
+    "JDK - Java Developer Kit(JDK) contains tools needed to develop the Java programs"  -> "Development tools - Java Tools are software applications that help developers to ease the entire process of developing, testing, and deployment in Java."
+    "JRE - Java Run-time Environment helps in running the programs" -> "JVM - Java Virtual Machine is important part of the JRE, which actually runs the programs (.class files)"
+    "JRE - Java Run-time Environment helps in running the programs" -> "Java API - API specification for the Java Platform, Standard Edition."
+    "JVM - Java Virtual Machine is important part of the JRE, which actually runs the programs (.class files)" -> "JIT is a module inside the JVM which helps in compiling certain parts of byte code into the machine code for higher performance."
+    color=grey
     }
 }
 
