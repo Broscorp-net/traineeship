@@ -3,7 +3,7 @@ digraph java_platform {
     node [style=filled,color=lightblue]
     "JDK" -> "Java Compiler"[label="consist of java compiler and using for transforming to byte code"]
 
-    "JDK" -> "Java Byte Code"[label="JDK compile into bytecode"]
+    "Java Compiler" -> "Java Byte Code"[label="JDK compile into bytecode"]
 
     "Java Byte Code" -> "JVM"[label="JVM executes instructions in bytecode"]
 
