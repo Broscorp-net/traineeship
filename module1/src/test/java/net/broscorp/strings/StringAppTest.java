@@ -1,18 +1,16 @@
 package net.broscorp.strings;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StringAppTest {
 
   String hello = "Hello World";
 
   @Test
-  @DisplayName("Check string on palindrome")
   void palindrome() {
     StringApp app = new StringApp();
 
@@ -21,7 +19,6 @@ class StringAppTest {
   }
 
   @Test
-  @DisplayName("say only Hello")
   void hello() {
 
     StringApp app = new StringApp();
@@ -30,7 +27,6 @@ class StringAppTest {
   }
 
   @Test
-  @DisplayName("Say Hello World without L")
   void deleteL() {
 
     StringApp app = new StringApp();
@@ -39,7 +35,6 @@ class StringAppTest {
   }
 
   @Test
-  @DisplayName("Say Hello World with Q instead of O")
   void change_O() {
 
     StringApp app = new StringApp();
@@ -48,7 +43,6 @@ class StringAppTest {
   }
 
   @Test
-  @DisplayName("Look by the amount of words and letters")
   void numberOfWordsAndLetters() {
 
     StringApp app = new StringApp();
@@ -57,11 +51,19 @@ class StringAppTest {
   }
 
   @Test
-  @DisplayName("little bugs")
   void littleBugs() {
 
     StringApp app = new StringApp();
 
-    app.littleBugs(10, 3);
+    String expected =
+        "10 little bugs in the code, \n"
+            + "10 little bugs in the code. \n"
+            + "Take one down, patch it around 6 little bugs in the code.6 little bugs in the code, \n"
+            + "6 little bugs in the code. \n"
+            + "Take one down, patch it around 2 little bugs in the code.2 little bugs in the code, \n"
+            + "2 little bugs in the code. \n"
+            + "Take one down, patch it around -2 little bugs in the code.";
+    String actual = app.littleBugs(10, 3);
+    assertEquals(expected, actual);
   }
 }

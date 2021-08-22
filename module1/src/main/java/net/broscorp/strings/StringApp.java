@@ -9,9 +9,7 @@ public class StringApp {
   /** HELLO. */
   private static final String HELLO = "Hello World";
 
-  /**
-   * javadoc.
-   */
+  /** javadoc. */
   public boolean palindrome(String str) {
     List<String> list = Arrays.asList(str.split(""));
     for (int i = 0; i < list.size() / 2; i++) {
@@ -46,27 +44,28 @@ public class StringApp {
     int wordCount = list.size();
     System.out.println("Word Count: " + wordCount);
     for (int i = 0; i < wordCount; i++) {
-      List<String> subList = Arrays.asList(list.get(i).split(""));
-      int numberOfLetters = subList.size();
-      System.out.println("Number of letters in " + (i + 1) + "word: " + numberOfLetters);
+      System.out.println("Number of letters in " + (i + 1) + "word: " + list.get(i).length());
     }
   }
 
   /** little bugs. */
-  public void littleBugs(int n, int countOfPunchlines) {
+  public String littleBugs(int n, int countOfPunchlines) {
     int rng = n * countOfPunchlines;
 
+    StringBuilder builder = new StringBuilder();
+
     for (int i = 0; i < countOfPunchlines; i++) {
-      int m = n - 10 + new Random().nextInt(rng);
-      System.out.println(
-          n
-              + " little bugs in the code, \n"
-              + n
-              + " little bugs in the code. \n"
-              + "Take one down, patch it around "
-              + m
-              + " little bugs in the code.");
+      int m = n - 10 + new Random(rng).nextInt(20);
+      builder
+          .append(n)
+          .append(" little bugs in the code, \n")
+          .append(n)
+          .append(" little bugs in the code. \n")
+          .append("Take one down, patch it around ")
+          .append(m)
+          .append(" little bugs in the code.");
       n = m;
     }
+    return builder.toString();
   }
 }
