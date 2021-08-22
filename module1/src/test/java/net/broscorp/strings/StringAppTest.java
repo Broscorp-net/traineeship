@@ -1,10 +1,10 @@
 package net.broscorp.strings;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class StringAppTest {
 
@@ -58,11 +58,13 @@ class StringAppTest {
     String expected =
         "10 little bugs in the code, \n"
             + "10 little bugs in the code. \n"
-            + "Take one down, patch it around 6 little bugs in the code.6 little bugs in the code, \n"
+            + "Take one down, patch it around 6 little bugs in the code. \n"
+            + "6 little bugs in the code, \n"
             + "6 little bugs in the code. \n"
-            + "Take one down, patch it around 2 little bugs in the code.2 little bugs in the code, \n"
+            + "Take one down, patch it around 2 little bugs in the code. \n"
+            + "2 little bugs in the code, \n"
             + "2 little bugs in the code. \n"
-            + "Take one down, patch it around -2 little bugs in the code.";
+            + "Take one down, patch it around -2 little bugs in the code. \n";
     String actual = app.littleBugs(10, 3);
     assertEquals(expected, actual);
   }

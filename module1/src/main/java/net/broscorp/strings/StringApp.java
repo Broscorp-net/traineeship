@@ -63,7 +63,7 @@ public class StringApp {
           .append(" little bugs in the code. \n")
           .append("Take one down, patch it around ")
           .append(m)
-          .append(" little bugs in the code.");
+          .append(" little bugs in the code. \n");
       n = m;
     }
     return builder.toString();
