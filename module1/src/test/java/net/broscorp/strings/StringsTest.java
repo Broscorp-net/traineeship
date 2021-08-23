@@ -55,13 +55,6 @@ class StringsTest {
   }
 
   @Test
-  void testShouldComposeListOfWordsAndTheirCount() {
-    map.put("hello", 1);
-    map.put("world", 1);
-    assertEquals(map, strings.returnListOfWordsAndTheirCount(helloWorld));
-  }
-
-  @Test
   void testShouldComposeListOfWordsAndNumberOfLettersInEach() {
     map.put("hello", 5);
     map.put("world", 5);
