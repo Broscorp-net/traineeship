@@ -54,24 +54,6 @@ public class Strings {
     return str.replaceAll("o", "q");
   }
 
-  Map<String, Integer> returnListOfWordsAndTheirCount(String str) {
-    Map<String, Integer> listOfWordsAndCount = new HashMap<>();
-    String[] stringArray = removeUselessChars(str);
-    int count = 0;
-    for (String s : stringArray) {
-      if (!s.isEmpty() && !listOfWordsAndCount.containsKey(s)) {
-        for (String value : stringArray) {
-          if (s.equalsIgnoreCase(value)) {
-            count++;
-          }
-        }
-        listOfWordsAndCount.put(s, count);
-        count = 0;
-      }
-    }
-    return listOfWordsAndCount;
-  }
-
   Map<String, Integer> returnListOfWordsAndNumberOfLettersInEach(String str) {
     Map<String, Integer> map = new HashMap<>();
     String[] stringArray = removeUselessChars(str);
