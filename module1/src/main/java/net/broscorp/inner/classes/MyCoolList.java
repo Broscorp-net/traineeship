@@ -13,8 +13,9 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
   private T[] collection;
   private int lastIndex;
 
+  @SuppressWarnings("unchecked")
   public MyCoolList() {
-    collection = malloc(10);
+    collection = (T[]) Array.newInstance(java.lang.Number.class, 10);
     lastIndex = -1;
   }
 
@@ -81,9 +82,10 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
    * @param <R> the element type of the new list.
    * @return the new list.
    */
+  @SuppressWarnings("unchecked")
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     final int size = lastIndex + 1;
-    R[] mappedCollection = malloc(size);
+    R[] mappedCollection = (R[]) Array.newInstance(java.lang.Number.class, size);
 
     for (int i = 0; i < size; i++) {
       mappedCollection[i] = f.apply(collection[i]);
@@ -103,11 +105,6 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
   private boolean isValidIndex(int index) {
     return index >= 0 && index < (lastIndex + 1);
-  }
-
-  @SuppressWarnings("unchecked")
-  private <E extends Number> E[] malloc(int size) {
-    return (E[]) Array.newInstance(java.lang.Number.class, size);
   }
 
   /**
