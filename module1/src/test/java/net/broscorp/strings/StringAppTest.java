@@ -1,10 +1,11 @@
 package net.broscorp.strings;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class StringAppTest {
 
@@ -46,8 +47,8 @@ class StringAppTest {
   void numberOfWordsAndLetters() {
 
     StringApp app = new StringApp();
-
-    app.numberOfWordsAndLetters(hello);
+    int [][] arr2 = {{5}, {5}};
+    assertArrayEquals(app.numberOfWordsAndLetters(hello), arr2);
   }
 
   @Test

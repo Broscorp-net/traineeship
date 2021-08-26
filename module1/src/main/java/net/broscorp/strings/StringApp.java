@@ -38,14 +38,15 @@ public class StringApp {
   }
 
   /** number of words and letters. */
-  public void numberOfWordsAndLetters(String str) {
-
+  public int[][] numberOfWordsAndLetters(String str) {
     List<String> list = Arrays.asList(str.split(" "));
-    int wordCount = list.size();
-    System.out.println("Word Count: " + wordCount);
-    for (int i = 0; i < wordCount; i++) {
+    int[][] arr = new int[list.size()][1];
+    System.out.println("Word Count: " + list.size());
+    for (int i = 0; i < list.size(); i++) {
+      arr[i][0] = list.get(i).length();
       System.out.println("Number of letters in " + (i + 1) + "word: " + list.get(i).length());
     }
+    return arr;
   }
 
   /** little bugs. */
