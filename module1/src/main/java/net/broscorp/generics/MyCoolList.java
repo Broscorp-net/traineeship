@@ -1,54 +1,81 @@
 package net.broscorp.generics;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class MyCoolList<T extends Number> {
+class MyCoolList<T extends Number> {
 
-  public List<T> listInt;
+  private T[] listNumber;
+  private int realSize = 0;
 
-  public MyCoolList() {
-    this.listInt = new ArrayList<>();
+  @SuppressWarnings("unchecked")
+  MyCoolList(int size) {
+    this.listNumber = (T[]) new Number[size];
   }
 
-  public void add(T o) {
-    listInt.add(listInt.size(), o);
-  }
-
-  public MyCoolList map(Function f) {
-    throw new NotImplementedException();
-  }
-
-  public int size() {
-    return listInt.size();
+  private MyCoolList(T[] collection) {
+    this.listNumber = collection;
+    this.realSize = collection.length;
   }
 
   /**
-   * getting element from ArrayList by index.
-   * @param index - index of element.
-   * @return element's value or stroke "Wrong index".
+   * Add new object to Array. If necessary, the size of the array will increase.
+   * @param o - numeric value.
    */
-  public Object get(int index) {
-    try {
-      return listInt.get(index);
-    } catch (IndexOutOfBoundsException e) {
-      System.out.println("Wrong index, it should be in the range 0..." + (listInt.size() - 1));
-      return "Wrong index";
+  void add(T o) {
+    if (realSize == listNumber.length - 1) {
+      increaseSize();
     }
+    listNumber[realSize++] = o;
+  }
+
+  @SuppressWarnings("unchecked")
+  <R extends Number> MyCoolList<R> map(Function<T, R> f) {
+    R[] newCollection = (R[]) new Number[realSize];
+    for (int i = 0; i < realSize; i++) {
+      newCollection[i] = f.apply(listNumber[i]);
+    }
+    return new MyCoolList<>(newCollection);
   }
 
   /**
-   * remove element from ArrayList by index.
-   * @param index - index of element.
-   * @return removed element or stroke "Wrong index".
+   * Return size of Array.
+   * @return integer value.
    */
-  public Object remove(int index) {
-    Object removedObject = this.get(index);
-    if (removedObject != "Wrong index") {
-      listInt.remove(index);
-    }
+  int size() {
+    return realSize;
+  }
+
+  /**
+   * This method increase size of Array.
+   */
+  @SuppressWarnings("unchecked")
+  private void increaseSize() {
+    int newLength = listNumber.length * 3 / 2 + 1;
+    T[] newArr = (T[]) new Number[newLength];
+    System.arraycopy(listNumber, 0, newArr, 0, realSize);
+    listNumber = newArr;
+  }
+
+  /**
+   * getting element from Array by index.
+   *
+   * @param index - integer value, index of element.
+   * @return element's value.
+   */
+  T get(int index) {
+    return listNumber[index];
+  }
+
+  /**
+   * remove element from Array by index.
+   *
+   * @param index - integer value, index of element.
+   * @return removed element.
+   */
+  T remove(int index) {
+    T removedObject = listNumber[index];
+    System.arraycopy(listNumber, index + 1, listNumber, index, realSize - index);
+    realSize--;
     return removedObject;
   }
 
