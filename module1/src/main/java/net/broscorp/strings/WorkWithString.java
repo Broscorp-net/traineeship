@@ -36,6 +36,7 @@ class WorkWithString {
       songText.append(oneCouplet);
       bugs = m;
     }
+    System.out.println(songText);
     return songText.toString();
   }
 }

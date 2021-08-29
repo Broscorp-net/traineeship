@@ -39,7 +39,20 @@ class WorkWithStringTest {
 
   @Test
   void endlessSongTest() {
+    String textSong = "20 little bugs in the code, \n"
+        + "20 little bugs in the code. \n"
+        + "Take one down, patch it around 16 little bugs in the code.\n"
+        + "16 little bugs in the code, \n"
+        + "16 little bugs in the code. \n"
+        + "Take one down, patch it around 13 little bugs in the code.\n"
+        + "13 little bugs in the code, \n"
+        + "13 little bugs in the code. \n"
+        + "Take one down, patch it around 21 little bugs in the code.\n"
+        + "21 little bugs in the code, \n"
+        + "21 little bugs in the code. \n"
+        + "Take one down, patch it around 29 little bugs in the code.\n";
     String str = workWithString.endlessSong(20, 4);
     assertEquals(4, str.split("Take one").length - 1);
+    assertEquals(textSong, str);
   }
 }
