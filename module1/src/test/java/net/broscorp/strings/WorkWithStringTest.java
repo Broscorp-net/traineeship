@@ -40,7 +40,6 @@ class WorkWithStringTest {
   @Test
   void endlessSongTest() {
     String str = workWithString.endlessSong(20, 4);
-    int c = str.split("Take one").length - 1;
     assertEquals(4, str.split("Take one").length - 1);
   }
 }
