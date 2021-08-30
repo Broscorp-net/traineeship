@@ -1,0 +1,41 @@
+Compiled from "MyByteCode1.java"
+public class net.broscorp.bytecode.MyByteCode1 {
+  public net.broscorp.bytecode.MyByteCode1();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void printCount(int);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: new           #3                  // class java/lang/StringBuilder
+       6: dup
+       7: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+      10: ldc           #5                  // String Count in static method is
+      12: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: iload_0
+      16: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      19: invokevirtual #8                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      22: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      25: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        20
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: iload_1
+      20: invokestatic  #10                 // Method printCount:(I)V
+      23: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      26: ldc           #11                 // String Hello!!!
+      28: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      31: return
+}
