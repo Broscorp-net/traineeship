@@ -6,6 +6,9 @@ public class MyByteCode {
     System.out.println("Count is " + count);
   }
 
+  /**
+   * Main method invoke printCount.
+   */
   public static void main(String[] args) {
     MyByteCode myByteCode = new MyByteCode();
 

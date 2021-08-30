@@ -6,6 +6,9 @@ public class MyByteCode1 {
     System.out.println("Count in static method is " + count);
   }
 
+  /**
+   * Main method invoke printCount.
+   */
   public static void main(String[] args) {
 
     int count = 0;

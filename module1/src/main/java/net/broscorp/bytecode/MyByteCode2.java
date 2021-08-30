@@ -5,6 +5,9 @@ public class MyByteCode2 {
     System.out.println("Count with incrementation 50 is " + count);
   }
 
+  /**
+   * Main method invoke printCount.
+   */
   public static void main(String[] args) {
     MyByteCode2 myByteCode2 = new MyByteCode2();
 
