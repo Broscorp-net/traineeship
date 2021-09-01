@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -63,7 +65,13 @@ class StringsTest {
 
   @Test
   void testShouldReturnBugSongLyricsOfTwoVerses() {
-    System.out.println(strings.bugLyrics(10, 3));
+    Pattern pattern = Pattern.compile("Take one down");
+    Matcher matcher = pattern.matcher(strings.bugLyrics(10, 6));
+    int count = 0;
+    while (matcher.find()) {
+      count++;
+    }
+    assertEquals(6, count);
   }
 
   @Test
