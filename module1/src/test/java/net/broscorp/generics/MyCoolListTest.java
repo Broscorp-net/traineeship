@@ -57,11 +57,6 @@ class MyCoolListTest {
   }
 
   @Test
-  void shouldReturnDefaultSizeOfTen() {
-    assertEquals(10, myEmptyCoolList.capacity());
-  }
-
-  @Test
   void shouldAddElementToEmptyListAtZeroIndex() {
     myEmptyCoolList.add(1);
     assertEquals(1, myEmptyCoolList.size());
