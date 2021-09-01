@@ -4,14 +4,14 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Function;
 
-public class MyCoolList<E> {
+public class MyCoolList<E extends Number> {
 
   private E[] elements;
   private int capacity;
   private static final int DEFAULT_CAPACITY = 10;
 
   public MyCoolList() {
-    this.elements = (E[]) new Object[DEFAULT_CAPACITY];
+    this.elements = (E[]) new Number[DEFAULT_CAPACITY];
     this.capacity = elements.length;
   }
 
@@ -24,7 +24,7 @@ public class MyCoolList<E> {
     if (initialCapacity < 0) {
       throw new IllegalArgumentException("Capacity can't be negative");
     } else {
-      this.elements = (E[]) new Object[initialCapacity];
+      this.elements = (E[]) new Number[initialCapacity];
       this.capacity = elements.length;
     }
   }
@@ -98,13 +98,13 @@ public class MyCoolList<E> {
    * @throws NullPointerException if array the value of which to be converted is empty.
    */
 
-  public <T> MyCoolList<T> map(Function<E, T> f) {
+  public <T extends Number> MyCoolList<T> map(Function<E, T> f) {
     checkIfNotEmpty(elements);
     T[] arr = (T[]) Arrays.stream(elements)
         .filter(Objects::nonNull)
         .map(f)
-        .toArray(Object[]::new);
-    MyCoolList<T> myCoolList = new MyCoolList<>();
+        .toArray(Number[]::new);
+    MyCoolList<T> myCoolList = new MyCoolList<T>();
     for (T el : arr) {
       myCoolList.add(el);
     }
@@ -117,7 +117,7 @@ public class MyCoolList<E> {
     int first = beforeStart.length;
     int second = afterEnd.length;
     int newCapacity = first + second;
-    E[] finalArr = (E[]) new Object[newCapacity];
+    E[] finalArr = (E[]) new Number[newCapacity];
     System.arraycopy(beforeStart, 0, finalArr, 0, first);
     System.arraycopy(afterEnd, 0, finalArr, first, second);
     return finalArr;
@@ -132,7 +132,7 @@ public class MyCoolList<E> {
   private E[] extendElementsThanAdd(E[] elements, int load, E e) {
     int oldCapacity = capacity();
     int newCapacity = oldCapacity + (oldCapacity / 2);
-    E[] newArr = (E[]) new Object[newCapacity];
+    E[] newArr = (E[]) new Number[newCapacity];
     System.arraycopy(elements, 0, newArr, 0, elements.length);
     capacity = newCapacity;
     return insertElement(newArr, load, e);
@@ -165,7 +165,7 @@ public class MyCoolList<E> {
   }
 
   private E[] eliminateItemAtIndex(E[] elements, int index, int capacity) {
-    E[] newArray = (E[]) new Object[capacity];
+    E[] newArray = (E[]) new Number[capacity];
     for (int i = 0; i < capacity; i++) {
       if (i != index) {
         newArray[i] = elements[i];

@@ -9,18 +9,18 @@ import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
 
-  MyCoolList myEmptyCoolList;
-  MyCoolList myFiveElementslList;
+  private MyCoolList myEmptyCoolList;
+  private MyCoolList myFiveElementsList;
 
   @BeforeEach
   void setUp() {
     myEmptyCoolList = new MyCoolList();
-    myFiveElementslList = new MyCoolList(5);
-    myFiveElementslList.add(0);
-    myFiveElementslList.add(1);
-    myFiveElementslList.add(2);
-    myFiveElementslList.add(3);
-    myFiveElementslList.add(4);
+    myFiveElementsList = new MyCoolList(5);
+    myFiveElementsList.add(0);
+    myFiveElementsList.add(1);
+    myFiveElementsList.add(2);
+    myFiveElementsList.add(3);
+    myFiveElementsList.add(4);
   }
 
   @Test
@@ -38,21 +38,15 @@ class MyCoolListTest {
   }
 
   @Test
-  void shouldCreateListWithStringMemberType() {
-    myEmptyCoolList.add("String type added succesfully");
-    assertEquals(String.class, myEmptyCoolList.get(0).getClass());
-  }
-
-  @Test
   void shouldCreateListWithDoubleMemberType() {
     myEmptyCoolList.add(15.262626);
     assertEquals(Double.class, myEmptyCoolList.get(0).getClass());
   }
 
   @Test
-  void shouldCreateListWithObjectMemberType() {
-    myEmptyCoolList.add(new Object());
-    assertEquals(Object.class, myEmptyCoolList.get(0).getClass());
+  void shouldCreateListWithIntegerMemberType() {
+    myEmptyCoolList.add(5);
+    assertEquals(Integer.class, myEmptyCoolList.get(0).getClass());
   }
 
   @Test
@@ -94,15 +88,15 @@ class MyCoolListTest {
 
   @Test
   void listShouldExtendAndAddElementWhenAddedElementIsOutOfBounds() {
-    myFiveElementslList.add(6);
-    assertEquals(6, myFiveElementslList.size());
-    assertEquals(7, myFiveElementslList.capacity());
+    myFiveElementsList.add(6);
+    assertEquals(6, myFiveElementsList.size());
+    assertEquals(7, myFiveElementsList.capacity());
   }
 
   @Test
   void getShouldThrowIndexOutOfBoundsExceptionWhenIndexLessThanZero() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.get(-7);
+      myFiveElementsList.get(-7);
     });
     assertEquals("Index -7 is out of Bounds", exception.getMessage());
   }
@@ -111,20 +105,20 @@ class MyCoolListTest {
   @Test
   void getShouldThrowIndexOutOfBoundsExceptionWhenIndexExceedsCapacity() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.get(20);
+      myFiveElementsList.get(20);
     });
     assertEquals("Index 20 is out of Bounds", exception.getMessage());
   }
 
   @Test
   void getShouldReturnElementAtIndex() {
-    assertEquals(1, myFiveElementslList.get(1));
+    assertEquals(1, myFiveElementsList.get(1));
   }
 
   @Test
   void removeShouldThrowIndexOutOfBoundsExceptionWhenIndexLessThanZero() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.remove(-5);
+      myFiveElementsList.remove(-5);
     });
     assertEquals("Index -5 is out of Bounds", exception.getMessage());
   }
@@ -132,23 +126,23 @@ class MyCoolListTest {
   @Test
   void removeShouldThrowIndexOutOfBoundsExceptionWhenIndexExceedsCapacity() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.remove(105);
+      myFiveElementsList.remove(105);
     });
     assertEquals("Index 105 is out of Bounds", exception.getMessage());
   }
 
   @Test
   void removeShouldRemoveElementAtIndexAndDecreaseSizeByOne() {
-    int size = myFiveElementslList.size();
-    myFiveElementslList.remove(2);
-    assertNotEquals(2, myFiveElementslList.get(2));
-    assertEquals(size - 1, myFiveElementslList.size());
+    int size = myFiveElementsList.size();
+    myFiveElementsList.remove(2);
+    assertNotEquals(2, myFiveElementsList.get(2));
+    assertEquals(size - 1, myFiveElementsList.size());
   }
 
   @Test
   void removeRangeShouldThrowIndexOutOfBoundsExceptionWhenStartIndexBlowZero() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.removeRange(-6, 8);
+      myFiveElementsList.removeRange(-6, 8);
     });
     assertEquals("Index -6 is out of Bounds", exception.getMessage());
   }
@@ -156,7 +150,7 @@ class MyCoolListTest {
   @Test
   void removeRangeShouldThrowIndexOutOfBoundsExceptionWhenStartIndexExceedsCapacity() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.removeRange(15, 8);
+      myFiveElementsList.removeRange(15, 8);
     });
     assertEquals("Index 15 is out of Bounds", exception.getMessage());
   }
@@ -164,7 +158,7 @@ class MyCoolListTest {
   @Test
   void removeRangeShouldThrowIndexOutOfBoundsExceptionWhenEndIndexExceedsCapacity() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.removeRange(2, 8);
+      myFiveElementsList.removeRange(2, 8);
     });
     assertEquals("Index 8 is out of Bounds", exception.getMessage());
   }
@@ -172,30 +166,15 @@ class MyCoolListTest {
   @Test
   void removeRangeShouldThrowIndexOutOfBoundsExceptionWhenEndIndexBelowZero() {
     Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-      myFiveElementslList.removeRange(2, -9);
+      myFiveElementsList.removeRange(2, -9);
     });
     assertEquals("Index -9 is out of Bounds", exception.getMessage());
   }
 
   @Test
   void removeRangeShouldRemoveRange() {
-    myFiveElementslList.removeRange(1, 3);
-    assertEquals(2, myFiveElementslList.size());
-  }
-
-  @Test
-  void mapShouldThrowNullPointer() {
-    MyCoolList<Integer> listOfIntegers = new MyCoolList();
-    Throwable exception = assertThrows(NullPointerException.class, () -> {
-      listOfIntegers.map(String::valueOf);
-    });
-    assertEquals("Operation on empty or null element", exception.getMessage());
-  }
-
-  @Test
-  void mapShouldThrowMapIntegerToString() {
-    MyCoolList<String> list = myFiveElementslList.map(String::valueOf);
-    assertEquals(String.class, list.get(0).getClass());
+    myFiveElementsList.removeRange(1, 3);
+    assertEquals(2, myFiveElementsList.size());
   }
 
   @Test
