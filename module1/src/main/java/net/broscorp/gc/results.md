@@ -78,4 +78,39 @@ Process finished with exit code 0
 
 При уборке мусора объект который был однажды удален повторно не удаляется
 
+4.будут ли удалены пары объектов, которые ссылаются друг на друга
 
+public class Cat {
+public Cat friend;
+private int id;
+public Cat() {
+}
+public Cat(int id) {
+this.id = id;
+}
+@Override
+protected void finalize() throws Throwable {
+    System.out.println("Cat id " + id + " has been destroyed!");
+}
+}
+
+public class Main {
+
+public static Cat REFERENCE;
+
+public static void main(String[] args) {
+Cat cat1 = new Cat(1);
+    Cat cat2 = new Cat(2);
+    cat1.friend = cat2;
+    cat2.friend = cat1;
+    cat1 = null;
+    cat2 = null;
+    System.gc();
+}
+}
+Вывод в консоль:
+Cat id 2 has been destroyed!
+Cat id 1 has been destroyed!
+
+Удаление произойдет при более глубокой чистке, так как к вышеописанным объектам нету доступа из 
+текущего кода
