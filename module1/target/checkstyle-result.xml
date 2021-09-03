@@ -5,9 +5,6 @@
 <file name="C:\Users\gwynnblaidh\Documents\GitHub\traineeship\module1\src\main\java\net\broscorp\generics\MyCoolList.java">
 </file>
 <file name="C:\Users\gwynnblaidh\Documents\GitHub\traineeship\module1\src\main\java\net\broscorp\primitives\Primitives.java">
-<error line="7" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="16" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="33" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 </file>
 <file name="C:\Users\gwynnblaidh\Documents\GitHub\traineeship\module1\src\main\java\net\broscorp\valueref\Foo.java">
 </file>

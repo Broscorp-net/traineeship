@@ -4,15 +4,24 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Primitives {
+
+  /**{ @summary This is summary.}
+   * @param a float.
+   * @return boolean.
+   */
   public static boolean intToByte(int a) {
     byte num = (byte) a;
-    if (num == a) {
-      return true;
-    } else {
+    if (num != a) {
       return false;
+    } else {
+      return true;
     }
   }
 
+  /**{ @summary This is summary.}
+   * @param a long.
+   * @return int.
+   */
   public static int longToInt(long a) {
     if (a >= -2147483648 && a <= 2147483647) {
       return (int) a;
@@ -30,9 +39,9 @@ public class Primitives {
     return Double.parseDouble(newVar);
   }
 
-  /**
-   * @param a аргумент флоат
-   * @return возвращает дабл.
+  /**{ @summary This is summary.}
+   * @param a float.
+   * @return double.
    */
   public static double floatToDoubleVarThree(float a) {
     BigDecimal bd = BigDecimal.valueOf((double) a);
