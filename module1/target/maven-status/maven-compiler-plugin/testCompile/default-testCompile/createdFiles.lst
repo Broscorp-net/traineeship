@@ -1,3 +1,4 @@
 net\broscorp\primitives\PrimitivesTest.class
+net\broscorp\boxing\BoxingTest.class
 net\broscorp\gamelife\GameOfLifeTest.class
 net\broscorp\MyTest.class

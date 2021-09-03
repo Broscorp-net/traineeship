@@ -1,4 +1,5 @@
 net\broscorp\valueref\Foo.class
 net\broscorp\generics\MyCoolList.class
+net\broscorp\boxing\Boxing.class
 net\broscorp\primitives\Primitives.class
 net\broscorp\gamelife\GameOfLife.class
