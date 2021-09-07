@@ -1,0 +1,19 @@
+digraph java_exceptions {
+    node [style = filled,color = lightblue]
+
+    "Throwable" -> "Exception"
+
+    node [color = red]
+
+    "Throwable" -> "Error" [label = "Uncheked"]
+
+    node [color = lightblue]
+
+    "Exception" -> "Runtime Exception" [label = "Unchecked"]
+
+    "Exception" -> "Checked Exception" [label = "Checked"]
+
+    "Checked Exception" -> "IOException" [label = "Checked"]
+
+    "IOException" -> "SQL" [label = "Checked"]
+}
