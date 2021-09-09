@@ -3,6 +3,7 @@ package net.broscorp.inner.classes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import net.broscorp.inner.classes.MyCoolList.InnerIterator;
 import org.junit.jupiter.api.BeforeEach;
@@ -67,9 +68,24 @@ class MyCoolListTest {
     assertEquals(10, sizeOfList);
   }
 
+  @Test
+  void iteratorHasNextTest() {
+    InnerIterator iterator = myCoolList.iterator();
+    assertTrue(iterator.hasNext());
+  }
 
   @Test
-  void map() {
+  void iteratorNextTest() {
+    InnerIterator iterator = myCoolList.iterator();
+    assertEquals(0, iterator.next());
+  }
+
+  @Test
+  void iteratorRemoveTest() {
+    InnerIterator iterator = myCoolList.iterator();
+    iterator.next();
+    iterator.remove();
+    assertEquals(9, myCoolList.size());
   }
 
 }
