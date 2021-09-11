@@ -6,12 +6,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.BitSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class GameOfLife {
+public class GameOfLife {
 
   private int iter;
   private int fieldRows;
@@ -23,11 +24,11 @@ class GameOfLife {
         new InputStreamReader(
             Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(fileNameInput)))).lines();
     List<String> gameList = gameStreamInput.collect(Collectors.toList());
-    int[][] gameFieldCurr = initGameField(gameList);
-    int[][] gameFieldNext = new int[fieldRows][fieldColumns];
+    byte[][] gameFieldCurr = initGameField(gameList);
+    byte[][] gameFieldNext = new byte[fieldRows][fieldColumns];
     while (iter > 0) {
       gameOneIteration(gameFieldCurr, gameFieldNext);
-      int[][] tmpArr = gameFieldCurr;
+      byte[][] tmpArr = gameFieldCurr;
       gameFieldCurr = gameFieldNext;
       gameFieldNext = tmpArr;
       iter--;
@@ -35,22 +36,22 @@ class GameOfLife {
     saveGameFieldToFile(gameFieldCurr, fileNameOutput);
   }
 
-  private int[][] initGameField(List<String> gameList) {
+  private byte[][] initGameField(List<String> gameList) {
     String[] arrInit = gameList.get(0).split(",");
     fieldRows = Integer.parseInt(arrInit[0]);
     fieldColumns = Integer.parseInt(arrInit[1]);
     iter = Integer.parseInt(arrInit[2]);
-    int[][] arrField = new int[fieldRows][fieldColumns];
+    byte[][] arrField = new byte[fieldRows][fieldColumns];
     for (int i = 0; i < fieldRows; i++) {
       String[] row = gameList.get(i + 1).split(" ");
       for (int j = 0; j < fieldColumns; j++) {
-        arrField[i][j] = row[j].equals("O") ? 0 : 1;
+        arrField[i][j] = row[j].equals("O") ? (byte) 0 : 1;
       }
     }
     return arrField;
   }
 
-  private void saveGameFieldToFile(int[][] gameField, String fileNameOutput) {
+  private void saveGameFieldToFile(byte[][] gameField, String fileNameOutput) {
     StringBuilder builder = new StringBuilder();
     for (int i = 0; i < fieldRows; i++) {
       for (int j = 0; j < fieldColumns; j++) {
@@ -69,10 +70,10 @@ class GameOfLife {
     }
   }
 
-  private void gameOneIteration(int[][] gameFieldCurr, int[][] gameFieldNext) {
+  private void gameOneIteration(byte[][] gameFieldCurr, byte[][] gameFieldNext) {
     for (int i = 0; i < fieldRows; i++) {
       for (int j = 0; j < fieldColumns; j++) {
-        int sum = sumAroundCells(i, j, gameFieldCurr);
+        int sum = sumNeighborCells(i, j, gameFieldCurr);
         switch (sum) {
           case 2:
             gameFieldNext[i][j] = gameFieldCurr[i][j];
@@ -87,19 +88,15 @@ class GameOfLife {
     }
   }
 
-  private int prevIndex(int index, int value) {
-    return index == 0 ? value - 1 : index - 1;
+  private int calculateIndex(int fieldSize, int indexValue) {
+    return (fieldSize + indexValue) % fieldSize;
   }
 
-  private int nextIndex(int index, int value) {
-    return index == value - 1 ? 0 : index + 1;
-  }
-
-  private int sumAroundCells(int indexRow, int indexColumn, int[][] gameFieldCurr) {
-    int prevRow = prevIndex(indexRow, fieldRows);
-    int nextRow = nextIndex(indexRow, fieldRows);
-    int prevColumn = prevIndex(indexColumn, fieldColumns);
-    int nextColumn = nextIndex(indexColumn, fieldColumns);
+  private int sumNeighborCells(int indexRow, int indexColumn, byte[][] gameFieldCurr) {
+    int prevRow = calculateIndex(fieldRows, indexRow - 1);
+    int nextRow = calculateIndex(fieldRows, indexRow + 1);
+    int prevColumn = calculateIndex(fieldColumns, indexColumn - 1);
+    int nextColumn = calculateIndex(fieldColumns, indexColumn + 1);
     return gameFieldCurr[prevRow][prevColumn]
         + gameFieldCurr[prevRow][indexColumn]
         + gameFieldCurr[prevRow][nextColumn]
