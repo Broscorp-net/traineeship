@@ -6,6 +6,10 @@ import java.io.InputStreamReader;
 
 public class MyMain {
 
+  public static void main(String[] args) {
+    PrintText.printToConsole(getText());
+  }
+
   public static String getText() {
     System.out.println("Enter text, please");
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -18,7 +22,5 @@ public class MyMain {
     return text;
   }
 
-  public static void main(String[] args) {
-    PrintText.printToConsole(getText());
-  }
+
 }
