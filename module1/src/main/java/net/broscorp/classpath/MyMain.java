@@ -10,6 +10,9 @@ public class MyMain {
     PrintText.printToConsole(getText());
   }
 
+  /**Get string from console.
+   * @return string.
+   */
   public static String getText() {
     System.out.println("Enter text, please");
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
