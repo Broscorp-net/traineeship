@@ -1,18 +1,19 @@
 package net.broscorp.gc;
 
-public class Cat {
+public class CatRef {
 
   private int id;
 
-  public Cat() {
+  public CatRef() {
   }
 
-  public Cat(int id) {
+  public CatRef(int id) {
     this.id = id;
   }
 
   @Override
   protected void finalize() throws Throwable {
+    CatGcTest.REF = this;
 
     System.out.println("Cat id " + id + " has been destroyed!");
   }

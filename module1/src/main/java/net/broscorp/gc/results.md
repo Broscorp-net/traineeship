@@ -36,7 +36,7 @@ Cat id 489 has been destroyed!
 Cat id 488 has been destroyed!
 
 При создании большого колличества объектов с последующим занулением ссылок и вызовом команды 
-System.gc(), gc срабатывает практически сразу но не всегда с первого объкта, обычно со 140
+System.gc(), gc срабатывает практически сразу, но всегда с не предсказуемым порядком
 
 3. при финализации делаем объект достижимым
 static Cat REF; //initialization in finalize method
@@ -54,14 +54,14 @@ Cat cat = new Cat(1);
     System.gc();//gc do not clean cat with id 1, gc cleans the same object only once
 }
 
-public class Cat {
+public class CatRef {
 
 private int id;
 
-public Cat() {
+public CatRef() {
 }
 
-public Cat(int id) {
+public CatRef(int id) {
 this.id = id;
 }
 
