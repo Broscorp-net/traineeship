@@ -15,5 +15,5 @@ digraph java_exceptions {
 
     "Checked Exception" -> "IOException" [label = "Checked"]
 
-    "IOException" -> "SQL" [label = "Checked"]
+    "IOException" -> "SQLException" [label = "Checked"]
 }
