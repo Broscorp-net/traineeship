@@ -14,8 +14,8 @@ public class MyExceptionTest {
 
   @Test
   void myIoExceptionTest() {
-    File file = null;
     String url = "c://1.txt";
+    File file = new File(url);
     try {
       Path path = Paths.get(url);
       Files.deleteIfExists(path);
