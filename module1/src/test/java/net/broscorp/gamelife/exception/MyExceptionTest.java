@@ -26,9 +26,10 @@ public class MyExceptionTest {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    //open file
+
     try (FileReader reader = new FileReader(file)) {
       int c;
+
       //will be thrown IOException because reader.close()
       while ((c = reader.read()) != -1) {
         System.out.println((char) c);
@@ -37,8 +38,7 @@ public class MyExceptionTest {
     } catch (FileNotFoundException ex) {
       ex.printStackTrace();
     } catch (IOException e) {
-      //e.printStackTrace();
-      System.out.println("overcome the exception :-)");
+      e.printStackTrace();
     } finally {
       System.out.println();
       System.out.println("Bye!!!");
