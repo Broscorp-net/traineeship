@@ -36,7 +36,7 @@ public class MyExceptionTest {
         reader.close();
       }
     } catch (FileNotFoundException ex) {
-      ex.printStackTrace();
+      System.out.println("overcome exception");
     } catch (IOException e) {
       e.printStackTrace();
     } finally {
