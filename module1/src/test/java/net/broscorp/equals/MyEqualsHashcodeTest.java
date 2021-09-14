@@ -36,12 +36,12 @@ public class MyEqualsHashcodeTest {
   @Test
   void boxTransitiveTest() {
     Box box1 = new Box(20, 30);
-    Box box2 = box1;
-    Box box3 = box1;
+    Box box2 = new Box(20, 30);
+    Box box3 = new Box(20, 30);
 
     assertEquals(box2, box1);
     assertEquals(box3, box1);
-    assertEquals(box2, box3);
+    assertEquals(box2, box3); //then x.equals(z) should return true
   }
 
   //It is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y)
