@@ -63,8 +63,7 @@ public class GameOfLife {
   }
 
   private int mod(int index, int divisor) {
-    int remainder = index % divisor;
-    return remainder < 0 ? remainder + divisor : remainder;
+    return (index + divisor) % divisor;
   }
 
   private Configuration parse(List<String> inputData) {
