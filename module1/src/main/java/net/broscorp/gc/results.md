@@ -21,13 +21,13 @@
 
 __Иллюстрация выполнения программы__
 
-![](C:\Users\Office\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\gc\screenshots\Terminal.png)
+![](module1/src/main/java/net/broscorp/gc/screenshots/Terminal.png)
 
 
 
 __Иллюстрация Jconsole__
 
-![](C:\Users\Office\IdeaProjects\traineeship\module1\src\main\java\net\broscorp\gc\screenshots\Jconsole.png)
+![](module1/src/main/java/net/broscorp/gc/screenshots/Jconsole.png)
 
 
 
