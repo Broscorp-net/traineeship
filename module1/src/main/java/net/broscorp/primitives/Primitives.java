@@ -7,7 +7,7 @@ public class Primitives {
 
   /**{ @summary This is summary.}
    * @param a float.
-   * @return boolean.
+   * @return boolean statement.
    */
   public static boolean intToByte(int a) {
     byte num = (byte) a;
