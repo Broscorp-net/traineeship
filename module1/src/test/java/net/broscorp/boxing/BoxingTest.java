@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class BoxingTest {
 
   @Test
-  void returnException() {
+  void throwNullPointerException() {
     Assertions.assertThrows(NullPointerException.class, () -> {
       Integer i = null;
       int j = i.intValue();

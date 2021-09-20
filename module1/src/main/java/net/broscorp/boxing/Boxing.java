@@ -43,7 +43,7 @@ public class Boxing {
   }
 
   /**{ @summary This is summary.}
-   * @return int.
+   * @return j int.
    */
   public static int returnException() {
     Integer i = null;
