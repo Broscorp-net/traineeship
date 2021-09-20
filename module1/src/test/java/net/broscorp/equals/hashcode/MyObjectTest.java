@@ -125,7 +125,7 @@ class MyObjectTest {
       }
       if (testObj2 != null) {
         System.out.println(
-            "Object " + testObj.toString() + " has same hash as object " + testObj2.toString()
+            "Object " + testObj.toString() + " has same hash code as object " + testObj2.toString()
                 + " but objects are different.");
         break;
       }

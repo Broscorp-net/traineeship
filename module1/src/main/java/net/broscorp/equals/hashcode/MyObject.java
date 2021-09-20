@@ -9,7 +9,7 @@ public class MyObject {
   private int number;
 
   /**{ @summary This is summary.}
-   * @param name string.
+   * @param name as string.
    * @param id int.
    */
   public MyObject(String name, int id) {
