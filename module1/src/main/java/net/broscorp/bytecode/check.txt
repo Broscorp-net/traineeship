@@ -1,0 +1,30 @@
+Compiled from "Bytetest.java"
+public class net.broscorp.bytecode.Test {
+  public net.broscorp.bytecode.Test();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: ldc           #2                  // String Hello!
+       4: astore_2
+       5: iconst_0
+       6: istore_3
+       7: iload_3
+       8: bipush        10
+      10: if_icmpge     22
+      13: iinc          1, 1
+      16: iinc          3, 1
+      19: goto          7
+      22: aload_2
+      23: invokevirtual #3                  // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+      26: astore_3
+      27: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      30: aload_2
+      31: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      34: return
+}
