@@ -1,0 +1,12 @@
+digraph Java {
+    node[size="32"];
+    JDK[shape = house, color = blue, fontsize=10.0,label = "JDK \ncontains both jre and jvm" ];
+    JVM[size="18", shape = Mcircle, color = red, fontsize=10.0, label = "JVM \ncompiles java program \nto machine language"]
+    JRE[shape = tripleoctagon, color = green, fontsize = 10.0, label="JRE\nimplemetation of JVM\nexecutes java program"]
+    JIT[shape=diamond, color = grey, fontsize=10.0, label="JIT\npart of jre\nimproves program performance"]
+    JDK->JRE ;
+    JDK->JVM;
+    JVM->JRE;
+    JRE->JIT;
+
+}
