@@ -1,0 +1,40 @@
+digraph G {
+
+    subgraph cluster_0 {
+
+      style=filled;
+      color=lightgrey;
+
+      node [style=filled];
+
+      Throwable [shape=filled, fillcolor=tomato]
+      Error [shape=filled, fillcolor=seagreen]
+      Exception [shape=filled, fillcolor=tomato]
+      OutOfMemoryError [shape=filled, fillcolor=seagreen]
+      StackOverflowError [shape=filled, fillcolor=seagreen]
+      RuntimeException[shape=filled, fillcolor=seagreen]
+      IOException[shape=filled, fillcolor=tomato]
+      FileNotFoundException[shape=filled, fillcolor=tomato]
+      SocketException[shape=filled, fillcolor=tomato]
+
+      Throwable -> Error;
+      Throwable -> Exception;
+      Error -> OutOfMemoryError;
+      Error -> StackOverflowError;
+      Exception -> RuntimeException;
+      Exception -> IOException;
+      Exception -> FileNotFoundException;
+      Exception -> SocketException;
+      label = "Graph";
+    }
+
+    subgraph cluster_1 {
+      style=filled;
+      color=lightgrey;
+
+      node [style=filled,color=white];
+
+      Unchecked [shape=filled, color=seagreen, fillcolor=seagreen]
+      Checked [shape=filled, color=tomato]
+    }
+}
