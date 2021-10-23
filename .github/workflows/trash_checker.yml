@@ -1,0 +1,19 @@
+name: checkTrash
+
+on:
+   [push, pull_request]
+
+jobs:
+   checkfiles:
+
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+        - name: Trash file exist checking
+
+          run: |
+            chmod +x "${GITHUB_WORKSPACE}/.github/script.sh"
+            "${GITHUB_WORKSPACE}/.github/script.sh"
+          shell: bash
+
