@@ -16,6 +16,7 @@ public class GameOfLife {
    * @param fileNameOutput file with output data
    */
   public void game(String fileNameInput, String fileNameOutput) {
+
     BufferedReader fileReader;
     BufferedWriter fileWriter;
 
