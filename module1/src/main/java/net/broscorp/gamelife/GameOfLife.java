@@ -1,16 +1,20 @@
 package net.broscorp.gamelife;
 
-
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.stream.Collectors;
 
 public class GameOfLife {
 
+  /**
+   * Conway's Game of Life simulation.
+   *
+   * @param fileNameInput  file with input data
+   * @param fileNameOutput file with output data
+   */
   public void game(String fileNameInput, String fileNameOutput) {
     BufferedReader fileReader;
     BufferedWriter fileWriter;
@@ -20,11 +24,11 @@ public class GameOfLife {
       fileWriter = new BufferedWriter(new FileWriter(fileNameOutput));
 
       String[] args = fileReader.readLine().split(",");
-      int xSize = Integer.parseInt(args[0]);
-      int ySize = Integer.parseInt(args[1]);
+      int yaxisSize = Integer.parseInt(args[0]);
+      int xaxisSize = Integer.parseInt(args[1]);
       int iterations = Integer.parseInt(args[2]);
 
-      Field field = new Field(xSize, ySize);
+      Field field = new Field(xaxisSize, yaxisSize);
 
       field.parse(fileReader.lines().collect(Collectors.joining("\n")));
 
@@ -39,13 +43,6 @@ public class GameOfLife {
     } catch (IOException e) {
       System.out.println("Unexpected IO exception");
     }
-  }
-
-  public static void main(String[] args) {
-    GameOfLife gameOfLife = new GameOfLife();
-    gameOfLife.game(
-        "D:\\java\\broscorp\\traineeship\\module1\\src\\test\\resources\\inputGlider.txt",
-        "D:\\expectedGlider.txt");
   }
 
 }
