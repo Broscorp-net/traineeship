@@ -136,6 +136,7 @@ public class Field {
           stringBuilder.append("O ");
         }
       }
+      stringBuilder.setLength(stringBuilder.length() - 1);
       stringBuilder.append("\n");
     }
     return stringBuilder.substring(0, stringBuilder.length() - 1);

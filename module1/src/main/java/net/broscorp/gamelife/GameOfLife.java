@@ -19,11 +19,13 @@ public class GameOfLife {
 
     //
     BufferedReader fileReader;
-    BufferedWriter fileWriter;
+    PrintWriter fileWriter;
 
     try {
-      fileReader = new BufferedReader(new FileReader(fileNameInput));
-      fileWriter = new BufferedWriter(new FileWriter(fileNameOutput));
+      fileReader = new BufferedReader(
+          new InputStreamReader(ClassLoader.getSystemResourceAsStream(fileNameInput)));
+      fileWriter = new PrintWriter(
+          getClass().getClassLoader().getResource(".").getFile() + fileNameOutput);
 
       String[] args = fileReader.readLine().split(",");
       int yaxisSize = Integer.parseInt(args[0]);
