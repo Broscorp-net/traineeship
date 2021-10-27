@@ -7,10 +7,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 public class GameOfLife {
 
-  //X O
   public void game(String fileNameInput, String fileNameOutput) {
     BufferedReader fileReader;
     BufferedWriter fileWriter;
@@ -22,23 +22,17 @@ public class GameOfLife {
       String[] args = fileReader.readLine().split(",");
       int xSize = Integer.parseInt(args[0]);
       int ySize = Integer.parseInt(args[1]);
-      Integer iterations = Integer.valueOf(args[2]);
+      int iterations = Integer.parseInt(args[2]);
 
       Field field = new Field(xSize, ySize);
 
-      String[] line;
+      field.parse(fileReader.lines().collect(Collectors.joining("\n")));
 
-      for (int i = 0; i < ySize; i++) {
-        line = fileReader.readLine().split(" ");
+      Game game = new Game(field);
+      field = game.iterate(iterations);
 
-        for (int j = 0; j < xSize; j++) {
-          if (line[j].charAt(0) == 'X') {
-            field.createCell(j, i);
-          }
-        }
-      }
-
-      field.printField(System.out);
+      fileWriter.write(field.toString());
+      fileWriter.close();
 
     } catch (FileNotFoundException exception) {
       System.out.println("Could not load file provided");
