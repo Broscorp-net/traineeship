@@ -80,21 +80,7 @@ public class BoringField {
    * @return returns an opposite cell in case it is out of bound and the same cell in other cases.
    */
   public int getSafeCellState(int x, int y) {
-    if (x < 0) {
-      x = axisX - 1;
-    }
-    if (x >= axisX) {
-      x = 0;
-    }
-
-    if (y < 0) {
-      y = axisY - 1;
-    }
-    if (y >= axisY) {
-      y = 0;
-    }
-
-    return field[x][y];
+    return field[(x + axisX) % axisX][(y + axisY) % axisY];
   }
 
   /**
