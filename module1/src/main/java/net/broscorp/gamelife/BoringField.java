@@ -6,7 +6,7 @@
 
 package net.broscorp.gamelife;
 
-public class Field {
+public class BoringField {
 
   private final int axisX;
   private final int axisY;
@@ -18,11 +18,11 @@ public class Field {
    * @param axisX length of x-axis
    * @param axisY length of y-axis
    */
-  public Field(int axisX, int axisY) {
+  public BoringField(int axisX, int axisY) {
     this.axisX = axisX;
     this.axisY = axisY;
 
-    field = new int[axisX + 2][axisY + 2];
+    field = new int[axisX][axisY];
   }
 
   /**
@@ -33,7 +33,7 @@ public class Field {
    * @param field existent field
    */
 
-  public Field(int axisX, int axisY, int[][] field) {
+  public BoringField(int axisX, int axisY, int[][] field) {
     this.axisX = axisX;
     this.axisY = axisY;
 
@@ -49,11 +49,11 @@ public class Field {
     String[] lines = text.split("\n");
     char[] line;
 
-    for (int i = 1; i <= axisY; i++) {
-      line = lines[i - 1].replace(" ", "").toCharArray();
+    for (int i = 0; i < axisY; i++) {
+      line = lines[i].replace(" ", "").toCharArray();
 
-      for (int j = 1; j <= axisX; j++) {
-        if (line[j - 1] == 'X') {
+      for (int j = 0; j < axisX; j++) {
+        if (line[j] == 'X') {
           createCell(j, i);
         }
       }
@@ -68,28 +68,33 @@ public class Field {
     field[x][y] = 0;
   }
 
-  /**
-   * Fills the outer border of array, mirroring the opposite cells.
-   */
-  public void fakeMirror() {
-    field[0][0] = field[axisX][axisY];
-    field[axisX + 1][0] = field[1][axisY];
-    field[axisX + 1][axisY + 1] = field[1][1];
-    field[0][axisY + 1] = field[axisX][1];
-
-    for (int i = 1; i <= axisX; i++) {
-      field[i][0] = field[i][axisY];
-      field[i][axisY + 1] = field[i][1];
-    }
-
-    for (int i = 1; i <= axisY; i++) {
-      field[axisX + 1][i] = field[1][i];
-      field[0][i] = field[axisX][i];
-    }
-  }
-
   public boolean isAlive(int x, int y) {
     return field[x][y] == 1;
+  }
+
+  /**
+   * Method to get a right cell in case of referring to out of bound element.
+   *
+   * @param x x axis position
+   * @param y y axis position
+   * @return returns an opposite cell in case it is out of bound and the same cell in other cases.
+   */
+  public int getSafeCellState(int x, int y) {
+    if (x < 0) {
+      x = axisX - 1;
+    }
+    if (x >= axisX) {
+      x = 0;
+    }
+
+    if (y < 0) {
+      y = axisY - 1;
+    }
+    if (y >= axisY) {
+      y = 0;
+    }
+
+    return field[x][y];
   }
 
   /**
@@ -101,14 +106,14 @@ public class Field {
    */
   public int numberOfNearestAlive(int x, int y) {
 
-    return field[x - 1][y - 1]
-        + field[x - 1][y]
-        + field[x - 1][y + 1]
-        + field[x][y - 1]
-        + field[x][y + 1]
-        + field[x + 1][y - 1]
-        + field[x + 1][y]
-        + field[x + 1][y + 1];
+    return getSafeCellState(x - 1, y - 1)
+        + getSafeCellState(x - 1, y)
+        + getSafeCellState(x - 1, y + 1)
+        + getSafeCellState(x, y - 1)
+        + getSafeCellState(x, y + 1)
+        + getSafeCellState(x + 1, y - 1)
+        + getSafeCellState(x + 1, y)
+        + getSafeCellState(x + 1, y + 1);
 
   }
 
@@ -127,8 +132,8 @@ public class Field {
   @Override
   public String toString() {
     StringBuilder stringBuilder = new StringBuilder();
-    for (int i = 1; i <= axisY; i++) {
-      for (int j = 1; j <= axisX; j++) {
+    for (int i = 0; i < axisY; i++) {
+      for (int j = 0; j < axisX; j++) {
         if (field[j][i] == 1) {
           stringBuilder.append("X ");
         } else {

@@ -17,7 +17,6 @@ public class GameOfLife {
    */
   public void game(String fileNameInput, String fileNameOutput) {
 
-    //
     BufferedReader fileReader;
     PrintWriter fileWriter;
 
@@ -32,11 +31,11 @@ public class GameOfLife {
       int xaxisSize = Integer.parseInt(args[1]);
       int iterations = Integer.parseInt(args[2]);
 
-      Field field = new Field(xaxisSize, yaxisSize);
+      BoringField field = new BoringField(xaxisSize, yaxisSize);
 
       field.parse(fileReader.lines().collect(Collectors.joining("\n")));
 
-      Game game = new Game(field);
+      BoringGame game = new BoringGame(field);
       field = game.iterate(iterations);
 
       fileWriter.write(field.toString());
