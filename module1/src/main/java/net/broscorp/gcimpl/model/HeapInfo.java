@@ -1,8 +1,8 @@
 package net.broscorp.gcimpl.model;
 
-import lombok.Getter;
-
 import java.util.Map;
+
+import lombok.Getter;
 
 @Getter
 public class HeapInfo {

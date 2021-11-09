@@ -1,19 +1,19 @@
 package net.broscorp.gcimpl;
 
-import net.broscorp.gcimpl.gc.GarbageCollector;
-import net.broscorp.gcimpl.gc.GarbageCollectorImplementation;
-import net.broscorp.gcimpl.model.ApplicationBean;
-import net.broscorp.gcimpl.model.HeapInfo;
-import net.broscorp.gcimpl.model.StackInfo;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import net.broscorp.gcimpl.gc.GarbageCollector;
+import net.broscorp.gcimpl.gc.GarbageCollectorImplementation;
+import net.broscorp.gcimpl.model.ApplicationBean;
+import net.broscorp.gcimpl.model.HeapInfo;
+import net.broscorp.gcimpl.model.StackInfo;
+import org.junit.jupiter.api.Test;
 
 class GarbageCollectorImplementationTest {
 
@@ -22,11 +22,11 @@ class GarbageCollectorImplementationTest {
   @Test
   public void unlinkedObjectsCollectionTest() {
     // GIVEN
-    Map<String, ApplicationBean> heap = new HashMap<>();
 
     final ApplicationBean restControllerBean = initializeControllerBean();
     final ApplicationBean requestBean = initializeHttpRequestBeanBean();
 
+    Map<String, ApplicationBean> heap = new HashMap<>();
     heap.putAll(getMemoryFootprint("controller", restControllerBean));
     heap.putAll(getMemoryFootprint("request", requestBean));
     List<ApplicationBean> expectedGarbage = new ArrayList<>(getChildren(requestBean));
@@ -45,7 +45,6 @@ class GarbageCollectorImplementationTest {
   @Test
   public void boundedSubChildCollectionTest() {
     // GIVEN
-    Map<String, ApplicationBean> heap = new HashMap<>();
     List<ApplicationBean> expectedGarbage = new ArrayList<>();
 
     final ApplicationBean restControllerBean = initializeControllerBean();
@@ -55,6 +54,7 @@ class GarbageCollectorImplementationTest {
     expectedGarbage.add(requestBean);
     expectedGarbage.add(requestBean.getChildBean("headers"));
 
+    Map<String, ApplicationBean> heap = new HashMap<>();
     heap.putAll(getMemoryFootprint("request", requestBean));
     heap.putAll(getMemoryFootprint("controller", restControllerBean));
 
@@ -83,7 +83,6 @@ class GarbageCollectorImplementationTest {
     heap.putAll(getMemoryFootprint("model", domainModelBean));
     heap.putAll(getMemoryFootprint("service", serviceBean));
     heap.putAll(getMemoryFootprint("repository", repositoryBean));
-    List<ApplicationBean> expectedGarbage = new ArrayList<>(getChildren(domainModelBean));
 
     final HeapInfo heapInfo = new HeapInfo(heap);
     StackInfo stack = new StackInfo();
@@ -91,6 +90,8 @@ class GarbageCollectorImplementationTest {
     stack.push("handleRequest", initializeControllerBean());
     stack.push("login", serviceBean);
     stack.push("findUserByLogin", repositoryBean);
+
+    List<ApplicationBean> expectedGarbage = new ArrayList<>(getChildren(domainModelBean));
 
     // WHEN
     final List<ApplicationBean> actualGarbage = gc.collect(heapInfo, stack);
@@ -100,11 +101,9 @@ class GarbageCollectorImplementationTest {
     assertTrue(actualGarbage.containsAll(expectedGarbage));
   }
 
-
   @Test
   public void crossRootCollectionTest() {
     // WHEN
-    Map<String, ApplicationBean> heap = new HashMap<>();
     List<ApplicationBean> expectedGarbage = new ArrayList<>();
 
     final ApplicationBean controllerBean = initializeControllerBean();
@@ -116,6 +115,7 @@ class GarbageCollectorImplementationTest {
 
     expectedGarbage.add(requestBean);
 
+    Map<String, ApplicationBean> heap = new HashMap<>();
     heap.putAll(getMemoryFootprint("controller", controllerBean));
     heap.putAll(getMemoryFootprint("service", serviceBean));
     heap.putAll(getMemoryFootprint("request", requestBean));
@@ -137,15 +137,14 @@ class GarbageCollectorImplementationTest {
   @Test
   public void circularDependencyTest() {
     // GIVEN
-    List<ApplicationBean> expectedGarbage = new ArrayList<>();
-
     final ApplicationBean restControllerBean = initializeControllerBean();
     ApplicationBean serviceA = new ApplicationBean();
     ApplicationBean serviceB = new ApplicationBean();
     serviceA.addRelation("serviceB", serviceB);
     serviceB.addRelation("serviceA", serviceA);
 
-    Map<String, ApplicationBean> heap = new HashMap<>(getMemoryFootprint("controller", restControllerBean));
+    Map<String, ApplicationBean> heap =
+        new HashMap<>(getMemoryFootprint("controller", restControllerBean));
     heap.put("serviceA", serviceA);
     heap.put("serviceB", serviceB);
 
@@ -156,9 +155,10 @@ class GarbageCollectorImplementationTest {
     stack.push("foo", serviceA);
     stack.push("bar", serviceB);
     stack.push("baz", serviceA);
-    stack.pop();//baz finished
-    stack.pop();//bar finished
-    stack.pop();//foo finished
+    stack.pop(); // baz finished
+    stack.pop(); // bar finished
+    stack.pop(); // foo finished
+    List<ApplicationBean> expectedGarbage = new ArrayList<>();
     expectedGarbage.add(serviceA);
     expectedGarbage.add(serviceB);
 
@@ -230,9 +230,11 @@ class GarbageCollectorImplementationTest {
   private List<ApplicationBean> getChildren(ApplicationBean bean) {
     List<ApplicationBean> garbage = new ArrayList<>();
     garbage.add(bean);
-    bean.getFieldValues().forEach((key, value) -> {
-      garbage.addAll(getChildren(value));
-    });
+    bean.getFieldValues()
+        .forEach(
+            (key, value) -> {
+              garbage.addAll(getChildren(value));
+            });
 
     return garbage;
   }

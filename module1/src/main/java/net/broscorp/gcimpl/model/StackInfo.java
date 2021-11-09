@@ -1,12 +1,12 @@
 package net.broscorp.gcimpl.model;
 
-import lombok.Getter;
-import lombok.Value;
-
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+
+import lombok.Getter;
+import lombok.Value;
 
 @Getter
 public class StackInfo {
@@ -17,7 +17,7 @@ public class StackInfo {
   }
 
   public Frame pop() {
-      return stack.pop();
+    return stack.pop();
   }
 
   @Value

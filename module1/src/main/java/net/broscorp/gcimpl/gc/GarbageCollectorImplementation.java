@@ -1,12 +1,16 @@
 package net.broscorp.gcimpl.gc;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Deque;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import net.broscorp.gcimpl.model.ApplicationBean;
 import net.broscorp.gcimpl.model.HeapInfo;
 import net.broscorp.gcimpl.model.StackInfo;
-
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class GarbageCollectorImplementation implements GarbageCollector {
 
@@ -15,10 +19,12 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     return findUnreachableNodes(heap.getBeans(), stack.getStack());
   }
 
-  private List<ApplicationBean> findUnreachableNodes(Map<String, ApplicationBean> heap, Deque<StackInfo.Frame> stack) {
-    List<ApplicationBean> rootBeans = stack.stream().flatMap(f -> f.getParameters().stream()).collect(Collectors.toList());
-    List<ApplicationBean> reachableBeans = rootBeans.stream().flatMap(this::identifyLiveRelations)
-            .collect(Collectors.toList());
+  private List<ApplicationBean> findUnreachableNodes(
+      Map<String, ApplicationBean> heap, Deque<StackInfo.Frame> stack) {
+    List<ApplicationBean> rootBeans =
+        stack.stream().flatMap(f -> f.getParameters().stream()).collect(Collectors.toList());
+    List<ApplicationBean> reachableBeans =
+        rootBeans.stream().flatMap(this::identifyLiveRelations).collect(Collectors.toList());
 
     ArrayList<ApplicationBean> allBeans = new ArrayList<>(heap.values());
     allBeans.removeAll(rootBeans);
