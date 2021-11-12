@@ -11,6 +11,6 @@ public class GarbageCollectorImplementation implements GarbageCollector {
 
   @Override
   public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
-      return Collections.emptyList();
+    return Collections.emptyList();
   }
 }
