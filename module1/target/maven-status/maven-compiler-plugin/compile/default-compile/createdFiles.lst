@@ -1,0 +1,5 @@
+net\broscorp\primitives\PrimitivesTest.class
+net\broscorp\valueref\Foo.class
+net\broscorp\generics\MyCoolList.class
+net\broscorp\primitives\Primitives.class
+net\broscorp\gamelife\GameOfLife.class
