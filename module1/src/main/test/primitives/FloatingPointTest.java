@@ -1,6 +1,7 @@
 package primitives;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import net.broscorp.primitives.floating.FloatingPoint;
 import org.junit.jupiter.api.BeforeEach;
