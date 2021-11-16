@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class FloatingPointTest {
 
-  FloatingPoint floatingPoint;
+  private FloatingPoint floatingPoint;
 
   @BeforeEach
   void init() {
