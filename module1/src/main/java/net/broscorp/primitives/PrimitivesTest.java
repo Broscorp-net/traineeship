@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 
 public class PrimitivesTest {
-  Primitives primitives;
 
   @Test
   public void testPlusIntOverflow() {
