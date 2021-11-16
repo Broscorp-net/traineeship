@@ -1,5 +1,5 @@
-# Created at 2021-11-10T12:48:59.124
-Boot Manifest-JAR contains absolute paths in classpath D:\Java\trainee\module1\target\test-classes
+# Created at 2021-11-16T19:34:58.772
+Boot Manifest-JAR contains absolute paths in classpath D:\Java\trainee2.1\module1\target\test-classes
 java.lang.IllegalArgumentException: 'other' has different root
 	at java.base/sun.nio.fs.WindowsPath.relativize(WindowsPath.java:404)
 	at java.base/sun.nio.fs.WindowsPath.relativize(WindowsPath.java:42)
@@ -37,8 +37,8 @@ java.lang.IllegalArgumentException: 'other' has different root
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)
 
 
-# Created at 2021-11-10T12:48:59.124
-Boot Manifest-JAR contains absolute paths in classpath D:\Java\trainee\module1\target\classes
+# Created at 2021-11-16T19:34:58.775
+Boot Manifest-JAR contains absolute paths in classpath D:\Java\trainee2.1\module1\target\classes
 java.lang.IllegalArgumentException: 'other' has different root
 	at java.base/sun.nio.fs.WindowsPath.relativize(WindowsPath.java:404)
 	at java.base/sun.nio.fs.WindowsPath.relativize(WindowsPath.java:42)
