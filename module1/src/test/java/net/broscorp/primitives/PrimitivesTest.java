@@ -48,8 +48,8 @@ class PrimitivesTest {
 
   @Test
   void count() {
-    double expected = 1.0019999999999998;
-    double result = primitives.count(0.001,0.001);
+    double expected = 0.10000000000000007;
+    double result = primitives.count(100);
     assertEquals(expected,result);
   }
 }

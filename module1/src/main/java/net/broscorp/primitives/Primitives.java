@@ -15,9 +15,20 @@ public class Primitives {
     return b;
   }
 
-  public double count(double a,double b) {
-    double number = 1;
-    return number + a + b;
+  /**
+   * Some javadoc. // OK
+   *
+   * @author Some javadoc. // OK
+   * @since Some javadoc. // OK
+   * @serialData // OK
+   * @deprecated Some javadoc. // OK
+   */
+  public double count(int a) {
+    double number = 0;
+    for (int i = 0; i < a; i++) {
+      number = number + 0.001;
+    }
+    return number;
   }
 
 }
