@@ -1,4 +1,4 @@
-package java.net.broscorp.primitives;
+package net.broscorp.primitives;
 
 public class FloatingPoint {
 

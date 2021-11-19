@@ -1,5 +1,4 @@
-package java.net.broscorp.primitives;
-
+package net.broscorp.primitives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

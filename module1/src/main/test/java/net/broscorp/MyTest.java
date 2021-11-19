@@ -1,4 +1,4 @@
-package net.broscorp;
+package java.net.broscorp;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

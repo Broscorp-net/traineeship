@@ -2,5 +2,5 @@
 
 ## Алгоритм выполнения
 
-1.	Написать [тесты](https://github.com/Broscorp-net/traineeship/blob/master/tests.md) на класс __Foo__. 
+1.	Написать [тесты](https://github.com/Broscorp-java.net/traineeship/blob/master/tests.md) на класс __Foo__. 
 2.	Написать комментарии к тесту – своими словами объяснить почему так происходит. 

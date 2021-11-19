@@ -1,4 +1,4 @@
-package net.broscorp.gamelife;
+package java.net.broscorp.gamelife;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import net.broscorp.gamelife.GameOfLife;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
