@@ -13,8 +13,10 @@ import net.broscorp.gcimpl.gc.GarbageCollectorImplementation;
 import net.broscorp.gcimpl.model.ApplicationBean;
 import net.broscorp.gcimpl.model.HeapInfo;
 import net.broscorp.gcimpl.model.StackInfo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 class GarbageCollectorImplementationTest {
 
   private final GarbageCollector gc = new GarbageCollectorImplementation();
