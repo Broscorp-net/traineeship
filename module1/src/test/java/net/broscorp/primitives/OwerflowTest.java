@@ -1,9 +1,8 @@
-package net.broscorp.primitives;
+package java.net.broscorp.primitives;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import net.broscorp.primitives.owerflow.Owerflow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
