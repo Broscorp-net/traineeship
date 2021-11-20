@@ -37,6 +37,10 @@ public class Primitives {
     return l;
   }
 
+  /**
+   * long to int conversion method.
+   */
+
   public static int convertLongToInt(long l) {
     int i = 0;
     try {
