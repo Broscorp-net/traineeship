@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationBean {
+
   private Map<String, ApplicationBean> fieldValues = new HashMap<>();
 
   public Map<String, ApplicationBean> getFieldValues() {

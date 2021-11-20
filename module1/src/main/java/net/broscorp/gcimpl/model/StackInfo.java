@@ -10,6 +10,7 @@ import lombok.Value;
 
 @Getter
 public class StackInfo {
+
   Deque<Frame> stack = new LinkedList<>();
 
   public void push(String methodName, ApplicationBean... parameters) {
@@ -22,6 +23,7 @@ public class StackInfo {
 
   @Value
   public class Frame {
+
     String methodName;
     List<ApplicationBean> parameters;
   }
