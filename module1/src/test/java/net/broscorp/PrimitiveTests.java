@@ -1,16 +1,18 @@
 package net.broscorp;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import net.broscorp.primitives.Primitives;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class PrimitiveTests {
   @Test
   void overFlowIntegerNegativeTest() {
     assertNotEquals(Primitives.minInteger(), Integer.MIN_VALUE);
-    }
+  }
 
   @Test
   void overFlowIntegerPositiveTest() {
@@ -27,8 +29,9 @@ public class PrimitiveTests {
   @Test
   void convertMaxValueTest() {
     int longNumber = (int) Long.MAX_VALUE;
-    assertEquals(-1, longNumber );
+    assertEquals(-1, longNumber);
   }
+
   @Test
   void convertFloatToDouble() {
     float floatNumber = 5.381347f;
