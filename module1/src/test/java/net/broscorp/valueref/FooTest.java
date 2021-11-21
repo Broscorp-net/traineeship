@@ -13,12 +13,12 @@ class FooTest {
     Foo f = new Foo();
 
     int i = 1;
-    List<String> foo_objects = new ArrayList<>(1);
+    List<String> fooObjects = new ArrayList<>(1);
 
-    f.foo(i, foo_objects);
+    f.foo(i, fooObjects);
 
     assertEquals(1, i);
-    assertEquals("d", foo_objects.get(0));
+    assertEquals("d", fooObjects.get(0));
 
     /*
      *В java объекты могут быть переданы по ссылке или по значению.
