@@ -1,6 +1,5 @@
 package net.broscorp.primitives;
 
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
