@@ -1,0 +1,31 @@
+digraph Java_architecture_platform {
+    JIT [label = "Just-in-time Compilator\n(JIT)"]
+    JVM [label = "Java Virtual Machine\n(JVM)"]
+    JCL [label = "Java Class Library"]
+    JRE [label = "Java Runtime Environment\n(JRE)"]
+    JDT [label = "Development Tools"]
+    JDK [label = "Java Development Kit\n JDK"]
+
+    JIT -> JVM [label = " runs after the program has started executing, on the fly.\nIt has access to runtime information and makes\noptimizations of the code for better performance"];
+    JVM -> JRE [label = " is a virtual machine\nthat enables a computer\nto run Java programs"];
+    JCL -> JRE [label = "  is a set of dynamically\nloadable libraries that\nJava Virtual Machine (JVM)\nlanguages can call\nat run time"];
+    JRE -> JDK [label = " is a minimal implementation\nof a virtual machine required\nto run Java applications"];
+    JDT -> JDK [label = " a few other resources such as\nan interpreter/loader (Java),\na compiler (javac), an archiver (jar),\na documentation generator (Javadoc) etc. \nto complete the development of a\nJava Application"];
+
+//JIT - Just-in-time Compiler, часть JVM. Оптимизирует байт-код,
+ //уменьшая общее время, необходимое для компиляции байт-код в машинный код
+
+//JVM - Java Virtual Machine. Виртуальная машина, которая преобразовывает
+ //байт-код в машинный код при запуске программы.
+
+//JRE - Java Runtime Environment. Реализация JVM, которая предоставляет
+ //платформу для выполнения Java-программ. JRE состоит из виртуальной машины Java,
+ // бинарных файлов и других классов. JRE не содержит инструменты для разработки
+ // (компилятор Java, отладчик и т.д). JRE необходимо для запуска любой Java программы.
+
+//JDK - Java Development Kit. Основной компонент среды Java и предоставляет все
+ // инструменты, исполняемые и бинарные файлы, которые нужны для компиляции,
+ //отладки и выполнения программы на Java. JDK является платформо-зависимым
+ //программным обеспечением, поэтому есть отдельные инсталляторы для Windows,
+ //Mac и Unix-систем.
+}
