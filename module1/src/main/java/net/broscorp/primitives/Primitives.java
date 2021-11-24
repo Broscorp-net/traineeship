@@ -16,12 +16,12 @@ public class Primitives {
   }
 
   /**
-   * Some javadoc. // OK
-   *
-   * @author Some javadoc. // OK
-   * @since Some javadoc. // OK
-   * @serialData // OK
-   */
+  * Some javadoc. // OK
+  *
+  * @author Some javadoc. // OK
+  * @since Some javadoc. // OK
+  * @serialData // OK
+  */
   public double count(int a) {
     double number = 0;
     for (int i = 0; i < a; i++) {
