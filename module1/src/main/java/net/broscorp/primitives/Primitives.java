@@ -21,7 +21,6 @@ public class Primitives {
    * @author Some javadoc. // OK
    * @since Some javadoc. // OK
    * @serialData // OK
-   * @deprecated Some javadoc. // OK
    */
   public double count(int a) {
     double number = 0;
