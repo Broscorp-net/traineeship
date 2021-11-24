@@ -1,9 +1,10 @@
 package net.broscorp.gc;
 
 /**
- * Класс для проверки задания
+ * . Класс для проверки задания
  */
 public class MyList {
+
   MyList myList;
   int num;
   public static int timesFinalized;
@@ -13,12 +14,12 @@ public class MyList {
   }
 
   /**
-   * Конструктор с параметром
+   * . Конструктор с параметром
    */
   public MyList(int num) {
     this.num = num;
     itemsAdded++;
-  //    System.out.println("Added object " + num + " to MyList");
+    //    System.out.println("Added object " + num + " to MyList");
   }
 
   public int getNum() {
@@ -31,9 +32,9 @@ public class MyList {
 
   @Override
   protected void finalize() throws Throwable {
-  //    System.out.println("MyList num is " + this.getNum() + " finalize started");
+    //    System.out.println("MyList num is " + this.getNum() + " finalize started");
     super.finalize();
-  //    System.out.println("MyList num is " + this.getNum() + " finalize finished");
+    //    System.out.println("MyList num is " + this.getNum() + " finalize finished");
     timesFinalized++;
   }
 }
