@@ -1,0 +1,25 @@
+digraph G {
+   Thr [label="Throwable\n(checked)", shape=box]
+   Exc [label="Exception\n(checked)", shape=box]
+   Err [label="Error\n(unchecked)", shape=box]
+   Ome [label="Out of Memory Error", shape=box]
+   Sof [label="Stack over flow Error", shape=box]
+   Che [label="Checked Exceptions", shape=box]
+   Uce [label="Unchecked Exceptions", shape=box]
+   Iae [label="Illegal Argument Exception", shape=box]
+   Npe [label="Null Pointer Exception", shape=box]
+   IOE [label="IO Exception", shape=box]
+   Cnf [label="Class Not Found Exception", shape=box]
+
+   Thr -> Err;
+   Err -> Ome;
+   Err -> Sof;
+   Thr -> Exc;
+   Exc -> Che;
+   Exc -> Uce;
+
+   Uce -> Npe;
+   Uce -> Iae;
+   Che -> IOE;
+   Che -> Cnf;
+}
