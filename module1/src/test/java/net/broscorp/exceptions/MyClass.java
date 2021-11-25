@@ -28,9 +28,9 @@ public class MyClass {
     } catch (RuntimeException runtimeException) {
       System.out.println("IndexOutOfBoundsException caught in RuntimeException catch block");
     }
-//    catch (IndexOutOfBoundsException indexOutOfBoundsException) {
-//      не будет срабатывать так как предок был словлен
-//    }
+    //    catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+    //      не будет срабатывать так как предок был словлен
+    //    }
   }
 
 }
