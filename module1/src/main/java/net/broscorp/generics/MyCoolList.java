@@ -1,28 +1,17 @@
 package net.broscorp.generics;
 
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class MyCoolList {
+public interface MyCoolList<T> {
 
-  public void add(Object o) {
-    throw new NotImplementedException();
-  }
+  public void add(T t);
 
-  public Object get(int index) {
-    throw new NotImplementedException();
-  }
+  public T get(int index);
 
-  public Object remove(int index) {
-    throw new NotImplementedException();
-  }
+  public T remove(int index);
 
-  public MyCoolList map(Function f) {
-    throw new NotImplementedException();
-  }
+  public MyCoolList<T> map(Function<T, T> f);
 
-  public int size() {
-    throw new NotImplementedException();
-  }
+  public int size();
 
 }
