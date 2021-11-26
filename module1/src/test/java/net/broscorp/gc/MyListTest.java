@@ -39,7 +39,6 @@ class MyListTest {
     System.out.println("Revived object num is " + mlr.myListRevived.getNum());
   }
 
-  @SneakyThrows
   @Test
   @Order(3)
   void referenceOneToAnotherAndBack() {
