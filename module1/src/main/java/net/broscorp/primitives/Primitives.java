@@ -2,7 +2,6 @@ package net.broscorp.primitives;
 
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 public class Primitives {
   public static int plusIntOverflow() {
@@ -105,57 +104,57 @@ public class Primitives {
     return d;
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPlusIntOverflow() {
     Assertions.assertEquals(Integer.MIN_VALUE, Primitives.plusIntOverflow());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testMinusIntOverflow() {
     Assertions.assertEquals(Integer.MAX_VALUE, Primitives.minusIntOverflow());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPlusLongOverflow() {
     Assertions.assertEquals(Long.MIN_VALUE, Primitives.plusLongOverflow());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testMinusLongOverflow() {
     Assertions.assertEquals(Long.MAX_VALUE, Primitives.minusLongOverflow());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPlusShortOverflow() {
     Assertions.assertEquals(Short.MIN_VALUE, Primitives.plusShortOverflow());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testMinusShortOverflow() {
     Assertions.assertEquals(Short.MAX_VALUE, Primitives.minusShortOverflow());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testConvertLongToIntMax() {
     Assertions.assertEquals(-1, Primitives.convertLongToIntMax());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testConvertLongToIntMin() {
     Assertions.assertEquals(0, Primitives.convertLongToIntMin());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testConvertLongToIntSome() {
     Assertions.assertEquals(-2147483648, Primitives.convertLongToIntSome());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testConvertFloatToDouble() {
     Assertions.assertEquals(3.4028234663852886E38, Primitives.convertFloatToDouble());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testConvertFloatToDoubleSome() {
     Assertions.assertEquals(0.3499999940395355, Primitives.convertFloatToDoubleSome());
   }
