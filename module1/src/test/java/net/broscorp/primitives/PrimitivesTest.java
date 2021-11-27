@@ -36,7 +36,11 @@ class PrimitivesTest {
   void conversion() {
     int expected = -1802338305;
     int result = primitives.conversion(372036854775807L);
-    assertEquals(expected,result);
+    assertEquals(expected, result);
+  }
+
+  @Test
+  void conversionContinuous() {
     int expected2 = 100;
     int result2 = primitives.conversion(100L);
     assertEquals(expected2, result2);
