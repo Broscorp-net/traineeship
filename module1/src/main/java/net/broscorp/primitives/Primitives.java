@@ -1,7 +1,8 @@
 package net.broscorp.primitives;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class Primitives {
   public static int plusIntOverflow() {
@@ -103,59 +104,56 @@ public class Primitives {
     double d = f1;
     return d;
   }
-
-  @org.junit.jupiter.api.Test
+  @Test
   public void testPlusIntOverflow() {
-    Assertions.assertEquals(Integer.MIN_VALUE, Primitives.plusIntOverflow());
+    assertEquals(Integer.MIN_VALUE, Primitives.plusIntOverflow());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testMinusIntOverflow() {
-    Assertions.assertEquals(Integer.MAX_VALUE, Primitives.minusIntOverflow());
+    assertEquals(Integer.MAX_VALUE, Primitives.minusIntOverflow());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testPlusLongOverflow() {
-    Assertions.assertEquals(Long.MIN_VALUE, Primitives.plusLongOverflow());
+    assertEquals(Long.MIN_VALUE, Primitives.plusLongOverflow());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testMinusLongOverflow() {
-    Assertions.assertEquals(Long.MAX_VALUE, Primitives.minusLongOverflow());
+    assertEquals(Long.MAX_VALUE, Primitives.minusLongOverflow());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testPlusShortOverflow() {
-    Assertions.assertEquals(Short.MIN_VALUE, Primitives.plusShortOverflow());
+    assertEquals(Short.MIN_VALUE, Primitives.plusShortOverflow());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testMinusShortOverflow() {
-    Assertions.assertEquals(Short.MAX_VALUE, Primitives.minusShortOverflow());
+    assertEquals(Short.MAX_VALUE, Primitives.minusShortOverflow());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testConvertLongToIntMax() {
-    Assertions.assertEquals(-1, Primitives.convertLongToIntMax());
+    assertEquals(-1, Primitives.convertLongToIntMax());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testConvertLongToIntMin() {
-    Assertions.assertEquals(0, Primitives.convertLongToIntMin());
+    assertEquals(0, Primitives.convertLongToIntMin());
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   public void testConvertLongToIntSome() {
-    Assertions.assertEquals(-2147483648, Primitives.convertLongToIntSome());
+    assertEquals(-2147483648, Primitives.convertLongToIntSome());
   }
-
-  @org.junit.jupiter.api.Test
+  @Test
   public void testConvertFloatToDouble() {
-    Assertions.assertEquals(3.4028234663852886E38, Primitives.convertFloatToDouble());
+    assertEquals(3.4028234663852886E38, Primitives.convertFloatToDouble());
   }
-
-  @org.junit.jupiter.api.Test
+  @Test
   public void testConvertFloatToDoubleSome() {
-    Assertions.assertEquals(0.3499999940395355, Primitives.convertFloatToDoubleSome());
+    assertEquals(0.3499999940395355, Primitives.convertFloatToDoubleSome());
   }
 }
