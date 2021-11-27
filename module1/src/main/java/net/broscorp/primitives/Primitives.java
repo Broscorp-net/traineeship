@@ -2,7 +2,7 @@ package net.broscorp.primitives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class Primitives {
   public static int plusIntOverflow() {
@@ -104,6 +104,7 @@ public class Primitives {
     double d = f1;
     return d;
   }
+
   @Test
   public void testPlusIntOverflow() {
     assertEquals(Integer.MIN_VALUE, Primitives.plusIntOverflow());
@@ -148,10 +149,12 @@ public class Primitives {
   public void testConvertLongToIntSome() {
     assertEquals(-2147483648, Primitives.convertLongToIntSome());
   }
+
   @Test
   public void testConvertFloatToDouble() {
     assertEquals(3.4028234663852886E38, Primitives.convertFloatToDouble());
   }
+
   @Test
   public void testConvertFloatToDoubleSome() {
     assertEquals(0.3499999940395355, Primitives.convertFloatToDoubleSome());
