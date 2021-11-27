@@ -149,14 +149,4 @@ public class Primitives {
   public void testConvertLongToIntSome() {
     assertEquals(-2147483648, Primitives.convertLongToIntSome());
   }
-
-  @Test
-  public void testConvertFloatToDouble() {
-    assertEquals(3.4028234663852886E38, Primitives.convertFloatToDouble());
-  }
-
-  @Test
-  public void testConvertFloatToDoubleSome() {
-    assertEquals(0.3499999940395355, Primitives.convertFloatToDoubleSome());
-  }
 }
