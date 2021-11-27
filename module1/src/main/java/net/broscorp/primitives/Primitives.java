@@ -1,8 +1,5 @@
 package net.broscorp.primitives;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.testng.annotations.Test;
 
 public class Primitives {
   public static int plusIntOverflow() {
