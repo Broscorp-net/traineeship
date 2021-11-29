@@ -46,8 +46,8 @@ public class MyCoolListImpl<T extends Number> implements MyCoolList<T> {
   }
 
   @Override
-  public MyCoolList<T> map(Function<T, T> f) {
-    MyCoolList<T> myCoolList = new MyCoolListImpl<>();
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
+    MyCoolList<R> myCoolList = new MyCoolListImpl<>();
 
     for (T t : arr) {
       myCoolList.add(f.apply(t));

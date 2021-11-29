@@ -10,7 +10,7 @@ public interface MyCoolList<T> {
 
   public T remove(int index);
 
-  public MyCoolList<T> map(Function<T, T> f);
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f);
 
   public int size();
 
