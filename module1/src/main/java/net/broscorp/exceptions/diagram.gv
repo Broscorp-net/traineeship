@@ -1,10 +1,6 @@
  digraph G {
   compound=true;
 
-
-
-
-
   subgraph cluster_0 {
     node[style=filled, color=green];
     label="Checked";
@@ -17,9 +13,9 @@
   subgraph cluster_1 {
     node[style=filled, color=red];
     label="Unchecked";
-    "..";
-    "Runtime";
-    "NPE";
+
+    "Runtime" -> "NPE";
+    "Runtime" -> "..";
   }
 
   THR [label="Throwable\n(checked)", style=filled, color=green];
@@ -29,14 +25,15 @@
   SOF [label="StackOverflow", style=filled, color=red];
 
   ETC [label="...", style=filled, color=red];
-  THR -> EXC;
+
   THR -> ERR;
+  THR -> EXC;
+
 
   ERR -> OOM;
   ERR -> SOF;
   ERR -> ETC
 
+  EXC -> Runtime[lhead=cluster_1];
   EXC -> IOException[lhead=cluster_0];
-  EXC -> NPE[lhead=cluster_1];
-
  }
