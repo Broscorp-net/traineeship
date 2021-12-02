@@ -1,0 +1,14 @@
+digraph JavaPlatformArchitecture {
+JDK [label = "Java Development Kit (JDK)"]
+JRE [label = "Java Runtime Environment (JRE)"]
+JVM [label = "Java Virtual Machine (JVM)"]
+JCL [label = "Java Class Library"]
+JDT [label = "Java Development Tools"]
+JIT [label = "Just-in-time Compilator (JIT)"]
+    
+JVM -> JRE [label = " Java Virtual Machine runs Java\nbytecode previously generated from\nthe Java source by the Java\ncompiler (javac)"];
+JRE -> JDK [label = " this is a implementation\nof JVM required\nto run Java app"];
+JDT -> JDK [label = " tools include the compiler (javac.exe), the Java\napplication launcher (java.exe) and so on.\nThe compiler converts java code\nto byte code"]
+JIT -> JVM [label = "purpose of JIT is to speed up\nthe execution of your code"];
+JCL -> JRE [label = "  JCL this is a library of\nclasses that are part of the JVM\nThey load classes into memory and make\nthem available for execution"];
+}
