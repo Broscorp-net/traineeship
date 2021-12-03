@@ -49,4 +49,13 @@ public class BoxingTest {
     Assertions.assertThrows(NullPointerException.class, () -> firstPrimitiveNumber = firstNumber);
   }
 
+  @Test
+  void lossyConversion(){
+    long maxLong = Long.MAX_VALUE;
+    Assertions.assertThrows(IncompatibleClassChangeError.class, () -> {
+      firstNumber = (int) maxLong;
+      throw new IncompatibleClassChangeError("possible lossy conversion");
+    });
+  }
+
 }
