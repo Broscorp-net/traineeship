@@ -1,0 +1,34 @@
+Compiled from "Hello.java"
+public class Hello {
+  public Hello();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: ldc           #9                  // int 2147483647
+       2: istore_1
+       3: ldc2_w        #12                 // long 9223372036854775807l
+       6: lstore_2
+       7: iconst_1
+       8: istore        4
+      10: iconst_0
+      11: istore        5
+      13: iload         5
+      15: bipush        10
+      17: if_icmpgt     29
+      20: iinc          4, 1
+      23: iinc          5, 1
+      26: goto          13
+      29: invokestatic  #14                 // Method getMessageFromMethod:()Ljava/lang/String;
+      32: astore        5
+      34: getstatic     #20                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      37: aload         5
+      39: iload_1
+      40: lload_2
+      41: invokedynamic #26,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;IJ)Ljava/lang/String;
+      46: invokevirtual #30                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      49: return
+}
