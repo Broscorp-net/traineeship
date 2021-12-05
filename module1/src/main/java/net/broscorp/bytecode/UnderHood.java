@@ -4,23 +4,22 @@ public class UnderHood {
 
 
   public static void main(String[] args) {
-    // bytecodeV1
-    // int var
+    // bytecodeV2
     int i1 = Integer.MAX_VALUE;
-    // long var
     long maxValue = Long.MAX_VALUE;
-    //int var
     int incrementToTen = 1;
-    // start loop
     for (int i = 0; i <= 10; i++) {
       incrementToTen++;
     }
-    // end loop
-
-    // String var that assign through method
     String messageFromMethod = getMessageFromMethod();
 
-    System.out.println("getMessageFromMethod => " + messageFromMethod +"\n Max int = " + i1 + "\n Max long = " + maxValue);
+    System.out.println("getMessageFromMethod => " + messageFromMethod +"\n Max int = "
+        + i1 + "\n Max long = " + maxValue
+        + i1 + "\n incrementToTen = " + incrementToTen);
+
+    int result = Integer.MAX_VALUE + Integer.MIN_VALUE;
+    System.out.println("Result of sum two value =" + result);
+
   }
 
   private static String getMessageFromMethod() {

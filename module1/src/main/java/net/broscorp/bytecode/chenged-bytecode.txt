@@ -1,6 +1,5 @@
-Compiled from "Hello.java"
-public class Hello {
-  public Hello();
+public class net.broscorp.bytecode.UnderHood {
+  public net.broscorp.bytecode.UnderHood();
     Code:
        0: aload_0
        1: invokespecial #1                  // Method java/lang/Object."<init>":()V
@@ -22,21 +21,21 @@ public class Hello {
       20: iinc          4, 1
       23: iinc          5, 1
       26: goto          13
-      29: iload         4
-      31: iconst_5
-      32: isub
-      33: istore        5
-      35: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
-      38: iload         5
-      40: invokedynamic #20,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
-      45: invokevirtual #24                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      48: invokestatic  #30                 // Method getMessageFromMethod:()Ljava/lang/String;
-      51: astore        6
-      53: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
-      56: aload         6
-      58: iload_1
-      59: lload_2
-      60: invokedynamic #36,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;IJ)Ljava/lang/String;
-      65: invokevirtual #24                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      29: invokestatic  #14                 // Method getMessageFromMethod:()Ljava/lang/String;
+      32: astore        5
+      34: getstatic     #20                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      37: aload         5
+      39: iload_1
+      40: lload_2
+      41: iload_1
+      42: iload         4
+      44: invokedynamic #26,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;IJII)Ljava/lang/String;
+      49: invokevirtual #30                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: iconst_m1
+      53: istore        6
+      55: getstatic     #20                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      58: iload         6
+      60: invokedynamic #36,  0             // InvokeDynamic #1:makeConcatWithConstants:(I)Ljava/lang/String;
+      65: invokevirtual #30                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
       68: return
 }
