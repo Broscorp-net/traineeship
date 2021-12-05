@@ -2,7 +2,7 @@ package net.broscorp.bytecode;
 
 public class ByteCode {
 
-  /**
+  /**.
   * Test class
   */
   public static void main(String[] args) {
