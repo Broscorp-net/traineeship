@@ -1,6 +1,6 @@
-Compiled from "Hello.java"
-public class Hello {
-  public Hello();
+Compiled from "UnderHood.java"
+public class net.broscorp.bytecode.UnderHood {
+  public net.broscorp.bytecode.UnderHood();
     Code:
        0: aload_0
        1: invokespecial #1                  // Method java/lang/Object."<init>":()V
