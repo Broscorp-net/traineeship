@@ -1,4 +1,4 @@
-#!/bin/bash
-javac Hello.java
-java Hello
-javap -c Hello
+javac -d class UnderHood.java
+java  -cp class net.broscorp.bytecode.UnderHood
+javap -c class/net/broscorp/bytecode/UnderHood.class
+cmd /k
