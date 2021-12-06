@@ -72,16 +72,22 @@ public class EqualsHashCodeTest {
 //  If two objects are equal according to the equals(Object) method,
 //   then calling the hashCode method on each of the two objects must produce the same integer result.
   @Test
-  void twoSameObjectHasSameHashCode () {
+  void twoSameObjectsHaveSameHashCode () {
     Assertions.assertEquals(playerList.get(4).equals(playerList.get(5)),
         playerList.get(4).hashCode() == playerList.get(5).hashCode());
   }
 
 //  It is not required that if two objects are unequal according to the equals(java.lang.Object) method,
 //  then calling the hashCode method on each of the two objects must produce distinct integer results.
-//  @Test
-//  void () {
-//
-//  }
+  @Test
+  void unequalObjectsHaveDifferenceHasCode() {
+    Assertions.assertEquals(playerList.get(1).equals(playerList.get(5)),
+        playerList.get(1).hashCode() == playerList.get(5).hashCode());
+  }
+
+  @Test
+  void unequalObjectsHaveSameHasCode() {
+    // generate 100_000 players and then iterate
+  }
 
 }
