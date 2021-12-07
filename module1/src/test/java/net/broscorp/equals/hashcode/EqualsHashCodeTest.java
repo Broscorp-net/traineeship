@@ -1,6 +1,7 @@
 package net.broscorp.equals.hashcode;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -88,31 +89,44 @@ public class EqualsHashCodeTest {
 
   @Test
   void unequalObjectsHaveSameHasCode() {
-    ArrayList<Player> randomPlayerList = generateRandomPlayerList();
-    System.out.println(randomPlayerList.size());
-    for(int i = 0; i < randomPlayerList.size() - 1; i++){
-      if(randomPlayerList.get(i).hashCode() == randomPlayerList.get(i + 1).hashCode() &&
-      randomPlayerList.get(i).equals(randomPlayerList.get(i + 1))){
-        System.out.println("Object A = " + randomPlayerList.get(i).toString()
-            + "\n" + "Object B = " + randomPlayerList.get(i + 1).toString()
-            + "\n" + "and they difference but its HASHCODE equals "
-            + "\n" + randomPlayerList.get(i).equals(randomPlayerList.get(i + 1)));
+    List<Player> playerList = generateRandomPlayerList();
+//    for size in 1_000 and 10_000 no match hashcode
+
+    System.out.println(playerList.size());
+
+    for(int i = 0; i < playerList.size(); i++){
+      for(int j = i + 1; j < playerList.size(); j++){
+        boolean isHashCodeMatch = playerList.get(i).hashCode() == playerList.get(j).hashCode();
+        boolean isPlayersEquals = playerList.get(i).equals(playerList.get(j));
+        if( isHashCodeMatch && !isPlayersEquals){
+          System.out.println("Object A = " + playerList.get(i).toString()
+              + "\n" + "Object B = " + playerList.get(j).toString()
+              + "\n" + "and they difference but its HASHCODE equals ");
+          Assertions.assertTrue(isHashCodeMatch);
+          Assertions.assertFalse(isPlayersEquals);
+        }
       }
-      System.out.println("End comparison");
     }
   }
 
+
+
   private ArrayList<Player> generateRandomPlayerList() {
     ArrayList<Player> playerList = new ArrayList<>();
-    Random random = new Random();
-    int yearOfPlayer = random.nextInt(33 - 20) + 20;
-    int heightOfPlayer = random.nextInt(205 - 185) + 185;
-    int numberForPlayer = random.nextInt(1000 - 1) + 1;
-    int playerId = random.nextInt(100_000);
+
     for(int i = 0; i < 100_000; i++){
-      playerList.add(new Player(playerId, "bot" + numberForPlayer, yearOfPlayer,heightOfPlayer));
+      playerList.add(createRandomPlayer());
     }
     return playerList;
+  }
+
+  private Player createRandomPlayer() {
+    Random random = new Random();
+    int playerId = random.nextInt(100_000);
+    int numberForPlayer = random.nextInt(1000 - 1) + 1;
+    int yearOfPlayer = random.nextInt(33 - 20) + 20;
+    int heightOfPlayer = random.nextInt(205 - 185) + 185;
+    return new Player(playerId, "Bot " + numberForPlayer, yearOfPlayer, heightOfPlayer);
   }
 
 }
