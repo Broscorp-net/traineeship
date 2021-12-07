@@ -16,8 +16,8 @@ public class Player {
 
   public static void main(String[] args){
 
-    Player firstPlayer = new Player(101, "Hash", 23, 189);
-    Player secondPlayer = new Player(101, "Hash", 23, 189);
+    Player firstPlayer = new Player(103, "Hash", 23, 189);
+    Player secondPlayer = new Player(104, "Hash", 23, 189);
 
     boolean isPlayersEquals = firstPlayer == secondPlayer;
     System.out.println("isPlayersEquals = " + isPlayersEquals);
