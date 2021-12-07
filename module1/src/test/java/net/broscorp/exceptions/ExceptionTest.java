@@ -26,7 +26,7 @@ public class ExceptionTest {
   void catchParentExceptionThrowException() {
     try {
       System.out.print("do something and then generate exception");
-      throw new RuntimeException();
+      throw new Exception();
     } catch (Exception e) {
       System.out.print("exception " + e);
     }
