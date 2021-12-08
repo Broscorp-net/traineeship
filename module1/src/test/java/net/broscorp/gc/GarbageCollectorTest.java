@@ -15,4 +15,5 @@ public class GarbageCollectorTest {
     }
     Assertions.assertEquals(1_000_000, stringList.size());
   }
+
 }
