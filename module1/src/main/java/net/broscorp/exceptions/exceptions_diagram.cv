@@ -1,0 +1,23 @@
+digraph exception {
+  throwable [label="Throwable", shape=box];
+  error [label="Error/unchecked", shape=box, color=red];
+  exception [label="Exception/checked", shape=box, color=green];
+  throwable -> {error exception} [dir=back];
+
+
+  thread_err [label="ThreadError", shape=box, color=red];
+  virt_mach_err [label="Virtual Machine Error", shape=box, color=red];
+  error -> {thread_err virt_mach_err} [dir=back];
+
+
+  unkn_err [label="UnknownError", shape=box, color=red];
+  st_ov_flo_err [label="StackOverFlowError", shape=box, color=red];
+  out_mem_err [label="OutOfMemoryError", shape=box, color=red];
+  virt_mach_err -> {out_mem_err st_ov_flo_err unkn_err} [dir=back];
+
+  ru_tm_ex [label="RunTimeException/Unchecked", shape=box, color=red];
+  ref_op_ex [label="ReflectiveOperationException", shape=box, color=green];
+  sql_ex [label="SQLException", shape=box, color=green];
+  io_ex [label="IOException", shape=box, color=green];
+  exception -> {ru_tm_ex ref_op_ex sql_ex io_ex} [dir=back];
+}
