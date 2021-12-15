@@ -5,12 +5,12 @@ import java.util.List;
 
 import net.broscorp.gcimpl.model.ApplicationBean;
 import net.broscorp.gcimpl.model.HeapInfo;
-import net.broscorp.gcimpl.model.StackInfo;
+//import net.broscorp.gcimpl.model.StackInfo;
 
-public class GarbageCollectorImplementation implements GarbageCollector {
-
-  @Override
-  public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
-    return Collections.emptyList();
-  }
-}
+//public class GarbageCollectorImplementation implements GarbageCollector {
+//
+//  @Override
+//  public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
+//    return Collections.emptyList();
+//  }
+//}
