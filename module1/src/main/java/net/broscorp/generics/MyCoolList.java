@@ -41,7 +41,7 @@ public class MyCoolList<T extends Number> {
     return (T) objectList[index];
   }
 
-  public Object remove(int index) {
+  public T remove(int index) {
     if(index >= size || index < 0){
       throw new IndexOutOfBoundsException();
     }
