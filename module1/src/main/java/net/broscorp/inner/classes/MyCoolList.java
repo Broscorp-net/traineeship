@@ -1,4 +1,4 @@
-package net.broscorp.override.overload;
+package net.broscorp.inner.classes;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
