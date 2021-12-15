@@ -5,6 +5,10 @@ import java.util.Random;
 
 public class StringExample {
 
+  public static void main(String[] args) {
+    songAboutBugs(4, 6);
+  }
+
   public static boolean getPalindrome(String testWord) {
     int charCounter = 0;
     char[] chars = testWord.toCharArray();
@@ -55,14 +59,14 @@ public class StringExample {
 
   public static String songAboutBugs(Integer bugsAmount, Integer coupletsAmount) {
     String song = "";
-    Random random = new Random();
+    Random random = new Random(bugsAmount * coupletsAmount);
     for (int i = 0; i < coupletsAmount; i++) {
       int changeBugsAmount = bugsAmount - 10 + random.nextInt(20);
       song = song + String.format("%d little bugs in the code, \n" +
               "%d little bugs in the code. \n" +
               "Take one down, patch it around %d little bugs in the code.\n\n",
           bugsAmount, bugsAmount, changeBugsAmount);
-      System.out.println("length sound only first couplet " + song.length());
+      System.out.println(song);
       bugsAmount = changeBugsAmount;
     }
     return song;
