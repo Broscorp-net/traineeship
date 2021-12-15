@@ -5,10 +5,6 @@ import java.util.Random;
 
 public class StringExample {
 
-  public static void main(String[] args) {
-    songAboutBugs(4, 6);
-  }
-
   public static boolean getPalindrome(String testWord) {
     int charCounter = 0;
     char[] chars = testWord.toCharArray();
