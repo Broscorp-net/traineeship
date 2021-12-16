@@ -37,11 +37,4 @@ public class ExploreGarbageCollector {
     System.out.println("get free memory = " + runtime.freeMemory());
   }
 
-  @SuppressWarnings("debrecation")
-  @Override
-  protected void finalize(){
-    System.out.println("Java deleted object use GC )");
-  }
-
-
 }

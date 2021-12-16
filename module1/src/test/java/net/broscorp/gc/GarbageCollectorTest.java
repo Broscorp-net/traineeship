@@ -8,12 +8,13 @@ import org.junit.jupiter.api.Test;
 public class GarbageCollectorTest {
 
   @Test
-  void createMillionObjects() {
-    List<String> stringList = new ArrayList<String>(1_000_000);
-    for(int i = 0; i < 1_000_000; i++) {
-      stringList.add("string object # " + i + " creation");
+  void createLargeObjects() {
+
+    for(int id = 0; id < 100_000; id++) {
+      Asteroid asteroid = new Asteroid(String.valueOf(id));
+      asteroid = null;
     }
-    Assertions.assertEquals(1_000_000, stringList.size());
+    System.gc();
   }
 
 }
