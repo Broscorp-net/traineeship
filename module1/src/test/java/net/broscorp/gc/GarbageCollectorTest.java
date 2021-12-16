@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 public class GarbageCollectorTest {
 
   @Test
-  void createLargeObjects() {
+  void createLotsOfObjects() {
 
     for(int id = 0; id < 100_000; id++) {
       Asteroid asteroid = new Asteroid(String.valueOf(id));
-      asteroid = null;
     }
     System.gc();
   }
