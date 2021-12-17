@@ -2,16 +2,17 @@ package net.broscorp.gc;
 
 public class Asteroid {
 
-  String id;
-  private Object object;
+  GoldAsteroid goldAsteroid;
+  int id;
 
-  public Asteroid(String id) {
+  public Asteroid(int id) {
     this.id = id;
   }
 
   @Override
   protected void finalize() throws Throwable{
-    System.out.println("asteroid id = " + id + " deleted by GC )");
+    System.out.println("finalize() in asteroid id:" + id);
+    Asteroid asteroid = this;
     super.finalize();
   }
 }
