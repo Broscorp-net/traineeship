@@ -2,9 +2,14 @@ package net.broscorp.gamelife;
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,21 +25,35 @@ public class GameOfLife {
   public static void main(String[] args) {
 
     String[][] gameField = createGameFiledFromFile("inputGliderEasy.txt");
+    System.out.println("createGameFiledFromFile " + Arrays.deepToString(gameField));
+    saveResultToFile(gameField, "expectedTest.txt");
+  }
+
+  private static void saveResultToFile(String[][] gameField, String fileNameOutput) {
+    String filePath = "src/test/resources/" + fileNameOutput;
+    File file = new File(filePath);
+
+    try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(file))) {
+      osw.write(Arrays.deepToString(gameField));
+    } catch (IOException exception) {
+      System.out.println("File not found " + exception);
+    }
+
 
   }
 
   public void game(String fileNameInput, String fileNameOutput){
 
-    String[][] gameField = createGameFiledFromFile("inputGliderEasy.txt");
+    String[][] gameField = createGameFiledFromFile(fileNameInput);
+
   }
 
   private static String[][] createGameFiledFromFile(String fileNameInput) {
-    String fileName = "src/test/resources/" + fileNameInput;
+    String filePath = "src/test/resources/" + fileNameInput;
     List<String> lines = new ArrayList<>();
     try {
-      lines = Files.readAllLines(Paths.get(fileName),
+      lines = Files.readAllLines(Paths.get(filePath),
           StandardCharsets.UTF_8);
-      System.out.println(lines);
     } catch (IOException exception) {
       System.out.println("IOException! File don't found " + exception);
     }
@@ -42,17 +61,16 @@ public class GameOfLife {
     int width2DArray = Integer.parseInt(parametersFor2DArray[0]);
     int high2DArray = Integer.parseInt(parametersFor2DArray[1]);
     int amountIteration = Integer.parseInt(parametersFor2DArray[2]);
-    System.out.println(width2DArray + high2DArray + amountIteration);
 
     lines.remove(0);
     List<String> stringsForBuildGameField = lines;
     String[][] field = new String[width2DArray][high2DArray];
 
-    for(int row = 0; row < width2DArray; row++){
-      for(int column = 0; column < high2DArray; column++){
-        field[row][column] = stringsForBuildGameField.get(column).split(" ")[column];
+      for(int rowIndex = 0; rowIndex < high2DArray; rowIndex++){
+        for (int columnIndex = 0; columnIndex < stringsForBuildGameField.get(rowIndex).split(" ").length; columnIndex++) {
+          field[rowIndex][columnIndex] = stringsForBuildGameField.get(rowIndex).split(" ")[columnIndex];
+        }
       }
-    }
     return field;
   }
 
