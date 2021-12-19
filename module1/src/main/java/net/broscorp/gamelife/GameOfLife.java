@@ -24,7 +24,7 @@ public class GameOfLife {
 
   public static void main(String[] args) {
 
-    String[][] gameField = createGameFiledFromFile("inputOscillator.txt");
+    String[][] gameField = createGameFiledFromFile("inputStable1.txt");
     System.out.println("createGameFiledFromFile " + Arrays.deepToString(gameField));
     saveResultToFile(gameField, "expectedTest.txt");
   }
@@ -54,22 +54,18 @@ public class GameOfLife {
   public void game(String fileNameInput, String fileNameOutput) {
 
     String[][] gameField = createGameFiledFromFile(fileNameInput);
+    int iteration = Integer.parseInt(getParametersFromFile(fileNameInput).get(0).split(",")[2]);
+
+    saveResultToFile(gameField, fileNameOutput);
 
   }
 
   private static String[][] createGameFiledFromFile(String fileNameInput) {
-    String filePath = "src/test/resources/" + fileNameInput;
-    List<String> lines = new ArrayList<>();
-    try {
-      lines = Files.readAllLines(Paths.get(filePath),
-          StandardCharsets.UTF_8);
-    } catch (IOException exception) {
-      System.out.println("IOException! File don't found " + exception);
-    }
+    List<String> lines = getParametersFromFile(fileNameInput);
+
     String[] parametersFor2DArray = lines.get(0).split(",");
     int high2DArray = Integer.parseInt(parametersFor2DArray[0]);
     int width2DArray = Integer.parseInt(parametersFor2DArray[1]);
-    int amountIteration = Integer.parseInt(parametersFor2DArray[2]);
 
     lines.remove(0);
 
@@ -85,6 +81,18 @@ public class GameOfLife {
     }
 
     return field;
+  }
+
+  private static List<String> getParametersFromFile(String fileNameInput) {
+    String filePath = "src/test/resources/" + fileNameInput;
+    List<String> lines = new ArrayList<>();
+    try {
+      lines = Files.readAllLines(Paths.get(filePath),
+          StandardCharsets.UTF_8);
+    } catch (IOException exception) {
+      System.out.println("IOException! File don't found " + exception);
+    }
+    return lines;
   }
 
 }
