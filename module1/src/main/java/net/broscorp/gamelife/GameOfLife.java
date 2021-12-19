@@ -24,7 +24,7 @@ public class GameOfLife {
 
   public static void main(String[] args) {
 
-    String[][] gameField = createGameFiledFromFile("inputGliderEasy.txt");
+    String[][] gameField = createGameFiledFromFile("inputOscillator.txt");
     System.out.println("createGameFiledFromFile " + Arrays.deepToString(gameField));
     saveResultToFile(gameField, "expectedTest.txt");
   }
@@ -34,15 +34,24 @@ public class GameOfLife {
     File file = new File(filePath);
 
     try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(file))) {
-      osw.write(Arrays.deepToString(gameField));
+      osw.write(convertArrayToString(gameField));
     } catch (IOException exception) {
       System.out.println("File not found " + exception);
     }
-
-
   }
 
-  public void game(String fileNameInput, String fileNameOutput){
+  private static String convertArrayToString(String[][] gameField) {
+    String gameFiledToStr = "";
+    for (int row = 0; row < gameField.length; row++) {
+      for (int col = 0; col < gameField[row].length; col++) {
+        gameFiledToStr += gameField[row][col] + " ";
+      }
+      gameFiledToStr += "\n";
+    }
+    return gameFiledToStr;
+  }
+
+  public void game(String fileNameInput, String fileNameOutput) {
 
     String[][] gameField = createGameFiledFromFile(fileNameInput);
 
@@ -58,19 +67,23 @@ public class GameOfLife {
       System.out.println("IOException! File don't found " + exception);
     }
     String[] parametersFor2DArray = lines.get(0).split(",");
-    int width2DArray = Integer.parseInt(parametersFor2DArray[0]);
-    int high2DArray = Integer.parseInt(parametersFor2DArray[1]);
+    int high2DArray = Integer.parseInt(parametersFor2DArray[0]);
+    int width2DArray = Integer.parseInt(parametersFor2DArray[1]);
     int amountIteration = Integer.parseInt(parametersFor2DArray[2]);
 
     lines.remove(0);
-    List<String> stringsForBuildGameField = lines;
-    String[][] field = new String[width2DArray][high2DArray];
 
-      for(int rowIndex = 0; rowIndex < high2DArray; rowIndex++){
-        for (int columnIndex = 0; columnIndex < stringsForBuildGameField.get(rowIndex).split(" ").length; columnIndex++) {
-          field[rowIndex][columnIndex] = stringsForBuildGameField.get(rowIndex).split(" ")[columnIndex];
-        }
+    List<String> stringsForBuildGameField = lines;
+    String[][] field = new String[high2DArray][width2DArray];
+
+    for (int rowIndex = 0; rowIndex < high2DArray; rowIndex++) {
+      for (int columnIndex = 0;
+          columnIndex < stringsForBuildGameField.get(rowIndex).split(" ").length; columnIndex++) {
+        field[rowIndex][columnIndex] = stringsForBuildGameField.get(rowIndex)
+            .split(" ")[columnIndex];
       }
+    }
+
     return field;
   }
 
