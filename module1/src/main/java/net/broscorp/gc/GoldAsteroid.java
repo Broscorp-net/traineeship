@@ -13,6 +13,8 @@ public class GoldAsteroid {
     this.asteroid = asteroid;
   }
 
+
+
   @Override
   protected void finalize() throws Throwable{
     super.finalize();

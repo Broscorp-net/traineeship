@@ -29,14 +29,15 @@ public class GarbageCollectorTest {
   }
 
   @Test
-  void isObjectAlive() {
+  void isObjectAlive() throws InterruptedException {
     Random random = new Random();
     Asteroid asteroid = new Asteroid(random.nextInt(20));
     asteroid.goldAsteroid = new GoldAsteroid(asteroid);
     asteroid.goldAsteroid = null;
     System.gc();
+    Thread.sleep(2000);
     if (asteroid.goldAsteroid != null ) {
-      System.out.println("golden asteroid still 'present'");
+      System.out.println("golden asteroid still 'present' asteroid id " + asteroid.goldAsteroid.id);
     }
 
   }
