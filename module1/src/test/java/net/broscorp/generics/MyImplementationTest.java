@@ -8,21 +8,21 @@ public class MyImplementationTest {
   MyCoolList<Integer> myCoolList;
 
   @Test
-  void addTest() {
+  void add() {
     myCoolList = new MyImplementation<>();
     myCoolList.add(1);
     assertEquals(1, myCoolList.get(0));
   }
 
   @Test
-  void getTest() {
+  void get() {
     myCoolList = new MyImplementation<>();
     myCoolList.add(1);
     assertEquals(1, myCoolList.get(0));
   }
 
   @Test
-  void mapTest() {
+  void map() {
     myCoolList = new MyImplementation<>();
     myCoolList.add(1);
     MyCoolList<Integer> mapped = myCoolList.map(x -> x * 5);
@@ -30,7 +30,7 @@ public class MyImplementationTest {
   }
 
   @Test
-  void sizeTest() {
+  void size() {
     myCoolList = new MyImplementation<>();
     myCoolList.add(1);
     assertEquals(1, myCoolList.size());
