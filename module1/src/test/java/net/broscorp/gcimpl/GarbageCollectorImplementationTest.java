@@ -8,11 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.broscorp.gcimpl.gc.GarbageCollector;
-import net.broscorp.gcimpl.gc.GarbageCollectorImplementation;
-import net.broscorp.gcimpl.model.ApplicationBean;
-import net.broscorp.gcimpl.model.HeapInfo;
-import net.broscorp.gcimpl.model.StackInfo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

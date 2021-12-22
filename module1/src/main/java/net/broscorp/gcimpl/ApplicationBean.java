@@ -1,4 +1,4 @@
-package net.broscorp.gcimpl.model;
+package net.broscorp.gcimpl;
 
 import java.util.HashMap;
 import java.util.Map;
