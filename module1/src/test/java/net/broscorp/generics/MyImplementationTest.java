@@ -1,4 +1,4 @@
-package net.broscorp;
+package net.broscorp.generics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
