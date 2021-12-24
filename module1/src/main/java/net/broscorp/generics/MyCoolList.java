@@ -4,14 +4,14 @@ import java.util.function.Function;
 
 public interface MyCoolList<T> {
 
-  void add(T t);
+  public void add(T t);
 
-  T get(int index);
+  public T get(int index);
 
-  T remove(int index);
+  public T remove(int index);
 
-  <R extends Number> MyCoolList<R> map(Function<T, R> f);
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f);
 
-  int size();
+  public int size();
 
 }
