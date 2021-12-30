@@ -8,7 +8,7 @@ public class PrimitivesTest {
   @Test
   void numericOverflow() {
     int i = Integer.MAX_VALUE;
-    i+= 20;
+    i += 20;
     Assertions.assertFalse(i > Integer.MAX_VALUE);
   }
 
@@ -23,7 +23,6 @@ public class PrimitivesTest {
   @Test
   void float2DoubleIssue() {
     // Could not identify possible issues with converting float to double - please advise
-    // as per конвертация между примитивными типами: long в int, float в double, показать какие могут возникать проблемы;
     Assertions.assertTrue(true);
   }
 
