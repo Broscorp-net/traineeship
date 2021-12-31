@@ -8,9 +8,18 @@ public class SampleClass {
 
   private String strProperty;
 
+  /**
+   * Constuctor method.
+   * @param intProp - some integer value
+   * @param strProp - some String value
+   */
   public SampleClass(int intProp, String strProp) {
     this.intProperty = intProp;
-    this.strProperty = strProp;
+    if (strProp != null) {
+      this.strProperty = strProp;
+    } else {
+      throw new IllegalArgumentException("strProp can not be null.");
+    }
   }
 
   @Override
@@ -32,7 +41,10 @@ public class SampleClass {
     return intProperty == that.intProperty && Objects.equals(strProperty, that.strProperty);
   }
 
+  @Override
   public int hashCode() {
+    // TBD: in real case scenario - add check that strProperty is not null.
+    // Currently handled by constructor which do not accept null arguments
     return this.strProperty.hashCode() + this.intProperty;
   }
 }
