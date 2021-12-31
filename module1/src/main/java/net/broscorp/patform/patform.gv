@@ -1,0 +1,15 @@
+/**
+ * Inspired by: https://javapapers.com/core-java/differentiate-jvm-jre-jdk-jit/
+ */
+graph patform {
+  a [label="JVM"];
+// Java Virtual Machine (JVM) is an abstract computing machine.
+  b [label="JRE"];
+// Java Runtime Environment (JRE) is an implementation of the JVM.
+  c [label="JDK"];
+// Java Development Kit (JDK) contains JRE along with various development tools like Java libraries, Java source compilers, Java debuggers, bundling and deployment tools.
+  d [label="JIT"];
+// Just In Time compiler (JIT) is runs after the program has started executing, on the fly. It has access to runtime information and makes optimizations of the code for better performance.
+  c -- a -- b;
+  a -- d [style=dotted];
+}
