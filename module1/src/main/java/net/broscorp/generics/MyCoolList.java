@@ -2,16 +2,16 @@ package net.broscorp.generics;
 
 import java.util.function.Function;
 
-public class MyCoolList {
+public class MyCoolList <T> {
 
   private int curr = -1; // -1 for non initialized array (has no elements)
-  private Object[] arr = null; // null for non initialized array (has no elements)
+  private T[] arr = null; // null for non initialized array (has no elements)
 
   /**
    * Add object o to the collection.
    * @param o - object to add to the collection.
    */
-  public void add(Object o) {
+  public void add(T o) {
     if (arr != null && this.curr <= this.arr.length - 2) {
       this.arr[++this.curr] = o;
     } else {
@@ -20,16 +20,16 @@ public class MyCoolList {
     }
   }
 
-  private void increaseArray() {
+  private <T> void increaseArray() {
     if (this.arr == null) { // initialize array with size 1
-      this.arr = new Object[1];
+      this.arr = (T[])Array.newinstance(T, 1);
     } else { // double array size and copy elements
 
       // TBD: add check if newLength becomes greater than MAX_INTEGER
 
       int newLength = this.arr.length * 2;
-      Object[] arrTmp = this.arr;
-      this.arr = new Object[newLength];
+      T[] arrTmp = this.arr;
+      this.arr = new T[newLength];
       System.arraycopy(arrTmp, 0, arr, 0, arrTmp.length - 1 + 1);
     }
   }
@@ -39,7 +39,7 @@ public class MyCoolList {
    * @param index - posotion to fetch the element
    * @return the fetched element
    */
-  public Object get(int index) {
+  public T get(int index) {
 
     if (isValidIndex(index)) {
       return this.arr[index];
@@ -53,10 +53,10 @@ public class MyCoolList {
    * @param index - position of the element to be removed.
    * @return the removed element.
    */
-  public Object remove(int index) {
+  public T remove(int index) {
 
     if (isValidIndex(index)) {
-      Object o = this.get(index);
+      T o = this.get(index);
 
       if (this.arr.length - index >= 0) {
         System.arraycopy(this.arr, index + 1, this.arr, index, this.arr.length - index);
