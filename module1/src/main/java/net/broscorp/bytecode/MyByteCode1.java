@@ -1,4 +1,4 @@
-public class MyBytecode1 {
+public class MyByteCode1 {
 
   public static void foo() {}
 
