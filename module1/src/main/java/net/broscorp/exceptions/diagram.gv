@@ -1,0 +1,5 @@
+digraph Exc {
+  "Exception (declared)" -> "Throwable"
+  "Error" -> "Throwable"
+  "Runtime Exception" -> "Exception (declared)"
+}
