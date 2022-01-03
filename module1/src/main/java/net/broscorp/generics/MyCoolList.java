@@ -34,6 +34,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
   class MyCoolIterator implements Iterator<T> {
 
     int pos = 0;
+    boolean canBeRemoved = false;
 
     public boolean hasNext() {
       return pos <= size() - 1;
@@ -41,14 +42,21 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
     public T next() {
       if (hasNext()) {
-        return get(pos++);
+        T t = get(pos++);
+        canBeRemoved = true;
+        return t;
       } else {
         throw new NoSuchElementException();
       }
     }
 
     public void remove() {
-      throw new UnsupportedOperationException();
+      if (canBeRemoved) {
+        MyCoolList.this.remove(pos - 1);
+        canBeRemoved = false;
+      } else {
+        throw new IllegalStateException();
+      }
     }
   }
 
@@ -113,7 +121,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
       T o = this.get(index);
 
       if (this.arr.length - index >= 0) {
-        System.arraycopy(this.arr, index + 1, this.arr, index, this.arr.length - index);
+        System.arraycopy(this.arr, index + 1, this.arr, index, curr - index);
       }
       this.curr--;
       return o;

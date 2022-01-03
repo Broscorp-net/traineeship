@@ -1,5 +1,7 @@
 package net.broscorp.generics;
 
+import java.util.Iterator;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -80,6 +82,19 @@ class MyCoolListTest {
   }
 
   @Test
+  void testRemove() {
+    MyCoolList<Integer> list = new MyCoolList<>();
+    Integer numObj = 1;
+    list.add(numObj);
+    list.add(numObj);
+    list.add(numObj);
+
+    list.remove(1);
+
+    Assertions.assertEquals(list.size(), 2);
+  }
+
+  @Test
   void testMap() {
     MyCoolList<Integer> list = new MyCoolList<>();
     Integer numObj = 1;
@@ -89,7 +104,7 @@ class MyCoolListTest {
   }
 
   @Test
-  void testIterator() {
+  void testIteratorNext() {
     MyCoolList<Integer> list = new MyCoolList<>();
     Integer numObj = 1;
     list.add(numObj);
@@ -101,5 +116,21 @@ class MyCoolListTest {
       count++;
     }
     Assertions.assertEquals(count, 3);
+  }
+
+  @Test
+  void testIteratorRemove() {
+    MyCoolList<Integer> list = new MyCoolList<>();
+    Integer numObj = 1;
+    list.add(numObj);
+    list.add(numObj);
+    list.add(numObj);
+
+    Iterator iter = list.iterator();
+    iter.next();
+    iter.next();
+    iter.remove();
+
+    Assertions.assertEquals(list.size(), 2);
   }
 }
