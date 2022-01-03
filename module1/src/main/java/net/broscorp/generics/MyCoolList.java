@@ -1,11 +1,58 @@
 package net.broscorp.generics;
 
+import java.util.Iterator;
 import java.util.function.Function;
 
-public class MyCoolList<T extends Number> {
+
+public class MyCoolList<T extends Number> implements Iterable<T> {
 
   int curr;
-  T[] arr; // null for non initialized array (has no elements)
+  T[] arr;
+
+  // code for data structure
+  public Iterator<T> iterator() {
+    return new MyCoolIterator();
+  }
+
+  /**
+   * Now the difference between Static and Non-Static Nested Class in Java:
+   * 1. The static inner class can access the static members of the outer class directly.
+   *    But, to access the instance members of the outer class you need to instantiate the
+   *    outer class.
+   * 2. Nested static class doesn’t need a reference of Outer class but a nonstatic nested class
+   *    or Inner class requires Outer class reference.
+   * 3. A non-static nested class has full access to the members of the class within which it
+   *    is nested. A static nested class does not have a reference to a nesting instance,
+   *    so a static nested class cannot invoke non-static methods or access non-static fields
+   *    of an instance of the class within which it is nested.
+   * 4. Another difference between static and non-static nested class is that you can not access
+   *    non-static members e.g. method and field into nested static class directly. If you do you
+   *    will get errors like “nonstatic member can not be used in the static context”. While the
+   *    Inner class can access both static and non-static members of the Outer class.
+   */
+  class MyCoolIterator implements Iterator<T> {
+
+    int curr = 0;
+
+    // Checks if the next element exists
+    public boolean hasNext() {
+      return curr <= size() - 1;
+    }
+
+    // moves the cursor/iterator to next element
+    public T next() {
+      if (hasNext()) {
+        return get(curr++);
+      } else {
+        throw NoSuchElementException();
+      }
+    }
+
+    // Used to remove an element. Implement only if needed
+    public void remove() {
+      throw new UnsupportedOperationException();
+    }
+  }
 
   /**
    * Default constructor.

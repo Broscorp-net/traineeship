@@ -87,4 +87,19 @@ class MyCoolListTest {
     MyCoolList<Integer> mappedList = list.map(x -> x * 5);
     Assertions.assertEquals(5,mappedList.get(0));
   }
+
+  @Test
+  void testIterator() {
+    MyCoolList<Integer> list = new MyCoolList<>();
+    Integer numObj = 1;
+    list.add(numObj);
+    list.add(numObj);
+    list.add(numObj);
+
+    int count = 0;
+    for (Object o : list) {
+      count++;
+    }
+    Assertions.assertEquals(count, 3);
+  }
 }
