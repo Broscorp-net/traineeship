@@ -1,6 +1,7 @@
 package net.broscorp.generics;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.function.Function;
 
 
@@ -32,23 +33,20 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
    */
   class MyCoolIterator implements Iterator<T> {
 
-    int curr = 0;
+    int pos = 0;
 
-    // Checks if the next element exists
     public boolean hasNext() {
-      return curr <= size() - 1;
+      return pos <= size() - 1;
     }
 
-    // moves the cursor/iterator to next element
     public T next() {
       if (hasNext()) {
-        return get(curr++);
+        return get(pos++);
       } else {
-        throw NoSuchElementException();
+        throw new NoSuchElementException();
       }
     }
 
-    // Used to remove an element. Implement only if needed
     public void remove() {
       throw new UnsupportedOperationException();
     }
