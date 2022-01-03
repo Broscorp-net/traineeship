@@ -2,10 +2,17 @@ package net.broscorp.generics;
 
 import java.util.function.Function;
 
-public class MyCoolList <T> {
+public class MyCoolList<T extends Number> {
 
-  private int curr = -1; // -1 for non initialized array (has no elements)
-  private T[] arr = null; // null for non initialized array (has no elements)
+  int curr;
+  T[] arr; // null for non initialized array (has no elements)
+
+  public MyCoolList()
+  {
+    // non initialized array (has no elements)
+    this.curr = -1;
+    this.arr = null;
+  }
 
   /**
    * Add object o to the collection.
@@ -20,16 +27,16 @@ public class MyCoolList <T> {
     }
   }
 
-  private <T> void increaseArray() {
+  private void increaseArray() {
     if (this.arr == null) { // initialize array with size 1
-      this.arr = (T[])Array.newinstance(T, 1);
+      this.arr = (T[])new Number[1];
     } else { // double array size and copy elements
 
       // TBD: add check if newLength becomes greater than MAX_INTEGER
 
       int newLength = this.arr.length * 2;
       T[] arrTmp = this.arr;
-      this.arr = new T[newLength];
+      this.arr = (T[])new Number[newLength];
       System.arraycopy(arrTmp, 0, arr, 0, arrTmp.length - 1 + 1);
     }
   }

@@ -7,13 +7,21 @@ class MyCoolListTest {
 
   @Test
   void createNew() {
-    MyCoolList list = new MyCoolList();
+    MyCoolList<Integer> list = new MyCoolList<>();
+    Assertions.assertTrue(true);
+  }
+
+  @Test
+  void addOne() {
+    MyCoolList<Number> list = new MyCoolList<>();
+    Number n = new Integer(1);
+    list.add(n);
     Assertions.assertTrue(true);
   }
 
   @Test
   void addFirstElement() {
-    MyCoolList list = new MyCoolList();
+    MyCoolList<Integer> list = new MyCoolList<>();
     Integer i = 1;
     list.add(i);
     Assertions.assertTrue(true);
@@ -21,7 +29,7 @@ class MyCoolListTest {
 
   @Test
   void addSubsequentElement() {
-    MyCoolList list = new MyCoolList();
+    MyCoolList<Integer> list = new MyCoolList<>();
     Integer numObj = 1;
     list.add(numObj);
     list.add(numObj);
@@ -30,7 +38,7 @@ class MyCoolListTest {
 
   @Test
   void addManyElements() {
-    MyCoolList list = new MyCoolList();
+    MyCoolList<Integer> list = new MyCoolList<>();
     Integer numObj = 1;
     for (int i = 0; i < 10; i++) {
       list.add(numObj);
@@ -39,9 +47,8 @@ class MyCoolListTest {
   }
 
   @Test
-  void GetExistingElement()
-  {
-    MyCoolList list = new MyCoolList();
+  void getExistingElement() {
+    MyCoolList<Integer> list = new MyCoolList<>();
     int checkedIndex = 3;
     Integer checkedNumObj = 2;
     Integer numObj = 1;
@@ -57,9 +64,8 @@ class MyCoolListTest {
   }
 
   @Test
-  void GetWhenIndexOverSize()
-  {
-    MyCoolList list = new MyCoolList();
+  void getWhenIndexOverSize() {
+    MyCoolList<Integer> list = new MyCoolList<>();
     Integer numObj = 1;
     list.add(numObj);
     list.add(numObj);
@@ -70,9 +76,8 @@ class MyCoolListTest {
   }
 
   @Test
-  void GetWhenIndexNegative()
-  {
-    MyCoolList list = new MyCoolList();
+  void getWhenIndexNegative() {
+    MyCoolList<Integer> list = new MyCoolList<>();
     Integer numObj = 1;
     list.add(numObj);
     list.add(numObj);
