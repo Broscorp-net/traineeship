@@ -1,8 +1,6 @@
-package net.broscorp.classpath;
-
 public class MyWriter {
 
-  public static void main(String[] args) {
-    System.out.println("Output");
+  public static void writeToConsole(String message) {
+    System.out.println(message);
   }
 }

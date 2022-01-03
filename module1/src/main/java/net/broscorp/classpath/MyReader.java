@@ -1,9 +1,7 @@
-package net.broscorp.classpath;
-
 public class MyReader {
-  public static String input = "";
 
   public static void main(String[] args) {
-    input = System.console().readLine();
+    String input = System.console().readLine();
+    MyWriter.writeToConsole(input);
   }
 }
