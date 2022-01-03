@@ -12,14 +12,6 @@ class MyCoolListTest {
   }
 
   @Test
-  void addOne() {
-    MyCoolList<Number> list = new MyCoolList<>();
-    Number n = new Integer(1);
-    list.add(n);
-    Assertions.assertTrue(true);
-  }
-
-  @Test
   void addFirstElement() {
     MyCoolList<Integer> list = new MyCoolList<>();
     Integer i = 1;
@@ -85,5 +77,14 @@ class MyCoolListTest {
     Assertions.assertThrows(IllegalArgumentException.class, () -> {
       list.get(-1);
     });
+  }
+
+  @Test
+  void testMap() {
+    MyCoolList<Integer> list = new MyCoolList<>();
+    Integer numObj = 1;
+    list.add(numObj);
+    MyCoolList<Integer> mappedList = list.map(x -> x * 5);
+    Assertions.assertEquals(5,mappedList.get(0));
   }
 }

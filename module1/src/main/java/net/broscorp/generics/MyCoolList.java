@@ -7,8 +7,10 @@ public class MyCoolList<T extends Number> {
   int curr;
   T[] arr; // null for non initialized array (has no elements)
 
-  public MyCoolList()
-  {
+  /**
+   * Default constructor.
+   */
+  public MyCoolList() {
     // non initialized array (has no elements)
     this.curr = -1;
     this.arr = null;
@@ -83,8 +85,19 @@ public class MyCoolList<T extends Number> {
     }
   }
 
-  public MyCoolList map(Function f) {
-    throw new UnsupportedOperationException();
+  /**
+   * Returns a list which is the result of applyong function f to the current list.
+   * @param f - function to be applied to list elements
+   * @param <N> - returned type is of type numeric
+   * @return a list which the result of applyong function f
+   */
+  public <N extends Number> MyCoolList<N> map(Function<T, N> f) {
+    MyCoolList<N> mappedList = new MyCoolList<>();
+
+    for (T t : this.arr) {
+      mappedList.add(f.apply(t));
+    }
+    return mappedList;
   }
 
   public int size() {
