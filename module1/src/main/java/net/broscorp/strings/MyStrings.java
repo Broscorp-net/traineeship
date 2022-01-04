@@ -29,7 +29,7 @@ public class MyStrings {
    */
   public static String helloWorld1(String str) {
     if (str.equals(HELLO_WORLD)) {
-      return str.replace(" World", "");
+      return str.substring(0, 5);
     } else {
       throw new IllegalArgumentException(
         String.format("Method accepts only %s as an argument", HELLO_WORLD));
@@ -76,7 +76,7 @@ public class MyStrings {
       String[] arr = str.split(" ");
 
       for (String ss : arr) {
-        sb.append(ss+" "+ss.length());
+        sb.append(ss + " " + ss.length());
         sb.append(System.lineSeparator());
       }
       return sb.toString();
