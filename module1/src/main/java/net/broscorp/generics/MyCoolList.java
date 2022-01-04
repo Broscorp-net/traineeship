@@ -20,7 +20,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
    * 1. The static inner class can access the static members of the outer class directly.
    *    But, to access the instance members of the outer class you need to instantiate the
    *    outer class.
-   * 2. Nested static class doesn’t need a reference of Outer class but a nonstatic nested class
+   * 2. Nested static class does not need a reference of Outer class but a nonstatic nested class
    *    or Inner class requires Outer class reference.
    * 3. A non-static nested class has full access to the members of the class within which it
    *    is nested. A static nested class does not have a reference to a nesting instance,
@@ -98,7 +98,7 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
 
   /**
    * Fetches the element at position index.
-   * @param index - posotion to fetch the element
+   * @param index - position to fetch the element
    * @return the fetched element
    */
   public T get(int index) {
@@ -139,10 +139,10 @@ public class MyCoolList<T extends Number> implements Iterable<T> {
   }
 
   /**
-   * Returns a list which is the result of applyong function f to the current list.
+   * Returns a list which is the result of applying function f to the current list.
    * @param f - function to be applied to list elements
    * @param <N> - returned type is of type numeric
-   * @return a list which the result of applyong function f
+   * @return a list which the result of applying function f
    */
   public <N extends Number> MyCoolList<N> map(Function<T, N> f) {
     MyCoolList<N> mappedList = new MyCoolList<>();
