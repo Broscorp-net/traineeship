@@ -14,7 +14,7 @@ class MultiplyMethodTest {
     double b = 3.0;
 
     double result = multiply.arguments(a, b);
-    assertEquals(5.0, result);
+    assertEquals(6.0, result);
   }
 
   @Test
@@ -23,7 +23,7 @@ class MultiplyMethodTest {
     int b = 3;
 
     double result = multiply.arguments(a, b);
-    assertEquals(5.0, result);
+    assertEquals(6.0, result);
   }
 
   @Test
@@ -32,6 +32,6 @@ class MultiplyMethodTest {
     Integer b = 5;
 
     double result = multiply.arguments(a, b);
-    assertEquals(8.0, result);
+    assertEquals(15.0, result);
   }
 }
