@@ -2,9 +2,9 @@
 
 Ниже аутпут теста void manyObjectsTest():
 
-_CountedObj 32831 is being finalized.\n
-CountedObj 29587 is being finalized.\n
-CountedObj 31675 is being finalized.\n
+_CountedObj 32831 is being finalized.
+CountedObj 29587 is being finalized.
+CountedObj 31675 is being finalized.
 CountedObj 33579 is being finalized.
 CountedObj 35220 is being finalized.
 CountedObj 29109 is being finalized.
