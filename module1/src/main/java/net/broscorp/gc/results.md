@@ -23,7 +23,7 @@ During the course of creating 10M objects, 2174045 were finalized._
 _Reachable CountedObj 0 is being finalized._
 
 3) Тест сrossReferenceTest проверяет будет ли очищен объект на который ссылается объект, который
-сделался недостижимымм - согласно аутпуту ответ - да (для обоих объектов срабатывает finalize.)
+сделался недостижимым - согласно аутпуту ответ - да (для обоих объектов срабатывает finalize.)
 
 _CountedObj 0 is being finalized.
 CountedObj 1 is being finalized._
