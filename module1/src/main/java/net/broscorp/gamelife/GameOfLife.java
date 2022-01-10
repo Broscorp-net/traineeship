@@ -54,12 +54,11 @@ public class GameOfLife {
     field = new boolean[ySize][xSize];
 
     for (int yLoc = 0; yLoc <= ySize - 1; yLoc++) {
-      for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
 
-        String row = gameListInput.get(yLoc);
-        for (String fieldVal : row.split(" ")) {
-          field[yLoc][xLoc] = parseValue(fieldVal);
-        }
+      String[] row = gameListInput.get(yLoc).split(" ");
+
+      for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
+        field[yLoc][xLoc] = parseValue(row[xLoc]);
       }
     }
   }
@@ -148,8 +147,8 @@ public class GameOfLife {
 
     boolean[][] nextIterField = new boolean[ySize][xSize];
 
-    for (int yLoc = 0; yLoc < ySize; yLoc++) {
-      for (int xLoc = 0; xLoc < xSize; xLoc++) {
+    for (int yLoc = 0; yLoc <= ySize - 1; yLoc++) {
+      for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
         nextIterField[yLoc][xLoc] = determineNextState(xLoc, yLoc);
       }
     }
@@ -162,31 +161,30 @@ public class GameOfLife {
     StringBuilder output = new StringBuilder();
 
     for (int yLoc = 0; yLoc <= ySize - 1; yLoc++) {
+
+      if (yLoc > 0) {
+        output.append(System.lineSeparator());
+      }
+
       for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
+
+        if (xLoc > 0) {
+          output.append(DELIMITER);
+        }
 
         char charAtField = field[yLoc][xLoc] ? ALIVE : DEAD;
         output.append(charAtField);
-        output.append(DELIMITER);
+
       }
-
-      output.append(System.lineSeparator());
-
     }
 
-    // FOR DEBUG PURPOSES
-    System.out.println(output.toString());
-
     File file = new File(GameOfLife.class.getClassLoader().getResource(".").getFile() + fileNameOutput);
-
-    // FOR DEBUG PURPOSES
-    System.out.println(file.getPath());
 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
       writer.write(output.toString());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-
   }
 
   public void game(String fileNameInput, String fileNameOutput){
@@ -194,7 +192,7 @@ public class GameOfLife {
     loadGame(fileNameInput);
 
     while (iterations-- > 0) {
-      calculateIteration();
+       calculateIteration();
     }
 
     saveGame(fileNameOutput);
