@@ -16,9 +16,9 @@ public class GameOfLife {
   // Following properties determines the game parameters and current status
 
   // size of field
-  int xSize, ySize;
+  int ySize, xSize;
 
-  // Two dimensional array (can contain X or O)
+  // Current field status: true for live cell
   boolean[][] field;
 
   // Number of game iterations left
@@ -40,8 +40,8 @@ public class GameOfLife {
 
     String[] params = firstLine.split(",");
 
-    xSize = Integer.parseInt(params[0]);
-    ySize = Integer.parseInt(params[1]);
+    ySize = Integer.parseInt(params[0]);
+    xSize = Integer.parseInt(params[1]);
     iterations = Integer.parseInt(params[2]);
   }
 
