@@ -76,7 +76,7 @@ public class GameOfLife {
   }
 
   boolean isAlive(int xLoc, int yLoc) {
-    return field[xLoc][yLoc];
+    return field[yLoc][xLoc];
   }
 
   int getLeftColNum(int xLoc) {
@@ -146,11 +146,11 @@ public class GameOfLife {
 
   void calculateIteration() {
 
-    boolean[][] nextIterField = new boolean[xSize][ySize];
+    boolean[][] nextIterField = new boolean[ySize][xSize];
 
-    for (int xLoc = 0; xLoc < xSize; xLoc++) {
-      for (int yLoc = 0; yLoc < ySize; yLoc++) {
-        nextIterField[xLoc][yLoc] = determineNextState(xLoc, yLoc);
+    for (int yLoc = 0; yLoc < ySize; yLoc++) {
+      for (int xLoc = 0; xLoc < xSize; xLoc++) {
+        nextIterField[yLoc][xLoc] = determineNextState(xLoc, yLoc);
       }
     }
 
