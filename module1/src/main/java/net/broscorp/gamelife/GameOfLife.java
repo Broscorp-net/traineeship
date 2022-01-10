@@ -183,7 +183,7 @@ public class GameOfLife {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
       writer.write(output.toString());
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      e.printStackTrace();
     }
   }
 
