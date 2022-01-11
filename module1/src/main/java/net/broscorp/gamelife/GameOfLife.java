@@ -1,11 +1,11 @@
 package net.broscorp.gamelife;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +15,11 @@ public class GameOfLife {
 
   // Following properties determines the game parameters and current status
 
-  // size of field
-  int ySize, xSize;
+  // number of rows in the field
+  int rowsNum;
+
+  // number of columns in the field
+  int colsNum;
 
   // Current field status: true for live cell
   boolean[][] field;
@@ -40,8 +43,8 @@ public class GameOfLife {
 
     String[] params = firstLine.split(",");
 
-    ySize = Integer.parseInt(params[0]);
-    xSize = Integer.parseInt(params[1]);
+    rowsNum = Integer.parseInt(params[0]);
+    colsNum = Integer.parseInt(params[1]);
     iterations = Integer.parseInt(params[2]);
   }
 
@@ -51,14 +54,14 @@ public class GameOfLife {
 
   void parseGameField(List<String> gameListInput) {
 
-    field = new boolean[ySize][xSize];
+    field = new boolean[rowsNum][colsNum];
 
-    for (int yLoc = 0; yLoc <= ySize - 1; yLoc++) {
+    for (int row = 0; row <= rowsNum - 1; row++) {
 
-      String[] row = gameListInput.get(yLoc).split(" ");
+      String[] rowValues = gameListInput.get(row).split(" ");
 
-      for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
-        field[yLoc][xLoc] = parseValue(row[xLoc]);
+      for (int col = 0; col <= colsNum - 1; col++) {
+        field[row][col] = parseValue(rowValues[col]);
       }
     }
   }
@@ -74,69 +77,69 @@ public class GameOfLife {
     parseGameField(gameListInput);
   }
 
-  boolean isAlive(int xLoc, int yLoc) {
-    return field[yLoc][xLoc];
+  boolean isAlive(int col, int row) {
+    return field[row][col];
   }
 
-  int getLeftColNum(int xLoc) {
-    if (xLoc >= 1) {
-      return xLoc - 1;
+  int getLeftColNum(int col) {
+    if (col >= 1) {
+      return col - 1;
     } else {
-      return xSize - 1;
+      return colsNum - 1;
     }
   }
 
-  int getRightColNum(int xLoc) {
-    if (xLoc <= xSize - 2) {
-      return xLoc + 1;
-    } else {
-      return 0;
-    }
-  }
-
-  int getUpperRowNum(int yLoc) {
-    if (yLoc >= 1) {
-      return yLoc - 1;
-    } else {
-      return ySize - 1;
-    }
-  }
-
-  int getLowerRowNum(int yLoc) {
-    if (yLoc <= ySize - 2) {
-      return yLoc + 1;
+  int getRightColNum(int col) {
+    if (col <= colsNum - 2) {
+      return col + 1;
     } else {
       return 0;
     }
   }
 
-  int calculateLiveNeighbours(int xLoc, int yLoc) {
+  int getUpperRowNum(int row) {
+    if (row >= 1) {
+      return row - 1;
+    } else {
+      return rowsNum - 1;
+    }
+  }
+
+  int getLowerRowNum(int row) {
+    if (row <= rowsNum - 2) {
+      return row + 1;
+    } else {
+      return 0;
+    }
+  }
+
+  int calculateLiveNeighbours(int col, int row) {
     int liveNeighboursCount = 0;
 
-    int leftColNum = getLeftColNum(xLoc);
-    int rightColNum = getRightColNum(xLoc);
-    int upperRowNum = getUpperRowNum(yLoc);
-    int lowerRowNum = getLowerRowNum(yLoc);
+    final int leftColNum = getLeftColNum(col);
+    final int rightColNum = getRightColNum(col);
+    final int upperRowNum = getUpperRowNum(row);
+    final int lowerRowNum = getLowerRowNum(row);
 
     liveNeighboursCount += isAlive(leftColNum, upperRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(xLoc, upperRowNum) ? 1 : 0;
+    liveNeighboursCount += isAlive(col, upperRowNum) ? 1 : 0;
     liveNeighboursCount += isAlive(rightColNum, upperRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(leftColNum, yLoc) ? 1 : 0;
-    liveNeighboursCount += isAlive(rightColNum, yLoc) ? 1 : 0;
+    liveNeighboursCount += isAlive(leftColNum, row) ? 1 : 0;
+    liveNeighboursCount += isAlive(rightColNum, row) ? 1 : 0;
     liveNeighboursCount += isAlive(leftColNum, lowerRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(xLoc, lowerRowNum) ? 1 : 0;
+    liveNeighboursCount += isAlive(col, lowerRowNum) ? 1 : 0;
     liveNeighboursCount += isAlive(rightColNum, lowerRowNum) ? 1 : 0;
 
     return liveNeighboursCount;
   }
 
-  boolean determineNextState(int xLoc, int yLoc) {
+  boolean determineNextState(int col, int row) {
 
-    int liveNeighbours = calculateLiveNeighbours(xLoc, yLoc);
+    int liveNeighbours = calculateLiveNeighbours(col, row);
 
-    if (isAlive(xLoc, yLoc)) {
-      return liveNeighbours >= LIVE_UNDERPOPULATION_THRESHOLD &&
-          liveNeighbours <= LIVE_OVERPOPULATION_THRESHOLD;
+    if (isAlive(col, row)) {
+      return liveNeighbours >= LIVE_UNDERPOPULATION_THRESHOLD
+          && liveNeighbours <= LIVE_OVERPOPULATION_THRESHOLD;
     } else {
       return liveNeighbours == DEAD_REPRODUCTION_MATCH;
     }
@@ -145,11 +148,11 @@ public class GameOfLife {
 
   void calculateIteration() {
 
-    boolean[][] nextIterField = new boolean[ySize][xSize];
+    boolean[][] nextIterField = new boolean[rowsNum][colsNum];
 
-    for (int yLoc = 0; yLoc <= ySize - 1; yLoc++) {
-      for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
-        nextIterField[yLoc][xLoc] = determineNextState(xLoc, yLoc);
+    for (int row = 0; row <= rowsNum - 1; row++) {
+      for (int col = 0; col <= colsNum - 1; col++) {
+        nextIterField[row][col] = determineNextState(col, row);
       }
     }
 
@@ -160,19 +163,19 @@ public class GameOfLife {
 
     StringBuilder output = new StringBuilder();
 
-    for (int yLoc = 0; yLoc <= ySize - 1; yLoc++) {
+    for (int row = 0; row <= rowsNum - 1; row++) {
 
-      if (yLoc > 0) {
+      if (row > 0) {
         output.append(System.lineSeparator());
       }
 
-      for (int xLoc = 0; xLoc <= xSize - 1; xLoc++) {
+      for (int col = 0; col <= colsNum - 1; col++) {
 
-        if (xLoc > 0) {
+        if (col > 0) {
           output.append(DELIMITER);
         }
 
-        char charAtField = field[yLoc][xLoc] ? ALIVE : DEAD;
+        char charAtField = field[row][col] ? ALIVE : DEAD;
         output.append(charAtField);
 
       }
@@ -195,12 +198,17 @@ public class GameOfLife {
     }
   }
 
-  public void game(String fileNameInput, String fileNameOutput){
+  /**
+   * Implementation of a GameOfLife calculation.
+   * @param fileNameInput - name of file with input configuration
+   * @param fileNameOutput - name of the output file
+   */
+  public void game(String fileNameInput, String fileNameOutput) {
 
     loadGame(fileNameInput);
 
     while (iterations-- > 0) {
-       calculateIteration();
+      calculateIteration();
     }
 
     saveGame(fileNameOutput);
