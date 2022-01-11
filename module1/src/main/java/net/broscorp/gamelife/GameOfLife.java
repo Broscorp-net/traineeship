@@ -178,7 +178,15 @@ public class GameOfLife {
       }
     }
 
-    File file = new File(GameOfLife.class.getClassLoader().getResource(".").getFile() + fileNameOutput);
+    String path = GameOfLife.class.getClassLoader().getResource(".").getFile() + fileNameOutput;
+
+    // This is a temporary fix for a backslash added incorrectly (issue occurs on local PC)
+    // Cause needs to be investigated to identify a robust solution
+    // This a temporary quick fix for submitting of a task purpose
+    // Thank you for your understanding!
+    path = path.replaceAll("%5C","/");
+
+    File file = new File(path);
 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
       writer.write(output.toString());
