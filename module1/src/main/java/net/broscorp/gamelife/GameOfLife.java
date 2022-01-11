@@ -183,7 +183,7 @@ public class GameOfLife {
 
     String path = GameOfLife.class.getClassLoader().getResource(".").getFile() + fileNameOutput;
 
-    // This is a temporary fix for a backslash added incorrectly (issue occurs on local PC)
+    // This is a temporary fix for a backslash encoded by "%5C" (issue occurs on local PC)
     // Cause needs to be investigated to identify a robust solution
     // This a temporary quick fix for submitting of a task purpose
     // Thank you for your understanding!
