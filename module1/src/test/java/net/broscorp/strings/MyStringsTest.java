@@ -9,6 +9,29 @@ public class MyStringsTest {
 
   public static final String HELLO_WORLD = "Hello World";
 
+  public static final String SONG_EXPECTED =
+      "34 little bugs in the code,\n"
+          + "34 little bugs in the code.\n"
+          + "Take one down, patch it around 24 little bugs in the code.\n"
+          + "\n"
+          + "24 little bugs in the code,\n"
+          + "24 little bugs in the code.\n"
+          + "Take one down, patch it around 16 little bugs in the code.\n"
+          + "\n"
+          + "16 little bugs in the code,\n"
+          + "16 little bugs in the code.\n"
+          + "Take one down, patch it around 7 little bugs in the code.\n"
+          + "\n"
+          + "7 little bugs in the code,\n"
+          + "7 little bugs in the code.\n"
+          + "Take one down, patch it around 16 little bugs in the code.\n"
+          + "\n"
+          + "16 little bugs in the code,\n"
+          + "16 little bugs in the code.\n"
+          + "Take one down, patch it around 8 little bugs in the code.";
+
+
+
   @Test
   void isPalindromeTrueTest() {
     Assertions.assertTrue(MyStrings.isPalindrome("redivider"));
@@ -36,14 +59,12 @@ public class MyStringsTest {
 
   @Test
   void helloWorld4Test() {
-    System.out.println(MyStrings.helloWorld4(HELLO_WORLD));
-    Assertions.assertTrue(true);
+    assertEquals("Hello 5\nWorld 5\n", MyStrings.helloWorld4(HELLO_WORLD));
   }
 
   @Test
   void songTextTest() {
     String song = MyStrings.songText(34,5);
-    System.out.println(song);
-    Assertions.assertTrue(true);
+    Assertions.assertEquals(SONG_EXPECTED, song);
   }
 }

@@ -23,7 +23,7 @@ public class MyStrings {
   }
 
   /**
-   * из словосочетания "Hello World": 1. Оставляет только слово Hello.
+   * From "Hello World": 1. Keeps only Hello.
    * @param str - input string
    * @return result string
    */
@@ -37,7 +37,7 @@ public class MyStrings {
   }
 
   /**
-   * из словосочетания "Hello World": 2. Удаляет все буквы "l" в строке.
+   * From "Hello World": 2. Removes all "l".
    * @param str - input string
    * @return result string
    */
@@ -51,7 +51,7 @@ public class MyStrings {
   }
 
   /**
-   * из словосочетания "Hello World": 3. Меняет все буквы "о" на букву "q".
+   * From "Hello World": 3. Replaces "о" with "q".
    * @param str - input string
    * @return result string
    */
@@ -65,8 +65,7 @@ public class MyStrings {
   }
 
   /**
-   * из словосочетания "Hello World": 4. Выводит список слов и количество
-   * букв в соответствующем слове.
+   * From "Hello World": 4. Returns list of words and each length.
    * @param str - input string
    * @return result string
    */
@@ -76,8 +75,7 @@ public class MyStrings {
       String[] arr = str.split(" ");
 
       for (String ss : arr) {
-        sb.append(ss + " " + ss.length());
-        sb.append(System.lineSeparator());
+        sb.append(ss + " " + ss.length() + "\n");
       }
       return sb.toString();
     } else {
@@ -104,8 +102,12 @@ public class MyStrings {
       sb.append(String.format("%d little bugs in the code.\n", bugsLeft));
       bugsLeft = bugsLeft - 10 + random.nextInt(20);
       sb.append(String.format(
-          "Take one down, patch it around %d little bugs in the code.\n\n",
+          "Take one down, patch it around %d little bugs in the code.",
           bugsLeft));
+
+      if (couplet <= coupletNum) {
+        sb.append("\n\n");
+      }
     }
 
     return sb.toString();
