@@ -1,0 +1,14 @@
+digraph G {
+jdk [label = "Java Development Kit (JDK)"]
+JavaCompiler [label = "JavaCompiler"]
+jvm [label = "Java Virtual Machine"]
+jit [label = "Just In Time (JIT)"]
+jre [label = "Java Runtime Environment(JRE)"]
+JavaClasses [label = "JavaClasses"]
+
+jdk->JavaCompiler [label ="Java Developer Kit(JDK) contains the tools needed to develop \n Java programs and the JRE to run programs.\n Tools include compiler (javac.exe), \n Java Application Launcher (java.exe),\n Appletviewer,\n etc."];
+JavaCompiler->jvm [label ="Compiler \n converts \n java code \n to byte code"]
+jit->jvm [label ="Java Virtual Machine contains Just In Time.(JIT)\n - is a component of the Java runtime environment \n that improves the performance \n of Java applications at runtime"];
+jvm->jre [label ="JRE is for \n executing Java \n files. i.e. \n JRE = JVM + Java Classes"];
+JavaClasses -> jre
+}
