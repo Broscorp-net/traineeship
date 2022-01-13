@@ -81,54 +81,21 @@ public class GameOfLife {
     return field[row][col];
   }
 
-  int getLeftColNum(int col) {
-    if (col >= 1) {
-      return col - 1;
-    } else {
-      return colsNum - 1;
-    }
-  }
-
-  int getRightColNum(int col) {
-    if (col <= colsNum - 2) {
-      return col + 1;
-    } else {
-      return 0;
-    }
-  }
-
-  int getUpperRowNum(int row) {
-    if (row >= 1) {
-      return row - 1;
-    } else {
-      return rowsNum - 1;
-    }
-  }
-
-  int getLowerRowNum(int row) {
-    if (row <= rowsNum - 2) {
-      return row + 1;
-    } else {
-      return 0;
-    }
-  }
-
   int calculateLiveNeighbours(int col, int row) {
     int liveNeighboursCount = 0;
 
-    final int leftColNum = getLeftColNum(col);
-    final int rightColNum = getRightColNum(col);
-    final int upperRowNum = getUpperRowNum(row);
-    final int lowerRowNum = getLowerRowNum(row);
+    for (int rowDelta = -1; rowDelta <= 1; rowDelta++) {
+      int checkedRow = (row + rowDelta + rowsNum) % rowsNum;
 
-    liveNeighboursCount += isAlive(leftColNum, upperRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(col, upperRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(rightColNum, upperRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(leftColNum, row) ? 1 : 0;
-    liveNeighboursCount += isAlive(rightColNum, row) ? 1 : 0;
-    liveNeighboursCount += isAlive(leftColNum, lowerRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(col, lowerRowNum) ? 1 : 0;
-    liveNeighboursCount += isAlive(rightColNum, lowerRowNum) ? 1 : 0;
+      for (int colDelta = -1; colDelta <= 1; colDelta++) {
+        int checkedCol = (col + colDelta + colsNum) % colsNum;
+
+        // check all entries in 3x3 array except for itself
+        if (!(rowDelta == 0 && colDelta == 0)) {
+          liveNeighboursCount += isAlive(checkedCol, checkedRow) ? 1 : 0;
+        }
+      }
+    }
 
     return liveNeighboursCount;
   }
@@ -194,7 +161,7 @@ public class GameOfLife {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
       writer.write(output.toString());
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new RuntimeException(e);
     }
   }
 
