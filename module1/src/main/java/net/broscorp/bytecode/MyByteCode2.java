@@ -1,4 +1,4 @@
-public class MyBytecode {
+public class MyByteCode2 {
 
   public static void foo() {}
 
@@ -9,6 +9,6 @@ public class MyBytecode {
   public static void main(String[] args) {
     for (int i = 0; i < 5; i++) {}
     foo();
-    System.out.println("Hello bytecode!");
+    System.out.println("Hello bytecode2!");
   }
 }
