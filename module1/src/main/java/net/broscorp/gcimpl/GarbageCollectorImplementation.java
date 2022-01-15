@@ -20,8 +20,8 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     for (ApplicationBean bean : beans) {
       boolean isReferenced = false;
       for (StackInfo.Frame frame : frames) {
-        List<ApplicationBean> frameParams = frame.getParameters();
-        if (checkReferenced(bean, frameParams)) {
+        List<ApplicationBean> roots = frame.getParameters();
+        if (checkReferenced(bean, roots)) {
           isReferenced = true;
           break;
         }
@@ -33,14 +33,14 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     return markedForDeletion;
   }
 
-  boolean checkReferenced(ApplicationBean checkedBean, Collection<ApplicationBean> frameParams) {
+  boolean checkReferenced(ApplicationBean checkedBean, Collection<ApplicationBean> roots) {
 
-    if (frameParams.contains(checkedBean)) {
+    if (roots.contains(checkedBean)) {
       return true;
     }
 
     // recursively check if checkedBean is present in the list or its children (fields)
-    for (ApplicationBean frameParamBean : frameParams) {
+    for (ApplicationBean frameParamBean : roots) {
 
       Collection<ApplicationBean> fieldsValues =
           (Collection<ApplicationBean>)frameParamBean.getFieldValues().values();
