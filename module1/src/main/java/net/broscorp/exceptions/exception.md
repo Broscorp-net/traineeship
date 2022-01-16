@@ -1,20 +1,26 @@
 digraph G {
-   Throw [label="Throwable"]
-   Exc [label="Exception"]
-   Error [label="Error"]
-   OMEx [label="OutOfMemoryError"]
-   SOEx [label="StackOverflowError"]
-   IAEx [label="IllegalArgumentException"]
-   NPEx [label="NullPointerException"]
-   IOE [label="IOException"]
-   CNF [label="ClassNotFoundException"]
+compound=true;
 
-   Throw -> Error;
-   Error -> OMEx;
-   Error -> SOEx;
-   Throw -> Exc;
-   Exc -> IOE;
-   Exc -> CNF;
-   Exc -> NPEx;
-   Exc -> IAEx;
-} 
+subgraph cluster_0 {
+label="Checked";
+"ClassNotFound";
+"IOException";
+}
+subgraph cluster_1 {
+label="Unchecked";
+"Runtime" -> "NPE";
+}
+
+THR [label="Throwable\n(checked)"];
+ERR [label="Error\n(unchecked)"];
+EXC [label="Exception\n(checked)"];
+OOM [label="OutOfMemoryError"];
+SOF [label="StackOverflow"];
+
+THR -> ERR;
+THR -> EXC;
+ERR -> OOM;
+ERR -> SOF;
+EXC -> Runtime[lhead=cluster_1];
+EXC -> IOException[lhead=cluster_0];
+}
