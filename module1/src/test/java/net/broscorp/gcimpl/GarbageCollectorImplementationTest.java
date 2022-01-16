@@ -132,7 +132,28 @@ class GarbageCollectorImplementationTest {
   }
 
   @Test
-  public void circularDependencyTest() {
+  public void circularDependencyTest1() {
+    // GIVEN
+    ApplicationBean service = new ApplicationBean();
+    service.addRelation("self", service);
+
+    Map<String, ApplicationBean> heap = new HashMap<>();
+    heap.put("service", service);
+
+    final HeapInfo heapInfo = new HeapInfo(heap);
+    StackInfo stack = new StackInfo();
+    stack.push("main");
+    stack.push("foo", service);
+
+    // WHEN
+    final List<ApplicationBean> actualGarbage = gc.collect(heapInfo, stack);
+
+    // THEN
+    assertTrue(actualGarbage.isEmpty());
+  }
+
+  @Test
+  public void circularDependencyTest2() {
     // GIVEN
     final ApplicationBean restControllerBean = initializeControllerBean();
     ApplicationBean serviceA = new ApplicationBean();
