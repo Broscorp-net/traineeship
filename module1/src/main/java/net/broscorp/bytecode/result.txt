@@ -1,0 +1,365 @@
+E:\01_new_projects\module_1\module1\src\main\java\net\broscorp\bytecode>javap -c -v -classpath ./compiler net/broscorp/bytecode/Hello
+Classfile /E:/01_new_projects/module_1/module1/src/main/java/net/broscorp/bytecode/compiler/net/broscorp/bytecode/Hello.class
+  Last modified Feb 4, 2022; size 1118 bytes
+  SHA-256 checksum 93dc79c83bb4c3ca52f6662c364973fe23fa10119851749ac38ce468356e8db7
+  Compiled from "Hello.java"
+public class net.broscorp.bytecode.Hello
+  minor version: 0
+  major version: 59
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // net/broscorp/bytecode/Hello
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 4, attributes: 3
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Methodref          #8.#9          // net/broscorp/bytecode/Hello.incr:(II)V
+   #8 = Class              #10            // net/broscorp/bytecode/Hello
+   #9 = NameAndType        #11:#12        // incr:(II)V
+  #10 = Utf8               net/broscorp/bytecode/Hello
+  #11 = Utf8               incr
+  #12 = Utf8               (II)V
+  #13 = Methodref          #8.#14         // net/broscorp/bytecode/Hello.hello:()V
+  #14 = NameAndType        #15:#6         // hello:()V
+  #15 = Utf8               hello
+  #16 = Fieldref           #17.#18        // java/lang/System.out:Ljava/io/PrintStream;
+  #17 = Class              #19            // java/lang/System
+  #18 = NameAndType        #20:#21        // out:Ljava/io/PrintStream;
+  #19 = Utf8               java/lang/System
+  #20 = Utf8               out
+  #21 = Utf8               Ljava/io/PrintStream;
+  #22 = InvokeDynamic      #0:#23         // #0:makeConcatWithConstants:(I)Ljava/lang/String;
+  #23 = NameAndType        #24:#25        // makeConcatWithConstants:(I)Ljava/lang/String;
+  #24 = Utf8               makeConcatWithConstants
+  #25 = Utf8               (I)Ljava/lang/String;
+  #26 = Methodref          #27.#28        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #27 = Class              #29            // java/io/PrintStream
+  #28 = NameAndType        #30:#31        // println:(Ljava/lang/String;)V
+  #29 = Utf8               java/io/PrintStream
+  #30 = Utf8               println
+  #31 = Utf8               (Ljava/lang/String;)V
+  #32 = String             #33            // Hello World !!!!!!!!!!!!!!
+  #33 = Utf8               Hello World !!!!!!!!!!!!!!
+  #34 = Utf8               Code
+  #35 = Utf8               LineNumberTable
+  #36 = Utf8               main
+  #37 = Utf8               ([Ljava/lang/String;)V
+  #38 = Utf8               StackMapTable
+  #39 = Utf8               SourceFile
+  #40 = Utf8               Hello.java
+  #41 = Utf8               BootstrapMethods
+  #42 = MethodHandle       6:#43          // REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;L
+java/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #43 = Methodref          #44.#45        // java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;
+Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #44 = Class              #46            // java/lang/invoke/StringConcatFactory
+  #45 = NameAndType        #24:#47        // makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/la
+ng/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #46 = Utf8               java/lang/invoke/StringConcatFactory
+  #47 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/i
+nvoke/CallSite;
+  #48 = String             #49            // Variable increased to \u0001
+  #49 = Utf8               Variable increased to \u0001
+  #50 = Utf8               InnerClasses
+  #51 = Class              #52            // java/lang/invoke/MethodHandles$Lookup
+  #52 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #53 = Class              #54            // java/lang/invoke/MethodHandles
+  #54 = Utf8               java/lang/invoke/MethodHandles
+  #55 = Utf8               Lookup
+{
+  public net.broscorp.bytecode.Hello();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 9: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: bipush        10
+         2: bipush        20
+         4: invokestatic  #7                  // Method incr:(II)V
+         7: invokestatic  #13                 // Method hello:()V
+        10: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 7
+        line 20: 10
+
+  public static void incr(int, int);
+    descriptor: (II)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=2
+         0: iconst_0
+         1: istore_2
+         2: iload_2
+         3: iload_1
+         4: if_icmpge     16
+         7: iinc          0, 1
+        10: iinc          2, 1
+        13: goto          2
+        16: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        19: iload_0
+        20: invokedynamic #22,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+        25: invokevirtual #26                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        28: return
+      LineNumberTable:
+        line 29: 0
+        line 30: 7
+        line 29: 10
+        line 32: 16
+        line 33: 28
+      StackMapTable: number_of_entries = 2
+        frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+        frame_type = 250 /* chop */
+          offset_delta = 13
+
+  public static void hello();
+    descriptor: ()V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #32                 // String Hello World !!!!!!!!!!!!!!
+         5: invokevirtual #26                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 39: 0
+        line 40: 8
+}
+SourceFile: "Hello.java"
+BootstrapMethods:
+  0: #42 REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/M
+ethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #48 Variable increased to \u0001
+InnerClasses:
+  public static final #55= #51 of #53;    // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+
+
+// ============================================ изменение кода
+
+E:\01_new_projects\module_1\module1\src\main\java\net\broscorp\bytecode>javap -c -v -classpath ./compiler net/broscorp/bytecode/Hello
+Classfile /E:/01_new_projects/module_1/module1/src/main/java/net/broscorp/bytecode/compiler/net/broscorp/bytecode/Hello.class
+  Last modified Feb 4, 2022; size 1216 bytes
+  SHA-256 checksum 7aad160fd808957aee8e1d2732b8069ca3a7a4106da507968b6a2362441686b6
+  Compiled from "Hello.java"
+public class net.broscorp.bytecode.Hello
+  minor version: 0
+  major version: 59
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // net/broscorp/bytecode/Hello
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 5, attributes: 3
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Methodref          #8.#9          // net/broscorp/bytecode/Hello.incr:(II)V
+   #8 = Class              #10            // net/broscorp/bytecode/Hello
+   #9 = NameAndType        #11:#12        // incr:(II)V
+  #10 = Utf8               net/broscorp/bytecode/Hello
+  #11 = Utf8               incr
+  #12 = Utf8               (II)V
+  #13 = Methodref          #8.#14         // net/broscorp/bytecode/Hello.hello:()V
+  #14 = NameAndType        #15:#6         // hello:()V
+  #15 = Utf8               hello
+  #16 = Methodref          #8.#17         // net/broscorp/bytecode/Hello.change:()V
+  #17 = NameAndType        #18:#6         // change:()V
+  #18 = Utf8               change
+  #19 = Fieldref           #20.#21        // java/lang/System.out:Ljava/io/PrintStream;
+  #20 = Class              #22            // java/lang/System
+  #21 = NameAndType        #23:#24        // out:Ljava/io/PrintStream;
+  #22 = Utf8               java/lang/System
+  #23 = Utf8               out
+  #24 = Utf8               Ljava/io/PrintStream;
+  #25 = InvokeDynamic      #0:#26         // #0:makeConcatWithConstants:(I)Ljava/lang/String;
+  #26 = NameAndType        #27:#28        // makeConcatWithConstants:(I)Ljava/lang/String;
+  #27 = Utf8               makeConcatWithConstants
+  #28 = Utf8               (I)Ljava/lang/String;
+  #29 = Methodref          #30.#31        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #30 = Class              #32            // java/io/PrintStream
+  #31 = NameAndType        #33:#34        // println:(Ljava/lang/String;)V
+  #32 = Utf8               java/io/PrintStream
+  #33 = Utf8               println
+  #34 = Utf8               (Ljava/lang/String;)V
+  #35 = String             #36            // Hello World !!!!!!!!!!!!!!
+  #36 = Utf8               Hello World !!!!!!!!!!!!!!
+  #37 = String             #38            // Change code !!!
+  #38 = Utf8               Change code !!!
+  #39 = Utf8               Code
+  #40 = Utf8               LineNumberTable
+  #41 = Utf8               main
+  #42 = Utf8               ([Ljava/lang/String;)V
+  #43 = Utf8               StackMapTable
+  #44 = Utf8               SourceFile
+  #45 = Utf8               Hello.java
+  #46 = Utf8               BootstrapMethods
+  #47 = MethodHandle       6:#48          // REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;L
+java/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #48 = Methodref          #49.#50        // java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;
+Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #49 = Class              #51            // java/lang/invoke/StringConcatFactory
+  #50 = NameAndType        #27:#52        // makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/la
+ng/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #51 = Utf8               java/lang/invoke/StringConcatFactory
+  #52 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/i
+nvoke/CallSite;
+  #53 = String             #54            // Variable increased to \u0001
+  #54 = Utf8               Variable increased to \u0001
+  #55 = Utf8               InnerClasses
+  #56 = Class              #57            // java/lang/invoke/MethodHandles$Lookup
+  #57 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #58 = Class              #59            // java/lang/invoke/MethodHandles
+  #59 = Utf8               java/lang/invoke/MethodHandles
+  #60 = Utf8               Lookup
+{
+  public net.broscorp.bytecode.Hello();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 9: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: bipush        10
+         2: bipush        20
+         4: invokestatic  #7                  // Method incr:(II)V
+         7: invokestatic  #13                 // Method hello:()V
+        10: invokestatic  #16                 // Method change:()V
+        13: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 7
+        line 19: 10
+        line 20: 13
+
+  public static void incr(int, int);
+    descriptor: (II)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=2
+         0: iconst_0
+         1: istore_2
+         2: iload_2
+         3: iload_1
+         4: if_icmpge     16
+         7: iinc          0, 1
+        10: iinc          2, 1
+        13: goto          2
+        16: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        19: iload_0
+        20: invokedynamic #25,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+        25: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        28: return
+      LineNumberTable:
+        line 29: 0
+        line 30: 7
+        line 29: 10
+        line 32: 16
+        line 33: 28
+      StackMapTable: number_of_entries = 2
+        frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+        frame_type = 250 /* chop */
+          offset_delta = 13
+
+  public static void hello();
+    descriptor: ()V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #35                 // String Hello World !!!!!!!!!!!!!!
+         5: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 39: 0
+        line 40: 8
+
+  public static void change();
+    descriptor: ()V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #37                 // String Change code !!!
+         5: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 43: 0
+        line 44: 8
+}
+SourceFile: "Hello.java"
+BootstrapMethods:
+  0: #47 REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/M
+ethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #53 Variable increased to \u0001
+InnerClasses:
+  public static final #60= #56 of #58;    // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+
+// ============================================ изменение кода
+
+E:\01_new_projects\module_1\module1\src\main\java\net\broscorp\bytecode>javap -s -classpath ./compiler net/broscorp/bytecode/Hello
+Compiled from "Hello.java"
+public class net.broscorp.bytecode.Hello {
+  public net.broscorp.bytecode.Hello();
+    descriptor: ()V
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+
+  public static void incr(int, int);
+    descriptor: (II)V
+
+  public static void hello();
+    descriptor: ()V
+}
+
+// ============================================ изменение кода
+
+E:\01_new_projects\module_1\module1\src\main\java\net\broscorp\bytecode>javap -s -classpath ./compiler net/broscorp/bytecode/Hello
+Compiled from "Hello.java"
+public class net.broscorp.bytecode.Hello {
+  public net.broscorp.bytecode.Hello();
+    descriptor: ()V
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+
+  public static void incr(int, int);
+    descriptor: (II)V
+
+  public static void hello();
+    descriptor: ()V
+
+  public static void change();
+    descriptor: ()V
+}
