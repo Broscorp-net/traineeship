@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 @Disabled //Remove that to run the tests
 class GameOfLifeTest {
-  GameOfLife game = new GameOfLife();
+  GameOfLife game=new GameOfLife();
 
   public boolean equalsFile(String expected, String result) {
     Stream<String> gameStreamInput = new BufferedReader(
