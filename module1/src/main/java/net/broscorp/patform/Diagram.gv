@@ -1,0 +1,32 @@
+digraph G {
+
+	subgraph classloaders {
+		style=filled;
+		color=lightgrey;
+		node [style=filled, color=white];
+		SystemClassLoader--ExtensionClassLoader--Bootstrap;
+		label = "classloaders";
+	}->ClassLoader;
+
+         Interpeter->ExecutionEngine;
+         JITCompiler->ExecutionEngine->BiteCode->
+
+	subgraph cluster_0 {
+		style=filled;
+                shape=Msquare;
+		color=lightgrey;
+		node [style=filled,color=white];
+		methodArea -- Heap -- JVMLeanguageStack -- pcRegister--NathiveMEthodStack;
+		label = "JvmMemory";
+	}->JvmMemory;
+	JRE -> JDK;
+	DeveloperTools -> JDK;
+	JVM -> JRE;
+	JavaClassLibrary -> JRE;
+        ClassLoader -> JVM;
+        JvmMemory->ClassLoader;
+
+
+	start [shape=Mdiamond];
+	end [shape=Msquare];
+}
