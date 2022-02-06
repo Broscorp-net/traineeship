@@ -18,8 +18,8 @@ public class BoxingTest {
 
   @Test
     public void notEquals() {
-    Integer first = 1;
-    Integer second = new Integer(1);
+    Integer first = 129L;
+    Integer second = 129L;
     assertNotSame(first, second);
   }
 
