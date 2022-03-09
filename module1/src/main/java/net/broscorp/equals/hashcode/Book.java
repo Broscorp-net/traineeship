@@ -6,6 +6,9 @@ public class Book {
   private final String name;
   private final int amount;
 
+  /**.
+   * Class book.
+   */
   public Book(int id, String name, int amount) {
     this.id = id;
     this.name = name;
