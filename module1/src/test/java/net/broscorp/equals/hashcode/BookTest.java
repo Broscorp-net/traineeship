@@ -43,8 +43,8 @@ class BookTest {
         boolean checkHashCode = book.hashCode() == nextBook.hashCode();
         boolean checkEquals = book.equals(nextBook);
         if (checkHashCode && !checkEquals) {
-          System.out.println("Object " + book + " and Object " + book +
-              " not equals, but same hashCode");
+          System.out.println("Object " + book + " and Object " + book
+              + " not equals, but same hashCode");
           assertTrue(checkHashCode);
           assertFalse(checkEquals);
         }
