@@ -19,7 +19,8 @@ class FooTest {
     assertEquals(1, array.size());
     assertEquals(array.get(0), "d");
     /* In java all is passed by value. When we pass primitive type, we pass only copy INT I;
-    ArrayList it's class. In the variable - array we store a reference(link) to an object of this class;
+    ArrayList it's class.
+    In the variable - array we store a reference(link) to an object of this class;
     Because we can change object; */
   }
 
