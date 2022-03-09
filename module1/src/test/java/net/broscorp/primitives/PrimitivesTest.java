@@ -30,4 +30,5 @@ class PrimitivesTest {
     System.out.println("float of 2.121313241412441124: " + 2.121313241412441124f);
     System.out.println("double of 2.121313241412441124: " + 2.121313241412441124d);
   }
+
 }
