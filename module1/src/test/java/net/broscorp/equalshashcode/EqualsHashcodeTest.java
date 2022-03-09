@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 import net.broscorp.equals.hashcode.Creature;
 import org.junit.jupiter.api.Test;
@@ -36,13 +37,14 @@ public class EqualsHashcodeTest {
 
   @Test
   public void equalsConsistentTest() {
-    assertEquals(testCreature1, testCreature5);
-    assertEquals(testCreature1, testCreature5);
+    Creature testCreature = new Creature("Dog", "red", 6, "GAV", true);
+    assertEquals(testCreature1, testCreature);
+    assertEquals(testCreature1, testCreature);
 
-    testCreature5.setLegsCount(4);
-    testCreature5.setColor("Black");
+    testCreature.setLegsCount(4);
+    testCreature.setColor("Black");
 
-    assertNotEquals(testCreature1, testCreature5);
+    assertNotEquals(testCreature1, testCreature);
   }
 
   @Test
@@ -74,8 +76,7 @@ public class EqualsHashcodeTest {
 
   @Test
   public void checkEqualsHashCodesTest() {
-    List<Creature> creaturesList = List.of(testCreature1, testCreature2, testCreature3,
-        testCreature4, testCreature5);
+    List<Creature> creaturesList = new ArrayList<>();
 
     for (int i = 0; i < creaturesList.size(); i++) {
       for (int j = i + 1; j < creaturesList.size(); j++) {
