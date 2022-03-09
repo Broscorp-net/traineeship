@@ -18,10 +18,9 @@ class FooTest {
     assertEquals(10, i);
     assertEquals(1, array.size());
     assertEquals(array.get(0), "d");
-    /* В java все передается по значению. Когда мы передаем примитивный тип мы передаем копию int i,
-    который хранится в памяти как значение;
-     ArrayList это класс, и в переменной array мы храним ссылку на объект этого класса,
-      по этому по этой ссылке мы можем изменять объект */
+    /* In java all is passed by value. When we pass primitive type, we pass only copy INT I;
+    ArrayList it's class. In the variable - array we store a reference(link) to an object of this class;
+    Because we can change object; */
   }
 
 }
