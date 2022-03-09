@@ -1,0 +1,95 @@
+  MD5 checksum af8bd81901d7c308e20d163580e58002
+  Compiled from "Bytecode.java"
+public class Bytecode
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #7.#17         // java/lang/Object."<init>":()V
+   #2 = String             #18            // Hello world!
+   #3 = Methodref          #19.#20        // java/lang/String.length:()I
+   #4 = Fieldref           #21.#22        // java/lang/System.out:Ljava/io/PrintStream;
+   #5 = Methodref          #23.#24        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #6 = Class              #25            // Bytecode
+   #7 = Class              #26            // java/lang/Object
+   #8 = Utf8               <init>
+   #9 = Utf8               ()V
+  #10 = Utf8               Code
+  #11 = Utf8               LineNumberTable
+  #12 = Utf8               main
+  #13 = Utf8               ([Ljava/lang/String;)V
+  #14 = Utf8               StackMapTable
+  #15 = Utf8               SourceFile
+  #16 = Utf8               Bytecode.java
+  #17 = NameAndType        #8:#9          // "<init>":()V
+  #18 = Utf8               Hello world!
+  #19 = Class              #27            // java/lang/String
+  #20 = NameAndType        #28:#29        // length:()I
+  #21 = Class              #30            // java/lang/System
+  #22 = NameAndType        #31:#32        // out:Ljava/io/PrintStream;
+  #23 = Class              #33            // java/io/PrintStream
+  #24 = NameAndType        #34:#35        // println:(Ljava/lang/String;)V
+  #25 = Utf8               Bytecode
+  #26 = Utf8               java/lang/Object
+  #27 = Utf8               java/lang/String
+  #28 = Utf8               length
+  #29 = Utf8               ()I
+  #30 = Utf8               java/lang/System
+  #31 = Utf8               out
+  #32 = Utf8               Ljava/io/PrintStream;
+  #33 = Utf8               java/io/PrintStream
+  #34 = Utf8               println
+  #35 = Utf8               (Ljava/lang/String;)V
+{
+  public Bytecode();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: iconst_0
+         1: istore_1
+         2: iconst_0
+         3: istore_2
+         4: iload_2
+         5: iconst_5
+         6: if_icmpge     18
+         9: iinc          1, 1
+        12: iinc          2, 1
+        15: goto          4
+        18: ldc           #2                  // String Hello world!
+        20: astore_2
+        21: aload_2
+        22: invokevirtual #3                  // Method java/lang/String.length:()I
+        25: pop
+        26: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        29: aload_2
+        30: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        33: return
+      LineNumberTable:
+        line 7: 0
+        line 8: 2
+        line 9: 9
+        line 8: 12
+        line 11: 18
+        line 12: 21
+        line 13: 26
+        line 14: 33
+      StackMapTable: number_of_entries = 2
+        frame_type = 253 /* append */
+          offset_delta = 4
+          locals = [ int, int ]
+        frame_type = 250 /* chop */
+          offset_delta = 13
+}
+SourceFile: "Bytecode.java"
