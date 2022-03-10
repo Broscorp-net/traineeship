@@ -1,0 +1,7 @@
+digraph Exception {
+    Throwable -> Error;
+    Throwable -> Exception;
+    Exception -> Runtime Exception;
+# Checked Exception: Exception and all subclasses;
+# Unchecked Exception : Error
+}
