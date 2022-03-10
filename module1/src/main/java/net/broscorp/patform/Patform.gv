@@ -1,7 +1,9 @@
 graph Java {
 JDK -> JRE -> JVM -> JIT
 # JDK - Java Development Kit нужен для разработки. Для каждой системы свой набор китов.
+# содержит в себе JRE с компилятором, отладчиком и базовыми классами;
 # JRE - Java Runtime Environment так скажем реализация JVM.
+# содержит в себе виртуальную машину, бинарные файлы;
 # JVM - Java Virtual Machine compile byte-code and convert in machine-code.
 # JIT - Just-in-time Compiler optimization byte-code.
 }
