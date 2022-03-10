@@ -1,5 +1,5 @@
 package net.broscorp.primitives;
 
-public class primitives {
+public class Primitives {
 
 }
