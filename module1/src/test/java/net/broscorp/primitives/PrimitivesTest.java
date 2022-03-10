@@ -43,4 +43,18 @@ class PrimitivesTest {
 
     assertNotEquals(f, 345.90d);
   }
+
+  @Test
+  void wrongFloatingPointFirstTest() {
+    float f = 1.333f;
+
+    assertNotEquals(3.999, f * 3);
+  }
+
+  @Test
+  void wrongFloatingPointSecondTest() {
+    double d = 1.333d;
+
+    assertEquals(3.9989999999999997, d * 3);
+  }
 }
