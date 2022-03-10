@@ -20,7 +20,7 @@ public class MathTest {
   }
 
   @Test
-  public void conversionDoubleToFloat(){
+  public void conversionDoubleToFloat() {
     double actual = Double.MAX_VALUE;
     float expected = (float) actual;
     Assertions.assertNotEquals(expected, actual);
