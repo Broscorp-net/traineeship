@@ -16,12 +16,11 @@ public class Bytecode {
 package net.broscorp.bytecode;
 
 public class Bytecode {
-/**
- * This is my Bytecode test solution.
- * Commented section in the top is the First usecase
- * Uncommented section is the second usecase
- * Analytics at the bottom comment
- * */
+
+  /**
+   * This is my Bytecode test solution. Commented section in the top is the First usecase
+   * Uncommented section is the second usecase Analytics at the bottom comment
+   */
   public static void main(String[] args) {
     int a = 5;
     while (a > 1) {
