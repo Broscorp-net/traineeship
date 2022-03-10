@@ -17,18 +17,20 @@ class PrimitivesTest {
   @Test
   public void convertTest() {
     long someLongNumber = 1000000000000000L;
-    System.out.println("long value :" + someLongNumber);
-    System.out.println("long value after casting to int: " + (int) someLongNumber);
+    Assertions.assertNotEquals(someLongNumber, (int) someLongNumber);
+
+    Assertions.assertTrue((int) someLongNumber < 0);
 
     double someDoubleNumber = 100000000000000000000000.1234567891011;
-    System.out.println("double value :" + someDoubleNumber);
-    System.out.println("double value after casting to float: " + (float) someDoubleNumber);
+    Assertions.assertNotEquals(someDoubleNumber, (float) someDoubleNumber);
   }
 
   @Test
   public void accuracyTest() {
     System.out.println("float of 2.121313241412441124: " + 2.121313241412441124f);
     System.out.println("double of 2.121313241412441124: " + 2.121313241412441124d);
+
+    Assertions.assertNotEquals(2.121313241412441124f, 2.121313241412441124d);
   }
 
 }
