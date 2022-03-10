@@ -12,7 +12,7 @@ digraph graphName {
     /*минимальная (без компилятора и других средств разработки) реализация
     виртуальной машины, необходимая для исполнения Java-приложений.
     Другими словами, простая реализация JVM.*/
-    "Java Virtual Machine" -> "Java Development Kit"
+    "Java Runtime Environment" -> "Java Development Kit"
     /*бесплатно распространяемый компанией Oracle Corporation
     (ранее Sun Microsystems) комплект разработчика приложений на
     языке Java, включающий в себя компилятор Java (javac), стандартные
