@@ -1,0 +1,21 @@
+digraph A {
+  subgraph cluster_B{
+    JDK -> JRE
+    subgraph cluster_C{
+      node [shape=square];
+      JRE->JVM
+      subgraph cluster_D{
+        JVM  JIT
+      }
+    }
+  }
+}
+
+
+/* JDK is composed of JRE + everything required for Java development, for example compilers, debugger
+JRE is composed of JVM, class libraries
+JVM is a component of JRE, it contains interpreter and JIT,  this is the platform-independent part of Java
+
+JIT is a different beast and to explain it I'll have to talk about the way Java handles compilation process
+In short, JDK is used to generate java byte-code. This code is native only for JVM and there's no OS that could understand it. To interpret this byte-code we install JRE, which includes JVM. JVM is responsible for interpreting java byte-code to native machine code. This process is exatly what makes Java platform-independent.
+But interpreting java byte-code isn't exactly the fastest way to communicate with a machine. Machine code is. JIT converts parts of application into machine-code, optimizing the runtime process. */
