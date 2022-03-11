@@ -9,8 +9,10 @@ public class ExceptionsTest {
 
   @Test
   public void tryWithResource() {
-    try(BufferedReader reader = new BufferedReader(new FileReader("brokePath"))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader("brokePath"))) {
+      reader.readLine();
     } catch (IOException e) {
+      e.printStackTrace();
     } finally {
       System.out.println("Hello bro!");
     }
@@ -20,9 +22,11 @@ public class ExceptionsTest {
   public void catchAncestorException() {
     try {
       int number = 10;
-      for (int i = 5; i >= 0 ; i--) {
+      for (int i = 5; i >= 0; i--) {
         number /= i;
       }
-    } catch (Exception e) { }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
