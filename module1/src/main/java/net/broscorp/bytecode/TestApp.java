@@ -2,6 +2,11 @@ package net.broscorp.bytecode;
 
 public class TestApp {
 
+  /**
+   * Main method
+   * @param args
+   * increment param i and use method
+   */
   public static void main(String[] args) {
     //1
     int i = 0;
