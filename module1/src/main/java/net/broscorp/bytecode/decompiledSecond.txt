@@ -1,0 +1,30 @@
+Compiled from "Solution.java"
+public class net.broscorp.bytecode.Solution {
+  public net.broscorp.bytecode.Solution();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        10
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: ldc           #7                  // String 100
+      21: invokestatic  #9                  // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+      24: istore_1
+      25: getstatic     #15                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      28: ldc           #21                 // String Hello World!
+      30: invokevirtual #23                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      33: return
+}
