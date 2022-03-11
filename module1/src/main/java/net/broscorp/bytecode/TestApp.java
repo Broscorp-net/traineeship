@@ -3,7 +3,7 @@ package net.broscorp.bytecode;
 public class TestApp {
 
   /**
-   * Main method
+   * Main method.
    * @param args
    * increment param i and use method
    */
