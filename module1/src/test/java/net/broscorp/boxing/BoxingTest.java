@@ -31,9 +31,7 @@ public class BoxingTest {
     Integer a = null;
     try {
       a++;
-    }
-    catch (NullPointerException e)
-    {
+    } catch (NullPointerException e) {
       Assertions.assertNull(a);
     }
   }
