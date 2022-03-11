@@ -1,0 +1,17 @@
+digraph G {
+  Throwable[label = "Throwable\n (checked)",color=green,shape=box];
+  Exception[label = "Exception\n (checked)",color=green,shape=box];
+  Error[label = "Error\n (unchecked)",color=red,shape=box];
+  RuntimeException[label = "Runtime Exception\n (unchecked)",color=red,shape=box];
+  Throwable -> Exception;
+  Throwable -> Error;
+  Exception -> RuntimeException;
+
+  RuntimeException -> NullPointerException;
+  RuntimeException -> ArithmeticException;
+   subgraph cluster0{
+     RuntimeException
+     ArithmeticException;
+     NullPointerException
+  }
+}
