@@ -1,0 +1,40 @@
+user@users-MacBook-Pro-3 bytecode % /bin/zsh /Users/user/Desktop/University/traineeship/module1/src/main/java/net/broscorp/bytecode/scr.sh
+Hello #1
+Hello #2
+Hello #3
+Hello #4
+Hello #5
+Hello #6
+Hello #7
+Hello #8
+Hello #9
+Hello #10
+Hello #11
+Hello #12
+Hello #13
+Hello #14
+Hello #15
+Warning: File ./BytecodeTask.class does not contain class BytecodeTask
+Compiled from "BytecodeTask.java"
+public class net.broscorp.bytecode.BytecodeTask {
+  public net.broscorp.bytecode.BytecodeTask();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: bipush        15
+       2: istore_1
+       3: iconst_0
+       4: istore_2
+       5: iload_2
+       6: iload_1
+       7: if_icmpge     18
+      10: iload_2
+      11: invokestatic  #7                  // Method incrementIntValue:(I)I
+      14: istore_2
+      15: goto          5
+      18: return
+}
