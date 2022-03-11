@@ -1,0 +1,19 @@
+digraph G {
+	subgraph cluster_0 {
+	style=filled;
+	color=lightgrey;
+	node [style=filled,color=white];
+  rankdir=LR;
+  "Java source code" -> "Java compiler"-> Bytecode ;
+	label = "JDK";
+    subgraph cluster_1 {
+    "Bytecode" -> "JIT"->"woking project"
+    color=silver;
+		label = "Java Runtime Environment";
+       subgraph cluster_3 {
+       "JIT"
+       color=brown;
+		   label = "Java Virtual Mahine";
+       }
+    }
+	}
