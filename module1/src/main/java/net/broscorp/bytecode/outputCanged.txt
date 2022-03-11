@@ -1,0 +1,26 @@
+Compiled from "BytecodeTaskChanged.java"
+public class net.broscorp.bytecode.BytecodeTaskChanged {
+  public net.broscorp.bytecode.BytecodeTaskChanged();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: bipush        15
+       2: istore_1
+       3: iconst_0
+       4: istore_2
+       5: iload_2
+       6: iload_1
+       7: if_icmpge     18
+      10: iload_2
+      11: invokestatic  #7                  // Method incrementIntValue:(I)I
+      14: istore_2
+      15: goto          5
+      18: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      21: ldc           #19                 // String Hello
+      23: invokevirtual #21                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      26: return
+}
