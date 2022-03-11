@@ -1,0 +1,15 @@
+graph D {
+  /*Green border - checked
+  Red border - unchecked*/
+
+  node [shape=record];
+
+  nd_1 [label="Throwable" color="green"];
+  nd_2 [label="Error" color="red"];
+  nd_3 [label="Exception" color="green"];
+  nd_4 [label="Runtime exception" color="red"];
+
+  nd_1 -- nd_2;
+  nd_1 -- nd_3;
+  nd_3 -- nd_4;
+}
