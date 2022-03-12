@@ -9,23 +9,21 @@ import org.junit.jupiter.api.Test;
 
 class MyTest {
 
-  Foo foo = new Foo();
-
   @Test
-  public void testNull_null_NPE() {
-    Assertions.assertThrows(NullPointerException.class, () -> foo.foo(0, null));
+  public void testNull() {
+    Assertions.assertThrows(NullPointerException.class, () -> new Foo().foo(0, null));
   }
 
   @Test
-  public void testIntegerNull_null_NPE() {
+  public void testIntegerNull() {
     Assertions.assertThrows(NumberFormatException.class,
-        () -> foo.foo(Integer.parseInt(null), new ArrayList<>()));
+        () -> new Foo().foo(Integer.parseInt(null), new ArrayList<>()));
   }
 
   @Test
   public void testFixedSizeList() {
     List<String> list = Arrays.asList("a", "b", "c");
 
-    Assertions.assertThrows(UnsupportedOperationException.class, () -> foo.foo(0, list));
+    Assertions.assertThrows(UnsupportedOperationException.class, () -> new Foo().foo(0, list));
   }
 }
