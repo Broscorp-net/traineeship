@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Iterator;
 import net.broscorp.generics.MyCoolList;
 import org.junit.jupiter.api.Test;
 
@@ -102,5 +103,24 @@ public class MyCoolListTest {
       name.add(i);
     }
     assertEquals(10, name.size());
+  }
+
+  @Test
+  public void iteratorTest() {
+    MyCoolList<Integer> name = new MyCoolList();
+    for (int i = 0; i < 10; i++) {
+      name.add(i);
+    }
+
+    Iterator<Integer> iterator = name.iterator();
+    //Would be infinite loop is hasNext() doesn't work
+    while (iterator.hasNext()) {
+      System.out.println("LIST ELEMENT FOUND");
+      //Traverses the list X times, where X is the amount of elements in the list
+      iterator.next();
+    }
+    //Removes the selected element from the list
+    iterator.remove();
+    assertEquals(null, name.get(9));
   }
 }

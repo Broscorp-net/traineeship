@@ -1,12 +1,16 @@
 package net.broscorp.generics;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.function.Function;
 
-public class MyCoolList<T extends Number> {
+public class MyCoolList<T extends Number> implements Iterable<T> {
 
   private int size;
+
   private static final int DEFAULT_CAPACITY = 10;
   private T[] array;
+
 
   public MyCoolList() {
     array = (T[]) new Number[DEFAULT_CAPACITY];
@@ -96,6 +100,44 @@ public class MyCoolList<T extends Number> {
 
   public int size() {
     return size;
+  }
+
+  public ListIterator iterator() {
+    return new ListIterator();
+  }
+
+  /**
+   * Inner classes exist only inside an object of class. Therefore they are unavailable outside of
+   * this instance. Another important detail is that inner classes cannot have static declarations.
+   * Static nested classes on the other hand are unable to access non-static fields and methods
+   * without a reference of outer class.
+   * Static nested classes are more efficient memory-wise and they are also useful for the purposes
+   * of encapsulation.
+   */
+  protected class ListIterator implements Iterator<T> {
+
+    private int current = 0;
+
+    public boolean hasNext() {
+      return (array[current + 1] != null);
+    }
+
+    /**
+     * Returns next list element if it exists.
+     */
+    public T next() {
+      if (!hasNext()) {
+        throw new NoSuchElementException();
+      } else {
+        current++;
+        return array[current];
+      }
+    }
+
+    public void remove() {
+      MyCoolList.this.remove(current);
+      current--;
+    }
   }
 
 }
