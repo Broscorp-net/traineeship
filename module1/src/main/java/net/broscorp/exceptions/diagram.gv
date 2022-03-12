@@ -1,0 +1,25 @@
+digraph G {
+ label = "Error and RuntimeException(and their heirs) are unchecked exceptions.
+ All other exceptions must be checked with try-catch block or method
+ that can throw these types of exceptions must be indicated with throws key word 'throws'";
+
+   subgraph cluster_0 {
+	  	style=filled;
+	   	color=lightgrey;
+	   	node [style=filled,color=white];
+	  	label = "Hierarchy of exceptions";
+
+      "Throwable" -> "Error"
+      "Throwable" -> "Exception"
+
+      "Exception" -> "RuntimeException"
+      "Exception" -> "SQLException"
+      "Exception" -> "IOException"
+      "Exception" -> "ReflectiveOperationException"
+
+       "Error" -> "VirtualMachineError"
+       "Error" -> "TreadDeath"
+
+     }
+
+}
