@@ -1,0 +1,16 @@
+digraph G {
+  "Object" -> "Throwable"
+  "Throwable" -> "Error (Unchecked)"
+  "Throwable" -> "Exception"
+  "Error (Unchecked)" -> "Thread Death"
+  "Error (Unchecked)" -> "VirtualMachineError"
+  "Error (Unchecked)" -> ".and more"
+  "Exception" -> "RuntimeException (Unchecked)"
+  "RuntimeException (Unchecked)" -> "ArithmeticException"
+  "RuntimeException (Unchecked)" -> "ClassCastException"
+  "RuntimeException (Unchecked)" -> "..and more"
+  "Exception" -> "Checked Exception"
+  "Checked Exception" -> "IOException"
+  "Checked Exception" -> "SQLException"
+  "Checked Exception" -> "...and more"
+}
