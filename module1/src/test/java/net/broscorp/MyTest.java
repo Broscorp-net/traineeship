@@ -18,7 +18,8 @@ class MyTest {
 
   @Test
   public void testIntegerNull_null_NPE() {
-    Assertions.assertThrows(NumberFormatException.class, () -> foo.foo(Integer.parseInt(null), new ArrayList<>()));
+    Assertions.assertThrows(NumberFormatException.class,
+        () -> foo.foo(Integer.parseInt(null), new ArrayList<>()));
   }
 
   @Test
