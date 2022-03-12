@@ -1,6 +1,13 @@
 package net.broscorp.bytecode;
 
+/**
+ * Dummy class to demonstrate bytecode processes.
+ */
 public class ByteCodeExample {
+  /**
+   * Main class to launch something, I don't know.
+   * @param args - empty args, nothing new.
+   */
   public static void main(String[] args) {
     int dummy = 0;
 
