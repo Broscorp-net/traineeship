@@ -10,14 +10,14 @@ public class MyCoolList<T extends Number> {
   private int size = 0;
 
 
-  /**
+  /**.
    * Constructor Create CoolList with default capacity;
    */
   public MyCoolList() {
     this.coolList = new Number[DEFAULT_CAPACITY];
   }
 
-  /**
+  /**.
    * Constructor Create CoolList with user capacity
    */
   public MyCoolList(int capacity) {
@@ -28,7 +28,7 @@ public class MyCoolList<T extends Number> {
     }
   }
 
-  /**
+  /**.
    * @param o - added object If the array is full, a new array will be created with a capacity
    *          greater than 1.5 See: extendsUp() method
    */
