@@ -6,7 +6,7 @@ import java.util.function.Function;
 public class MyCoolList<T extends Number> {
 
   private Number[] coolList;
-  private final int DEFAULT_CAPACITY = 16;
+  private static final int DEFAULT_CAPACITY = 16;
   private int size = 0;
 
 
@@ -18,7 +18,7 @@ public class MyCoolList<T extends Number> {
   }
 
   /**.
-   * Constructor Create CoolList with user capacity
+   *  Constructor Create CoolList with user capacity.
    */
   public MyCoolList(int capacity) {
     if (capacity > 0) {
@@ -30,7 +30,7 @@ public class MyCoolList<T extends Number> {
 
   /**.
    * @param o - added object If the array is full, a new array will be created with a capacity
-   *          greater than 1.5 See: extendsUp() method
+   *          greater than 1.5 See: extendsUp() method.
    */
   public void add(Number o) {
     if (size == coolList.length) {
@@ -45,6 +45,10 @@ public class MyCoolList<T extends Number> {
     return coolList[index];
   }
 
+  /**.
+   * @param index index in array
+   * @return removed element.
+   */
   public Number remove(int index) {
     Number removeObject = get(index);
 
@@ -58,6 +62,9 @@ public class MyCoolList<T extends Number> {
     return removeObject;
   }
 
+  /**.
+   * @return new collection.
+   */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> myCoolList = new MyCoolList<>(size);
 
@@ -80,5 +87,4 @@ public class MyCoolList<T extends Number> {
       throw new IndexOutOfBoundsException();
     }
   }
-
 }
