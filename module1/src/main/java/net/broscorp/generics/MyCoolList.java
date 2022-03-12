@@ -50,18 +50,25 @@ public class MyCoolList<T extends Number> {
     return coolList[index];
   }
 
+  /**.
+   * @param index index in array
+   * @return removed element.
+   */
   public Number remove(int index) {
     Number removeObject = get(index);
-
     int numMoved = size - index - 1;
-    if (numMoved > 0)
-      System.arraycopy(coolList, index+1, coolList, index,
+    if (numMoved > 0) {
+      System.arraycopy(coolList, index + 1, coolList, index,
           numMoved);
+    }
     coolList[--size] = null; // clear to let GC do its work
 
     return removeObject;
   }
 
+  /**.
+   * @return new collection.
+   */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> myCoolList = new MyCoolList<>(size);
 

@@ -16,6 +16,9 @@ public class InnerClassesTest {
   MyCoolList<Integer> coolList = new MyCoolList<>();
   Iterator<Integer> itr = coolList.iterator();
 
+  /**.
+   * Set Up test
+   */
   @BeforeEach
   public void setUp() {
     for (int i = 0; i < 10; i++) {
