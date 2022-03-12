@@ -1,0 +1,53 @@
+dummy = 5;
+
+Compiled from "ByteCodeExample.java"
+public class net.broscorp.bytecode.ByteCodeExample {
+  public net.broscorp.bytecode.ByteCodeExample();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: iconst_5
+       6: if_icmpge     18
+       9: iinc          1, 1
+      12: iinc          2, 1
+      15: goto          4
+      18: iload_1
+      19: invokestatic  #2                  // Method printHelloAndIntValue:(I)V
+      22: return
+}
+
+dummy = 10
+
+Compiled from "ByteCodeExample.java"
+public class net.broscorp.bytecode.ByteCodeExample {
+  public net.broscorp.bytecode.ByteCodeExample();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        10
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: iload_1
+      20: invokestatic  #2                  // Method printHelloAndIntValue:(I)V
+      23: return
+}
