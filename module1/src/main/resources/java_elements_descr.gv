@@ -1,0 +1,28 @@
+digraph {
+    subgraph cluster_0 {
+        label="hierarchy";
+        JDK -> JRE;
+        JRE -> JVM;
+        JVM -> JIT;
+    }
+
+    subgraph cluster_1 {
+        label="JDK includes all below, compiler, jar executor";
+        JDK -> a;
+    }
+
+    subgraph cluster_2 {
+        label="JRE includes JVM and libraries";
+        JRE -> b;
+    }
+
+    subgraph cluster_3 {
+        label="JVM is just for running compiled java classes(with JRE)";
+        JVM -> c;
+    }
+
+    subgraph cluster_4 {
+        label="JIT is for run-time compilation";
+        JIT -> d;
+    }
+}
