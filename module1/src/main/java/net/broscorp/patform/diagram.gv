@@ -1,0 +1,10 @@
+digraph G {
+rankdir="LR"
+JDK -> "Java Development Kid that include everything about Java" [style=dotted];
+JDK -> JRE
+JRE -> "Java Runtime Environment - all you need to exucute Java application" [style=dotted];
+JRE -> JVM
+JVM -> "Virtual Machine that executes bytecode" [style=dotted];
+JVM -> JIT
+JIT -> "Just-In-Time compiler that performs dynamic compilation at Runtime" [style=dotted];
+}
