@@ -62,6 +62,7 @@ class MyTest {
   }
 
   static class TestLinkedObjectA {
+
     private TestLinkedObjectB objectB;
 
     public TestLinkedObjectA() {
@@ -76,6 +77,7 @@ class MyTest {
   }
 
   static class TestLinkedObjectB {
+
     private TestLinkedObjectA objectA;
 
     public TestLinkedObjectB(TestLinkedObjectA objectA) {
@@ -89,6 +91,7 @@ class MyTest {
   }
 
   class NonKillingObject {
+
     @Override
     protected void finalize() {
       nonKillingObject = this;
