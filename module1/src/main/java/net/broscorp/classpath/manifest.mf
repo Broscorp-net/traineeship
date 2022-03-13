@@ -1,1 +1,1 @@
-cMain-Class: net.broscorp.classpath.FirstClass
+Main-Class: net.broscorp.classpath.FirstClass
