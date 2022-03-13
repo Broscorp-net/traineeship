@@ -37,4 +37,18 @@ class StringRealizationTest {
     assertEquals("Words : \"Hello\" \"world\" Count litters - 10",
         stringRealization.printWordsAndCountLetters("Hello world"));
   }
+
+  @Test
+  void printSong() {
+    assertEquals("15 little bugs in the code, \n"
+            + "15 little bugs in the code. \n"
+            + "Take one down, patch it around 20 little bugs in the code.20 little bugs in the code, \n"
+            + "20 little bugs in the code. \n"
+            + "Take one down, patch it around 17 little bugs in the code.17 little bugs in the code, \n"
+            + "17 little bugs in the code. \n"
+            + "Take one down, patch it around 25 little bugs in the code.25 little bugs in the code, \n"
+            + "25 little bugs in the code. \n"
+            + "Take one down, patch it around 25 little bugs in the code.",
+        stringRealization.printSong(15, 4));
+  }
 }

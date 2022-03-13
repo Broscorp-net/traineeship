@@ -4,7 +4,9 @@ import java.util.Random;
 
 public class StringRealization {
 
-  /**.
+  /**
+   * .
+   *
    * @param line words.
    * @return This words palindrom or not.
    */
@@ -25,7 +27,9 @@ public class StringRealization {
     return word.replaceAll("o", "q");
   }
 
-  /**.
+  /**
+   * .
+   *
    * @param line just you line.
    * @return print all Words in line and count Letters.
    */
@@ -41,32 +45,28 @@ public class StringRealization {
   }
 
 
-  /**.
-   * @param bugs count bugs.
+  /**
+   * .
+   *
+   * @param bugs     count bugs.
    * @param couplets count couplets.
    * @return joined cuplets.
    */
-  public String getVerse(int bugs, int couplets) {
+  public String printSong(int bugs, int couplets) {
     if (bugs <= 0 || couplets <= 0) {
       return "";
     }
-    int nextIntValue = bugs * couplets;
-    Random random = new Random();
     StringBuilder sb = new StringBuilder();
+    Random random = new Random((long) bugs * couplets);
+    int m;
     for (int i = 0; i < couplets; i++) {
-      int m = bugs - 10 + random.nextInt(nextIntValue);
-      sb.append(joinCouplets(bugs, m));
+      m = bugs - 10 + random.nextInt(20);
+      sb.append(String.format("%d little bugs in the code, \n"
+          + "%d little bugs in the code. \n"
+          + "Take one down, patch it around %d little bugs in the code.", bugs, bugs, m));
       bugs = m;
     }
     return sb.toString();
-  }
-
-  private String joinCouplets(int bugs, int nextBugs) {
-    String part1 = String.format("%d Little bugs in the code\n"
-        + "%d Little bugs in the code\n", bugs, bugs);
-    String part2 = String.format("Take one down, patch it around, %d little bugs in the code \n"
-        + "\n", nextBugs);
-    return String.format("%1$s%2$s", part1, part2);
   }
 
 }
