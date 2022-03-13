@@ -1,6 +1,6 @@
 package net.broscorp.bytecode;
 
-public class SimpleMeth{
+public class SimpleMeth {
 
   public static void main(String[] args) {
     int count = 0;
