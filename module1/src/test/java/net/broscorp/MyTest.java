@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class MyTest {
 
   @Test
-  void testIOException() {
+  void testInputOutputException() {
     try {
       File file = new File("./nonExistingFile.txt");
       InputStream is = new FileInputStream(file);
