@@ -22,7 +22,7 @@ class StringRealizationTest {
 
   @Test
   void deleteLiteral() {
-    assertEquals("Heo", stringRealization.changeLiteral("Hello"));
+    assertEquals("Heo", stringRealization.deleteLiteral("Hello"));
   }
 
   @Test
