@@ -1,9 +1,8 @@
 package net.broscorp.generics;
 
 import java.util.function.Function;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class MyCoolList<I> {
+public class MyCoolList<T extends Number> {
 
   //initial array default capacity
   private static final int INITIAL_ARRAY_CAPACITY = 10;
@@ -64,10 +63,6 @@ public class MyCoolList<I> {
   public Object remove(int index) {
     checkIndexRange(index);
 
-    if (get(index) == null) {
-      throw new NullPointerException();
-    }
-
     Object removed = get(index);
 
     int removeIndex = -1;
@@ -90,13 +85,19 @@ public class MyCoolList<I> {
   }
 
   /**
-   * SOme method.
+   * Use function for all elements.
    *
-   * @param f
-   * @return
+   * @param f function
+   * @return MyCoolList
    */
-  public MyCoolList map(Function f) {
-    throw new NotImplementedException();
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
+    MyCoolList<R> newList = new MyCoolList<>(size);
+
+    for (Object number : array) {
+      newList.add(f.apply((T) number));
+    }
+
+    return newList;
   }
 
   /**
@@ -120,20 +121,5 @@ public class MyCoolList<I> {
           String.format("Index %s out of bounds for length %s", index,
               size));
     }
-  }
-
-  /**
-   * Returns {@code true} if this collection contains the specified element.
-   *
-   * @param o element whose presence in this collection is to be tested
-   * @return boolean
-   */
-  private boolean contains(Object o) {
-    for (int i = 0; i < size; i++) {
-      if (array[i].equals(o)) {
-        return true;
-      }
-    }
-    return false;
   }
 }
