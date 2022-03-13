@@ -93,8 +93,8 @@ public class MyCoolList<T extends Number> {
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> newList = new MyCoolList<>(size);
 
-    for (Object number : array) {
-      newList.add(f.apply((T) number));
+    for (int i = 0; i < size; i++) {
+      newList.add(f.apply((T) array[i]));
     }
 
     return newList;

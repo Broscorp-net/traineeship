@@ -123,22 +123,19 @@ public class MyCoolListTest {
     intList.add(NUM_3);
     intList.add(NUM_4);
 
-    assertEquals(4, intList.size());
+    assertEquals(3, intList.size());
   }
 
   @Test
   void functionTest() {
-    MyCoolList<Integer> myCoolList;
     intList.add(NUM_2);
     intList.add(NUM_3);
     intList.add(NUM_4);
 
-    myCoolList = intList.map(e -> e * 2);
+    MyCoolList<Integer> mappingList = intList.map(e -> e * 2);
 
-    System.out.println(myCoolList.size());
-
-//    assertEquals(20, myCoolList.get(0));
-//    assertEquals(200, myCoolList.get(1));
-//    assertEquals(100, myCoolList.get(2));
+    assertEquals(20, mappingList.get(0));
+    assertEquals(200, mappingList.get(1));
+    assertEquals(100, mappingList.get(2));
   }
 }
