@@ -49,16 +49,6 @@ public class MyCoolList<T extends Number> {
     return Arrays.copyOf(numbers, size);
   }
 
-  private T[] decreaseList(int index) {
-    T[] newList = Arrays.copyOf(numbers, size - 1);
-
-    for (int j = index; j < size - 1; j++) {
-      newList[j] = numbers[j - 1];
-    }
-
-    return Arrays.copyOf(numbers, size++);
-  }
-
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> myList = new MyCoolList<>();
 
