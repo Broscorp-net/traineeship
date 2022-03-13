@@ -11,8 +11,8 @@ public class GameOfLife {
   private char[][] startGrid;
   private char[][] nextGrid;
   // Parameters.
-  private int hSize;
-  private int vSize;
+  private int rowSize;
+  private int columnSize;
   private int numberOfIteration;
 
   // Rules param.
@@ -31,9 +31,10 @@ public class GameOfLife {
   private static final String RELATIVE_PATH = "src\\test\\resources\\";
 
   /**
+   * Main method.
    * @param fileNameInput -> file with configuration.
    * @param fileNameOutput -> file result file.
-   * */
+   */
   public void game(String fileNameInput, String fileNameOutput) {
     try {
       readGameData(fileNameInput);
@@ -49,43 +50,42 @@ public class GameOfLife {
 
   private void parseParam(String param) {
     String[] conf = param.split(COMA);
-    hSize = Integer.parseInt(conf[0]);
-    vSize = Integer.parseInt(conf[1]);
+    rowSize = Integer.parseInt(conf[0]);
+    columnSize = Integer.parseInt(conf[1]);
     numberOfIteration = Integer.parseInt(conf[2]);
   }
 
   private void readGameData(String fileNameInput) throws IOException {
-    try (BufferedReader reader = new BufferedReader(new FileReader
-        (RELATIVE_PATH + fileNameInput))) {
+    try (BufferedReader reader = new BufferedReader(
+        new FileReader(RELATIVE_PATH + fileNameInput))) {
       parseParam(reader.readLine());
 
-      startGrid = new char[hSize][vSize];
+      startGrid = new char[rowSize][columnSize];
       int numberOfLine = 0;
-      while(reader.ready()) {
+      while (reader.ready()) {
 
         // Parse row. Replace the " " with a "".
-        startGrid[numberOfLine] = reader.readLine().
-            replaceAll(SPACE, EMPTY).toCharArray();
+        startGrid[numberOfLine] = reader.readLine().replaceAll(SPACE, EMPTY).toCharArray();
         numberOfLine++;
       }
     }
   }
 
   private void writeResult(String fileNameOutput) throws IOException {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter
-        (RELATIVE_PATH + fileNameOutput))) {
+    try (BufferedWriter writer = new BufferedWriter(
+        new FileWriter(RELATIVE_PATH + fileNameOutput))) {
       StringBuilder builder = new StringBuilder();
-      for (int i = 0; i < hSize; i++) {
-        for (int j = 0; j < vSize; j++) {
+      for (int i = 0; i < rowSize; i++) {
+        for (int j = 0; j < columnSize; j++) {
           builder.append(nextGrid[i][j]);
 
           // Do not write the last character (" ").
-          if (j != vSize - 1) {
+          if (j != columnSize - 1) {
             builder.append(SPACE);
           }
         }
         // Do not write the last separator.
-        if (i != hSize - 1) {
+        if (i != rowSize - 1) {
           builder.append(SEPARATOR);
         }
       }
@@ -95,18 +95,18 @@ public class GameOfLife {
   }
 
   /**
+   * return -> number of alive neighbors.
    * @param i -> number of row.
    * @param j -> number of column.
-   * @return -> number of alive neighbors.
-   * */
+   */
   private int findNumberOfNeighbors(int i, int j) {
     int numberOfNeighbors = 0;
     for (int rowDelta = -1; rowDelta <= 1; rowDelta++) {
-      int checkedRow = (i + rowDelta + hSize) % hSize;
+      int checkedRow = (i + rowDelta + rowSize) % rowSize;
       for (int colDelta = -1; colDelta <= 1; colDelta++) {
-        int checkedCol = (j + colDelta + vSize) % vSize;
-        if (!(rowDelta == 0 && colDelta == 0) &&
-            startGrid[checkedRow][checkedCol] == X) {
+        int checkedCol = (j + colDelta + columnSize) % columnSize;
+        if (!(rowDelta == 0 && colDelta == 0)
+            && startGrid[checkedRow][checkedCol] == X) {
           numberOfNeighbors++;
         }
       }
@@ -115,15 +115,15 @@ public class GameOfLife {
   }
 
   private void doIteration() {
-    nextGrid = new char[hSize][vSize];
-    for (int i = 0; i < hSize; i++) {
-      for (int j = 0; j < vSize; j++) {
+    nextGrid = new char[rowSize][columnSize];
+    for (int i = 0; i < rowSize; i++) {
+      for (int j = 0; j < columnSize; j++) {
         char c = startGrid[i][j];
         int numberOfNeighbors = findNumberOfNeighbors(i, j);
         if (c == X) {
           // If "true" then the cell dies.
-          if (numberOfNeighbors < MIN_NUMBER_OF_NEIGHBORS_FOR_ALIVE ||
-              numberOfNeighbors > MAX_NUMBER_OF_NEIGHBORS_FOR_ALIVE) {
+          if (numberOfNeighbors < MIN_NUMBER_OF_NEIGHBORS_FOR_ALIVE
+              || numberOfNeighbors > MAX_NUMBER_OF_NEIGHBORS_FOR_ALIVE) {
             c = O;
           }
         } else {
