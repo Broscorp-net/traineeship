@@ -4,9 +4,7 @@ import java.util.Random;
 
 public class StringRealization {
 
-  /**
-   * .
-   *
+  /**.
    * @param line words.
    * @return This words palindrom or not.
    */
@@ -27,9 +25,7 @@ public class StringRealization {
     return word.replaceAll("o", "q");
   }
 
-  /**
-   * .
-   *
+  /**.
    * @param line just you line.
    * @return print all Words in line and count Letters.
    */
@@ -45,9 +41,7 @@ public class StringRealization {
   }
 
 
-  /**
-   * .
-   *
+  /**.
    * @param bugs     count bugs.
    * @param couplets count couplets.
    * @return joined cuplets.
