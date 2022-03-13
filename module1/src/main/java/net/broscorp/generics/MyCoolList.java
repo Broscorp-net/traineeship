@@ -3,6 +3,9 @@ package net.broscorp.generics;
 import java.util.Arrays;
 import java.util.function.Function;
 
+/**
+ * Something that extends Number.
+ */
 public class MyCoolList<T extends Number> {
 
   private T[] numbers;
@@ -14,6 +17,9 @@ public class MyCoolList<T extends Number> {
     this.size = 0;
   }
 
+  /**
+   * Adding an object.
+   */
   public void add(T o) {
     size++;
     numbers = extendList();
@@ -21,6 +27,9 @@ public class MyCoolList<T extends Number> {
     System.gc();
   }
 
+  /**
+   * Getting with index that was given.
+   */
   public T get(int index) {
 
     if (index < size) {
@@ -30,25 +39,34 @@ public class MyCoolList<T extends Number> {
     return null;
   }
 
+  /**
+   * Removing element.
+   */
   public T remove(int index) {
     int newSize = size - 1;
     T[] newList = Arrays.copyOf(numbers, newSize);
-    T removed = get(index);
 
     for (int j = index; j < newSize; j++) {
       newList[j] = numbers[j + 1];
     }
 
-    numbers = newList;
     size = newSize;
+    T removed = get(index);
+    numbers = newList;
     System.gc();
     return removed;
   }
 
+  /**
+   * Extending the array.
+   */
   private T[] extendList() {
     return Arrays.copyOf(numbers, size);
   }
 
+  /**
+   * Mapping of array.
+   */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> myList = new MyCoolList<>();
 

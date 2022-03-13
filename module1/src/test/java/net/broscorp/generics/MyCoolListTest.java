@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
 
-
-
   private static int EL_1 = 1;
   private static int EL_2 = 2;
   private static int EL_3 = 3;
@@ -16,7 +14,7 @@ class MyCoolListTest {
   private MyCoolList list;
 
   @BeforeEach
-  void init(){
+  void init() {
     list = new MyCoolList<>();
 
     list.add(EL_1);
