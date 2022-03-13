@@ -28,7 +28,6 @@ public class GameOfLife {
   private static final String EMPTY = "";
   private static final String COMA = ",";
   private static final String SEPARATOR = "\n";
-  private static final String RELATIVE_PATH = "src\\test\\resources\\";
 
   /**
    * Main method.
@@ -57,7 +56,7 @@ public class GameOfLife {
 
   private void readGameData(String fileNameInput) throws IOException {
     try (BufferedReader reader = new BufferedReader(
-        new FileReader(RELATIVE_PATH + fileNameInput))) {
+        new FileReader(fileNameInput))) {
       parseParam(reader.readLine());
 
       startGrid = new char[rowSize][columnSize];
@@ -73,7 +72,7 @@ public class GameOfLife {
 
   private void writeResult(String fileNameOutput) throws IOException {
     try (BufferedWriter writer = new BufferedWriter(
-        new FileWriter(RELATIVE_PATH + fileNameOutput))) {
+        new FileWriter(fileNameOutput))) {
       StringBuilder builder = new StringBuilder();
       for (int i = 0; i < rowSize; i++) {
         for (int j = 0; j < columnSize; j++) {
