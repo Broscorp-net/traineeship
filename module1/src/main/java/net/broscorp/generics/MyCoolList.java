@@ -31,6 +31,7 @@ public class MyCoolList<T extends Number> {
    * @param o element whose presence in this collection is to be ensured
    */
   public void add(Object o) {
+
     if (size == array.length) {
       Object[] newArray = new Object[array.length * 2];
       System.arraycopy(array, 0, newArray, 0, array.length);
