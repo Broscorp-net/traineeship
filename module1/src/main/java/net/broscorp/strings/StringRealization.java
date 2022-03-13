@@ -1,6 +1,5 @@
 package net.broscorp.strings;
 
-import java.util.Locale;
 import java.util.Random;
 
 public class StringRealization {
@@ -47,8 +46,7 @@ public class StringRealization {
    * @param couplets count couplets.
    * @return joined cuplets.
    */
-  public String
-  getVerse(int bugs, int couplets) {
+  public String getVerse(int bugs, int couplets) {
     if (bugs <= 0 || couplets <= 0) {
       return "";
     }
