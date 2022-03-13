@@ -12,6 +12,7 @@ class MyCoolListTest {
   private static int EL_1 = 1;
   private static int EL_2 = 2;
   private static int EL_3 = 3;
+  private static int SIZE = 3;
   private MyCoolList list;
 
   @BeforeEach
@@ -62,6 +63,6 @@ class MyCoolListTest {
 
   @Test
   void size() {
-    assertEquals(3, list.size());
+    assertEquals(SIZE, list.size());
   }
 }
