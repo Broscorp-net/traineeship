@@ -6,7 +6,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Difference between inner static and inner classes:
-   *
+   *<p></p>
    * -an outer class object is not required to create a static nested class object.
    * -from an object of a static nested class, you cannot access non-static members of the enclosing
    * class directly, but only through a reference to an instance of the outer class.
