@@ -22,7 +22,7 @@ public class TestJ {
 
   @Test
   public void isIntegerOverflow() {
-    int i =  1;//Integer.MAX_VALUE;
+    int i =  1; //Integer.MAX_VALUE;
     Assertions.assertFalse(inc(i) == Integer.MIN_VALUE, "Переполнение численного типа");
   }
 
