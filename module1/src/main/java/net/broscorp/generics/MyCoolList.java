@@ -21,20 +21,6 @@ public class MyCoolList<E extends Number> implements Iterable<E> {
     Object[] array = new Object[size];
   }
 
-  public static void main(String[] args) {
-    MyCoolList<Integer> myCoolList = new MyCoolList<>();
-    for (int i = 0; i < 3; i++) {
-      myCoolList.add(i);
-    }
-    Iterator<Integer> iterator = myCoolList.iterator();
-    System.out.println(iterator.hasNext());
-    System.out.println(iterator.next());
-    System.out.println(iterator.hasNext());
-    iterator.remove();
-    System.out.println(iterator.hasNext());
-
-  }
-
   /**
    * Method that add elements into list.
    */
