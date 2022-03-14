@@ -2,9 +2,13 @@ package net.broscorp.gamelife;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GameOfLife {
   // Two grids represent two states: before and after iteration.
@@ -55,39 +59,41 @@ public class GameOfLife {
   }
 
   private void readGameData(String fileNameInput) throws IOException {
-    try (BufferedReader reader = new BufferedReader(
-        new FileReader(fileNameInput))) {
-      parseParam(reader.readLine());
+    Stream<String> inputStreams = new BufferedReader(
+        new InputStreamReader(
+            Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(fileNameInput)))).lines();
+    List<String> listLine = inputStreams.collect(Collectors.toList());
+    parseParam(listLine.get(0));
+    startGrid = new char[rowSize][columnSize];
+    int numberOfLine = 0;
+    for (int i = 1; i < listLine.size(); i++) {
 
-      startGrid = new char[rowSize][columnSize];
-      int numberOfLine = 0;
-      while (reader.ready()) {
-
-        // Parse row. Replace the " " with a "".
-        startGrid[numberOfLine] = reader.readLine().replaceAll(SPACE, EMPTY).toCharArray();
-        numberOfLine++;
-      }
+      // Parse row. Replace the " " with a "".
+      startGrid[numberOfLine] = listLine.get(i).replaceAll(SPACE, EMPTY).toCharArray();
+      numberOfLine++;
     }
   }
 
   private void writeResult(String fileNameOutput) throws IOException {
-    try (BufferedWriter writer = new BufferedWriter(
-        new FileWriter(fileNameOutput))) {
-      StringBuilder builder = new StringBuilder();
-      for (int i = 0; i < rowSize; i++) {
-        for (int j = 0; j < columnSize; j++) {
-          builder.append(nextGrid[i][j]);
+    StringBuilder builder = new StringBuilder();
+    for (int i = 0; i < rowSize; i++) {
+      for (int j = 0; j < columnSize; j++) {
+        builder.append(nextGrid[i][j]);
 
-          // Do not write the last character (" ").
-          if (j != columnSize - 1) {
-            builder.append(SPACE);
-          }
-        }
-        // Do not write the last separator.
-        if (i != rowSize - 1) {
-          builder.append(SEPARATOR);
+        // Do not write the last character (" ").
+        if (j != columnSize - 1) {
+          builder.append(SPACE);
         }
       }
+      // Do not write the last separator.
+      if (i != rowSize - 1) {
+        builder.append(SEPARATOR);
+      }
+    }
+    try (BufferedWriter writer = new BufferedWriter(
+        new FileWriter((Objects.requireNonNull(GameOfLife.class.getClassLoader()
+            .getResource(".")).getFile() + fileNameOutput)
+            .replaceAll("%5C","/")))) {
       writer.write(builder.toString());
       writer.flush();
     }
