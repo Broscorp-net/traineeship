@@ -3,6 +3,7 @@ package net.broscorp.primitives;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 public class TestJ {
 
   public static int inc(int i){
