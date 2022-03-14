@@ -1,6 +1,6 @@
 package net.broscorp.override.overload;
 
-public interface MathOperation <T extends Number> {
+public interface MathOperation<T extends Number> {
 
   double add(double a, double b);
 
