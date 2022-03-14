@@ -1,16 +1,16 @@
 package net.broscorp.generics;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.function.Function;
 
 /**
  * Something that extends Number.
  */
-public class MyCoolList<T extends Number> {
+public class MyCoolList<T extends Number> implements Iterable<T> {
 
   private T[] numbers;
   private int size;
-  private Function func;
 
   public MyCoolList() {
     this.numbers = (T[]) new Number[0];
@@ -83,4 +83,47 @@ public class MyCoolList<T extends Number> {
     return size;
   }
 
+  @Override
+  public Iterator<T> iterator() {
+    return new MyIterator();
+  }
+
+  /**
+   *  * The static inner class can access the static members of the outer class directly.
+   *    But, to access the instance members of the outer class you
+   *    need to instantiate the outer class.
+   *  * Nested static class doesn’t need a reference of Outer class but a nonstatic nested class
+   *    or Inner class requires Outer class reference.
+   *  * A non-static nested class has full access to the members of the class within
+   *    which it is nested. A static nested class does not have a reference to a nesting instance,
+   *    so a static nested class cannot invoke non-static methods or access non-static fields
+   *    of an instance of the class within which it is nested.
+   *  * Another difference between static and non-static nested class is that
+   *    you can not access non-static members e.g. method and field
+   *    into nested static class directly.
+   */
+  class MyIterator implements Iterator<T> {
+
+    private int pointer = 0;
+
+    public boolean hasNext() {
+      return pointer < size;
+    }
+
+    public T next() {
+      if (hasNext()) {
+        return get(pointer++);
+      } else {
+        throw new MyCoolListException("No such element with index #" + pointer);
+      }
+    }
+
+    public void remove() {
+      try {
+        MyCoolList.this.remove(pointer);
+      } catch (IndexOutOfBoundsException e) {
+        throw new MyCoolListException("No such element with index #" + pointer);
+      }
+    }
+  }
 }
