@@ -1,0 +1,6 @@
+graph G {
+  label = "Green is unchecked, red is checked";
+  "Throwable" -- "Exception"[color=red];
+  "Throwable" -- "Error"[color=green];
+  "Exception" -- "RuntimeException"[color=green];
+}
