@@ -10,7 +10,7 @@ class SumTest {
 
   @Test
   void sumWithDouble1Test() {
-    assertEquals(14.0d, sum.calculate(5.0d, 10.0d));
+    assertEquals(15.0d, sum.calculate(5.0d, 10.0d));
   }
 
   @Test
@@ -31,6 +31,7 @@ class SumTest {
   @Test
   void sumWithIntAndDouble() {
     Double d = new Double(5);
-    assertEquals(15, sum.calculate(d, 10));
+    int c = 10;
+    assertEquals(15, sum.calculate(d, c));
   }
 }
