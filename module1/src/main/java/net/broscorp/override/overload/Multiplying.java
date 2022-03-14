@@ -7,17 +7,10 @@ public class Multiplying implements MathOperation {
     return a * b;
   }
 
-  @Override
-  public double opetation(int a, int b) {
-    return a * b;
-  }
-
-  @Override
   public double opetation(Double a, Double b) {
     return a * b;
   }
 
-  @Override
   public double opetation(Integer a, Integer b) {
     return a * b;
   }
