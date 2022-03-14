@@ -1,5 +1,6 @@
 package net.broscorp;
 
+import java.util.Iterator;
 import net.broscorp.generics.MyCoolList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -41,5 +42,37 @@ class MyTest {
       myCoolList.add(i);
     }
     Assertions.assertEquals(myCoolList.size(), 5);
+  }
+
+  @Test
+  void testHasNext() {
+    MyCoolList<Integer> myCoolList = new MyCoolList<>();
+    Iterator<Integer> iterator = myCoolList.iterator();
+
+    myCoolList.add(0);
+
+    Assertions.assertTrue(iterator.hasNext());
+    Assertions.assertEquals(iterator.next(), 0);
+    Assertions.assertFalse(iterator.hasNext());
+  }
+
+  @Test
+  void testRemove() {
+    MyCoolList<Integer> myCoolList = new MyCoolList<>();
+    Iterator<Integer> iterator = myCoolList.iterator();
+
+    myCoolList.add(0);
+
+    Assertions.assertTrue(iterator.hasNext());
+    iterator.remove();
+    Assertions.assertFalse(iterator.hasNext());
+  }
+
+  @Test
+  void testEndOfList() {
+    MyCoolList<Integer> myCoolList = new MyCoolList<>();
+    Iterator<Integer> iterator = myCoolList.iterator();
+
+    Assertions.assertNull(iterator.next());
   }
 }

@@ -1,9 +1,18 @@
 package net.broscorp.generics;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class MyCoolList<E extends Number> {
+public class MyCoolList<E extends Number> implements Iterable<E> {
+
+  /**
+   * Нестатические внутренные классы служат для групирования логики внутки внешнего класса. Они
+   * исполняют определённую логику внутри класса и к ним нельзя доступится откуда-то кроме внешнего
+   * класса. Статические вложенные классы решают задачу агрегации, и позволяют выделять обьекты
+   * внутри других обьектов. К таким обьектам можно достучаться извне через внешний класс.
+   */
 
   private Object[] array;
   private int size = 0;
@@ -14,6 +23,16 @@ public class MyCoolList<E extends Number> {
 
   public static void main(String[] args) {
     MyCoolList<Integer> myCoolList = new MyCoolList<>();
+    for (int i = 0; i < 3; i++) {
+      myCoolList.add(i);
+    }
+    Iterator<Integer> iterator = myCoolList.iterator();
+    System.out.println(iterator.hasNext());
+    System.out.println(iterator.next());
+    System.out.println(iterator.hasNext());
+    iterator.remove();
+    System.out.println(iterator.hasNext());
+
   }
 
   /**
@@ -85,5 +104,38 @@ public class MyCoolList<E extends Number> {
    */
   public int size() {
     return size;
+  }
+
+  @Override
+  public Iterator<E> iterator() {
+    return new CustomIterator();
+  }
+
+  class CustomIterator implements Iterator<E> {
+
+    int index = 0;
+
+    @Override
+    public boolean hasNext() {
+      return index < size();
+    }
+
+    @Override
+    public E next() {
+      if (hasNext()) {
+        return get(index++);
+      }
+      return null;
+    }
+
+    @Override
+    public void remove() {
+      MyCoolList.this.remove(index);
+    }
+
+    @Override
+    public void forEachRemaining(Consumer<? super E> action) {
+      Iterator.super.forEachRemaining(action);
+    }
   }
 }
