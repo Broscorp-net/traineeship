@@ -43,18 +43,21 @@ public class MyCoolList<T extends Number> {
    * Removing element.
    */
   public T remove(int index) {
-    int newSize = size - 1;
-    T[] newList = Arrays.copyOf(numbers, newSize);
+    if (index < size) {
+      int newSize = size - 1;
+      T[] newList = Arrays.copyOf(numbers, newSize);
 
-    for (int j = index; j < newSize; j++) {
-      newList[j] = numbers[j + 1];
+      for (int j = index; j < newSize; j++) {
+        newList[j] = numbers[j + 1];
+      }
+
+      size = newSize;
+      T removed = get(index);
+      numbers = newList;
+      System.gc();
+      return removed;
     }
-
-    size = newSize;
-    T removed = get(index);
-    numbers = newList;
-    System.gc();
-    return removed;
+    return null;
   }
 
   /**
