@@ -1,9 +1,8 @@
 package net.broscorp.primitives;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PrimitivesTests {
 
@@ -13,36 +12,30 @@ public class PrimitivesTests {
 
   @Test
   void integerOverflowWithMinValueTest() {
-    assertEquals(minIntegerValue, maxIntegerValue + 1);
+    Assertions.assertEquals(minIntegerValue, maxIntegerValue + 1);
   }
 
   @Test
   void integerOverflowWithMaxValueTest() {
-    assertEquals(maxIntegerValue, minIntegerValue - 1);
+    Assertions.assertEquals(maxIntegerValue, minIntegerValue - 1);
   }
 
   @Test
   void conversionLongToInteger() {
     long valueForCorrectConversion = 777L;
-    assertEquals(valueForCorrectConversion, (int) valueForCorrectConversion);
-  }
-
-  @Test
-  void conversionLongToIntegerWithOverflow() {
-    long valueForWrongConversion = 7777777777777777777L;
-    assertThrows(ArithmeticException.class, () -> Math.toIntExact(valueForWrongConversion));
+    Assertions.assertEquals(valueForCorrectConversion, (int) valueForCorrectConversion);
   }
 
   @Test
   void conversionDoubleToFloat() {
     Double valueForCorrectConversion = 123.0;
-    assertEquals(valueForCorrectConversion, valueForCorrectConversion.floatValue());
+    Assertions.assertEquals(valueForCorrectConversion, valueForCorrectConversion.floatValue());
   }
 
   @Test
   void conversionDoubleToFloatWithAdmissibleError() {
     double valueForCorrectConversionWithAdmissibleError = 444.4;
-    assertEquals(valueForCorrectConversionWithAdmissibleError,
+    Assertions.assertEquals(valueForCorrectConversionWithAdmissibleError,
         (float) valueForCorrectConversionWithAdmissibleError, 0.00001);
   }
 }
