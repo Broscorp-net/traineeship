@@ -16,7 +16,7 @@ public class PrimitivesTest {
   }
 
   @Test
-  public void convertLongToIntBugs() {
+  public void convertLongToIntGettingBugs() {
     long maxIntegerValueNumberInLongFormat = 2147483648L;
 
     int convertedIntNumber = (int) maxIntegerValueNumberInLongFormat;
