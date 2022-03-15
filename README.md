@@ -49,6 +49,11 @@ https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/me
    3.	Если ты не можешь менять метки – значит мы провтыкали и не добавили тебя в команду (или добавили, но приглашение не было принято, так что проверь почту) – напиши об этом liliya stepanovna в Discord.
 5.	Метка __done__ – задание принято.
 
+# FAQ
+Как мне импортировать настройки https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml в Eclipse?
+ 1. Настрой среду разработки.
+ 2. Прочитать алгоритм работы проекта в readme https://github.com/Broscorp-net/traineeship .
+
 
 # Бадди
 
