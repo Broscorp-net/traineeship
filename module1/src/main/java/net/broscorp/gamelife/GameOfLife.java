@@ -32,9 +32,6 @@ public class GameOfLife {
       nextStepFields = new char[heightOfField][widthOfField];
       scanner.nextLine();
       for (int i = 0; i < heightOfField; i++) {
-//        String next = scanner.nextLine();
-//        System.out.println(next);
-//        char[] chars = next.toCharArray();
         char[] chars = scanner.nextLine().replaceAll( " ", "").toCharArray();
         currentFields[i] = Arrays.copyOf(chars, widthOfField);
       }
