@@ -18,18 +18,24 @@ public class GameOfLife {
 
   public static void main(String[] args) {
     GameOfLife game = new GameOfLife();
-    game.game("./GameOfLifeInputFile.txt", "./GameOfLifeOutputFile.txt");
+    game.game("GameOfLifeInputFile.txt", "GameOfLifeOutputFile.txt");
   }
 
   public void game(String fileNameInput, String fileNameOutput) {
     try (Scanner scanner = new Scanner(new File(fileNameInput))) {
-      widthOfField = scanner.nextInt();
-      heightOfField = scanner.nextInt();
-      countOfIterations = scanner.nextInt();
+      String infoLine = scanner.next();
+      String[] info = infoLine.split(",");
+      widthOfField = Integer.parseInt(info[0]);
+      heightOfField = Integer.parseInt(info[1]);
+      countOfIterations = Integer.parseInt(info[2]);
       currentFields = new char[heightOfField][widthOfField];
       nextStepFields = new char[heightOfField][widthOfField];
+      scanner.nextLine();
       for (int i = 0; i < heightOfField; i++) {
-        char[] chars = scanner.next().toCharArray();
+//        String next = scanner.nextLine();
+//        System.out.println(next);
+//        char[] chars = next.toCharArray();
+        char[] chars = scanner.nextLine().replaceAll( " ", "").toCharArray();
         currentFields[i] = Arrays.copyOf(chars, widthOfField);
       }
     } catch (FileNotFoundException ex) {
@@ -41,17 +47,17 @@ public class GameOfLife {
           isAlive(j, k);
           if (j == heightOfField - 1 && k == widthOfField - 1) {
             for (int l = 0; l < heightOfField; l++) {
+              System.out.println(currentFields[l]);
               currentFields[l] = Arrays.copyOf(nextStepFields[l], widthOfField);
-//              System.out.println(currentFields[l]);
             }
-//            System.out.println("------");
+            System.out.println("------");
           }
         }
       }
     }
     try (FileOutputStream fos = new FileOutputStream(fileNameOutput)) {
       for (int i = 0; i < heightOfField; i++) {
-        fos.write(Arrays.toString(currentFields[i]).replaceAll("\\W", "").getBytes());
+        fos.write(Arrays.toString(currentFields[i]).replaceAll("\\W", " ").trim().getBytes());
         fos.write('\n');
       }
     } catch (IOException ex) {
@@ -106,7 +112,5 @@ public class GameOfLife {
     } else {
       nextStepFields[j][k] = 'X';
     }
-
-//    System.out.println("Field " + j + " " + k + " was " + currentFields[j][k] + " has highline " + highLine + " bottomline " + bottomLine + " leftline " + leftLine + " rightlint " + rightLine + " and will be " + nextStepFields[j][k] + " becouse have " + count + " neighbornhoods");
   }
 }

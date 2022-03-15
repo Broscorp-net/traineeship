@@ -1,8 +1,6 @@
-5
-5
-10
-XXXXX
-XXOXX
-XXOOX
-XOOXX
-XXXXX
+5,5,10
+X X X X X
+X X O X X
+X X O O X
+X O O X X
+X X X X X

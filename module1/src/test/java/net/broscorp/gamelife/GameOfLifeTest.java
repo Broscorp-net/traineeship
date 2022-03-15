@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled //Remove that to run the tests
 class GameOfLifeTest {
   GameOfLife game = new GameOfLife();
 
