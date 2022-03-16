@@ -22,6 +22,7 @@ public class GcTest {
     System.out.println("Цикл Остановлен!");
   }
 }
+
 class Fork {
   int tooth;
 
