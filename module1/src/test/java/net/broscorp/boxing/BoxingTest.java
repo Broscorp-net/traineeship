@@ -7,7 +7,7 @@ public class BoxingTest {
 
   @Test
   void trueEqualTest() {
-    int c = 43;
+    int c = 500;
     Integer a = c;
     Integer b = c;
     Assertions.assertTrue(a == b);
