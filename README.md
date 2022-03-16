@@ -53,6 +53,7 @@ https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/me
 Как мне импортировать настройки https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml в Eclipse?
  1. Настрой среду разработки.
  2. Прочитать алгоритм работы проекта в readme https://github.com/Broscorp-net/traineeship .
+ 3. Ответы на часто здаваемые вопросы ты можешь найти в файле FAQ. Пожалуйста, ознакомься с ним.
 
 
 # Бадди
