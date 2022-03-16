@@ -27,15 +27,31 @@ public class PrimitivesTests {
   }
 
   @Test
-  void conversionDoubleToFloat() {
-    Double valueForCorrectConversion = 123.0;
-    Assertions.assertEquals(valueForCorrectConversion, valueForCorrectConversion.floatValue());
+  void conversionLongToIntegerWithOverflow() {
+    long valueForWrongConversion = 7777777777777777777L;
+    Assertions.assertThrows(ArithmeticException.class,
+        () -> Math.toIntExact(valueForWrongConversion));
+  }
+
+  @Test
+  void conversionDoubleToFloatEquals() {
+    double valueForCorrectConversion = 444.4;
+    Assertions.assertEquals(valueForCorrectConversion,
+        (float) valueForCorrectConversion, 0.00001);
+  }
+
+  @Test
+  void conversionDoubleToFloatNotEquals() {
+    double maxDoubleValue = Double.MAX_VALUE;
+    float convertedValue = (float) maxDoubleValue;
+    Assertions.assertNotEquals(maxDoubleValue, convertedValue);
   }
 
   @Test
   void conversionDoubleToFloatWithAdmissibleError() {
-    double valueForCorrectConversionWithAdmissibleError = 444.4;
-    Assertions.assertEquals(valueForCorrectConversionWithAdmissibleError,
-        (float) valueForCorrectConversionWithAdmissibleError, 0.00001);
+    double valueD = 100;
+    valueD /= 3;
+    float valueF = (float) valueD;
+    Assertions.assertNotSame(valueD, valueF);
   }
 }
