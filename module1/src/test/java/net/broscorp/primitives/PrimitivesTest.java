@@ -15,12 +15,13 @@ class PrimitivesTest {
   }
 
   @Test
-  public void convertTest() {
+  public void convertTestInts() {
     long someLongNumber = 1000000000000000L;
-    Assertions.assertNotEquals(someLongNumber, (int) someLongNumber);
-
     Assertions.assertTrue((int) someLongNumber < 0);
+  }
 
+  @Test
+  public void convertTestFloat() {
     double someDoubleNumber = 100000000000000000000000.1234567891011;
     Assertions.assertNotEquals(someDoubleNumber, (float) someDoubleNumber);
   }
