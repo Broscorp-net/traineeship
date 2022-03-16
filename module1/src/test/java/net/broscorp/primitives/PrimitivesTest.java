@@ -28,7 +28,7 @@ public class PrimitivesTest {
 
   @Test
   void floatAccuracyError() {
-    float oneToSeven = 0.142857f;
-    Assertions.assertNotEquals(oneToSeven * 7, 0.999999);
+    float almostOne = 0.999999f;
+    Assertions.assertNotEquals(almostOne, 0.999999);
   }
 }
