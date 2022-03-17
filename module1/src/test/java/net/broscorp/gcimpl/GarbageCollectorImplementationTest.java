@@ -11,7 +11,6 @@ import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled
 class GarbageCollectorImplementationTest {
 
   private final GarbageCollector gc = new GarbageCollectorImplementation();
@@ -179,7 +178,6 @@ class GarbageCollectorImplementationTest {
     List<ApplicationBean> expectedGarbage = new ArrayList<>();
     expectedGarbage.add(serviceA);
     expectedGarbage.add(serviceB);
-
     // WHEN
     final List<ApplicationBean> actualGarbage = gc.collect(heapInfo, stack);
 
