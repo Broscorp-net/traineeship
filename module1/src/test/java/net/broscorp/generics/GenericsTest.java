@@ -34,7 +34,7 @@ public class GenericsTest {
 
   @Test
   void mapTest() {
-    MyCoolList myListNew=myList.map(m->m+5);
+    MyCoolList myListNew = myList.map(m -> m + 5);
     Assertions.assertEquals(7, myListNew.get(0));
   }
 

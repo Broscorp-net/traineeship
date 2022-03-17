@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class MyCoolList<T extends Number>{
+public class MyCoolList<T extends Number> {
   private T[] items;
 
   public MyCoolList() {
@@ -18,7 +18,7 @@ public class MyCoolList<T extends Number>{
     } else {
       Object[] itemsNew =  Stream.concat(Arrays.stream(items),Stream.of(item)).toArray();
       items = (T[]) new Number[itemsNew.length];
-      for (int i = 0; i < items.length; i ++) {
+      for (int i = 0; i < items.length; i++) {
         items[i] = (T) itemsNew[i];
       }
     }
@@ -29,16 +29,16 @@ public class MyCoolList<T extends Number>{
   }
 
   public T remove(int index) {
-    T removeItem = items[index];
-    T[] itemsNew = (T[]) new Number[items.length-1];
+    final T removeItem = items[index];
+    T[] itemsNew = (T[]) new Number[items.length - 1];
     int i = 0;
-    while (i<index) {
+    while (i < index) {
       itemsNew[i] = items[i];
-      i ++;
+      i++;
     }
     while (i < items.length - 1) {
       itemsNew[i] = items[i + 1];
-      i ++;
+      i++;
     }
     items = itemsNew;
     return removeItem;
