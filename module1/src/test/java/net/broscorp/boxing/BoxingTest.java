@@ -12,17 +12,24 @@ public class BoxingTest {
 
 
   @Test
-  void comparingTypesTrue() {
+  void comparingTypesTrue1() {
     Assertions.assertTrue(value1 == value2);
   }
 
   @Test
   void comparingTypesFalse1() {
-    Assertions.assertFalse(value3 == value4);
+    Integer valueV1 = 300;
+    Integer valueV2 = 300;
+    Assertions.assertFalse(valueV1 == valueV2);
   }
 
   @Test
   void comparingTypesFalse2() {
+    Assertions.assertFalse(value3 == value4);
+  }
+
+  @Test
+  void comparingTypesFalse3() {
     Assertions.assertFalse(value2 == value3);
   }
 
