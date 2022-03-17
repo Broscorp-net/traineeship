@@ -1,4 +1,4 @@
-package net.broscorp.exceptionі;
+package net.broscorp.exceptions;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class ExceptionsTest {
   @Test
-  void exceptionTest(){
+  void exceptionTest() {
     String filePath = "c:/xxx.txt";
     try {
       FileInputStream fir = (new FileInputStream(filePath));
