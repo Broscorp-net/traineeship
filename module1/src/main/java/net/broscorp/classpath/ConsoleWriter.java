@@ -1,23 +1,26 @@
 package net.broscorp.classpath;
 
 import java.io.DataInputStream;
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ConsoleWriter {
-  public static void main(String[] args) throws IOException {
+  /** Main method for class that writes value to console.
+   *
+   * @param args - there is no args.
+   */
+  public static void main(String[] args)  {
     try (ServerSocket ss = new ServerSocket(6666)) {
       Socket s = ss.accept(); // waits for connection
       DataInputStream dis = new DataInputStream(s.getInputStream());
 
       String str = dis.readUTF();
       while (!str.equals("quit") && !str.equals("exit")) {
-        System.out.println("message= " + str);
+        System.out.println("message: " + str);
         str = dis.readUTF();
       }
     } catch (Exception e) {
-      System.out.println(e);
+      e.printStackTrace();
     }
   }
 }

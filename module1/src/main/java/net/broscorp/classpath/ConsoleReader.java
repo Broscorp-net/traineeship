@@ -1,13 +1,15 @@
 package net.broscorp.classpath;
 
-import java.io.*;
-import java.net.ConnectException;
+import java.io.DataOutputStream;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class ConsoleReader {
-  public static void main(String[] args) throws IOException {
+  /** Main method for class that reads value from console.
+   *
+   * @param args - there is no args.
+   */
+  public static void main(String[] args) {
     try {
       Socket s = new Socket("localhost", 6666);
       DataOutputStream dout = new DataOutputStream(s.getOutputStream());
@@ -21,10 +23,8 @@ public class ConsoleReader {
       dout.close();
       s.close();
     } catch (Exception e) {
-      System.out.println(e);
+      e.printStackTrace();
     }
   }
 }
 
-/*
- */
