@@ -29,6 +29,7 @@ class PrimitivesTest {
   @Test
   public void arithmeticalOperationsWithFloats() {
     double f1 = 0.0;
+
     for (int i = 1; i <= 11; i++) {
       f1 += .1;
     }
