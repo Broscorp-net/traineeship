@@ -17,6 +17,16 @@ public class PrimitivesTest {
     float floatNumber = (float) doubleNumber;
     return floatNumber;
   }
+  
+  @Test
+  void intOverflow() {
+    long longNumber = Integer.MAX_VALUE;
+    int intNumber = Integer.MAX_VALUE;
+    longNumber += 3;
+    intNumber += 3;
+    assertNotEquals(longNumber, intNumber);
+
+  }
 
   @Test
   void longShouldNotEqual() {
