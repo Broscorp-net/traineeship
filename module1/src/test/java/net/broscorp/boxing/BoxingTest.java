@@ -12,23 +12,22 @@ public class BoxingTest {
   //1
   @Test
   void shouldReturnTrue() {
-    String firstStr = "Hello java developers";
-    String secondStr = "Hello java developers";
-    assertTrue(firstStr == secondStr);
+    Integer integer1 = 456123;
+    Integer integer11 = integer1;
+    Integer integer22 = integer1;
+    assertTrue(integer11 == integer22);
   }
-
 
   //2
   @Test
   void shouldReturnFalse() {
-    String firstStr = new String("Hello java developers");
-    String secondStr = new String("Hello java developers");
-    assertFalse(firstStr == secondStr);
+    Integer integer1 = 456123;
+    Integer integer2 = 456123;
+    System.out.println(integer1 == integer2);
+    assertFalse(integer1 == integer2);
   }
 
   //3
-
-
   @Test
   void undefinedUnboxingShouldReturnException() {
     // Unboxing the Object
