@@ -11,6 +11,10 @@ public class MyCoolList<T extends Number> {
     this.items = (T[]) new Number[0];
   }
 
+
+  /**
+   *  {@inheritDoc}
+   *  */
   public void add(T item) {
     if (items.length == 0) {
       items = (T[]) new Number[1];
@@ -28,6 +32,9 @@ public class MyCoolList<T extends Number> {
     return items[index];
   }
 
+  /**
+   *  {@inheritDoc}
+   *  */
   public T remove(int index) {
     final T removeItem = items[index];
     T[] itemsNew = (T[]) new Number[items.length - 1];
@@ -44,6 +51,10 @@ public class MyCoolList<T extends Number> {
     return removeItem;
   }
 
+
+  /**
+   *  {@inheritDoc}
+   *  */
   public <G extends Number> MyCoolList<G> map(Function<T,G> f) {
     MyCoolList<G> myList = new MyCoolList<>();
     for (T item : items) {
