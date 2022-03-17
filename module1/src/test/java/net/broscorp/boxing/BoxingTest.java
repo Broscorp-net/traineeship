@@ -10,8 +10,13 @@ public class BoxingTest {
     int c = 500;
     Integer a = c;
     Integer b = c;
-    Assertions.assertTrue(a == b);
+    Assertions.assertFalse(a == b);
+    /*Нашел в документации "Этот метод всегда будет кэшировать значения в диапазоне от -128 до 127",
+     т.е. в этих пределах true, а далее false. Я так понимаю за пределом кеширования создается
+     новые объекты. А так как мы == сравниваем ссылки, то они будут разные.
+     */
   }
+
 
   @Test
   void falseEqualTest() {
