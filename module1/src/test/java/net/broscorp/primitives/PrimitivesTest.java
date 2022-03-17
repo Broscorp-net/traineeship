@@ -48,5 +48,4 @@ class PrimitivesTest {
 
     Assertions.assertNotEquals(2.121313241412441124f, 2.121313241412441124d);
   }
-
 }
