@@ -7,25 +7,25 @@ package net.broscorp.override.overload;
  * Модификатор доступа должен быть такой же, как super-классе.
  * А с помощью super мы можем использовать реализацию метода из super-класса.
  */
-public class MathOperationMultiple implements MathOperation{
+public class MathOperationMultiple implements MathOperation {
 
   @Override
   public double mathOperation(double a, double b) {
-    return a*b;
+    return a * b;
   }
 
   @Override
   public double mathOperation(int a, int b) {
-    return (double) a*b;
+    return (double) a * b;
   }
 
   @Override
   public double mathOperation(Double a, Double b) {
-    return a.doubleValue()*b.doubleValue();
+    return a.doubleValue() * b.doubleValue();
   }
 
   @Override
   public double mathOperation(Integer a, Integer b) {
-    return a.doubleValue()*b.doubleValue();
+    return a.doubleValue() * b.doubleValue();
   }
 }

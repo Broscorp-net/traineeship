@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class MathOperationTest {
   MathOperation operation;
+
   @Test
   void addTest() {
     operation = new MathOperationAdd();
