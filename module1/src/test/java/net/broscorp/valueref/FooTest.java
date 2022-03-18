@@ -18,10 +18,11 @@ public class FooTest {
   @Test
   public void changeValueByRefTest() {
     /*This test shows that if you pass an instance of a reference type
-     to a method foo, then all changes to that instance in the method will change the instance.*/
+     to a method foo, then all changes to that instance in the method will change the instance.
+     This happens because we are passing the address in memory where the variable is stored.*/
     List<String> list = new ArrayList<>();
     foo.foo(0, list);
-    Assertions.assertTrue(list.size() > 0);
+    Assertions.assertEquals("d", list.get(0));
   }
 
   @Test
