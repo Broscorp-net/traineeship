@@ -17,7 +17,8 @@ Take one down, patch it around %m little bugs in the code.
 Где _m = n - 10 + random.nextInt(20)_
 Для следующего куплета обновляем _n = m_.
 Чтоб результаты вызова метода были повторяемы – инициализировать __random__ произведением параметров метода.
-4.	Покрыть весь код [тестами](https://github.com/Broscorp-net/traineeship/blob/master/tests.md).
+
+4.  Покрыть весь код [тестами](https://github.com/Broscorp-net/traineeship/blob/master/tests.md).
 
 ## Источники для выполнения задания:
 1.	https://www.vogella.com/tutorials/JUnit/article.html
