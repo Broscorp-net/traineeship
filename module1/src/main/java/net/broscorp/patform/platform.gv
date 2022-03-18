@@ -1,37 +1,14 @@
-digraph D {
-
-/*Java Virtual Machine, JVM — Виртуальная машина Java исполняет байт-код Java, созданный из исходного
-текста Java-программы компилятором Java. Может использоваться для выполнения программ, написанных на
-других языках программирования.
-
-Java Runtime Environment, JRE, (Среда времени выполнения Java) - минимально-необходимая реализация
-виртуальной машины для исполнения Java-приложений.
-
-Java Development Kit, JDK (Комплект разработки на Java) - среда для разработки программ на Java,
-включающая в себя JRE - среду для обеспечения запуска Java программ, которая в свою очередь
-содержит JVM - интерпретатор кода Java программ.
-
-Just In Time Compiler, JIT - запускается после того, как программа начала выполняться, на лету. Он
-имеет доступ к информации о времени выполнения и оптимизирует код для повышения производительности.
-
-Исходный Java код с помощью JDK и компилятора Java (javac) преобразуется в байт-код, далее байт-код
-выполняется в JVM. JVM является экземпляром JRE. В JVM байт-код интерпретируется в машинный код с
-помощью JIT и программа выполняется.*/
-
-    node [shape=record];
-
-    nd_1 [label="Java source code"];
-    nd_2 [label="Java byte code"];
-    nd_3 [label="JDK Java development kit"];
-    nd_4 [label="JRE - Java runtime environment"];
-    nd_5 [label="JVM - Java virtual machine"];
-    nd_6 [label="JIT compiler"];
-    nd_7 [label="Java compiler"];
-
-    nd_1 -> nd_3[color="black:invis:black"];
-    nd_3 -> nd_7[penwidth=5, arrowhead=none];
-    nd_3 -> nd_2[color="black:invis:black"];
-    nd_2 -> nd_5[color="black:invis:black"];
-    nd_5 -> nd_6[penwidth=5, arrowhead=none];
-    nd_5 -> nd_4[penwidth=5, arrowhead=none];
+digraph Platform {
+  subgraph cluster_jdk {
+    label = "Java Development Kit (JDK)";
+    subgraph cluster_jre {
+      label = "Java Runtime Environment (JRE)";
+      subgraph cluster_jvm {
+        label = "Java Virtual Machine (JVM)";
+        JIT_compiler;
+      }
+      Library;
+    }
+    Developer_tools;
+  }
 }
