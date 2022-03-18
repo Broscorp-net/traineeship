@@ -16,6 +16,7 @@ class BoxingTest {
   public void wrappersEquityMustBeFalse() {
     Double someDoubleOne = 5.0;
     Double someDoubleTwo = 5.0;
+
     Assertions.assertFalse(someDoubleOne == someDoubleTwo);
   }
 
