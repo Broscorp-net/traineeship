@@ -28,9 +28,9 @@ class FooTest {
   }
 
   @Test
-  void fooCheckListSize() {
+  void fooCheckListIsEmpty() {
     foo.foo(i, s);
-    Assertions.assertTrue(s.size() > 0);
+    Assertions.assertFalse(s.isEmpty());
   }
 
   @Test
