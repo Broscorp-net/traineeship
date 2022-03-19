@@ -3,8 +3,6 @@
 // (powered by FernFlower decompiler)
 //
 
-package net.broscorp.bytecode;
-
 public class Bytecode {
   public Bytecode() {
   }
