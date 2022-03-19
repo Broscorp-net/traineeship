@@ -65,7 +65,7 @@ public class Computer {
 
   @Override
   public int hashCode() {
-    return serialNumber.hashCode() + cpu.hashCode() + graphics.hashCode();
+    return serialNumber.hashCode() + cpu.hashCode() + graphics.hashCode() + ram + storage;
   }
 
   @Override
