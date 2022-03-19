@@ -1,13 +1,11 @@
 package net.broscorp.generics;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.Random;
 import java.util.function.Function;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class MyCoolListTest {
 
@@ -23,7 +21,7 @@ class MyCoolListTest {
     for (int i = 0; i < 15; i++) {
       myCoolList.add(new Random().nextInt(10 - 1) + 1);
     }
-    assertEquals(15, myCoolList.size());
+    Assertions.assertEquals(15, myCoolList.size());
   }
 
   @Test
@@ -48,9 +46,9 @@ class MyCoolListTest {
     }
 
     for (int i = 0; i < myCoolList.size(); i++) {
-        if(i == 7) {
-           myCoolList.remove(i);
-        }
+      if (i == 7) {
+        myCoolList.remove(i);
+      }
     }
 
     Assertions.assertEquals(14, myCoolList.size());

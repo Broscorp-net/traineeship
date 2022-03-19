@@ -1,8 +1,11 @@
 package net.broscorp.generics;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class MyCoolList<T extends Number> {
 
@@ -10,6 +13,10 @@ public class MyCoolList<T extends Number> {
   private Object[] array = new Object[size];
   private int counter = 0;
 
+  /**
+   * Adds elem to the list.
+   * @param o - object to add.
+   */
   public void add(T o) {
     if (o == null) {
       throw new NullPointerException();
@@ -24,6 +31,11 @@ public class MyCoolList<T extends Number> {
     ++counter;
   }
 
+  /**
+   * Gets element by index.
+   * @param index - index of the list.
+   * @return - element by index.
+   */
   public T get(int index) {
     if (index < size - 1) {
       return (T) this.array[index];
@@ -34,6 +46,11 @@ public class MyCoolList<T extends Number> {
     }
   }
 
+  /**
+   * Removes elem by index.
+   * @param index - index of the list.
+   * @return removed element;
+   */
   public T remove(int index) {
     Object temp = this.array[index];
 
@@ -52,6 +69,12 @@ public class MyCoolList<T extends Number> {
     return (T) temp;
   }
 
+  /**
+   * Converts elems of the list according to lambda.
+   * @param f - lambda.
+   * @param <R> - class type to be converted.
+   * @return new list with changed elems.
+   */
   public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
     MyCoolList<R> myCoolList = new MyCoolList<>();
 
