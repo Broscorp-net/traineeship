@@ -11,7 +11,7 @@ public class FooTest {
   Foo foo = new Foo();
 
   @Test
-  public void passParametersByValueThatIsTheReasonTheyDoNotChangeAfterTheActionDoingOnThem() {
+  public void passParametersByValueThatIsTheReasonTheyDoNotChangeAfterTheActionDoingOnIt() {
     int i = 0;
     List<String> s = new ArrayList<>();
 
