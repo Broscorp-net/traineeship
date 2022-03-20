@@ -69,27 +69,20 @@ class AuthorTest {
   }
 
   @Test
-  void testMatchingHashCode() {
+  void testCollision() {
+    StringBuilder message = new StringBuilder();
     for (int j = 0; j < list.size(); j++) {
       for (int i = j + 1; i < list.size(); i++) {
         if (list.get(j) != list.get(i)
             && list.get(j).hashCode() == list.get(i).hashCode()) {
           Assertions.assertNotEquals(list.get(j), list.get(i));
           assertEquals(list.get(j).hashCode(), list.get(i).hashCode());
-          System.out.println("Вот объект " + list.get(j)
-              + " , вот объект " + list.get(i) + " , они разные, но их хеш сопадает");
-        } else if (list.get(j) != list.get(i)
-            && list.get(j).hashCode() != list.get(i).hashCode()) {
-          Assertions.assertNotEquals(list.get(j), list.get(i));
-          Assertions.assertNotEquals(list.get(j).hashCode(), list.get(i).hashCode());
-          System.out.println("Вот объект " + list.get(j)
-              + " , вот объект " + list.get(i) + " , они разные, и их хеш разный");
-        } else if (list.get(j) == list.get(i)
-            && list.get(j).hashCode() == list.get(i).hashCode()) {
-          assertEquals(list.get(j), list.get(i));
-          assertEquals(list.get(j).hashCode(), list.get(i).hashCode());
-          System.out.println("Вот объект " + list.get(j)
-              + " , вот объект " + list.get(i) + " , они равны, и их хеш одинаковый");
+          message.append("Вот объект ")
+              .append(list.get(j))
+              .append(" , вот объект ")
+              .append(list.get(i))
+              .append(" , они разные, но их хеш сопадает");
+          System.out.println(message);
         }
       }
     }
