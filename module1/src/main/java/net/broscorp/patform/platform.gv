@@ -1,0 +1,41 @@
+digraph diagram{
+
+  rankdir=LR;
+  "JDK" -> "JRE" [color = "green"];
+  "JRE" -> "JVM" [color = "green"];
+  "JVM" -> "JIT" [color = "green"];
+
+  subgraph cluster_jdk {
+      node [style=filled];
+      node [shape = box];
+		  "JDK" -> "The Java Development Kit is the source component of the Java environment and \n" +
+		  "includes the Java runtime environment (JRE), interpreter/loader, compiler (javac), \n" +
+		  "archiver (jar), documentation generator (Javadoc)." [color="blue"];
+	}
+
+	subgraph cluster_jre {
+	    node [style=filled];
+      node [shape = box];
+      "JRE" -> "Java Runtime Environment is a software package that provides Java class\n" +
+      "libraries, binaries, and the Java Virtual Machine (JVM) required to run Java " +
+      "applications.\n JRE does not contain development tools (Java compiler, debugger)."
+      [color="blue"];
+  }
+
+  subgraph cluster_jvm {
+      node [style=filled];
+      node [shape = box];
+      "JVM" -> "Java virtual machine is responsible for converting bytecode to machine code.\n" +
+      "JVM provides basic functions such as interpreter, Java memory management, \n" +
+      "Garbage collector, Classloader. The JVM is a virtual machine because it \n " +
+      "provides an interface that is independent of the operating system and hardware."
+      [color="blue"];
+  }
+
+   subgraph cluster_jit {
+      node [style=filled];
+      node [shape = box];
+      "JIT" -> "Just-in-time Compiler is part of the JVM. It optimizes the bytecode by\n" +
+       "reducing the overall time it takes to compile the bytecode to machine code." [color="blue"];
+   }
+}
