@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class FooTest {
 
+  // Если мы отправляем null список в аргумент метода foo, возникает NullPointerException
   @Test
   void shouldReturnNullPointerException() {
     Foo foo = new Foo();
@@ -19,22 +20,18 @@ class FooTest {
     });
   }
 
+  // Если мы добавим 1 к MAX_VALUE, то получим MIN_VALUE.
+  // Если мы вычтем 1 из MIN_VALUE, то получим MAX_VALUE.
+  // Возникает круг типа int.
+  // Такое поведение называется целочисленным переносом.
   @Test
   void intTypeOverflow() {
-    Long varLong = new Long(2147483647);
+    long varLong = 2147483647;
     int intPr = 2147483647;
     Foo foo = new Foo();
     varLong = varLong + 15;
     intPr = intPr + 15;
     foo.foo(2147483647, new ArrayList<>());
     assertNotEquals(varLong, intPr);
-  }
-
-  @Test
-  void shouldReturnListNullPointerException() {
-    List<String> stringList = null;
-    assertThrows(NullPointerException.class, () -> {
-      stringList.add("d");
-    });
   }
 }
