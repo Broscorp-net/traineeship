@@ -59,9 +59,9 @@ public class EqualsHashCode {
   public int hashCode() {
     int hash = 17;
 
-    hash = 31 * hash + getAnInt();
-    hash = 31 * hash + getString().hashCode();
-    hash = 31 * hash + getInteger().hashCode();
+    hash = 31 * hash + anInt;
+    hash = 31 * hash + string.hashCode();
+    hash = 31 * hash + integer.hashCode();
 
     return hash;
   }

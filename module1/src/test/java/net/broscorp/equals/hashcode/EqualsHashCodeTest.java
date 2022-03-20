@@ -22,26 +22,51 @@ class EqualsHashCodeTest {
   }
 
   @Test
-  public void equalsAndHashCodeCheck() {
+  public void reflexivityTest() {
     Assertions.assertEquals(eh1, eh1); // reflexivity
-    Assertions.assertEquals(eh1, eh2); // symmetric
-    Assertions.assertTrue(eh1.equals(eh2) && eh1.equals(eh3) && eh2.equals(eh3)); // transitivity
+  }
 
+  @Test
+  public void symmetricTest() {
+    Assertions.assertEquals(eh1, eh2); // symmetric
+  }
+
+  @Test
+  public void transitivityTest() {
+    Assertions.assertTrue(eh1.equals(eh2) && eh1.equals(eh3) && eh2.equals(eh3)); // transitivity
+  }
+
+  @Test
+  public void consistentTest() {
     for (int i = 0; i < 5; i++) {
       Assertions.assertEquals(eh1, eh2); // consistent
     }
+  }
 
+  @Test
+  public void falseForNullTest() {
     Assertions.assertNotEquals(eh1, null); // false for null
+  }
 
+  @Test
+  public void sameHashCodeProductionTest() {
     int ehOneHash = eh1.hashCode();
 
     for (int i = 0; i < 5; i++) {
       Assertions.assertEquals(ehOneHash, eh1.hashCode()); // same hashcode production
     }
+  }
 
+  @Test
+  public void equalsHashCodeContractShouldAssertTrue() {
     Assertions.assertTrue(
-        eh1.equals(eh2) && eh1.hashCode() == eh2.hashCode()); // equals and hashcode contract
-    Assertions.assertFalse(eh1.equals(eh4) && eh1.hashCode() == eh4.hashCode());
+        eh1.equals(eh2) && eh1.hashCode() == eh2.hashCode());
+  }
+
+  @Test
+  public void equalsAndHashCodeContractShouldAssertFalse() {
+    Assertions.assertFalse(eh1.equals(eh4)
+            && eh1.hashCode() == eh4.hashCode());
   }
 
   @Test
