@@ -1,6 +1,11 @@
 package net.broscorp.generics;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> {
@@ -11,6 +16,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Adds elem to the list.
+   *
    * @param o - object to add.
    */
   public void add(T o) {
@@ -29,6 +35,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Gets element by index.
+   *
    * @param index - index of the list.
    * @return - element by index.
    */
@@ -44,6 +51,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Removes elem by index.
+   *
    * @param index - index of the list.
    * @return removed element;
    */
@@ -67,6 +75,7 @@ public class MyCoolList<T extends Number> {
 
   /**
    * Converts elems of the list according to lambda.
+   *
    * @param f - lambda.
    * @param <R> - class type to be converted.
    * @return new list with changed elems.
@@ -92,5 +101,27 @@ public class MyCoolList<T extends Number> {
     return (int) Arrays.stream(this.array).filter(Objects::nonNull).count();
   }
 
+  public Iterator<T> iterator() {
+    return new MyCoolIterator().iterator();
+  }
 
+  private class MyCoolIterator implements Iterable<T> {
+
+    @Override
+    public Iterator<T> iterator() {
+      return new Iterator<T>() {
+        int counter = 0;
+
+        @Override
+        public boolean hasNext() {
+          return counter < size();
+        }
+
+        @Override
+        public T next() {
+          return get(counter++);
+        }
+      };
+    }
+  }
 }
