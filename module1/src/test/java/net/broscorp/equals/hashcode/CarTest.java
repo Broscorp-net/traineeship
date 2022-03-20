@@ -11,20 +11,12 @@ public class CarTest {
   private Car car1;
   private Car car2;
   private Car car3;
-  private Car car4;
-  private List<Car> carList;
 
   @BeforeEach
   void init() {
     car1 = new Car("BMW", "M5", 4);
     car2 = new Car("BMW", "M5", 4);
     car3 = new Car("Audi", "A7", 7);
-    car4 = new Car("A7", "Audi", 7);
-    carList = new ArrayList<>();
-    carList.add(car1);
-    carList.add(car2);
-    carList.add(car3);
-    carList.add(car4);
   }
 
   @Test
@@ -38,35 +30,34 @@ public class CarTest {
   }
 
   @Test
-  void carEqualsFalseTest() {
+  void carEqualsFalseTest1() {
     Assertions.assertNotEquals(car1, car3);
-    Assertions.assertNotEquals(car1, car4);
+  }
+
+  @Test
+  void carEqualsFalseTest2() {
     Assertions.assertNotEquals(car2, car3);
-    Assertions.assertNotEquals(car2, car4);
-    Assertions.assertNotEquals(car3, car4);
   }
 
   @Test
-  void carHashCodeFalseTest() {
+  void carHashCodeFalseTest1() {
     Assertions.assertNotEquals(car1.hashCode(), car3.hashCode());
-    Assertions.assertNotEquals(car1.hashCode(), car4.hashCode());
-    Assertions.assertNotEquals(car2.hashCode(), car3.hashCode());
-    Assertions.assertNotEquals(car2.hashCode(), car4.hashCode());
   }
 
   @Test
-  void findSameHashCode() {
-    for (int i = 0; i < carList.size() - 1; i++) {
-      if (carList.get(i).hashCode() == carList.get(i + 1).hashCode()) {
-        System.out.println(carList.get(i).toString() + " Xеш = " + carList.get(i).hashCode() + " | "
-            + carList.get(i + 1).toString() + " Xеш = " + carList.get(i + 1).hashCode());
-        Assertions.assertEquals(carList.get(i).hashCode(), carList.get(i + 1).hashCode());
-      }
-    }
+  void carHashCodeFalseTest2() {
+    Assertions.assertNotEquals(car2.hashCode(), car3.hashCode());
   }
 
   @Test
   void findSameHashCodeAndNotSameEquals() {
+    List<Car> carList = new ArrayList<>();
+    for (int i = 1; i < 15; i++) {
+      carList.add(new Car("Tesla", "Model S", 1 + (int) (Math.random() * i)));
+      carList.add(new Car("Tesla", "Model S", 1 + (int) (Math.random() * i)));
+      carList.add(new Car("Porsche", "Taycan", 1 + (int) (Math.random() * i)));
+      carList.add(new Car("Taycan", "Porsche", 1 + (int) (Math.random() * i)));
+    }
     for (int i = 0; i < carList.size() - 1; i++) {
       if (!carList.get(i).equals(carList.get(i + 1))
           && carList.get(i).hashCode() == carList.get(i + 1).hashCode()) {
@@ -77,6 +68,7 @@ public class CarTest {
                 + " вот его хеш " + carList.get(i + 1).hashCode()
                 + "\nОбъекты разные, но их хеш совпадает"
         );
+        System.out.println();
         Assertions.assertEquals(carList.get(i).hashCode(), carList.get(i + 1).hashCode());
         Assertions.assertNotEquals(carList.get(i), carList.get(i + 1));
       }

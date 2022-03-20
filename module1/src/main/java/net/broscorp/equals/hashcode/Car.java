@@ -38,7 +38,11 @@ public class Car {
 
   @Override
   public int hashCode() {
-    return brand.hashCode() + model.hashCode() + age * 31;
+    int resultHash = 1;
+    resultHash += brand == null ? 0 : brand.hashCode();
+    resultHash += model == null ? 0 : model.hashCode();
+    resultHash += age * 31;
+    return resultHash;
   }
 
   @Override
