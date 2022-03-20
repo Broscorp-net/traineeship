@@ -48,7 +48,6 @@ public class GameOfLife {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
 
   private  List<String> cellAutomat(List<String> inputList) {
