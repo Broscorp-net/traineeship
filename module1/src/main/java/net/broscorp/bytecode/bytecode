@@ -1,0 +1,27 @@
+Compiled from "Bytecode.java"
+public class Bytecode {
+  public Bytecode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_1
+       1: istore_1
+       2: iload_1
+       3: iconst_4
+       4: if_icmpge     16
+       7: invokestatic  #7                  // Method printHello:()V
+      10: iinc          1, 1
+      13: goto          2
+      16: return
+
+  static void printHello();
+    Code:
+       0: getstatic     #12                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #18                 // String Hello World!
+       5: invokevirtual #20                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
