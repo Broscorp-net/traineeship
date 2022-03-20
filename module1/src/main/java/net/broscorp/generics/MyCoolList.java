@@ -1,10 +1,6 @@
 package net.broscorp.generics;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> {
@@ -95,4 +91,6 @@ public class MyCoolList<T extends Number> {
   public int size() {
     return (int) Arrays.stream(this.array).filter(Objects::nonNull).count();
   }
+
+
 }
