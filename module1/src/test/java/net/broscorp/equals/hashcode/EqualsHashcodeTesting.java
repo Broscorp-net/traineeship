@@ -8,17 +8,21 @@ import org.junit.jupiter.api.Test;
 class EqualsHashcodeTesting {
 
   @Test
-  public void testInvariant() {
+  public void testInvariantEquals() {
     Rectangle rec1 = new Rectangle(2, 5);
     Rectangle rec2 = new Rectangle(2, 5);
-    Rectangle rec3 = new Rectangle(2, 6);
 
     Assertions.assertEquals(rec1, rec2);
-    Assertions.assertNotEquals(rec1, rec3);
-    Assertions.assertNotEquals(rec2, rec3);
     Assertions.assertEquals(rec1.hashCode(), rec2.hashCode());
-    Assertions.assertNotEquals(rec1.hashCode(), rec3.hashCode());
-    Assertions.assertNotEquals(rec2.hashCode(), rec3.hashCode());
+  }
+
+  @Test
+  public void testInvariantUnequals() {
+    Rectangle rec1 = new Rectangle(2, 5);
+    Rectangle rec2 = new Rectangle(2, 6);
+
+    Assertions.assertNotEquals(rec1, rec2);
+    Assertions.assertNotEquals(rec1.hashCode(), rec2.hashCode());
   }
 
   @Test
