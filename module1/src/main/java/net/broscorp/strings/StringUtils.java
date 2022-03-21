@@ -15,14 +15,19 @@ public class StringUtils {
     return Pattern.compile("world", Pattern.CASE_INSENSITIVE).matcher(string).replaceAll("").trim();
   }
 
-  public static String lLetterRemover(String string) {
+  public static String letterRemover(String string) {
     return Pattern.compile("l", Pattern.CASE_INSENSITIVE).matcher(string).replaceAll("");
   }
 
-  public static String oLetterReplacer(String string) {
+  public static String letterReplacer(String string) {
     return Pattern.compile("o", Pattern.CASE_INSENSITIVE).matcher(string).replaceAll("q");
   }
 
+  /**
+   * Method that counts words in string, and counts length of each word.
+   * @param string - string to parse.
+   * @return - instance which contains words count and words lengths.
+   */
   public static WordsAndLettersCount countWordsAndLettersOfEachWord(String string) {
     WordsAndLettersCount wordsAndLettersCount = new WordsAndLettersCount(string);
 
@@ -35,6 +40,12 @@ public class StringUtils {
     return wordsAndLettersCount;
   }
 
+  /**
+   * Fun method to build song.
+   * @param bugsCount - count of bugs.
+   * @param versesCount - count of verses.
+   * @return - created song.
+   */
   public static String song(int bugsCount, int versesCount) {
     long seed = (long) bugsCount * versesCount;
     Random random = new Random(seed);

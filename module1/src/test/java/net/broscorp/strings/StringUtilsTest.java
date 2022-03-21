@@ -1,11 +1,9 @@
 package net.broscorp.strings;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 class StringUtilsTest {
 
@@ -37,13 +35,13 @@ class StringUtilsTest {
   }
 
   @Test
-  public void lRemoverTest() {
-    Assertions.assertEquals("heo word", StringUtils.lLetterRemover("hello world"));
+  public void removerTest() {
+    Assertions.assertEquals("heo word", StringUtils.letterRemover("hello world"));
   }
 
   @Test
-  public void oReplacerTest() {
-    Assertions.assertEquals("hellq wqrld", StringUtils.oLetterReplacer("hello world"));
+  public void replacerTest() {
+    Assertions.assertEquals("hellq wqrld", StringUtils.letterReplacer("hello world"));
   }
 
   @Test
