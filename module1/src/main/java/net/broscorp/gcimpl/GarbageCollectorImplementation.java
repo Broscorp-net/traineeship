@@ -32,50 +32,92 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     }
 
     for (ApplicationBean bean : beans) {
-      boolean parrentFounded = false;
+      boolean parrentFinded = false;
       if (!bean.getFieldValues().isEmpty()) {
         for (Frame frame : frames) {
           for (ApplicationBean parameter : frame.getParameters()) {
             if (bean.equals(parameter)) {
-              parrentFounded = true;
+              parrentFinded = true;
               break;
             }
           }
-          if (parrentFounded) {
+          if (parrentFinded) {
             break;
           }
         }
-        if (!parrentFounded) {
+        if (!parrentFinded) {
           garbage.add(bean);
           for (ApplicationBean value : bean.getFieldValues().values()) {
-            boolean childrenFounded = false;
+            boolean childrenFinded = false;
             for (Frame frame : frames) {
               for (ApplicationBean parameter : frame.getParameters()) {
                 for (ApplicationBean applicationBean : parameter.getFieldValues().values()) {
                   if (value.equals(applicationBean)) {
-                    childrenFounded = true;
-                    break;
-                  }
-                  if (childrenFounded) {
+                    childrenFinded = true;
                     break;
                   }
                 }
-                if (childrenFounded) {
+                if (childrenFinded) {
                   break;
                 }
               }
-              if (childrenFounded) {
+              if (childrenFinded) {
                 break;
               }
             }
-            if (!childrenFounded) {
+            if (!childrenFinded) {
               garbage.add(value);
             }
           }
         }
       }
     }
+//    garbage.addAll(findGarbageFrames(beans, frames));
     System.out.println("garbage = " + garbage);
     return garbage.stream().distinct().collect(Collectors.toList());
   }
+
+//  private List<ApplicationBean> findGarbageFrames(Collection<ApplicationBean> beans, Deque<StackInfo.Frame> frames) {
+//    List<ApplicationBean> garbage = new ArrayList<>();
+//    for (ApplicationBean bean : beans) {
+//      a:
+//      {
+//        if (!bean.getFieldValues().isEmpty()) {
+//          for (Frame frame : frames) {
+//            for (ApplicationBean parameter : frame.getParameters()) {
+//              if (bean.equals(parameter)) {
+//                break a;
+//              }
+//            }
+//          }
+//          garbage.add(bean);
+//        }
+//      }
+//    }
+//    findGarbageBeans(beans, frames, garbage);
+//    return garbage;
+//  }
+//
+//  private List<ApplicationBean> findGarbageBeans(Collection<ApplicationBean> beans, Deque<StackInfo.Frame> frames, List<ApplicationBean> framesGarbage) {
+//    List<ApplicationBean> garbage = new ArrayList<>(beans);
+//
+//    for (ApplicationBean bean : beans) {
+//      for (ApplicationBean value : bean.getFieldValues().values()) {
+//        a:
+//        {
+//          for (Frame frame : frames) {
+//            for (ApplicationBean parameter : frame.getParameters()) {
+//              for (ApplicationBean applicationBean : parameter.getFieldValues().values()) {
+//                if (value.equals(applicationBean)) {
+//                  break a;
+//                }
+//              }
+//            }
+//          }
+//          garbage.add(value);
+//        }
+//      }
+//    }
+//    return garbage;
+//  }
 }
