@@ -32,12 +32,12 @@ class RealizationAddsTest {
 
   //Здесь возникает ошибка "reference to operation is ambiguous".
   //Программа не понимает какую перегрузку метода нужно вызвать.
-/*
+  /*
   @Test
   void addsPrimitiveAndWrapper() {
     Integer a = new Integer(2);
     int b = 8;
     Assertions.assertEquals(10, operation.operation(a, b));
   }
-*/
+  */
 }
