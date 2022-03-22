@@ -1,17 +1,29 @@
 package net.broscorp.gcimpl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class GarbageCollectorImplementation implements GarbageCollector {
 
   @Override
   public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
-    Collection<ApplicationBean> beans = heap.getBeans().values();
     Deque<StackInfo.Frame> frames = stack.getStack();
-    return Collections.emptyList();
+    List<ApplicationBean> aliveBeans = new ArrayList<>();
+    while (frames.peekFirst() != null) {
+      aliveBeans.addAll(frames.pop().getParameters());
+    }
+    List<ApplicationBean> aliveBeansWithCildren = new ArrayList<>();
+    aliveBeansWithCildren.addAll(aliveBeans);
+    aliveBeans.forEach(a -> aliveBeansWithCildren.addAll(a.getFieldValues().values()));
+    Collection<ApplicationBean> beans = heap.getBeans().values();
+    beans.removeAll(aliveBeansWithCildren);
+    return  beans.stream().collect(Collectors.toList());
   }
 }
