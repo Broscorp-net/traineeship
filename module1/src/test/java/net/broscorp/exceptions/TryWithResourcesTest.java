@@ -27,4 +27,18 @@ public class TryWithResourcesTest {
       System.out.println("This block runs anyway");
     }
   }
+
+  /**
+   * Comment on the practice. Basically, catching Exception is not a great idea. In my humble
+   * opinion this practice is reserved for custom exceptions. But this code at least shows that you
+   * can catch the parent class when you catch the inherited class.
+   */
+  @Test
+  public void testCatchParent() {
+    try (BufferedReader reader = new BufferedReader(new FileReader("fileName"));) {
+      System.out.println("Something went wrong");
+    } catch (Exception e) {
+      System.out.println("This is basic Exception");
+    }
+  }
 }
