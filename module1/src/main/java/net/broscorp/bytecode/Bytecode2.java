@@ -4,7 +4,6 @@ public class Bytecode2 {
 
   /**
    * Bytecode2 is the class needed to convert to bytecode.
-   *
    */
 
   public static void main(String[] args) {
