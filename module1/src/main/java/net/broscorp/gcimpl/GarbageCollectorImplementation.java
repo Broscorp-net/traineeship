@@ -1,46 +1,46 @@
 package net.broscorp.gcimpl;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GarbageCollectorImplementation implements GarbageCollector {
+  List<ApplicationBean> candidatesForRemoval;
 
+  /**
+   * The principle of operation:
+   * 1. Creating a list of candidates to remove from the heap
+   * 2. I go through the chain of links in StackInfo.
+   * 3. Now I'm checking for a link in the list of candidates for removal.
+   * 4. If it is present, then the object is reachable and it is removed from
+   * the list of candidates for removal.
+   */
   @Override
   public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
     Collection<ApplicationBean> beans = heap.getBeans().values();
     Deque<StackInfo.Frame> frames = stack.getStack();
-    List<ApplicationBean> result = new ArrayList<>();
+    candidatesForRemoval = new LinkedList<>(beans);
 
-    for (ApplicationBean bean : beans) {
-      if (!isReachable(frames, bean)) {
-        result.add(bean);
-      }
-    }
-    return result;
-  }
-
-  private boolean isReachable(Deque<StackInfo.Frame> frames, ApplicationBean bean) {
     for (StackInfo.Frame frame : frames) {
-      List<ApplicationBean> rootBeans = frame.getParameters();
-      if (isReachableUtil(rootBeans, bean)) {
-        return true;
+      for (ApplicationBean beanFromFrame : frame.getParameters()) {
+        isReachable(beanFromFrame);
       }
     }
-    return false;
+
+    return candidatesForRemoval;
   }
 
-  private boolean isReachableUtil(Collection<ApplicationBean> rootBeans, ApplicationBean bean) {
-    if (rootBeans.contains(bean)) {
-      return true;
+  private void isReachable(ApplicationBean bean) {
+    while (candidatesForRemoval.remove(bean)) {
+      // Here is an empty loop body to remove duplicate objects from the delete list.
     }
-    for (ApplicationBean beanFromFrame : rootBeans) {
-      Collection<ApplicationBean> childBeans = beanFromFrame.getFieldValues().values();
-      if (isReachableUtil(childBeans, bean)) {
-        return true;
+    for (ApplicationBean childBean : bean.getFieldValues().values()) {
+      if (candidatesForRemoval.size() == 0) {
+        break;
       }
+      isReachable(childBean);
     }
-    return false;
   }
+
 }
