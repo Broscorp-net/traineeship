@@ -190,7 +190,9 @@ class GarbageCollectorImplementationTest {
     final ApplicationBean restControllerBean = new ApplicationBean();
     restControllerBean.addRelation("path", new ApplicationBean());
     restControllerBean.addRelation("requestValidator", new ApplicationBean());
-    restControllerBean.addRelation("applicationService", new ApplicationBean());
+    ApplicationBean service = new ApplicationBean();
+    service.addRelation("repository", new ApplicationBean());
+    restControllerBean.addRelation("applicationService", service);
 
     return restControllerBean;
   }
