@@ -26,7 +26,7 @@ class GarbageCollectorImplementationTest {
     heap.putAll(getMemoryFootprint("controller", restControllerBean));
     heap.putAll(getMemoryFootprint("request", requestBean));
     List<ApplicationBean> expectedGarbage = new ArrayList<>(getChildren(requestBean));
-    System.out.println("expectedGarbage = " + expectedGarbage);
+
     final HeapInfo heapInfo = new HeapInfo(heap);
     StackInfo stack = new StackInfo();
     stack.push("main");
