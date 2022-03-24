@@ -14,6 +14,8 @@ public class MyCoolListTest {
 
   private static MyCoolList<Integer> name = new MyCoolList();
 
+  /** Initilizing MyCoolList.
+   */
   @BeforeAll
   public static void initialize() {
     for (int i = 0; i < 10; i++) {
