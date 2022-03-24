@@ -77,4 +77,5 @@ public class MyCoolList<E extends Number> {
   public int size() {
     return size;
   }
+
 }
