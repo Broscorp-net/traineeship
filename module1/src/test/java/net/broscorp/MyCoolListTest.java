@@ -11,10 +11,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class MyCoolListTest {
+
   private static MyCoolList<Integer> name = new MyCoolList();
 
   @BeforeAll
-  public static void initialize(){
+  public static void initialize() {
     for (int i = 0; i < 10; i++) {
       name.add(i);
     }
@@ -58,7 +59,7 @@ public class MyCoolListTest {
 
   @Test
   public void getTest() {
-    assertEquals(9,name.get(9));
+    assertEquals(9, name.get(9));
     assertThrows(IndexOutOfBoundsException.class, () -> name.get(11));
   }
 
