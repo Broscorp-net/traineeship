@@ -8,25 +8,17 @@ public class MyCoolList<E extends Number> {
   private Object[] array;
   private int size = 0;
 
-  public MyCoolList() {
-    Object[] array = new Object[size];
-  }
-
-  public static void main(String[] args) {
-    MyCoolList<Integer> myCoolList = new MyCoolList<>();
-  }
-
   /**
    * Method that add elements into list.
    */
-  public <T extends E> void add(T t) {
+  public <T> void add(E e) {
     if (size == 0) {
       size++;
-      array = new Object[]{t};
+      array = new Object[]{e};
     } else {
       Object[] newArray = Arrays.copyOf(array, ++size);
       array = Arrays.copyOf(newArray, size);
-      array[size - 1] = t;
+      array[size - 1] = e;
     }
   }
 
@@ -36,9 +28,9 @@ public class MyCoolList<E extends Number> {
   public E get(int index) {
     try {
       return (E) array[index];
-    } catch (IndexOutOfBoundsException ex) {
-      ex.printStackTrace();
-      return null;
+    } catch (ArrayIndexOutOfBoundsException ex) {
+      throw new ArrayIndexOutOfBoundsException(
+          "Trying to get element " + index + " but last index is " + size());
     }
   }
 
@@ -47,24 +39,23 @@ public class MyCoolList<E extends Number> {
    */
   public E remove(int index) {
     E deletedObject = null;
-    try {
+    if (index < size()) {
       if (size != 0) {
         Object[] newArray = new Object[--size];
+        deletedObject = (E) array[index];
         if (index == 0) {
-          deletedObject = (E) array[0];
           System.arraycopy(array, 1, newArray, 0, size);
         } else if (index == size) {
-          deletedObject = (E) array[size];
           System.arraycopy(array, 0, newArray, 0, size);
         } else {
-          deletedObject = (E) array[index];
           System.arraycopy(array, 0, newArray, 0, index);
           System.arraycopy(array, index + 1, newArray, index, size - index);
         }
         array = Arrays.copyOf(newArray, size);
       }
-    } catch (ArrayIndexOutOfBoundsException ex) {
-      ex.printStackTrace();
+    } else {
+      throw new ArrayIndexOutOfBoundsException(
+          "Trying to remove element " + index + " but last index is " + size());
     }
     return deletedObject;
   }
