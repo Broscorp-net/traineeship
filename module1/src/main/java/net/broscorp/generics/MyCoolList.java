@@ -24,7 +24,9 @@ public class MyCoolList<T extends Number> {
    * Receives the object and its index inside array.
    */
   public void add(T object, int index) {
-    if (size + 1 == array.length) {
+    if (index > size || index < 0) {
+      throw new RuntimeException("Index out of bounds at MyCoolList.remove()");
+    } else if (index == size && index + 1 == array.length) {
       resizeList();
     }
     array[index] = object;
@@ -50,6 +52,11 @@ public class MyCoolList<T extends Number> {
    * Removes element and index and resizes the array. Returns the removed element as in ArrayList.
    */
   public T remove(int index) {
+
+    if (index > size || index < 0) {
+      throw new RuntimeException("Index out of bounds at MyCoolList.remove()");
+    }
+
     //This field is final mostly due to checkstyle (VariableDeclarationUsageDistance)
     //@SuppressWarnings is not allowed
     final T removedElement = array[index];
@@ -72,16 +79,11 @@ public class MyCoolList<T extends Number> {
     return newlist;
   }
 
-
-  public void set(T e, int i) {
-    array[i] = e;
-  }
-
   //Java 8 shenanigans
 
   /**
-   * apply R apply(T t) Applies this function to the given argument. Parameters: t - the function
-   * argument Returns: the function result
+   * Apply R(T t). Applies this function to the given argument. Parameters: t - the function
+   * argument. Returns: the function result
    */
   public MyCoolList<T> map(Function<T, T> f) {
     MyCoolList<T> list = this.copyList();
@@ -89,7 +91,7 @@ public class MyCoolList<T extends Number> {
       //I dislike this, but the only other solution I see is to set array[] to protected
       T element = list.get(i);
       element = f.apply(list.get(i));
-      list.set(element, i);
+      list.array[i] = element;
     }
     return list;
   }
