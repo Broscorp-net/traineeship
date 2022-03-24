@@ -16,17 +16,16 @@ public class GameOfLife {
   private char[][] nextGrid;
   // Parameters.
   private int rowSize;
-  private int columnSize;
+  private int colSize;
   private int numberOfIteration;
-
   // Rules param.
   private static final int MIN_NUMBER_OF_NEIGHBORS_FOR_ALIVE = 2;
   private static final int MAX_NUMBER_OF_NEIGHBORS_FOR_ALIVE = 3;
   private static final int NUM_NEIGHBORS_FOR_RESURRECTION = 3;
   // X -> alive cell.
   // O -> dead cell.
-  private static final char X = 'X';
-  private static final char O = 'O';
+  private static final char ALIVE = 'X';
+  private static final char DEAD = 'O';
   // Util constants.
   private static final String SPACE = " ";
   private static final String EMPTY = "";
@@ -35,36 +34,32 @@ public class GameOfLife {
 
   /**
    * Main method.
-   * @param fileNameInput -> file with configuration.
-   * @param fileNameOutput -> file result file.
+   * @param fileNameInput -> configuration file.
+   * @param fileNameOutput -> result file.
    */
-  public void game(String fileNameInput, String fileNameOutput) {
-    try {
-      readGameData(fileNameInput);
-      for (int i = 0; i < numberOfIteration; i++) {
-        doIteration();
-        startGrid = nextGrid;
-      }
-      writeResult(fileNameOutput);
-    } catch (IOException e) {
-      e.printStackTrace();
+  public void game(String fileNameInput, String fileNameOutput) throws IOException {
+    readGameData(fileNameInput);
+    for (int i = 0; i < numberOfIteration; i++) {
+      doIteration();
+      startGrid = nextGrid;
     }
+    writeResult(fileNameOutput);
   }
 
   private void parseParam(String param) {
     String[] conf = param.split(COMA);
     rowSize = Integer.parseInt(conf[0]);
-    columnSize = Integer.parseInt(conf[1]);
+    colSize = Integer.parseInt(conf[1]);
     numberOfIteration = Integer.parseInt(conf[2]);
   }
 
-  private void readGameData(String fileNameInput) throws IOException {
+  private void readGameData(String fileNameInput) {
     Stream<String> inputStreams = new BufferedReader(
         new InputStreamReader(
             Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(fileNameInput)))).lines();
     List<String> listLine = inputStreams.collect(Collectors.toList());
     parseParam(listLine.get(0));
-    startGrid = new char[rowSize][columnSize];
+    startGrid = new char[rowSize][colSize];
     int numberOfLine = 0;
     for (int i = 1; i < listLine.size(); i++) {
 
@@ -77,11 +72,11 @@ public class GameOfLife {
   private void writeResult(String fileNameOutput) throws IOException {
     StringBuilder builder = new StringBuilder();
     for (int i = 0; i < rowSize; i++) {
-      for (int j = 0; j < columnSize; j++) {
+      for (int j = 0; j < colSize; j++) {
         builder.append(nextGrid[i][j]);
 
         // Do not write the last character (" ").
-        if (j != columnSize - 1) {
+        if (j != colSize - 1) {
           builder.append(SPACE);
         }
       }
@@ -107,11 +102,13 @@ public class GameOfLife {
   private int findNumberOfNeighbors(int i, int j) {
     int numberOfNeighbors = 0;
     for (int rowDelta = -1; rowDelta <= 1; rowDelta++) {
-      int checkedRow = (i + rowDelta + rowSize) % rowSize;
+      int checkedRow = findCoorForCyclingField(i, rowDelta, rowSize);
+
       for (int colDelta = -1; colDelta <= 1; colDelta++) {
-        int checkedCol = (j + colDelta + columnSize) % columnSize;
+        int checkedCol = findCoorForCyclingField(j, colDelta, colSize);
+
         if (!(rowDelta == 0 && colDelta == 0)
-            && startGrid[checkedRow][checkedCol] == X) {
+            && startGrid[checkedRow][checkedCol] == ALIVE) {
           numberOfNeighbors++;
         }
       }
@@ -119,27 +116,32 @@ public class GameOfLife {
     return numberOfNeighbors;
   }
 
+  private int findCoorForCyclingField(int number, int delta, int size) {
+    return (number + delta + size) % size;
+  }
+
+  private char aliveOrDead(char c, int numberOfNeighbors) {
+    if (c == ALIVE) {
+      // If "true" then the cell dies.
+      if (numberOfNeighbors < MIN_NUMBER_OF_NEIGHBORS_FOR_ALIVE
+          || numberOfNeighbors > MAX_NUMBER_OF_NEIGHBORS_FOR_ALIVE) {
+        return DEAD;
+      }
+    } else {
+      // If "true" then the cell comes to life.
+      if (numberOfNeighbors == NUM_NEIGHBORS_FOR_RESURRECTION) {
+        return ALIVE;
+      }
+    }
+    return c;
+  }
+
   private void doIteration() {
-    nextGrid = new char[rowSize][columnSize];
+    nextGrid = new char[rowSize][colSize];
     for (int i = 0; i < rowSize; i++) {
-      for (int j = 0; j < columnSize; j++) {
-        char c = startGrid[i][j];
-        int numberOfNeighbors = findNumberOfNeighbors(i, j);
-        if (c == X) {
-          // If "true" then the cell dies.
-          if (numberOfNeighbors < MIN_NUMBER_OF_NEIGHBORS_FOR_ALIVE
-              || numberOfNeighbors > MAX_NUMBER_OF_NEIGHBORS_FOR_ALIVE) {
-            c = O;
-          }
-        } else {
-          // If "true" then th cell comes to life.
-          if (numberOfNeighbors == NUM_NEIGHBORS_FOR_RESURRECTION) {
-            c = X;
-          }
-        }
-        nextGrid[i][j] = c;
+      for (int j = 0; j < colSize; j++) {
+        nextGrid[i][j] = aliveOrDead(startGrid[i][j], findNumberOfNeighbors(i, j));
       }
     }
   }
-
 }

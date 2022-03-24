@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 class GameOfLifeTest {
@@ -24,36 +25,42 @@ class GameOfLifeTest {
     return gameListExpected.equals(gameListResult);
   }
 
+  @SneakyThrows
   @Test
   public void stableFigure() {
     game.game("inputStable1.txt", "outputStable1.txt");
     assertTrue(equalsFile("expectedStable1.txt", "outputStable1.txt"));
   }
 
+  @SneakyThrows
   @Test
   public void stableFigure2() {
     game.game("inputStable2.txt", "outputStable2.txt");
     assertTrue(equalsFile("expectedStable2.txt", "outputStable2.txt"));
   }
 
+  @SneakyThrows
   @Test
   public void oscillatorFigure() {
     game.game("inputOscillator.txt", "outputOscillator.txt");
     assertTrue(equalsFile("expectedOscillator.txt", "outputOscillator.txt"));
   }
 
+  @SneakyThrows
   @Test
   public void oscillatorFigure2() {
     game.game("inputOscillator2.txt", "outputOscillator2.txt");
     assertTrue(equalsFile("expectedOscillator2.txt", "outputOscillator2.txt"));
   }
 
+  @SneakyThrows
   @Test
   public void gliderFigureEasy() {
     game.game("inputGliderEasy.txt", "outputGliderEasy.txt");
     assertTrue(equalsFile("expectedGliderEasy.txt", "outputGliderEasy.txt"));
   }
 
+  @SneakyThrows
   @Test
   public void gliderFigure() {
     game.game("inputGlider.txt", "outputGlider.txt");
