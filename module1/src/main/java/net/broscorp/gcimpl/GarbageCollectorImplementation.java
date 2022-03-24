@@ -22,7 +22,7 @@ public class GarbageCollectorImplementation implements GarbageCollector {
       if (!bean.getFieldValues().isEmpty()) {
 
         for (Frame frame : frames) {
-          parentPresence = checkAppBeanParams(frame.getParameters(), bean);
+          parentPresence = containsAppBeanParams(frame.getParameters(), bean);
 
           if (parentPresence) {
             break;
@@ -35,7 +35,7 @@ public class GarbageCollectorImplementation implements GarbageCollector {
             for (Frame frame : frames) {
 
               for (ApplicationBean parameter : frame.getParameters()) {
-                childPresence = checkAppBeanParams(parameter.getFieldValues().values(), appBean);
+                childPresence = containsAppBeanParams(parameter.getFieldValues().values(), appBean);
 
                 if (childPresence) {
                   break;
@@ -57,7 +57,7 @@ public class GarbageCollectorImplementation implements GarbageCollector {
         .collect(Collectors.toCollection(ArrayList::new));
   }
 
-  private boolean checkAppBeanParams(Collection<ApplicationBean> frameParams,
+  private boolean containsAppBeanParams(Collection<ApplicationBean> frameParams,
       ApplicationBean bean) {
     for (ApplicationBean parameter : frameParams) {
 
