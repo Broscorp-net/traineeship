@@ -6,7 +6,7 @@ public class GameOfLife {
 
   public void game(String fileNameInput, String fileNameOutput) {
     try (BufferedReader reader = new BufferedReader(new FileReader(fileNameInput));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileNameOutput));) {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileNameOutput)); ) {
 
       int height = 0;
       int width = 0;
@@ -40,7 +40,70 @@ public class GameOfLife {
       while (counter < iterNum) {
         for (int i = 0; i < gameField.length; i++) {
           for (int j = 0; j < gameField[i].length; j++) {
+            int aliveNeighbours = 0;
 
+            if (isAlive(gameField[i][j])) {
+              if (i == 0 && j == 0) {
+                aliveNeighbours = isAlive(gameField[0][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][0])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[0][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][0])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+              } else if (i == gameField.length - 1 && j == 0) {
+                aliveNeighbours = isAlive(gameField[0][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 2][0])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 2][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField[i].length - 1][1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 2][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[0][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+              } else if (i == 0 && j == gameField[i].length - 1) {
+                aliveNeighbours = isAlive(gameField[0][0])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][0])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[0][gameField[i].length - 2])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][gameField[i].length - 2])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[1][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][gameField[i].length - 2])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][gameField[i].length - 1])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+                aliveNeighbours = isAlive(gameField[gameField.length - 1][0])
+                        ? aliveNeighbours + 1 : aliveNeighbours;
+              } else if (i == gameField.length - 1 && j == gameField[i].length - 1) {
+
+              }
+
+              if (aliveNeighbours != 2 && aliveNeighbours != 3) {
+                gameField[i][j] = swap(gameField[i][j]);
+              }
+            } else {
+
+            }
           }
         }
         counter++;
@@ -49,5 +112,19 @@ public class GameOfLife {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private String swap(String cellToSwap) {
+    if (!cellToSwap.equals("X") && !cellToSwap.equals("O")) {
+      throw new IllegalArgumentException();
+    }
+    return cellToSwap.equals("X") ? "O" : "X";
+  }
+
+  private boolean isAlive(String cell) {
+    if (!cell.equals("X") && !cell.equals("O")) {
+      throw new IllegalArgumentException();
+    }
+    return cell.equals("X");
   }
 }
