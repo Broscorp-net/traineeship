@@ -54,7 +54,7 @@ public class MyCoolList<T extends Number> {
       numbers = newList;
       return removed;
     }
-  throw new RuntimeException("Element with this index does not exist");
+    throw new RuntimeException("Element with this index does not exist");
   }
 
   /**
