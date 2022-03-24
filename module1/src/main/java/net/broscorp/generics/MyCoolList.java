@@ -81,12 +81,12 @@ public class MyCoolList<T extends Number> {
    * Apply R(T t). Applies this function to the given argument. Parameters: t - the function
    * argument. Returns: the function result
    */
-  public MyCoolList<T> map(Function<T, T> f) {
-    MyCoolList<T> list = this.copyList();
+  public <R extends Number> MyCoolList<R> map(Function<T, R> f) {
+    MyCoolList<R> list = this.copyList();
     for (int i = 0; i < size; i++) {
       //I dislike this, but the only other solution I see is to set array[] to protected
-      T element = list.get(i);
-      element = f.apply(list.get(i));
+      R element = list.get(i);
+      element = f.apply((T)list.get(i));
       list.array[i] = element;
     }
     return list;

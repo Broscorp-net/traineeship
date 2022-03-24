@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Optional;
 import net.broscorp.generics.MyCoolList;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +16,8 @@ public class MyCoolListTest {
 
   private static MyCoolList<Integer> name = new MyCoolList();
 
-  /** Initilizing MyCoolList.
+  /**
+   * Initilizing MyCoolList.
    */
   @BeforeAll
   public static void initialize() {
@@ -48,6 +51,15 @@ public class MyCoolListTest {
     name = name.map((Integer x) -> x + x);
     assertEquals(4, name.get(1));
 
+    //Map to Double test
+    //First list
+    MyCoolList<Integer> list = new MyCoolList<>();
+    list.add(3);
+    //Double list
+    MyCoolList<Double> newlist;
+    newlist = list.map((Integer e) -> Double.valueOf(e));
+    assertEquals(3.0, newlist.get(0));
+    assertTrue(newlist.get(0) instanceof Double);
   }
 
   @Test
