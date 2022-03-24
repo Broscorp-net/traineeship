@@ -61,48 +61,29 @@ public class GameOfLife {
   }
 
   private void isAlive(int j, int k) {
-    int count = 0;
-    int topLine;
-    int bottomLine;
-    int leftLine;
-    int rightLine;
+    int[] axisXCoords = {
+        j - 1 < 0 ? heightOfField - 1 : j - 1,
+        j,
+        j + 1 == heightOfField ? 0 : j + 1
+    };
 
-    if (k - 1 < 0) {
-      leftLine = widthOfField - 1;
-    } else {
-      leftLine = k - 1;
-    }
-    if (j - 1 < 0) {
-      topLine = heightOfField - 1;
-    } else {
-      topLine = j - 1;
-    }
-    if (k + 1 == widthOfField) {
-      rightLine = 0;
-    } else {
-      rightLine = k + 1;
-    }
-    if (j + 1 == heightOfField) {
-      bottomLine = 0;
-    } else {
-      bottomLine = j + 1;
-    }
+    int[] axisYCoords = {
+        k - 1 < 0 ? widthOfField - 1 : k - 1,
+        k,
+        k + 1 == widthOfField ? 0 : k + 1
+    };
 
-    int[] xCoords = {topLine, j, bottomLine};
-    int[] yCoords = {leftLine, k, rightLine};
-
-    count = isNeighboursAlive(xCoords, yCoords);
-    nextStepFields[j][k] = willBeAlive(j, k, count);
+    nextStepFields[j][k] = willBeAlive(j, k, isNeighboursAlive(axisXCoords, axisYCoords));
   }
 
-  private int isNeighboursAlive(int[] xCoords, int[] yCoords) {
+  private int isNeighboursAlive(int[] axisXCoords, int[] axisYCoords) {
     int count = 0;
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         if (i == 1 && j == 1) {
           continue;
         }
-        if (currentFields[xCoords[i]][yCoords[j]] == 'X') {
+        if (currentFields[axisXCoords[i]][axisYCoords[j]] == 'X') {
           ++count;
         }
       }
@@ -111,8 +92,8 @@ public class GameOfLife {
   }
 
   private char willBeAlive(int j, int k, int count) {
-    if ((currentFields[j][k] == 'O' && count == 3) ||
-        (currentFields[j][k] == 'X' && count > 1 && count < 4)) {
+    if ((currentFields[j][k] == 'O' && count == 3) || (currentFields[j][k] == 'X' && count > 1
+        && count < 4)) {
       return 'X';
     }
     return 'O';
