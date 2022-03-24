@@ -5,8 +5,10 @@ import java.io.*;
 public class GameOfLife {
 
   public void game(String fileNameInput, String fileNameOutput) {
-    try (BufferedReader reader = new BufferedReader(new FileReader(fileNameInput));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileNameOutput)); ) {
+    try (BufferedReader reader =
+            new BufferedReader(new FileReader("src/test/resources/" + fileNameInput));
+        PrintWriter writer =
+            new PrintWriter(new FileWriter("src/test/resources/" + fileNameOutput)); ) {
 
       int height = 0;
       int width = 0;
@@ -247,14 +249,26 @@ public class GameOfLife {
                   isAlive(gameField[i + 1][j + 1]) ? aliveNeighbours + 1 : aliveNeighbours;
             }
 
-            if ((isAlive(gameField[i][j])
-                    && aliveNeighbours != 2 && aliveNeighbours != 3)
-                    ||(!isAlive(gameField[i][j]) && aliveNeighbours == 3)) {
+            if ((isAlive(gameField[i][j]) && aliveNeighbours != 2 && aliveNeighbours != 3)
+                || (!isAlive(gameField[i][j]) && aliveNeighbours == 3)) {
               gameField[i][j] = swap(gameField[i][j]);
             }
           }
         }
         counter++;
+      }
+
+      for (int i = 0; i < gameField.length; i++) {
+        for (int j = 0; j < gameField[i].length; j++) {
+          if (j != gameField[i].length - 1) {
+            writer.print(gameField[i][j] + " ");
+          } else {
+            writer.print(gameField[i][j]);
+          }
+        }
+        if (i != gameField.length - 1) {
+          writer.println();
+        }
       }
     } catch (IOException e) {
       e.printStackTrace();
