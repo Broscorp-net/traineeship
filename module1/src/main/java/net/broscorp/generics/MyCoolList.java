@@ -2,7 +2,6 @@ package net.broscorp.generics;
 
 import java.util.Arrays;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class MyCoolList<T extends Number> {
   private T[] items;
@@ -20,11 +19,8 @@ public class MyCoolList<T extends Number> {
       items = (T[]) new Number[1];
       items[0] = item;
     } else {
-      Object[] itemsNew =  Stream.concat(Arrays.stream(items),Stream.of(item)).toArray();
-      items = (T[]) new Number[itemsNew.length];
-      for (int i = 0; i < items.length; i++) {
-        items[i] = (T) itemsNew[i];
-      }
+      items = Arrays.copyOf(items, items.length + 1);
+      items[items.length - 1] = item;
     }
   }
 
@@ -56,11 +52,10 @@ public class MyCoolList<T extends Number> {
    *  {@inheritDoc}
    *  */
   public <G extends Number> MyCoolList<G> map(Function<T,G> f) {
-    MyCoolList<G> myList = new MyCoolList<>();
-    for (T item : items) {
-      myList.add((G) f.apply(item));
+    for (int i = 0; i < items.length; i++) {
+      items[i] = (T) f.apply(items[i]);
     }
-    return myList;
+    return (MyCoolList<G>) MyCoolList.this;
   }
 
   public int size() {
