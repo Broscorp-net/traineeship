@@ -15,8 +15,10 @@ public class GameOfLife {
   int ysize;
   char[][] gameField;
 
-  /** Game runtime.
-   * @param fileNameInput accepts Input file name.
+  /**
+   * Game runtime.
+   *
+   * @param fileNameInput  accepts Input file name.
    * @param fileNameOutput accepts Output file name.
    */
   public void game(String fileNameInput, String fileNameOutput) {
@@ -29,7 +31,9 @@ public class GameOfLife {
     writeToFile(fileNameOutput);
   }
 
-  /** File reader.
+  /**
+   * File reader.
+   *
    * @param fileNameInput accepts file name.
    */
   public void readInput(String fileNameInput) {
@@ -54,12 +58,15 @@ public class GameOfLife {
       }
       reader.close();
     } catch (IOException e) {
-      System.out.println("IO Exception!");
+      System.out.println("Failed to open a file.");
       e.printStackTrace();
+      throw new RuntimeException("Failed to open a file.");
     }
   }
 
-  /** File writer.
+  /**
+   * File writer.
+   *
    * @param fileNameOutput accepts file name.
    */
   public void writeToFile(String fileNameOutput) {
@@ -80,10 +87,12 @@ public class GameOfLife {
     } catch (IOException e) {
       System.out.println("IOException during file writing!");
       e.printStackTrace();
+      throw new RuntimeException("Failed to write into a file.");
     }
   }
 
-  /** Method shows console output of the current state of matrix.
+  /**
+   * Method shows console output of the current state of matrix.
    */
   public void showField() {
     String output = "Test case:\n";
@@ -96,7 +105,9 @@ public class GameOfLife {
     System.out.println(output);
   }
 
-  /** Checks if cell is alive.
+  /**
+   * Checks if cell is alive.
+   *
    * @param y represents y coordinate.
    * @param x represents x coordinate.
    * @return true if cell is alive, false if it is dead.
@@ -110,7 +121,9 @@ public class GameOfLife {
     return survival;
   }
 
-  /** Counts living neighbours.
+  /**
+   * Counts living neighbours.
+   *
    * @param y for y coordinate.
    * @param x for x coordinate.
    * @return cellCounter amount of living neighbours.
@@ -118,26 +131,20 @@ public class GameOfLife {
   public int checkNeighbors(int y, int x) {
     int cellCounter = 0;
 
-    //Upper row
-    cellCounter += checkState(y - 1, x - 1) ? 1 : 0;
-    cellCounter += checkState(y - 1, x) ? 1 : 0;
-    cellCounter += checkState(y - 1, x + 1) ? 1 : 0;
-    //Middle row
-    cellCounter += checkState(y, x - 1) ? 1 : 0;
-    //cellCounter += checkState(y, x) ? 1 : 0;
-    cellCounter += checkState(y, x + 1) ? 1 : 0;
-    //Lower row
-    cellCounter += checkState(y + 1, x - 1) ? 1 : 0;
-    cellCounter += checkState(y + 1, x) ? 1 : 0;
-    cellCounter += checkState(y + 1, x + 1) ? 1 : 0;
-
+    for (int row = -1; row < 2; row++) {
+      for (int column = -1; column < 2; column++) {
+        cellCounter += checkState(y + row, x + column) ? 1 : 0;
+      }
+    }
     return cellCounter;
   }
 
-  /** Changes the cell state according the game rules.
+  /**
+   * Changes the cell state according the game rules.
+   *
    * @param newField is a new matrix.
-   * @param y is y coordinate.
-   * @param x is x coordinate.
+   * @param y        is y coordinate.
+   * @param x        is x coordinate.
    */
   public void changeState(char[][] newField, int y, int x) {
     int neighbors = checkNeighbors(y, x);
@@ -148,7 +155,8 @@ public class GameOfLife {
     }
   }
 
-  /** Runs one game iteration.
+  /**
+   * Runs one game iteration.
    */
   public void runLifeCycle() {
     char[][] newField = new char[ysize][xsize];
