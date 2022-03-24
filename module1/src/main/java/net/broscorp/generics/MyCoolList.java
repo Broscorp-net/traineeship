@@ -10,7 +10,6 @@ public class MyCoolList<T extends Number> {
 
   private T[] numbers;
   private int size;
-  private Function func;
 
   public MyCoolList() {
     this.numbers = (T[]) new Number[0];
@@ -24,7 +23,6 @@ public class MyCoolList<T extends Number> {
     size++;
     numbers = extendList();
     numbers[size - 1] = o;
-    System.gc();
   }
 
   /**
@@ -54,10 +52,9 @@ public class MyCoolList<T extends Number> {
       size = newSize;
       T removed = get(index);
       numbers = newList;
-      System.gc();
       return removed;
     }
-    return null;
+  throw new RuntimeException("Element with this index does not exist");
   }
 
   /**

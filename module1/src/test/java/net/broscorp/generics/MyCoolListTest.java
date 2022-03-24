@@ -1,6 +1,7 @@
 package net.broscorp.generics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,6 @@ class MyCoolListTest {
 
   @Test
   void add() {
-
     assertEquals(EL_1, list.get(0));
     assertEquals(EL_2, list.get(1));
     assertEquals(EL_3, list.get(2));
@@ -33,22 +33,18 @@ class MyCoolListTest {
 
   @Test
   void get() {
-
     assertEquals(EL_1, list.get(0));
     assertEquals(null, list.get(25));
     assertEquals(null, list.get(17));
-
   }
 
   @Test
   void remove() {
-
     list.remove(0);
     assertEquals(EL_2, list.get(0));
     assertEquals(EL_3, list.get(1));
     assertEquals(null, list.get(2));
     assertEquals(null, list.get(3));
-
   }
 
   @Test
@@ -57,6 +53,7 @@ class MyCoolListTest {
     assertEquals(EL_1, mapped.get(0));
     assertEquals(EL_2, mapped.get(1));
     assertEquals(EL_3, mapped.get(2));
+    assertTrue(mapped.hashCode() != list.hashCode());
   }
 
   @Test
