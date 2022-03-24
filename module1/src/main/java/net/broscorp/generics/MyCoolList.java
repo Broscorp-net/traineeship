@@ -12,10 +12,6 @@ public class MyCoolList<T extends Number> {
     array = (T[]) new Number[DEFAULT_CAPACITY];
   }
 
-  private MyCoolList(int capacity) {
-    array = (T[]) new Number[capacity];
-  }
-
   public void add(T object) {
     add(object, size);
   }
