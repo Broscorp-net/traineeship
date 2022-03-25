@@ -16,9 +16,7 @@ public class GarbageCollectorImplementation implements GarbageCollector {
   public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
     Deque<StackInfo.Frame> frames = stack.getStack();
     List<ApplicationBean> aliveBeans = new ArrayList<>();
-    while (frames.peekFirst() != null) {
-      aliveBeans.addAll(frames.pop().getParameters());
-    }
+    frames.stream().forEach(i -> aliveBeans.addAll(i.getParameters()));
     List<ApplicationBean> aliveBeansWithCildren = new ArrayList<>();
     aliveBeansWithCildren.addAll(aliveBeans);
     aliveBeans.forEach(a -> aliveBeansWithCildren.addAll(a.getFieldValues().values()));
