@@ -3,7 +3,7 @@ package net.broscorp.primitives;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigInteger;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class PrimitivesTest {
 
