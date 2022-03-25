@@ -1,11 +1,17 @@
 package net.broscorp.equals.hashcode;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
-public class User {
+public class User  {
   private long id;
   private String name;
+
+  public User(@NonNull long id, @NonNull String name) {
+    this.id = id;
+    this.name = name;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -27,7 +33,7 @@ public class User {
   @Override
   public int hashCode() {
     int result = (int) (id ^ (id >>> 32));
-    result = 31 * result + name.hashCode();
+    result = 31 * result + name.length();
     return result;
   }
 
