@@ -11,7 +11,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-
+@Disabled
 class GarbageCollectorImplementationTest {
 
   private final GarbageCollector gc = new GarbageCollectorImplementation();
@@ -27,6 +27,7 @@ class GarbageCollectorImplementationTest {
     heap.putAll(getMemoryFootprint("controller", restControllerBean));
     heap.putAll(getMemoryFootprint("request", requestBean));
     List<ApplicationBean> expectedGarbage = new ArrayList<>(getChildren(requestBean));
+
     final HeapInfo heapInfo = new HeapInfo(heap);
     StackInfo stack = new StackInfo();
     stack.push("main");
@@ -192,7 +193,9 @@ class GarbageCollectorImplementationTest {
     final ApplicationBean restControllerBean = new ApplicationBean();
     restControllerBean.addRelation("path", new ApplicationBean());
     restControllerBean.addRelation("requestValidator", new ApplicationBean());
-    restControllerBean.addRelation("applicationService", new ApplicationBean());
+    ApplicationBean service = new ApplicationBean();
+    service.addRelation("repository", new ApplicationBean());
+    restControllerBean.addRelation("applicationService", service);
 
     return restControllerBean;
   }
