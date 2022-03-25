@@ -12,7 +12,7 @@ public class PrimitivesTest {
     // Act
     value++;
     // Assert
-    Assertions.assertTrue(value < 0);
+    Assertions.assertEquals(-32768, value);
   }
 
   @Test
@@ -22,7 +22,7 @@ public class PrimitivesTest {
     // Act
     value++;
     // Assert
-    Assertions.assertTrue(value < 0);
+    Assertions.assertEquals(-128, value);
   }
 
   @Test
@@ -32,7 +32,7 @@ public class PrimitivesTest {
     // Act
     value++;
     // Assert
-    Assertions.assertTrue(value < 0);
+    Assertions.assertEquals(-2147483648, value);
   }
 
   @Test
@@ -42,7 +42,7 @@ public class PrimitivesTest {
     // Act
     value++;
     // Assert
-    Assertions.assertTrue(value < 0);
+    Assertions.assertEquals(-9223372036854775808L, value);
   }
 
   @Test
