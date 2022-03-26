@@ -1,9 +1,17 @@
 package net.broscorp.gamelife;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class GameOfLife {
-
+  /**
+   * Leaving this task for the better times.
+   * @param fileNameInput - input file.
+   * @param fileNameOutput - output file.
+   */
   public void game(String fileNameInput, String fileNameOutput) {
     try (BufferedReader reader =
             new BufferedReader(new FileReader("src/test/resources/" + fileNameInput));
@@ -12,7 +20,6 @@ public class GameOfLife {
 
       int height = 0;
       int width = 0;
-      int iterNum = 0;
 
       String[] splitter = reader.readLine().split(",");
       if (splitter.length != 3) {
@@ -21,6 +28,9 @@ public class GameOfLife {
 
       height = Integer.parseInt(splitter[0]);
       width = Integer.parseInt(splitter[1]);
+
+      int iterNum = 0;
+
       iterNum = Integer.parseInt(splitter[2]);
 
       String[][] gameField = new String[height][width];
@@ -42,9 +52,251 @@ public class GameOfLife {
       while (counter < iterNum) {
         for (int i = 0; i < gameField.length; i++) {
           for (int j = 0; j < gameField[i].length; j++) {
-            int aliveNeighbours = 0;
+            int aliveNeighboursAbove = 0;
+            int aliveNeighboursOnLine = 0;
+            int aliveNeighboursBelow = 0;
 
             if (i == 0 && j == 0) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField.length - 1][gameField[i].length - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField.length - 1][0])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField.length - 1][1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][gameField[i].length - 1])
+                      ? aliveNeighboursOnLine + 1
+                      : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j + 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][gameField[i].length - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+            } else if (i == gameField.length - 1 && j == 0) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j + 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][gameField[i].length - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][gameField[i].length - 1])
+                      ? aliveNeighboursOnLine + 1
+                      : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][0]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][1]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][gameField[i].length - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+            } else if (i == 0 && j == gameField[i].length - 1) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField.length - 1][0])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField.length - 1][j - 2])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField.length - 1][j - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][gameField[i].length - 1])
+                      ? aliveNeighboursOnLine + 1
+                      : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][0]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][gameField[i].length - 2])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][gameField[i].length - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+            } else if (i == gameField.length - 1 && j == gameField[i].length - 1) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][0]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j - 2])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j - 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][0]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][j - 2]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][j - 1]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+            } else if (i == 0 && j > 0 && j < gameField[i].length - 1) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField[i].length - 1][j - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField[i].length - 1][j])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[gameField[i].length - 1][j + 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j - 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j + 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j + 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+            } else if (i == gameField.length - 1 && j > 0 && j < gameField[i].length - 1) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j + 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j - 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j + 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][j - 1]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][j]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[0][j + 1]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+            } else if (j == 0 && i > 0 && i < gameField.length - 1) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j + 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][gameField[i].length - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j + 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][gameField[i].length - 1])
+                      ? aliveNeighboursOnLine + 1
+                      : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j + 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][gameField[i].length - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+            } else if (j == gameField[i].length - 1 && i > 0 && i < gameField.length - 1) {
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][0]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][0]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j - 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][0]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+            } else {
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j - 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j]) ? aliveNeighboursAbove + 1 : aliveNeighboursAbove;
+              aliveNeighboursAbove =
+                  isAlive(gameField[i - 1][j + 1])
+                      ? aliveNeighboursAbove + 1
+                      : aliveNeighboursAbove;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j - 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursOnLine =
+                  isAlive(gameField[i][j + 1]) ? aliveNeighboursOnLine + 1 : aliveNeighboursOnLine;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j - 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j]) ? aliveNeighboursBelow + 1 : aliveNeighboursBelow;
+              aliveNeighboursBelow =
+                  isAlive(gameField[i + 1][j + 1])
+                      ? aliveNeighboursBelow + 1
+                      : aliveNeighboursBelow;
+            }
+
+            int aliveNeighbours =
+                aliveNeighboursAbove + aliveNeighboursOnLine + aliveNeighboursBelow;
+
+            if (isAlive(gameField[i][j])) {
+              if (aliveNeighbours != 2 && aliveNeighbours != 3) {
+                gameField[i][j] = swap(gameField[i][j]);
+              }
+            } else {
+              if (aliveNeighbours == 3) {
+                gameField[i][j] = swap(gameField[i][j]);
+              }
+            }
+
+            /*if (i == 0 && j == 0) {
               aliveNeighbours = isAlive(gameField[0][1]) ? aliveNeighbours + 1 : aliveNeighbours;
               aliveNeighbours = isAlive(gameField[1][0]) ? aliveNeighbours + 1 : aliveNeighbours;
               aliveNeighbours = isAlive(gameField[1][1]) ? aliveNeighbours + 1 : aliveNeighbours;
@@ -252,7 +504,7 @@ public class GameOfLife {
             if ((isAlive(gameField[i][j]) && aliveNeighbours != 2 && aliveNeighbours != 3)
                 || (!isAlive(gameField[i][j]) && aliveNeighbours == 3)) {
               gameField[i][j] = swap(gameField[i][j]);
-            }
+            }*/
           }
         }
         counter++;

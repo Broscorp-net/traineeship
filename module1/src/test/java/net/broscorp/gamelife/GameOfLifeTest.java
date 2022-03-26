@@ -61,4 +61,9 @@ class GameOfLifeTest {
     game.game("inputGlider.txt", "outputGlider.txt");
     assertTrue(equalsFile("expectedGlider.txt", "outputGlider.txt"));
   }
+
+  @Test
+  public void someTest() {
+    game.game("test.txt", "outputTest.txt");
+  }
 }
