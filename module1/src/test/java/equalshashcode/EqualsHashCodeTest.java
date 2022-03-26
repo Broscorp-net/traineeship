@@ -55,7 +55,7 @@ public class EqualsHashCodeTest {
   public void equalsConsistency() {
     Assertions.assertEquals(true, java.equals(java1));
     Assertions.assertEquals(true,java.equals(java1));
-    java1.setNameOfProgrammingLanguage("Realised Java");
+    java1.setNameOfProgrLanguage("Realised Java");
     java1.setYearOfDevelopmentOfThisLanguage(1996);
     Assertions.assertEquals(false,java.equals(java1));
     Assertions.assertNotEquals(true, java.equals(java1));
@@ -73,7 +73,7 @@ public class EqualsHashCodeTest {
   }
 
   @Test
-  public void objectsThatAreEqualByEqualsMethodShouldHaveTheSameHashcode() {
+  public void objectsThatAreEqualShouldHaveTheSameHashcode() {
     Assertions.assertEquals(true,java2.hashCode() == java.hashCode());
   }
 

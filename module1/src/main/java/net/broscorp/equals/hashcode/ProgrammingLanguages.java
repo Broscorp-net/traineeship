@@ -2,21 +2,21 @@ package net.broscorp.equals.hashcode;
 
 public class ProgrammingLanguages {
 
-  String nameOfProgrammingLanguage;
+  String nameOfProgLanguage;
   Integer yearOfDevelopmentOfThisLanguage;
 
   public ProgrammingLanguages(String nameOfProgrammingLanguage,
                               Integer yearOfDevelopmentOfThisLanguage) {
-    this.nameOfProgrammingLanguage = nameOfProgrammingLanguage;
+    this.nameOfProgLanguage = nameOfProgrammingLanguage;
     this.yearOfDevelopmentOfThisLanguage = yearOfDevelopmentOfThisLanguage;
   }
 
-  public String getNameOfProgrammingLanguage() {
-    return nameOfProgrammingLanguage;
+  public String getNameOfProgrLanguage() {
+    return nameOfProgLanguage;
   }
 
-  public void setNameOfProgrammingLanguage(String nameOfProgrammingLanguage) {
-    this.nameOfProgrammingLanguage = nameOfProgrammingLanguage;
+  public void setNameOfProgrLanguage(String nameOfProgLanguage) {
+    this.nameOfProgLanguage = nameOfProgLanguage;
   }
 
   public int getYearOfDevelopmentOfThisLanguage() {
@@ -39,8 +39,8 @@ public class ProgrammingLanguages {
 
     ProgrammingLanguages programmingLanguages
                 = (ProgrammingLanguages) obj;
-    return programmingLanguages.getNameOfProgrammingLanguage()
-                == this.getNameOfProgrammingLanguage()
+    return programmingLanguages.getNameOfProgrLanguage()
+                == this.getNameOfProgrLanguage()
                 && programmingLanguages.getYearOfDevelopmentOfThisLanguage()
                 == this.getYearOfDevelopmentOfThisLanguage();
   }
@@ -48,8 +48,8 @@ public class ProgrammingLanguages {
   @Override
   public int hashCode() {
     int hash = 7;
-    hash = 31 * hash + (nameOfProgrammingLanguage
-            == null ? 0 : nameOfProgrammingLanguage.hashCode());
+    hash = 31 * hash + (nameOfProgLanguage
+            == null ? 0 : nameOfProgLanguage.hashCode());
     hash = 31 * hash + (yearOfDevelopmentOfThisLanguage
             == null ? 0 : yearOfDevelopmentOfThisLanguage.hashCode());
     return hash;
@@ -59,7 +59,7 @@ public class ProgrammingLanguages {
   public String toString() {
     return "Programming Language:"
             + "\nname of Programming Language: "
-            + nameOfProgrammingLanguage
+            + nameOfProgLanguage
             + ", date of creation of Programming Language: "
             + yearOfDevelopmentOfThisLanguage;
   }
