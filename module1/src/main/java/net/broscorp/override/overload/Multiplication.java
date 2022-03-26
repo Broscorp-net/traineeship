@@ -1,6 +1,6 @@
 package net.broscorp.override.overload;
 
-public class MathAddition implements MathOperation {
+public class Multiplication implements MathOperation {
 
   /**
    * Summary. @Override annotation is mainly used for two purposes. Firstly, it declares our method
@@ -9,27 +9,29 @@ public class MathAddition implements MathOperation {
    * contract "This method would override something". Second: @Override improves code readability.
    */
   @Override
-  public double arithmeticAddition(double x, double y) {
+  public double arithmeticOperation(double x, double y) {
     System.out.println("Primitive double version is called!");
-    return x + y;
+    return x * y;
   }
 
   @Override
-  public double arithmeticAddition(int x, int y) {
+  public double arithmeticOperation(int x, int y) {
     System.out.println("Primitive int version is called!");
-    return x + y;
+    return x * y;
   }
 
   @Override
-  public double arithmeticAddition(Integer x, Integer y) {
+  public double arithmeticOperation(Integer x, Integer y) {
     System.out.println("Wrapper Integer version is called!");
-    return x + y;
+    return x * y;
   }
 
   @Override
-  public double arithmeticAddition(Double x, Double y) {
+  public double arithmeticOperation(Double x, Double y) {
     System.out.println("Wrapper Double version is called!");
-    return x + y;
+    return x * y;
   }
+
+
 
 }
