@@ -5,14 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 class CatTest {
 
-  private final Cat catX = new Cat("Xerox","Sphinx",3,5);
-  private final Cat catY = new Cat("Xerox","Sphinx",3,5);
-  private final Cat catZ = new Cat("Xerox","Sphinx",3,5);
+  private final Cat catX = new Cat("Xerox", "Sphinx", 3, 5);
+  private final Cat catY = new Cat("Xerox", "Sphinx", 3, 5);
+  private final Cat catZ = new Cat("Xerox", "Sphinx", 3, 5);
+  //Вот объект А
   private final Cat catA = new Cat("Tom", "Bombaz", 2, 6);
+  //вот объект В
   private final Cat catB = new Cat("Tob", "Bombay", 10600, 130);
 
   @Test
@@ -75,10 +80,27 @@ class CatTest {
   }
 
   @Test
+  public void shouldFindDifferentObjectsWithSameHashCode() {
+    Random random = new Random(42);
+    Map<Integer, Cat> cats = new HashMap<>();
+    Cat current = new Cat("1", "1", 1, 1);
+
+    do {
+      cats.put(current.hashCode(), current);
+      current = new Cat("" + random.nextInt(), "" + random.nextInt(), random.nextInt(), random.nextInt());
+    } while (cats.get(current.hashCode()) == null && !current.equals(cats.get(current.hashCode())));
+    Cat result = cats.get(current.hashCode());
+
+    assertNotEquals(current, result);
+    assertEquals(current.hashCode(), result.hashCode());
+  }
+
+  @Test
   public void shouldBeEqualWhenExecutingForDifferentObjectsInSomeCases() {
     int expected = catB.hashCode();
     int actual = catA.hashCode();
 
+    //Они разные, но их хеш сопадает
     assertEquals(expected, actual);
   }
 
