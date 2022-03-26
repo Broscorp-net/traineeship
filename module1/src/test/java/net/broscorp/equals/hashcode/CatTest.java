@@ -15,9 +15,9 @@ class CatTest {
   private final Cat catX = new Cat("Xerox", "Sphinx", 3, 5);
   private final Cat catY = new Cat("Xerox", "Sphinx", 3, 5);
   private final Cat catZ = new Cat("Xerox", "Sphinx", 3, 5);
-  //Вот объект А
+  //Вот обьект А
   private final Cat catA = new Cat("Tom", "Bombaz", 2, 6);
-  //вот объект В
+  //Вот обьект В
   private final Cat catB = new Cat("Tob", "Bombay", 10600, 130);
 
   @Test
@@ -87,7 +87,8 @@ class CatTest {
 
     do {
       cats.put(current.hashCode(), current);
-      current = new Cat("" + random.nextInt(), "" + random.nextInt(), random.nextInt(), random.nextInt());
+      current = new Cat("" + random.nextInt(), "" + random.nextInt(), random.nextInt(),
+          random.nextInt());
     } while (cats.get(current.hashCode()) == null && !current.equals(cats.get(current.hashCode())));
     Cat result = cats.get(current.hashCode());
 
