@@ -1,0 +1,12 @@
+digraph JavaPlatform {
+{rank="same" JDK a}
+{rank="same" JRE b}
+{rank="same" JVM c}
+{rank="same" JIT d}
+a[label="Java Development Kit \n Contains all tools for development: \n java, javac, jar, keytool... and JRE " shape="box"]
+b[label="Java Runtime Environment \n Contains standard library, a configuration tool and JVM" shape="box"]
+c[label="Java Virtual Machine \n Runs bytecode and includes a JIT compiler" shape="box"]
+d[label="Just-in-time \n Optimizes the performance" shape="box"]
+
+JDK -> JRE -> JVM -> JIT
+}
