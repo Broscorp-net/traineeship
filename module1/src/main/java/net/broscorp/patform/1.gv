@@ -1,0 +1,12 @@
+digraph JavaPlatform {
+	{rank="same" JDK k}
+	{rank="same" JRE e}
+	{rank="same" JVM m}
+	{rank="same" JIT t}
+	k[label="The JDK is a development environment for building \n applications, applets, and components \n using the Java programming language" shape="box"]
+	e[label="The Java Runtime Environment, is a software layer \n that runs on top of a computer’s operating system software \n and provides the class libraries and other resources" shape="box"]
+	m[label="Java Virtual Machine \n Runs bytecode and includes a JIT compiler" shape="box"]
+	t[label="Just-in-time \n Optimizes the performance" shape="box"]
+
+JDK -> JRE -> JVM -> JIT
+}
