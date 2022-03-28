@@ -1,0 +1,37 @@
+digraph diagram{
+  rankdir=LR;
+  "Throwable" -> "Error" [color = "purple"];
+  "Throwable" -> "Exception" [color = "purple"];
+  "Exception" -> "RuntimeException"[color = "purple"];
+
+subgraph cluster_throwable {
+      node [style=filled];
+      node [shape = box];
+		  "Throwable" -> "Throwable is CHECKED"
+		  [color = "blue"];
+	}
+
+	subgraph cluster_error {
+	    node [style=filled];
+      node [shape = box];
+      "Error" -> "Error is UNCHECKED"
+      [color = "blue"];
+  }
+
+  subgraph cluster_exception {
+      node [style=filled];
+      node [shape = box];
+      "Exception" -> "Exception is CHECKED"
+      [color = "blue"];
+  }
+
+   subgraph cluster_runtimeException {
+      node [style=filled];
+      node [shape = box];
+      "RuntimeException" -> "RuntimeException is UNCHECKED"
+      [color = "blue"];
+   }
+}
+
+
+
