@@ -29,9 +29,9 @@ public class UserTest {
     User secondUser = new User(1, "Sam");
     User thirdUser = new User(1, "Sam");
     Assertions.assertTrue(
-        firstUser.equals(thirdUser) &&
-            secondUser.equals(thirdUser) &&
-            firstUser.equals(secondUser));
+        firstUser.equals(thirdUser)
+            && secondUser.equals(thirdUser)
+            && firstUser.equals(secondUser));
 
   }
 
@@ -82,6 +82,9 @@ public class UserTest {
     User secondUser = new User(1, "Pit");
     Assertions.assertNotEquals(firstUser, secondUser);
     Assertions.assertEquals(firstUser.hashCode(), secondUser.hashCode());
-    System.out.println(firstUser + " not equals " + secondUser + " but his hashcode the same");
+    System.out.println(firstUser
+        + " not equals "
+        + secondUser
+        + " but his hashcode the same");
   }
 }

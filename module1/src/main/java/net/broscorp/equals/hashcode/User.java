@@ -4,7 +4,8 @@ import lombok.Data;
 import lombok.NonNull;
 
 @Data
-public class User  {
+public class User {
+
   private long id;
   private String name;
 
@@ -39,9 +40,12 @@ public class User  {
 
   @Override
   public String toString() {
-    return "User{" +
-        "id=" + id +
-        ", name='" + name + '\'' +
-        '}';
+    return "User{"
+        + "id="
+        + id
+        + ", name='"
+        + name
+        + '\''
+        + '}';
   }
 }
