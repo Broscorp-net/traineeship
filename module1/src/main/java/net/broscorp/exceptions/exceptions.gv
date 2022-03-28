@@ -1,0 +1,42 @@
+digraph G {
+
+	subgraph cluster_0 {
+		node [style=filled];
+		"Throwable";
+		label = "Checked";
+		color=blue
+	}
+
+	subgraph cluster_1 {
+		node [style=filled];
+		"Throwable" -> "Exception";
+		label = "Checked";
+		color=blue
+	}
+
+        subgraph cluster_2 {
+		node [style=filled];
+		"Throwable" -> "Error";
+		label = "Unchecked";
+		color=blue
+	}
+
+        subgraph cluster_3 {
+		node [style=filled];
+		"Exception" -> "RuntimeException";
+		label = "Unchecked";
+		color=blue
+	}
+        subgraph cluster_4 {
+		node [style=filled];
+		"Exception" -> "CustomException";
+		label = "Checked";
+		color=blue
+	}
+        subgraph cluster_5 {
+		node [style=filled];
+		"Error" -> "OtherUncheckedError";
+		label = "Unchecked";
+		color=blue
+	}
+}
