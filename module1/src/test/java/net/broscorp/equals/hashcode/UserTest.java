@@ -1,7 +1,9 @@
 package net.broscorp.equals.hashcode;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +13,7 @@ public class UserTest {
   @Test
   public void reflectionEqualsObjectTest() {
     User user = new User(1, "Sam");
-    Assertions.assertTrue(user.equals(user));
+    Assertions.assertEquals(user, user);
   }
 
   @Test
@@ -58,11 +60,28 @@ public class UserTest {
   }
 
   @Test
-  public void notEqualsObjectButEqualsHashCodeTest()  {
+  public void findTheSameHashCodeTest() {
+    List<User> users = new ArrayList<>();
+    users.add(new User(1, "Sam"));
+    users.add(new User(2, "Met"));
+    users.add(new User(3, "John"));
+    users.add(new User(1, "Kat"));
+    users.add(new User(5, "Adam"));
+    for (int i = 0; i < users.size(); i++) {
+      for (int j = i; j < users.size(); j++) {
+        if (users.get(i).hashCode() == users.get(j).hashCode()) {
+          Assertions.assertEquals(users.get(i).hashCode(), users.get(j).hashCode());
+        }
+      }
+    }
+  }
+
+  @Test
+  public void notEqualsObjectButEqualsHashCodeTest() {
     User firstUser = new User(1, "Sam");
     User secondUser = new User(1, "Pit");
-    Assertions.assertNotEquals(firstUser,secondUser);
-    Assertions.assertEquals(firstUser.hashCode(),secondUser.hashCode());
-    User[] array = new User[]{firstUser,secondUser};
+    Assertions.assertNotEquals(firstUser, secondUser);
+    Assertions.assertEquals(firstUser.hashCode(), secondUser.hashCode());
+    System.out.println(firstUser + " not equals " + secondUser + " but his hashcode the same");
   }
 }
