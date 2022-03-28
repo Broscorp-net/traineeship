@@ -26,7 +26,7 @@ public class ExceptionTest {
     try {
       String n = null;
       n.toUpperCase();
-    }catch (RuntimeException e){
+    } catch (RuntimeException e) {
       e.printStackTrace();
     }
   }
