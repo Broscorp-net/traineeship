@@ -17,7 +17,7 @@ public class ExceptionTest {
     } catch (IOException e) {
       e.printStackTrace();
     } finally {
-      System.out.println("See you later :)");
+      System.out.println("See you later :) ");
     }
   }
 

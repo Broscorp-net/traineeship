@@ -1,4 +1,5 @@
 digraph diagram{
+
   rankdir=LR;
   "Throwable" -> "Error" [color = "purple"];
   "Throwable" -> "Exception" [color = "purple"];
