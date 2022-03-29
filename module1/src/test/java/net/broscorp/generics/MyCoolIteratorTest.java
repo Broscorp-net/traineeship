@@ -39,7 +39,8 @@ public class MyCoolIteratorTest {
     int counter = 0;
 
     while (iterator.hasNext()) {
-      counter = iterator.next();
+      counter++;
+      iterator.next();
     }
 
     Assertions.assertEquals(myCoolList.size(), counter);
