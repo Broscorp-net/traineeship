@@ -25,6 +25,7 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     aliveBeansWithCildren.forEach(a -> aliveBeans.addAll(a.getFieldValues().values()));
     //переспросили у живых наследников
     aliveBeans.forEach(a -> aliveBeansWithCildren.addAll(a.getFieldValues().values()));
+
     //собрали вместе живых + наследников
     aliveBeansWithCildren.addAll(aliveBeans);
 
