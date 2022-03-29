@@ -8,10 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 @Disabled
+=======
+import net.broscorp.gcimpl.gc.GarbageCollector;
+import net.broscorp.gcimpl.gc.GarbageCollectorImplementation;
+import net.broscorp.gcimpl.model.ApplicationBean;
+import net.broscorp.gcimpl.model.HeapInfo;
+import net.broscorp.gcimpl.model.StackInfo;
+import org.junit.jupiter.api.Test;
+
+>>>>>>> unstream/feature/gc-implementation
 class GarbageCollectorImplementationTest {
 
   private final GarbageCollector gc = new GarbageCollectorImplementation();
@@ -27,7 +37,10 @@ class GarbageCollectorImplementationTest {
     heap.putAll(getMemoryFootprint("controller", restControllerBean));
     heap.putAll(getMemoryFootprint("request", requestBean));
     List<ApplicationBean> expectedGarbage = new ArrayList<>(getChildren(requestBean));
+<<<<<<< HEAD
 
+=======
+>>>>>>> unstream/feature/gc-implementation
     final HeapInfo heapInfo = new HeapInfo(heap);
     StackInfo stack = new StackInfo();
     stack.push("main");
@@ -133,6 +146,7 @@ class GarbageCollectorImplementationTest {
   }
 
   @Test
+<<<<<<< HEAD
   public void circularDependencyTest1() {
     // GIVEN
     ApplicationBean service = new ApplicationBean();
@@ -155,6 +169,9 @@ class GarbageCollectorImplementationTest {
 
   @Test
   public void circularDependencyTest2() {
+=======
+  public void circularDependencyTest() {
+>>>>>>> unstream/feature/gc-implementation
     // GIVEN
     final ApplicationBean restControllerBean = initializeControllerBean();
     ApplicationBean serviceA = new ApplicationBean();
@@ -193,9 +210,13 @@ class GarbageCollectorImplementationTest {
     final ApplicationBean restControllerBean = new ApplicationBean();
     restControllerBean.addRelation("path", new ApplicationBean());
     restControllerBean.addRelation("requestValidator", new ApplicationBean());
+<<<<<<< HEAD
     ApplicationBean service = new ApplicationBean();
     service.addRelation("repository", new ApplicationBean());
     restControllerBean.addRelation("applicationService", service);
+=======
+    restControllerBean.addRelation("applicationService", new ApplicationBean());
+>>>>>>> unstream/feature/gc-implementation
 
     return restControllerBean;
   }
@@ -259,4 +280,8 @@ class GarbageCollectorImplementationTest {
 
     return garbage;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> unstream/feature/gc-implementation
