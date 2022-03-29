@@ -11,8 +11,8 @@ public class MyCoolList<T extends Number> {
   private int capacity = 10;
   private Object[] array = new Object[capacity];
   private int counter = 0;
-
   private int size = 0;
+
   /**
    * Adds elem to the list.
    *
