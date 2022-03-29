@@ -29,10 +29,6 @@ class MyCoolListTest {
 
   @Test
   public void mapTest() {
-    for (int i = 0; i < 15; i++) {
-      myCoolList.add(new Random().nextInt(10 - 1) + 1);
-    }
-
     Function<Integer, Integer> func = x -> x * 2;
 
     MyCoolList<Integer> newCoolList = myCoolList.map(func);
@@ -44,10 +40,6 @@ class MyCoolListTest {
 
   @Test
   public void removeTest() {
-    for (int i = 0; i < 15; i++) {
-      myCoolList.add(new Random().nextInt(10 - 1) + 1);
-    }
-
     for (int i = 0; i < myCoolList.size(); i++) {
       if (i == 7) {
         myCoolList.remove(i);
@@ -59,11 +51,12 @@ class MyCoolListTest {
 
   @Test
   public void getTest() {
-    for (int i = 0; i < 15; i++) {
-      int elem = i + 1;
-      myCoolList.add(elem);
-    }
-
     Assertions.assertEquals(7, myCoolList.get(6));
+  }
+
+  @Test
+  public void nullTest() {
+    myCoolList.add(null);
+    Assertions.assertNull(myCoolList.get(15));
   }
 }

@@ -3,6 +3,7 @@ package net.broscorp.generics;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> {
@@ -18,14 +19,26 @@ public class MyCoolList<T extends Number> {
    * @param o - object to add.
    */
   public void add(T o) {
-    if () {
+    if (counter >= capacity) {
       Object[] temp = Arrays.stream(this.array).toArray();
       this.capacity *= 2;
 
       this.array = Arrays.copyOf(temp, this.capacity);
     }
     ++size;
-    this.array[++counter] = o;
+    this.array[counter] = o;
+    ++counter;
+    /*if (o == null) {
+      throw new NullPointerException();
+    }
+    if (counter >= size - 1) {
+      Object[] tempArr = Arrays.stream(array).filter(Objects::nonNull).toArray(Object[]::new);
+
+      this.size *= 2;
+      this.array = Arrays.copyOf(tempArr, this.size);
+    }
+    this.array[counter] = o;
+    ++counter;*/
   }
 
   /**
