@@ -1,5 +1,7 @@
 package net.broscorp.generics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -14,22 +16,19 @@ class MyCoolListTest {
   @BeforeEach
   public void setUp() {
     myCoolList = new MyCoolList<>();
+    for (int i = 0; i < 15; i++) {
+      myCoolList.add(i + 1);
+    }
   }
 
   @Test
   public void addAndSizeTest() {
-    for (int i = 0; i < 15; i++) {
-      myCoolList.add(new Random().nextInt(10 - 1) + 1);
-    }
-    Assertions.assertEquals(15, myCoolList.size());
+    myCoolList.add(16);
+    Assertions.assertEquals(16, myCoolList.size());
   }
 
   @Test
   public void mapTest() {
-    for (int i = 0; i < 15; i++) {
-      myCoolList.add(new Random().nextInt(10 - 1) + 1);
-    }
-
     Function<Integer, Integer> func = x -> x * 2;
 
     MyCoolList<Integer> newCoolList = myCoolList.map(func);
@@ -41,10 +40,6 @@ class MyCoolListTest {
 
   @Test
   public void removeTest() {
-    for (int i = 0; i < 15; i++) {
-      myCoolList.add(new Random().nextInt(10 - 1) + 1);
-    }
-
     for (int i = 0; i < myCoolList.size(); i++) {
       if (i == 7) {
         myCoolList.remove(i);
@@ -56,11 +51,12 @@ class MyCoolListTest {
 
   @Test
   public void getTest() {
-    for (int i = 0; i < 15; i++) {
-      int elem = i + 1;
-      myCoolList.add(elem);
-    }
-
     Assertions.assertEquals(7, myCoolList.get(6));
+  }
+
+  @Test
+  public void nullTest() {
+    myCoolList.add(null);
+    Assertions.assertNull(myCoolList.get(15));
   }
 }

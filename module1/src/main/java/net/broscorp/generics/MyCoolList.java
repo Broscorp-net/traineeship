@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.function.Function;
 
 public class MyCoolList<T extends Number> {
 
-  private int size = 10;
-  private Object[] array = new Object[size];
+  private int capacity = 10;
+  private Object[] array = new Object[capacity];
   private int counter = 0;
+  private int size = 0;
 
   /**
    * Adds elem to the list.
@@ -20,7 +20,16 @@ public class MyCoolList<T extends Number> {
    * @param o - object to add.
    */
   public void add(T o) {
-    if (o == null) {
+    if (counter >= capacity) {
+      Object[] temp = Arrays.stream(this.array).toArray();
+      this.capacity *= 2;
+
+      this.array = Arrays.copyOf(temp, this.capacity);
+    }
+    ++size;
+    this.array[counter] = o;
+    ++counter;
+    /*if (o == null) {
       throw new NullPointerException();
     }
     if (counter >= size - 1) {
@@ -30,7 +39,7 @@ public class MyCoolList<T extends Number> {
       this.array = Arrays.copyOf(tempArr, this.size);
     }
     this.array[counter] = o;
-    ++counter;
+    ++counter;*/
   }
 
   /**
@@ -40,10 +49,8 @@ public class MyCoolList<T extends Number> {
    * @return - element by index.
    */
   public T get(int index) {
-    if (index < size - 1) {
+    if (index < capacity - 1) {
       return (T) this.array[index];
-    } else if (this.array[index] == null) {
-      throw new NoSuchElementException();
     } else {
       throw new ArrayIndexOutOfBoundsException();
     }
@@ -58,17 +65,11 @@ public class MyCoolList<T extends Number> {
   public T remove(int index) {
     Object temp = this.array[index];
 
-    int nonNullIndex = 0;
-
-    for (int i = index; i < array.length - 1; i++) {
-      if (this.array[index] != null) {
-        this.array[index] = this.array[index + 1];
-      } else {
-        nonNullIndex = index - 1;
-      }
+    for (int i = index; i < size; i++) {
+      this.array[i] = this.array[i + 1];
     }
 
-    this.array[nonNullIndex] = null;
+    --size;
 
     return (T) temp;
   }
@@ -98,7 +99,7 @@ public class MyCoolList<T extends Number> {
   }
 
   public int size() {
-    return (int) Arrays.stream(this.array).filter(Objects::nonNull).count();
+    return size;
   }
 
   public Iterator<T> iterator() {
