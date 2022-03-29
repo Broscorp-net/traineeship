@@ -28,17 +28,6 @@ public class MyCoolList<T extends Number> {
     ++size;
     this.array[counter] = o;
     ++counter;
-    /*if (o == null) {
-      throw new NullPointerException();
-    }
-    if (counter >= size - 1) {
-      Object[] tempArr = Arrays.stream(array).filter(Objects::nonNull).toArray(Object[]::new);
-
-      this.size *= 2;
-      this.array = Arrays.copyOf(tempArr, this.size);
-    }
-    this.array[counter] = o;
-    ++counter;*/
   }
 
   /**
