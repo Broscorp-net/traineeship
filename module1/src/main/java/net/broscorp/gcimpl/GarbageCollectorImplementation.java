@@ -17,40 +17,32 @@ public class GarbageCollectorImplementation implements GarbageCollector {
 
     ArrayList<ApplicationBean> alive = new ArrayList<>();
     List<ApplicationBean> garbage = new ArrayList<>();
-    for (ApplicationBean a : beans) {
-      int ptrs = 0;
-      for (ApplicationBean d : beans) {
-        if (a == d) {
-          ptrs++;
-        }
-      }
-      for (StackInfo.Frame b : frames) {
-        for (ApplicationBean c : b.getParameters()) {
-          if (a == c) {
-            ptrs++;
-            alive.addAll(getChildren(a));
-          }
-        }
-      }
-      if (ptrs < 2) {
-        garbage.addAll(getChildren(a));
-        garbage = garbage.stream().distinct().collect(Collectors.toList());
+
+    garbage = beans.stream().distinct().collect(Collectors.toList());
+
+    frames.forEach(frame -> alive.addAll(frame.getParameters()));
+    for (StackInfo.Frame b : frames) {
+      for (ApplicationBean c : b.getParameters()) {
+        alive.addAll(getChildren(c, new ArrayList<ApplicationBean>()));
       }
     }
 
-    garbage.removeAll(alive);
+    garbage = garbage.stream().filter(entry -> !(alive.contains(entry)))
+        .collect(Collectors.toList());
 
     return garbage;
   }
 
-  private List<ApplicationBean> getChildren(ApplicationBean bean) {
+  private List<ApplicationBean> getChildren(ApplicationBean bean,
+      ArrayList<ApplicationBean> distinctions) {
     List<ApplicationBean> garbage = new ArrayList<>();
     garbage.add(bean);
     bean.getFieldValues()
         .forEach(
             (key, value) -> {
-              if (value != bean && !(value.getFieldValues().containsValue(bean))) {
-                garbage.addAll(getChildren(value));
+              if (!(distinctions.contains(value))) {
+                distinctions.add(value);
+                garbage.addAll(getChildren(value, distinctions));
               }
             });
 
