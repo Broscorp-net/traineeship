@@ -20,7 +20,6 @@ public class GarbageCollectorImplementation implements GarbageCollector {
 
     garbage = beans.stream().distinct().collect(Collectors.toList());
 
-    frames.forEach(frame -> alive.addAll(frame.getParameters()));
     for (StackInfo.Frame b : frames) {
       for (ApplicationBean c : b.getParameters()) {
         alive.addAll(getChildren(c, new ArrayList<ApplicationBean>()));
