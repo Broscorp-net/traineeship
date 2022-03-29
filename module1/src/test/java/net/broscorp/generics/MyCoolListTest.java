@@ -1,5 +1,7 @@
 package net.broscorp.generics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -14,14 +16,15 @@ class MyCoolListTest {
   @BeforeEach
   public void setUp() {
     myCoolList = new MyCoolList<>();
+    for (int i = 0; i < 15; i++) {
+      myCoolList.add(i + 1);
+    }
   }
 
   @Test
   public void addAndSizeTest() {
-    for (int i = 0; i < 15; i++) {
-      myCoolList.add(new Random().nextInt(10 - 1) + 1);
-    }
-    Assertions.assertEquals(15, myCoolList.size());
+    myCoolList.add(16);
+    Assertions.assertEquals(16, myCoolList.size());
   }
 
   @Test
