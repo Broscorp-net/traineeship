@@ -21,15 +21,20 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     Set<ApplicationBean> aliveBeansWithCildren = new HashSet<>();
     //получили ссылки у живых и добавили в наследников
     aliveBeans.forEach(a -> aliveBeansWithCildren.addAll(a.getFieldValues().values()));
-    //получили ссылки у наследников и добавили в живые
-    aliveBeansWithCildren.forEach(a -> aliveBeans.addAll(a.getFieldValues().values()));
-    //переспросили у живых наследников
-    aliveBeans.forEach(a -> aliveBeansWithCildren.addAll(a.getFieldValues().values()));
+    int aliveBeanSize;
+    // цикл решает проблему многократной вложенности
+    do {
+      aliveBeanSize = aliveBeans.size();
+      //получили ссылки у наследников и добавили в живые
+      aliveBeansWithCildren.forEach(a -> aliveBeans.addAll(a.getFieldValues().values()));
+      //переспросили у живых наследников
+      aliveBeans.forEach(a -> aliveBeansWithCildren.addAll(a.getFieldValues().values()));
+    } while (aliveBeanSize < aliveBeans.size());
     //собрали вместе живых + наследников
     aliveBeansWithCildren.addAll(aliveBeans);
 
     Collection<ApplicationBean> beans = heap.getBeans().values();
     beans.removeAll(aliveBeansWithCildren);
-    return  beans.stream().collect(Collectors.toList());
+    return beans.stream().collect(Collectors.toList());
   }
 }
