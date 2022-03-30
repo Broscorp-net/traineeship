@@ -18,33 +18,41 @@ public class GarbageCollectorImplementation implements GarbageCollector {
     ArrayList<ApplicationBean> alive = new ArrayList<>();
     List<ApplicationBean> garbage = new ArrayList<>();
 
+    //Collecting all Application Beans
     garbage = beans.stream().distinct().collect(Collectors.toList());
 
+    //Taking object references from stack
     for (StackInfo.Frame b : frames) {
       for (ApplicationBean c : b.getParameters()) {
+        //When object reference is found - we have to find everything that's referenced
+        //inside of this object
         alive.addAll(getChildren(c, new ArrayList<ApplicationBean>()));
       }
     }
 
-    garbage = garbage.stream().filter(entry -> !(alive.contains(entry)))
-        .collect(Collectors.toList());
+    //Removing objects that are referenced inside of Stack from garbage pile
+    garbage.removeAll(alive);
 
     return garbage;
   }
 
+  /** getChildren() is responsible for collection of all inner ApplicationBeans.
+   * @param bean     accepts the root of your search
+   * @param distinct collects distinct object references
+   * @return List of all objects referenced inside of bean.
+   */
   private List<ApplicationBean> getChildren(ApplicationBean bean,
-      ArrayList<ApplicationBean> distinctions) {
-    List<ApplicationBean> garbage = new ArrayList<>();
-    garbage.add(bean);
+      ArrayList<ApplicationBean> distinct) {
+    List<ApplicationBean> children = new ArrayList<>();
+    children.add(bean);
     bean.getFieldValues()
         .forEach(
             (key, value) -> {
-              if (!(distinctions.contains(value))) {
-                distinctions.add(value);
-                garbage.addAll(getChildren(value, distinctions));
+              if (!(distinct.contains(value))) {
+                distinct.add(value);
+                children.addAll(getChildren(value, distinct));
               }
             });
-
-    return garbage;
+    return children;
   }
 }
