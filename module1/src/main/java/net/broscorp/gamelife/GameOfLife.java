@@ -58,9 +58,8 @@ public class GameOfLife {
       }
       reader.close();
     } catch (IOException e) {
-      System.out.println("Failed to open a file.");
-      e.printStackTrace();
-      throw new RuntimeException("Failed to open a file.");
+      System.err.println("Failed to open a file.");
+      throw new RuntimeException(e);
     }
   }
 
@@ -85,9 +84,8 @@ public class GameOfLife {
       writer.write(output);
       writer.close();
     } catch (IOException e) {
-      System.out.println("IOException during file writing!");
-      e.printStackTrace();
-      throw new RuntimeException("Failed to write into a file.");
+      System.err.println("IOException during file writing!");
+      throw new RuntimeException(e);
     }
   }
 
@@ -130,9 +128,11 @@ public class GameOfLife {
    */
   public int checkNeighbors(int y, int x) {
     int cellCounter = 0;
-
     for (int row = -1; row < 2; row++) {
       for (int column = -1; column < 2; column++) {
+        if (row == 0 && column == 0) {
+          column++;
+        }
         cellCounter += checkState(y + row, x + column) ? 1 : 0;
       }
     }
