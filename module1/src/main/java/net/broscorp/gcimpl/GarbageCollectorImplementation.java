@@ -1,12 +1,14 @@
 package net.broscorp.gcimpl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GarbageCollectorImplementation implements GarbageCollector {
-  List<ApplicationBean> candidatesForRemoval;
+  Set<ApplicationBean> candidatesForRemoval;
 
   /**
    * The principle of operation:
@@ -20,7 +22,7 @@ public class GarbageCollectorImplementation implements GarbageCollector {
   public List<ApplicationBean> collect(HeapInfo heap, StackInfo stack) {
     Collection<ApplicationBean> beans = heap.getBeans().values();
     Deque<StackInfo.Frame> frames = stack.getStack();
-    candidatesForRemoval = new LinkedList<>(beans);
+    candidatesForRemoval = new HashSet<>(beans);
 
     for (StackInfo.Frame frame : frames) {
       for (ApplicationBean beanFromFrame : frame.getParameters()) {
@@ -28,13 +30,11 @@ public class GarbageCollectorImplementation implements GarbageCollector {
       }
     }
 
-    return candidatesForRemoval;
+    return new ArrayList<>(candidatesForRemoval);
   }
 
   private void isReachable(ApplicationBean bean) {
-    while (candidatesForRemoval.remove(bean)) {
-      // Here is an empty loop body to remove duplicate objects from the delete list.
-    }
+    candidatesForRemoval.remove(bean);
     for (ApplicationBean childBean : bean.getFieldValues().values()) {
       if (candidatesForRemoval.size() == 0) {
         break;
