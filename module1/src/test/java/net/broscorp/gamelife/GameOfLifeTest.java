@@ -3,6 +3,8 @@ package net.broscorp.gamelife;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,14 +18,19 @@ class GameOfLifeTest {
   GameOfLife game = new GameOfLife();
 
   public boolean equalsFile(String expected, String result) {
-    Stream<String> gameStreamInput = new BufferedReader(
-            new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
-    List<String> gameListExpected = gameStreamInput.collect(Collectors.toList());
-    ClassLoader classLoader = GameOfLife.class.getClassLoader();
-    Stream<String> gameStreamResult = new BufferedReader(
-            new InputStreamReader(classLoader.getSystemResourceAsStream(result))).lines();
-    List<String> gameListResult = gameStreamResult.collect(Collectors.toList());
-    return gameListExpected.equals(gameListResult);
+    try {
+      Stream<String> gameStreamInput = new BufferedReader(
+          new InputStreamReader(ClassLoader.getSystemResourceAsStream(expected))).lines();
+      List<String> gameListExpected = gameStreamInput.collect(Collectors.toList());
+      ClassLoader classLoader = GameOfLife.class.getClassLoader();
+      Stream<String> gameStreamResult = new BufferedReader(
+          new InputStreamReader(new FileInputStream("./src/test/resources/" + result))).lines();
+      List<String> gameListResult = gameStreamResult.collect(Collectors.toList());
+      return gameListExpected.equals(gameListResult);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+    return false;
   }
 
   @Test
