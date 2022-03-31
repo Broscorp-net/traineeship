@@ -1,0 +1,55 @@
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    Code:
+       0: iconst_5
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        10
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      22: iload_1
+      23: invokevirtual #3                  // Method java/io/PrintStream.println:(I)V
+      26: invokestatic  #4                  // Method greetings:()V
+      29: aload_0
+      30: astore_2
+      31: aload_2
+      32: arraylength
+      33: istore_3
+      34: iconst_0
+      35: istore        4
+      37: iload         4
+      39: iload_3
+      40: if_icmpge     63
+      43: aload_2
+      44: iload         4
+      46: aaload
+      47: astore        5
+      49: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      52: aload         5
+      54: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      57: iinc          4, 1
+      60: goto          37
+      63: return
+
+  public static void greetings();
+    descriptor: ()V
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #6                  // String Hello
+       5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
