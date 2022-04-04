@@ -11,12 +11,9 @@ public class MyStrings {
    * @return true if palindrom; false if not.
    */
   public boolean checkIfPalindrome(String s) {
-    String reversed = reverse(s);
-    if (s.equals(reversed)) {
-      return true;
-    } else {
-      return false;
-    }
+    StringBuilder builder = new StringBuilder(s);
+    String reversed = builder.reverse().toString();
+    return s.equals(reversed);
   }
 
   /**
@@ -44,32 +41,37 @@ public class MyStrings {
     return line.replaceAll("o", "q");
   }
 
-  /** Counts letters and returns the resulting string.
+  /**
+   * Counts letters and returns the resulting string.
    */
   public String countCharacters(String line) {
-    String result = "";
+    StringBuilder result = new StringBuilder();
     String[] array = line.split(" ");
     for (String indexer : array) {
-      result += indexer;
-      result += ": " + indexer.length() + " characters\n";
+      result.append(indexer);
+      result.append(": ").append(indexer.length()).append(" characters\n");
     }
-    return result;
+    return result.toString();
   }
 
   /**
    * DeveloperSong.mp3
    */
   public String compose(int bugs, int verses) {
-    String result = "";
+    StringBuilder result = new StringBuilder();
     int seed = bugs + verses;
+
+    String firstline = "Take one down, patch it around ";
+    String secondline = " little bugs in a code,\n";
+    String thirdline = " little bugs in a code.\n";
+
     Random random = new Random(seed);
     for (int i = 0; i < verses; i++) {
-      //System.out.println(bugs + " little bugs in a code,\n" + bugs + " little bugs in a code.");
-      result += bugs + " little bugs in a code,\n" + bugs + " little bugs in a code.";
+      result.append(bugs).append(secondline).append(bugs).append(thirdline);
       bugs = bugs - 10 + random.nextInt(20);
-      //System.out.println("Take one down, patch it around " + bugs + " little bugs in a code.\n");
-      result += "\nTake one down, patch it around " + bugs + " little bugs in a code.\n";
+      result.append(firstline).append(bugs).append(thirdline);
     }
-    return result;
+    System.out.println(result.toString());
+    return result.toString();
   }
 }
