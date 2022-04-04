@@ -11,8 +11,11 @@ import lombok.Setter;
 public class Human {
   private Integer id;
 
+  /*
   @Override
   protected void finalize() throws Throwable {
-    System.out.println("Human with id " + id + " was finalized" );
+    System.out.println("Human with id " + id + " was finalized");
+    super.finalize();
   }
+   */
 }
