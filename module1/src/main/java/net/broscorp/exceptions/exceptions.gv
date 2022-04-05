@@ -1,0 +1,6 @@
+digraph exceptions {
+	"Throwable" -> "Error" [color = "red"];
+	"Throwable" -> "Exception" [color = "yellow"];
+	"Exception" -> "RuntimeException"[color = "purple"];
+	"Exception" -> "Other exceptions" [color = "purple"]
+}
