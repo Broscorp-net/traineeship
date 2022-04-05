@@ -16,7 +16,7 @@ class GcTest {
   @Test
   public void checkFillingList() {
     int i = 0;
-    while (i < Integer.MAX_VALUE / 10) {
+    while (i < Integer.MAX_VALUE / 100) {
       humans.add(new Human(i));
       i++;
     }
