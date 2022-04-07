@@ -1,0 +1,11 @@
+digraph G {
+  Throwable[shape="diamond"]
+  Throwable -> Exception
+  Throwable -> Error
+
+  UncheckedExceptions[shape="rectangle", label="Unchecked Exceptions - > Example: Runtime Exceptions"]
+  Exception -> UncheckedExceptions
+
+  СheckedExceptions[shape="rectangle", label="Сhecked Exceptions - > Example: Input Output Exceptions"]
+  Exception -> СheckedExceptions
+}
