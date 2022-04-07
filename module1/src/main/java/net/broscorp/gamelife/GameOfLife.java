@@ -103,92 +103,92 @@ public class GameOfLife {
 
     if (x == 0 && y == 0) {
       count += getState(height - 1, width - 1);
-      count += getState(height - 1, y);
-      count += getState(height - 1, y + 1);
-
       count += getState(x, width - 1);
-      count += getState(x, y + 1);
-
       count += getState(x + 1, width - 1);
+
+      count += getState(height - 1, y);
       count += getState(x + 1, y);
+
+      count += getState(height - 1, y + 1);
+      count += getState(x, y + 1);
       count += getState(x + 1, y + 1);
     } else if (x == 0 && y == width - 1) {
       count += getState(height - 1, 0);
-      count += getState(height - 1, y);
-      count += getState(height - 1, y - 1);
-
-      count += getState(x, y - 1);
-      count += getState(x, 1);
-
-      count += getState(x + 1, y - 1);
-      count += getState(x + 1, y);
-      count += getState(x + 1, 0);
-    } else if (x == height - 1 && y == 0) {
-      count += getState(x - 1, width - 1);
-      count += getState(x - 1, y);
-      count += getState(x - 1, y + 1);
-
-      count += getState(x, width - 1);
-      count += getState(x, y + 1);
-
-      count += getState(0, width - 1);
-      count += getState(0, y);
-      count += getState(0, y + 1);
-    } else if (x == height - 1 && y == width - 1) {
-      count += getState(x - 1, 0);
-      count += getState(x - 1, y - 1);
-      count += getState(x - 1, y);
-
       count += getState(x, 0);
-      count += getState(x, y - 1);
+      count += getState(x + 1, 0);
 
-      count += getState(0, 0);
-      count += getState(0, y - 1);
+      count += getState(height - 1, y);
+      count += getState(x + 1, y);
+
+      count += getState(height - 1, y - 1);
+      count += getState(x, y - 1);
+      count += getState(x + 1, y - 1);
+    } else if (x == height - 1 && y == 0) {
+      count += getState(0, width - 1);
+      count += getState(x - 1, width - 1);
+      count += getState(x, width - 1);
+
+      count += getState(x - 1, y);
       count += getState(0, y);
+
+      count += getState(0, y + 1);
+      count += getState(x - 1, y + 1);
+      count += getState(x, y + 1);
+    } else if (x == height - 1 && y == width - 1) {
+      count += getState(0, 0);
+      count += getState(x - 1, 0);
+      count += getState(x, 0);
+
+      count += getState(x - 1, y);
+      count += getState(0, y);
+
+      count += getState(0, y - 1);
+      count += getState(x - 1, y - 1);
+      count += getState(x, y - 1);
     } else if (x == 0 && y > 0 && y < width - 1) {
       count += getState(height - 1, y - 1);
-      count += getState(height - 1, y);
-      count += getState(height - 1, y + 1);
-
       count += getState(x, y - 1);
-      count += getState(x, y + 1);
-
       count += getState(x + 1, y - 1);
+
+      count += getState(height - 1, y);
       count += getState(x + 1, y);
+
+      count += getState(height - 1, y + 1);
+      count += getState(x, y + 1);
       count += getState(x + 1, y + 1);
     } else if (x == height - 1 && y > 0 && y < width - 1) {
       count += getState(x - 1, y - 1);
-      count += getState(x - 1, y);
-      count += getState(x - 1, y + 1);
-
       count += getState(x, y - 1);
-      count += getState(x, y + 1);
-
       count += getState(0, y - 1);
+
+      count += getState(x - 1, y);
       count += getState(0, y);
+
+      count += getState(x - 1, y + 1);
+      count += getState(x, y + 1);
       count += getState(0, y + 1);
     } else if (x > 0 && x < height - 1 && y == 0) {
       count += getState(x - 1, width - 1);
-      count += getState(x - 1, y);
-      count += getState(x - 1, y + 1);
-
       count += getState(x, width - 1);
-      count += getState(x, y + 1);
-
       count += getState(x + 1, width - 1);
+
+      count += getState(x - 1, y);
       count += getState(x + 1, y);
+
+      count += getState(x - 1, y + 1);
+      count += getState(x, y + 1);
       count += getState(x + 1, y + 1);
     } else if (x > 0 && x < height - 1 && y == width - 1) {
-      count += getState(x - 1, y - 1);
-      count += getState(x - 1, y);
       count += getState(x - 1, 0);
-
-      count += getState(x, y - 1);
       count += getState(x, 0);
-
-      count += getState(x + 1, y - 1);
-      count += getState(x + 1, y);
       count += getState(x + 1, 0);
+
+      count += getState(x - 1, y);
+      count += getState(x + 1, y);
+
+      count += getState(x - 1, y - 1);
+      count += getState(x, y - 1);
+      count += getState(x + 1, y - 1);
     } else {
       count += getState(x - 1, y - 1);
       count += getState(x, y - 1);
