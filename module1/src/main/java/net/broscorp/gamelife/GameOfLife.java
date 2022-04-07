@@ -12,11 +12,12 @@ public class GameOfLife {
   private int height;
   private int width;
   /**
-   * Leaving this task for the better times.
+   * Method that runs Game of Life.
    *
    * @param fileNameInput - input file.
    * @param fileNameOutput - output file.
    */
+
   public void game(String fileNameInput, String fileNameOutput) {
     try (BufferedReader reader =
             new BufferedReader(new FileReader("src/test/resources/" + fileNameInput));
@@ -98,6 +99,12 @@ public class GameOfLife {
     }
   }
 
+  /**
+   * Method that gets alive neighbours around.
+   * @param x - x coordinate.
+   * @param y - y coordinate.
+   * @return - number of alive neighbours.
+   */
   public int getAliveNeighboursCount(int x, int y) {
     int count = 0;
 
