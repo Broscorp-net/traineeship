@@ -53,8 +53,8 @@ public class GameOfLife {
 
       for (int i = 0; i < iterNum; i++) {
         int[][] tempBoard = new int[height][width];
-        for (int j = 0; j < gameField.length; j++) {
-          for (int k = 0; k < gameField[j].length; k++) {
+        for (int j = 0; j < height; j++) {
+          for (int k = 0; k < width; k++) {
             if (getState(j, k) == 1) {
               if (getAliveNeighboursCount(j, k) < 2) {
                 tempBoard[j][k] = 0;
@@ -115,7 +115,7 @@ public class GameOfLife {
     } else if (x == 0 && y == width - 1) {
       count += getState(height - 1, 0);
       count += getState(height - 1, y);
-      count += getState(height - 1, y + 1);
+      count += getState(height - 1, y - 1);
 
       count += getState(x, y - 1);
       count += getState(x, 1);
@@ -169,17 +169,28 @@ public class GameOfLife {
       count += getState(0, y + 1);
     } else if (x > 0 && x < height - 1 && y == 0) {
       count += getState(x - 1, width - 1);
-      count += getState(x, width - 1);
-      count += getState(x + 1, width - 1);
+      count += getState(x - 1, y);
+      count += getState(x - 1, y + 1);
 
       count += getState(x, width - 1);
       count += getState(x, y + 1);
 
-      count += getState(0, y - 1);
-      count += getState(0, y);
-      count += getState(0, y + 1);
+      count += getState(x + 1, width - 1);
+      count += getState(x + 1, y);
+      count += getState(x + 1, y + 1);
+    } else if (x > 0 && x < height - 1 && y == width - 1) {
+      count += getState(x - 1, y - 1);
+      count += getState(x - 1, y);
+      count += getState(x - 1, 0);
+
+      count += getState(x, y - 1);
+      count += getState(x, 0);
+
+      count += getState(x + 1, y - 1);
+      count += getState(x + 1, y);
+      count += getState(x + 1, 0);
     } else {
-      /* count += getState(x - 1, y - 1);
+      count += getState(x - 1, y - 1);
       count += getState(x, y - 1);
       count += getState(x + 1, y - 1);
 
@@ -189,9 +200,7 @@ public class GameOfLife {
       count += getState(x - 1, y + 1);
       count += getState(x, y + 1);
       count += getState(x + 1, y + 1);
-*/
     }
-
     return count;
   }
 
