@@ -11,7 +11,7 @@ class MulImplementationTest {
   static MulImplementation mulImplementation;
 
   @BeforeAll
-  static public void fill() {
+  static void fill() {
     a = 2;
     b = 5;
     mulImplementation = new MulImplementation();
@@ -50,12 +50,13 @@ class MulImplementationTest {
   }
 
   /**
-   * Не работает вызов при парметрах примитива и обертки то возникает ошибка поэтому вызов был закоментирован.
+   * Не работает вызов при парметрах примитива и обертки
+   * то возникает ошибка поэтому вызов был закоментирован.
    */
   @Test
   public void checkWithWrappedAndPrimitiveArgument() {
     Double a = 2.0;
     double b = 3.0;
-//    assertEquals(6.0, mulImplementation.operation(a, b));
+    //  assertEquals(6.0, mulImplementation.operation(a, b));
   }
 }

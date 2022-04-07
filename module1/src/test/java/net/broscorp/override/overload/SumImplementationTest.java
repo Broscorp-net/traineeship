@@ -1,9 +1,10 @@
 package net.broscorp.override.overload;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class SumImplementationTest {
   static double a;
@@ -11,7 +12,7 @@ class SumImplementationTest {
   static SumImplementation sumImplementation;
 
   @BeforeAll
-  static public void fill() {
+  static void fill() {
     a = 2;
     b = 5;
     sumImplementation = new SumImplementation();
