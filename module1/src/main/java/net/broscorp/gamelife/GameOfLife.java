@@ -55,10 +55,10 @@ public class GameOfLife {
         int[][] tempBoard = new int[height][width];
         for (int j = 0; j < gameField.length; j++) {
           for (int k = 0; k < gameField[j].length; k++) {
-            if (isAlive(gameField[j][k])) {
+            if (getState(j, k) == 1) {
               if (getAliveNeighboursCount(j, k) < 2) {
                 tempBoard[j][k] = 0;
-              } else if (getAliveNeighboursCount(j, k) == 2 || getAliveNeighboursCount(j, k)  == 3) {
+              } else if (getAliveNeighboursCount(j, k) == 2 || getAliveNeighboursCount(j, k) == 3) {
                 tempBoard[j][k] = 1;
               } else if (getAliveNeighboursCount(j, k) > 3) {
                 tempBoard[j][k] = 0;
@@ -76,13 +76,13 @@ public class GameOfLife {
       for (int i = 0; i < gameField.length; i++) {
         for (int j = 0; j < gameField[i].length; j++) {
           if (j != gameField[i].length - 1) {
-            if (isAlive(gameField[i][j])) {
+            if (getState(i, j) == 1) {
               writer.print("X ");
             } else {
               writer.print("O ");
             }
           } else {
-            if (isAlive(gameField[i][j])) {
+            if (getState(i, j) == 1) {
               writer.print("X");
             } else {
               writer.print("O");
@@ -98,36 +98,104 @@ public class GameOfLife {
     }
   }
 
-  private boolean isAlive(int cell) {
-    return cell == 1;
-  }
-
   public int getAliveNeighboursCount(int x, int y) {
     int count = 0;
 
-    count += getState(x - 1, y - 1);
-    count += getState(x, y - 1);
-    count += getState(x + 1, y - 1);
+    if (x == 0 && y == 0) {
+      count += getState(height - 1, width - 1);
+      count += getState(height - 1, y);
+      count += getState(height - 1, y + 1);
 
-    count += getState(x - 1, y);
-    count += getState(x + 1, y);
+      count += getState(x, width - 1);
+      count += getState(x, y + 1);
 
-    count += getState(x - 1, y + 1);
-    count += getState(x, y + 1);
-    count += getState(x + 1, y + 1);
+      count += getState(x + 1, width - 1);
+      count += getState(x + 1, y);
+      count += getState(x + 1, y + 1);
+    } else if (x == 0 && y == width - 1) {
+      count += getState(height - 1, 0);
+      count += getState(height - 1, y);
+      count += getState(height - 1, y + 1);
+
+      count += getState(x, y - 1);
+      count += getState(x, 1);
+
+      count += getState(x + 1, y - 1);
+      count += getState(x + 1, y);
+      count += getState(x + 1, 0);
+    } else if (x == height - 1 && y == 0) {
+      count += getState(x - 1, width - 1);
+      count += getState(x - 1, y);
+      count += getState(x - 1, y + 1);
+
+      count += getState(x, width - 1);
+      count += getState(x, y + 1);
+
+      count += getState(0, width - 1);
+      count += getState(0, y);
+      count += getState(0, y + 1);
+    } else if (x == height - 1 && y == width - 1) {
+      count += getState(x - 1, 0);
+      count += getState(x - 1, y - 1);
+      count += getState(x - 1, y);
+
+      count += getState(x, 0);
+      count += getState(x, y - 1);
+
+      count += getState(0, 0);
+      count += getState(0, y - 1);
+      count += getState(0, y);
+    } else if (x == 0 && y > 0 && y < width - 1) {
+      count += getState(height - 1, y - 1);
+      count += getState(height - 1, y);
+      count += getState(height - 1, y + 1);
+
+      count += getState(x, y - 1);
+      count += getState(x, y + 1);
+
+      count += getState(x + 1, y - 1);
+      count += getState(x + 1, y);
+      count += getState(x + 1, y + 1);
+    } else if (x == height - 1 && y > 0 && y < width - 1) {
+      count += getState(x - 1, y - 1);
+      count += getState(x - 1, y);
+      count += getState(x - 1, y + 1);
+
+      count += getState(x, y - 1);
+      count += getState(x, y + 1);
+
+      count += getState(0, y - 1);
+      count += getState(0, y);
+      count += getState(0, y + 1);
+    } else if (x > 0 && x < height - 1 && y == 0) {
+      count += getState(x - 1, width - 1);
+      count += getState(x, width - 1);
+      count += getState(x + 1, width - 1);
+
+      count += getState(x, width - 1);
+      count += getState(x, y + 1);
+
+      count += getState(0, y - 1);
+      count += getState(0, y);
+      count += getState(0, y + 1);
+    } else {
+      /* count += getState(x - 1, y - 1);
+      count += getState(x, y - 1);
+      count += getState(x + 1, y - 1);
+
+      count += getState(x - 1, y);
+      count += getState(x + 1, y);
+
+      count += getState(x - 1, y + 1);
+      count += getState(x, y + 1);
+      count += getState(x + 1, y + 1);
+*/
+    }
 
     return count;
   }
 
   private int getState(int x, int y) {
-    if (x < 0 || x >= gameField.length) {
-      return 0;
-    }
-
-    if (y < 0 || y >= gameField.length) {
-      return 0;
-    }
-
     return this.gameField[x][y];
   }
 }
