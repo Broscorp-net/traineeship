@@ -13,7 +13,7 @@ digraph G {
   /*JRE является реализацией JVM, которая предоставляет
   платформу для выполнения Java-программ.*/
 
-  "Java Virtual Machine (JVM)" -> "Java Development Kit (JDK)"
+  "Java Runtime Environment (JRE)" -> "Java Development Kit (JDK)"
 
   /*JDK предоставляет все инструменты, исполняемые и бинарные файлы,
   которые нужны для компиляции, отладки и выполнения программы*/
