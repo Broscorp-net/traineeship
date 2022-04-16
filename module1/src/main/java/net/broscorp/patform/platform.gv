@@ -1,0 +1,41 @@
+digraph mygraph {
+
+subgraph cluster_0 {
+label="JDK";
+
+"Development tools"
+"javac, archiver, javadoc"
+subgraph cluster_1{
+label="JRE";
+"Class Loader" -> Loading;
+"Class Loader" -> Linking;
+"Class Loader" -> Initialization;
+"Set of librarires"
+"Other files"
+Loading-> Bootstrap;
+Loading-> Extension;
+Loading-> Application;
+
+Linking-> Verify;
+Linking-> Prepare;
+Linking-> Resolve;
+
+subgraph cluster_2{
+label="JVM";
+
+"Execution Engine" -> JIT;
+"Execution Engine" -> Interpreter;
+"Execution Engine" -> Profiler;
+"Execution Engine" -> GC;
+"Execution Engine" -> "Java native method interface";
+
+JIT -> "Intermediate code generator"
+JIT -> "Code optimizer"
+JIT -> "Target code generator"
+JIT -> "Profiler"
+}
+}
+}
+"JDK - The JDK is a development environment for building applications, applets, and components using the Java programming language. The JDK includes tools useful for developing and testing programs written in the Java programming language and running on the Java platform \nJRE - A Java runtime environment (JRE) is a set of components to create and run a Java application. A JRE is part of a Java development kit (JDK). A JRE is made up of a Java virtual machine (JVM), Java class libraries, and the Java class loader. \nJVM - Java Virtual Machine is an abstract machine. It is a specification that provides runtime environment in which java bytecode can be executed.\nJIT - JIT cimpiler helps in over coming the problem of the intermpreter., WHen repeated method calls occur. JIT compiles the bytecode to native code. This native code will be used directly for repeated method calls."
+}
+
