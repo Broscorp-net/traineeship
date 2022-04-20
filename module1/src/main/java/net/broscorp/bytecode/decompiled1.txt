@@ -1,0 +1,51 @@
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_5
+       1: istore_1
+       2: bipush        10
+       4: istore_2
+       5: iload_2
+       6: ifle          18
+       9: iinc          1, -1
+      12: iinc          2, -1
+      15: goto          5
+      18: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      21: iload_1
+      22: invokevirtual #3                  // Method java/io/PrintStream.println:(I)V
+      25: invokestatic  #4                  // Method greetings:()V
+      28: aload_0
+      29: astore_2
+      30: aload_2
+      31: arraylength
+      32: istore_3
+      33: iconst_0
+      34: istore        4
+      36: iload         4
+      38: iload_3
+      39: if_icmpge     62
+      42: aload_2
+      43: iload         4
+      45: aaload
+      46: astore        5
+      48: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      51: aload         5
+      53: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      56: iinc          4, 1
+      59: goto          36
+      62: return
+
+  public static void greetings();
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #6                  // String Hello
+       5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
