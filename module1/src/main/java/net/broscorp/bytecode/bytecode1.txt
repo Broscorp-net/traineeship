@@ -1,0 +1,29 @@
+Compiled from "Bytecode.java"
+public class net.broscorp.bytecode.Bytecode {
+  public net.broscorp.bytecode.Bytecode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: invokestatic  #7                  // Method getTheAnswerToTheUltimateQuestionOfLifeAndTheUniverseAndEverything:()I
+       3: istore_1
+       4: bipush        16
+       6: istore_2
+       7: iload_2
+       8: iload_1
+       9: if_icmpge     18
+      12: iinc          2, 1
+      15: goto          7
+      18: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      21: ldc           #19                 // String Hello world
+      23: invokevirtual #21                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      26: return
+
+  public static int getTheAnswerToTheUltimateQuestionOfLifeAndTheUniverseAndEverything();
+    Code:
+       0: bipush        42
+       2: ireturn
+}
