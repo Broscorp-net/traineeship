@@ -1,0 +1,93 @@
+Compiled from "Plain.java"
+public class net.broscorp.bytecode.Plain {
+  public net.broscorp.bytecode.Plain();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: bipush        45
+       2: istore_1
+       3: iconst_0
+       4: istore_2
+       5: iload_2
+       6: bipush        55
+       8: if_icmpge     20
+      11: iinc          1, 1
+      14: iinc          2, 1
+      17: goto          5
+      20: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      23: ldc           #3                  // String Hello trainee guys!
+      25: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      28: iload_1
+      29: invokestatic  #5                  // Method numberPrint:(I)V
+      32: new           #6                  // class java/util/ArrayList
+      35: dup
+      36: bipush        7
+      38: anewarray     #7                  // class java/lang/Integer
+      41: dup
+      42: iconst_0
+      43: iconst_1
+      44: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      47: aastore
+      48: dup
+      49: iconst_1
+      50: iconst_2
+      51: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      54: aastore
+      55: dup
+      56: iconst_2
+      57: bipush        56
+      59: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      62: aastore
+      63: dup
+      64: iconst_3
+      65: sipush        1234
+      68: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      71: aastore
+      72: dup
+      73: iconst_4
+      74: bipush        56
+      76: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      79: aastore
+      80: dup
+      81: iconst_5
+      82: sipush        134
+      85: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      88: aastore
+      89: dup
+      90: bipush        6
+      92: sipush        321
+      95: invokestatic  #8                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      98: aastore
+      99: invokestatic  #9                  // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     102: invokespecial #10                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+     105: astore_2
+     106: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+     109: new           #11                 // class java/lang/StringBuilder
+     112: dup
+     113: invokespecial #12                 // Method java/lang/StringBuilder."<init>":()V
+     116: ldc           #13                 // String integerList =
+     118: invokevirtual #14                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     121: aload_2
+     122: invokevirtual #15                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     125: invokevirtual #16                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     128: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     131: return
+
+  public static void numberPrint(int);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: new           #11                 // class java/lang/StringBuilder
+       6: dup
+       7: invokespecial #12                 // Method java/lang/StringBuilder."<init>":()V
+      10: ldc           #17                 // String That number:
+      12: invokevirtual #14                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: iload_0
+      16: invokevirtual #18                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      19: invokevirtual #16                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      22: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      25: return
+}

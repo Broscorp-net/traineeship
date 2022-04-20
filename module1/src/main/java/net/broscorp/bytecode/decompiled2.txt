@@ -1,0 +1,41 @@
+Compiled from "Plain.java"
+public class net.broscorp.bytecode.Plain {
+  public net.broscorp.bytecode.Plain();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: bipush        25
+       7: if_icmpge     19
+      10: iinc          1, 1
+      13: iinc          2, 1
+      16: goto          4
+      19: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      22: ldc           #3                  // String Hello trainee guys!
+      24: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      27: iload_1
+      28: invokestatic  #5                  // Method justMethod:(I)V
+      31: return
+
+  public static void justMethod(int);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: new           #6                  // class java/lang/StringBuilder
+       6: dup
+       7: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+      10: ldc           #8                  // String That number:
+      12: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: iload_0
+      16: invokevirtual #10                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      19: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      22: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      25: return
+}
