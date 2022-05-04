@@ -1,0 +1,39 @@
+digraph G {
+   JDK -> JRE [label="1"]
+   JRE -> JVM [label="2"]
+   JVM -> JIT [label="3"]
+
+DevToolsJDK [shape="box"]
+DevToolsJDK [label="Development Tools, JRE"]
+
+DevToolsJRE [shape="box"]
+DevToolsJRE [label="Library classes, JVM"]
+
+DevToolsJVM [shape="box"]
+DevToolsJVM [label="Interpreter,JIT"]
+
+ResponsibilityJDK [shape="diamond"]
+ResponsibilityJDK [label="Development of Java apps"]
+
+ResponsibilityJRE [shape="diamond"]
+ResponsibilityJRE [label="Running of Java apps"]
+
+ResponsibilityJVM [shape="diamond"]
+ResponsibilityJVM [label="Interpretation of Java apps"]
+
+ResponsibilityJIT [shape="diamond"]
+ResponsibilityJIT [label="Execution of Java apps"]
+
+   JDK -> DevToolsJDK
+   JRE -> DevToolsJRE
+   JVM -> DevToolsJVM
+
+   DevToolsJDK -> ResponsibilityJDK
+   DevToolsJRE -> ResponsibilityJRE
+   DevToolsJVM -> ResponsibilityJVM
+   JIT -> ResponsibilityJIT
+
+{ rank=same; JDK JRE JVM JIT }
+{ rank=same; ResponsibilityJDK ResponsibilityJRE ResponsibilityJVM ResponsibilityJIT }
+
+}
